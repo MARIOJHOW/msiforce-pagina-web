@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSIFORCE | Cartão Digital</title>
+    <link rel="icon" href="https://msiforce.com.br/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function downloadVCard() {
+        const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Mário Sérgio Inácio Júnior
+ORG:MSIFORCE
+TEL:+5511910773865
+EMAIL:mario.junior@msiforce.com.br
+URL:https://msiforce.com.br/cartao
+END:VCARD`;
+        
+        const blob = new Blob([vCardData], { type: "text/vcard" });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "msiforce-contato.vcf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center p-6">
+    <div class="w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-900/90 backdrop-blur-xl shadow-2xl overflow-hidden">
+        
+        <!-- HEADER -->
+        <div class="relative h-56 bg-gradient-to-r from-black via-zinc-900 to-black overflow-hidden border-b border-amber-500/20">
+          <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_white,_transparent_40%)]"></div>
+          
+          <!-- QR MINI -->
+          <div class="absolute top-5 right-5">
+            <div class="bg-white rounded-2xl p-2 shadow-2xl">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://msiforce.com.br/cartao"
+                alt="QR Code"
+                class="w-20 h-20 rounded-xl"
+              />
+            </div>
+          </div>
+          
+          <!-- LOGO + TITULO -->
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-24 h-24 rounded-3xl bg-black p-2 shadow-2xl flex items-center justify-center overflow-hidden border-4 border-amber-400/30 animate-pulse">
+                <!-- Certifique-se de que o logo-msiforce.png esteja na raiz do site principal -->
+                <img
+                  src="/logo-msiforce.png"
+                  alt="Logo MSIForce"
+                  class="w-full h-full object-cover rounded-2xl"
+                  onerror="this.onerror=null; this.src='https://api.iconify.design/mdi:lightning-bolt.svg?color=%23f59e0b';"
+                />
+              </div>
+
+              <div>
+                <h1 class="text-3xl font-black text-white leading-tight tracking-tight">
+                  MSIFORCE
+                </h1>
+                <p class="text-cyan-100 text-sm">
+                  Tecnologia &bull; Energia &bull; Automação Premium
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CONTEUDO -->
+        <div class="p-6 space-y-5">
+          <!-- NOME -->
+          <div>
+            <h2 class="text-xl font-semibold text-white">
+              Mário Sérgio Inácio Júnior
+            </h2>
+            <p class="text-zinc-400 text-sm mt-1 leading-relaxed">
+              Técnico em Eletrônica &bull; Infraestrutura de Redes &bull; Sistemas de Segurança
+            </p>
+          </div>
+          
+          <!-- BOTOES -->
+          <div class="grid grid-cols-2 gap-3">
+            <a href="https://wa.me/5511910773865" target="_blank" rel="noopener noreferrer" class="rounded-2xl transition-all p-4 text-center font-semibold shadow-lg flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white">
+              <span class="text-lg">💬</span>
+              <span>WhatsApp</span>
+            </a>
+            <a href="mailto:mario.junior@msiforce.com.br" target="_blank" rel="noopener noreferrer" class="rounded-2xl transition-all p-4 text-center font-semibold shadow-lg flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white">
+              <span class="text-lg">✉️</span>
+              <span>E-mail</span>
+            </a>
+          </div>
+
+          <!-- REDES -->
+          <div class="grid grid-cols-2 gap-3">
+            <a href="https://instagram.com/msiforce" target="_blank" rel="noopener noreferrer" class="rounded-2xl transition-all p-4 text-center font-semibold shadow-lg flex items-center justify-center gap-2 border border-pink-500/30 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-orange-500/20 text-white">
+              <span class="text-lg">📸</span>
+              <span>Instagram</span>
+            </a>
+            <a href="https://msiforce.com.br" target="_blank" rel="noopener noreferrer" class="rounded-2xl transition-all p-4 text-center font-semibold shadow-lg flex items-center justify-center gap-2 border border-cyan-500/20 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300">
+              <span class="text-lg">🌐</span>
+              <span>Website</span>
+            </a>
+          </div>
+
+          <!-- TELEFONE -->
+          <div class="rounded-2xl bg-zinc-800/70 border border-zinc-700 p-4">
+            <p class="text-zinc-400 text-xs uppercase tracking-widest mb-1">
+              Telefone
+            </p>
+            <p class="text-white font-medium">
+              (11) 91077-3865
+            </p>
+          </div>
+
+          <!-- SITE -->
+          <div class="rounded-2xl bg-zinc-800/70 border border-zinc-700 p-4">
+            <p class="text-zinc-400 text-xs uppercase tracking-widest mb-1">
+              Site Oficial
+            </p>
+            <a href="https://msiforce.com.br" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium break-all">
+              www.msiforce.com.br
+            </a>
+          </div>
+
+          <!-- SERVICOS -->
+          <div class="rounded-2xl bg-zinc-800/70 border border-zinc-700 p-4">
+            <p class="text-zinc-400 text-xs uppercase tracking-widest mb-3">
+              Serviços
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">CFTV</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Redes</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Automação</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Elétrica</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Wi‑Fi</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Controle de Acesso</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Alarmes</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm">Infraestrutura</span>
+            </div>
+          </div>
+
+          <!-- QR CODE -->
+          <div class="rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 p-5 text-center">
+            <p class="text-white font-semibold mb-2">
+              Escaneie o QR Code
+            </p>
+            <p class="text-zinc-400 text-sm mb-4">
+              Acesse rapidamente o cartão digital pelo celular
+            </p>
+            <div class="inline-flex bg-white p-3 rounded-2xl shadow-2xl">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://msiforce.com.br/cartao"
+                alt="QR Code MSIForce"
+                class="w-40 h-40"
+              />
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="pt-2">
+            <a href="https://wa.me/5511910773865?text=Olá%20Mário,%20vi%20seu%20cartão%20digital%20e%20gostaria%20de%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-500 hover:opacity-90 transition-all p-4 text-white font-bold shadow-xl text-lg">
+              Solicitar Atendimento
+            </a>
+          </div>
+
+          <!-- FOOTER -->
+          <div class="grid grid-cols-1 gap-3">
+            <button onclick="downloadVCard()" class="w-full rounded-2xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 transition-all p-4 text-amber-300 font-semibold shadow-lg">
+              📇 Salvar Contato
+            </button>
+          </div>
+          
+          <div class="border-t border-zinc-800 pt-4 text-center">
+            <p class="text-zinc-500 text-xs leading-relaxed">
+              MSIFORCE © Cartão digital premium &bull; Otimizado para Netlify &bull; QR Code &bull; SEO Local
+            </p>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
