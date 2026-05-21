@@ -486,6 +486,74 @@ footer{
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on{opacity:1;transform:none}
+
+/* ── RESPONSIVO / SMARTPHONES ── */
+@media (max-width: 768px) {
+  /* Globais */
+  .sec { padding: 60px 24px; }
+  .s-title { font-size: 2.5rem; }
+  
+  /* Nav */
+  nav { padding: 0 24px; height: 60px; }
+  .nav-logo img { height: 32px; }
+  .nav-name { font-size: 1.2rem; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 8px 16px; font-size: 0.75rem !important; }
+  
+  /* Hero */
+  #hero { grid-template-columns: 1fr; min-height: auto; padding-top: 60px; }
+  .hero-left { padding: 60px 24px 40px 24px; }
+  .hero-h1 { font-size: 3.5rem; }
+  .hero-eyebrow { font-size: 0.65rem; }
+  .hero-btns { flex-direction: column; align-items: stretch; gap: 16px; }
+  .btn-hero { justify-content: center; text-align: center; }
+  .btn-ghost2 { justify-content: center; }
+  .hero-norms { margin-top: 32px; }
+  
+  /* Hero Right */
+  .hero-right { min-height: 300px; }
+  .hero-img-wrap { align-items: center; }
+  .hero-badge-cert { top: 20px; right: 20px; padding: 12px; max-width: 140px; }
+  .cert-t1 { font-size: 0.95rem; }
+  .cert-t2 { font-size: 0.55rem; }
+  
+  /* Stats Bar */
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .stat-cell { padding: 20px 16px; border-bottom: 1px solid rgba(0,0,0,.12); border-right: 1px solid rgba(0,0,0,.12); flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+  .stat-cell:nth-child(even) { border-right: none; }
+  .stat-cell:nth-child(3), .stat-cell:nth-child(4) { border-bottom: none; }
+  .stat-n { font-size: 2.2rem; }
+  
+  /* Flyer Sec */
+  #flyer-sec { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+  .flyer-copy .s-desc { max-width: 100%; margin-bottom: 24px; }
+  .feat-grid { grid-template-columns: 1fr; }
+  
+  /* Servicos */
+  #servicos { padding: 60px 24px; }
+  .svc-header { grid-template-columns: 1fr; gap: 16px; align-items: flex-start; margin-bottom: 32px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-card { padding: 32px 24px; }
+  
+  /* CTA Band */
+  .cta-band { grid-template-columns: 1fr; gap: 24px; padding: 60px 24px; text-align: center; }
+  .cta-t { font-size: 2.2rem; }
+  .cta-right { align-items: center; }
+  
+  /* Contato */
+  #contato { grid-template-columns: 1fr; gap: 50px; padding: 60px 24px; }
+  .contact-h { font-size: 2.5rem; margin-bottom: 24px; }
+  .fr { grid-template-columns: 1fr; }
+  
+  /* Footer */
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; gap: 16px; }
+  .f-logo { justify-content: center; }
+  .f-norms { justify-content: center; }
+  
+  /* WA Float */
+  .wa { bottom: 16px; right: 16px; }
+  .wa-b { width: 48px; height: 48px; font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
