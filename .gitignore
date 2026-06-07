@@ -1,0 +1,7 @@
+*.pem
+node_modules/
+aws-deploy-msiforce.docx
+generate_doc.js
+package.json
+package-lock.json
+setup_git_pagina.ps1
