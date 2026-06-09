@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MSIFORCE Tech Solutions — Atendente Inteligente 24h</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>MSIFORCE Tech Solutions — Plataforma CRM & Vendas Automatizadas</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --black: #0a0a0a;
@@ -60,9 +60,24 @@ nav {
 }
 .nav-links a:hover { color: var(--accent); }
 
+/* PROMO BANNER */
+.promo-banner {
+  background: linear-gradient(90deg, #ff4d00, #ff7a00);
+  color: #fff;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+}
+nav { top: 34px; } /* Ajuste pro banner */
+
 .progress-bar {
   position: fixed;
-  top: 0; left: 0;
+  top: 34px; left: 0;
   height: 2px;
   background: var(--accent);
   z-index: 200;
@@ -71,7 +86,7 @@ nav {
 
 /* SECTIONS */
 section {
-  padding: 120px 3rem 90px;
+  padding: 140px 3rem 90px;
 }
 
 .eyebrow {
@@ -111,7 +126,7 @@ h2 {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 4rem;
-  padding-top: 140px;
+  padding-top: 180px;
 }
 .hero-tag {
   display: inline-flex;
@@ -276,7 +291,21 @@ h1 em { font-style: normal; color: var(--accent); }
 .step h4 { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
 .step p { font-size: 0.82rem; color: rgba(245,240,232,0.5); line-height: 1.6; }
 
-.demo-chat-wrap { display: flex; justify-content: center; }
+.demo-chat-wrap { display: flex; justify-content: center; position: relative; }
+.pdf-preview {
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  background: var(--card);
+  border: 1px solid rgba(255,77,0,0.5);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  transform: rotate(5deg);
+  animation: float 5s ease-in-out infinite;
+}
+
 .demo-chat { width: 100%; max-width: 340px; background: #111; border-radius: 22px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
 .dc-header { background: rgba(255,255,255,0.03); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid var(--border); }
 .dc-avatar { width: 34px; height: 34px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
@@ -319,10 +348,14 @@ h1 em { font-style: normal; color: var(--accent); }
 .price-badge.gold-b { background: var(--gold); color: #000; }
 .price-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 0.3rem; }
 .price-audience { font-size: 0.78rem; color: rgba(245,240,232,0.3); font-style: italic; margin-bottom: 1rem; }
-.price-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
-.price-amount { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; }
+.price-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+
+.price-strike { text-decoration: line-through; color: rgba(245,240,232,0.3); font-size: 1.2rem; margin-bottom: -5px; }
+.price-amount { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; color: var(--accent); }
 .price-amount small { font-size: 1rem; font-weight: 400; color: rgba(245,240,232,0.4); }
 .price-monthly { font-size: 0.8rem; color: rgba(245,240,232,0.4); margin-bottom: 2rem; }
+.price-monthly span { text-decoration: line-through; opacity: 0.5; margin-right: 5px; }
+
 .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
 .price-features li { font-size: 0.83rem; color: rgba(245,240,232,0.65); display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
 .price-features li .check { color: var(--accent); font-weight: 700; flex-shrink: 0; }
@@ -374,10 +407,10 @@ footer strong { color: var(--accent); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  section { padding: 100px 1.5rem 70px; }
+  section { padding: 120px 1.5rem 70px; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
-  #hero { grid-template-columns: 1fr; padding-top: 110px; }
+  #hero { grid-template-columns: 1fr; padding-top: 150px; }
   #hero .phone-wrap { display: none; }
   .demo-layout { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -386,17 +419,18 @@ footer strong { color: var(--accent); }
 </head>
 <body>
 
+<div class="promo-banner">🎉 OFERTA DE FUNDADORES: OS PRIMEIROS 50 CLIENTES GANHAM ATÉ 50% DE DESCONTO E ISENÇÃO DE TAXAS!</div>
 <div class="progress-bar" id="progressBar"></div>
 
 <nav>
   <a href="#hero" class="nav-logo">
-    <img src="logo.svg" style="height:52px; width:auto;" alt="MSIFORCE">
+    <img src="logo.svg" style="height:52px; width:auto;" alt="MSIFORCE" onerror="this.src='https://via.placeholder.com/150x52/00ff87/000000?text=MSIFORCE'">
   </a>
   <ul class="nav-links">
     <li><a href="#problema">Problema</a></li>
-    <li><a href="#solucao">Solução</a></li>
+    <li><a href="#solucao">Plataforma CRM</a></li>
     <li><a href="#demonstracao">Demo</a></li>
-    <li><a href="#fechamento">Investimento</a></li>
+    <li><a href="#fechamento">Planos (Promoção)</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
 </nav>
@@ -404,12 +438,12 @@ footer strong { color: var(--accent); }
 <!-- HERO -->
 <section id="hero">
   <div>
-    <div class="hero-tag">Atendimento Inteligente 24h</div>
-    <h1>Seu negócio<br>nunca mais perde<br>um <em>cliente.</em></h1>
-    <p class="hero-sub">Enquanto você está em campo, a IA atende, tira dúvidas e filtra os leads prontos para fechar. Você só entra na hora de receber o dinheiro.</p>
+    <div class="hero-tag">SaaS CRM + IA para Prestadores de Serviço</div>
+    <h1>O primeiro CRM<br>que envia <em>orçamentos automáticos</em> no WhatsApp.</h1>
+    <p class="hero-sub">Esqueça os "robôs engessados". A MSIFORCE é uma Plataforma Completa: Captura o lead, qualifica com IA, gera o PDF do Orçamento e acompanha até o fechamento. Tudo enquanto você está em campo.</p>
     <div class="cta-row">
       <a href="#demonstracao" class="btn-primary">Ver Demonstração</a>
-      <a href="#fechamento" class="btn-ghost">Ver Planos</a>
+      <a href="#fechamento" class="btn-ghost" style="border-color:var(--accent2); color:var(--accent2)">Ver Oferta de Fundadores</a>
     </div>
   </div>
   <div>
@@ -419,20 +453,20 @@ footer strong { color: var(--accent); }
         <div class="phone-header">
           <div class="ph-avatar">🤖</div>
           <div>
-            <div class="ph-name">Assistente MSIFORCE</div>
-            <div class="ph-status">● Online agora</div>
+            <div class="ph-name">CRM MSIFORCE</div>
+            <div class="ph-status">● Trabalhando 24h</div>
           </div>
         </div>
         <div class="phone-body">
-          <div class="bubble bot">Olá! 👋 Sou a assistente virtual. Como posso te ajudar?</div>
-          <div class="bubble user">Vocês instalam câmeras?</div>
-          <div class="bubble bot">Sim! Câmeras IP, analógicas e DVR. Residencial e comercial. O que você precisa?</div>
           <div class="bubble user">Quero orçamento pra minha loja</div>
-          <div class="bubble bot">Perfeito! Aviso o especialista agora. 🔔</div>
+          <div class="bubble bot">Perfeito! É para Câmeras IP ou Analógicas? 📷</div>
+          <div class="bubble user">Câmeras IP, umas 4 unidades.</div>
+          <div class="bubble bot">Entendido. O especialista já vai te enviar o orçamento oficial por aqui. ⏳</div>
+          <div class="bubble bot" style="background:rgba(255,77,0,0.1); border-color:var(--accent2);">📄 <strong>Orçamento_001.pdf</strong> enviado ao cliente! (Valor: R$ 2.400,00)</div>
         </div>
         <div class="phone-alert">
-          <strong>🔥 Lead Quente — Agora!</strong>
-          Cliente quer orçamento · câmeras · loja comercial
+          <strong>💰 Orçamento Aprovado!</strong>
+          Cliente clicou em "Eu Aprovo" e o card foi movido no seu CRM.
         </div>
       </div>
     </div>
@@ -441,68 +475,68 @@ footer strong { color: var(--accent); }
 
 <!-- PROBLEMA -->
 <section id="problema">
-  <span class="eyebrow">01 — O Problema</span>
-  <h2>Você perde clientes<br>toda semana sem saber.</h2>
+  <span class="eyebrow">01 — O Gargalo Comercial</span>
+  <h2>Você é o dono do negócio ou<br>atendente em tempo integral?</h2>
   <div class="divider"></div>
-  <p class="section-desc">O dono de pequena empresa vive uma contradição: está sempre ocupado executando, mas o negócio trava quando ninguém atende o WhatsApp.</p>
+  <p class="section-desc">Pequenas e médias empresas perdem dezenas de contratos toda semana porque a equipe está ocupada executando o trabalho e ninguém consegue atender os clientes e gerar orçamentos na velocidade que eles exigem.</p>
   <div class="pain-grid">
     <div class="pain-card">
-      <span class="pain-icon">⏳</span>
-      <h3>Resposta lenta = cliente perdido</h3>
-      <p>O cliente manda mensagem, você está em obra. Ele espera 1 hora, chama o concorrente. Você nem fica sabendo.</p>
+      <span class="pain-icon">📄</span>
+      <h3>O pesadelo do orçamento</h3>
+      <p>Chegar em casa exausto e ainda ter que abrir o computador para digitar orçamentos. O cliente desiste pela demora.</p>
     </div>
     <div class="pain-card">
-      <span class="pain-icon">🌙</span>
-      <h3>Fora do horário comercial</h3>
-      <p>Domingo à noite, feriado, madrugada. Enquanto você dorme, clientes procuram seus serviços e não recebem resposta.</p>
-    </div>
-    <div class="pain-card">
-      <span class="pain-icon">🔄</span>
-      <h3>Perguntas repetitivas</h3>
-      <p>"Atendem minha região?" "Qual o prazo?" "Aceitam cartão?" As mesmas perguntas consumindo horas do seu dia.</p>
+      <span class="pain-icon">👻</span>
+      <h3>O cliente que some (Ghosting)</h3>
+      <p>Você manda o preço e o cliente não responde mais. Você esquece de cobrar (follow-up) e a venda morre.</p>
     </div>
     <div class="pain-card">
       <span class="pain-icon">📉</span>
-      <h3>Prejuízo invisível</h3>
-      <p>Você não sabe quantos leads chegaram essa semana e foram embora sem resposta. O prejuízo é silencioso.</p>
+      <h3>Caos no WhatsApp</h3>
+      <p>Anotações em papel, contatos perdidos no meio de grupos da família. Você não sabe quem é lead frio ou lead quente.</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">⏳</span>
+      <h3>Fora de Horário</h3>
+      <p>Domingos e noites são os momentos em que as pessoas pesquisam serviços. Sem atendimento 24h, o lead vai pro concorrente.</p>
     </div>
   </div>
 </section>
 
 <!-- SOLUÇÃO -->
 <section id="solucao">
-  <span class="eyebrow">02 — A Solução</span>
-  <h2>Três pilares que transformam<br>seu WhatsApp em máquina de vendas.</h2>
+  <span class="eyebrow">02 — A Plataforma SaaS</span>
+  <h2>Muito mais que um Robô.<br>Um CRM Comercial Automático.</h2>
   <div class="divider"></div>
-  <p class="section-desc">Um ecossistema completo integrado ao seu número atual. Sem trocar nada na sua rotina — só parar de perder clientes.</p>
+  <p class="section-desc">Esqueça RD Station ou Kommo. Construímos o primeiro CRM feito sob medida para empresas de serviço com motor de PDF integrado.</p>
   <div class="pillars">
     <div class="pillar">
       <span class="pillar-num">01</span>
-      <span class="pillar-icon">🤖</span>
-      <h3>Atendimento 24h</h3>
-      <p>Seu cliente nunca fica no vácuo. A IA responde imediatamente, qualquer dia, qualquer horário — mesmo em campo ou dormindo.</p>
-      <div class="pillar-highlight">Tempo médio de resposta: menos de 3 segundos</div>
+      <span class="pillar-icon">📊</span>
+      <h3>Gestão Visual (Kanban)</h3>
+      <p>Acesse seu painel online. Veja todos os clientes separados em colunas: "Novo Lead", "Orçamento Enviado", "Negociação" e "Fechado". Sem confusão.</p>
+      <div class="pillar-highlight">Seu funil de vendas sob controle</div>
     </div>
     <div class="pillar">
       <span class="pillar-num">02</span>
-      <span class="pillar-icon">📋</span>
-      <h3>Menu Inteligente + IA</h3>
-      <p>Menu estruturado por área (Elétrica, Segurança, Redes, Automação) combinado com IA que responde dúvidas livres como um especialista técnico.</p>
-      <div class="pillar-highlight">Menu + dúvidas livres no mesmo atendimento</div>
+      <span class="pillar-icon">📄</span>
+      <h3>Orçamentos em 2 Cliques (PDF)</h3>
+      <p>No painel, digite os itens (ex: Fio de Cobre + Mão de obra). O sistema calcula o total, gera um PDF corporativo com sua logo e dispara no WhatsApp do cliente.</p>
+      <div class="pillar-highlight">Esqueça o Word e o Excel para sempre</div>
     </div>
     <div class="pillar">
       <span class="pillar-num">03</span>
-      <span class="pillar-icon">🔍</span>
-      <h3>Qualificação Automática</h3>
-      <p>Antes de te chamar, o bot coleta região, tipo de imóvel (residencial ou comercial) e o serviço desejado. Você recebe o lead já qualificado.</p>
-      <div class="pillar-highlight">Lead entregue com: serviço + tipo + região</div>
+      <span class="pillar-icon">🤖</span>
+      <h3>Qualificação BANT (Llama 3)</h3>
+      <p>Antes de você agir, a IA já descobriu a Urgência, a Dor e o Tipo de Imóvel. Ela gera um "Score" de 0 a 100 indicando a chance de fechamento.</p>
+      <div class="pillar-highlight">Atendimento 24h de alta conversão</div>
     </div>
     <div class="pillar">
       <span class="pillar-num">04</span>
-      <span class="pillar-icon">🎯</span>
-      <h3>Filtro de Ouro & Transcrição</h3>
-      <p>O agente ouve e transcreve áudios enviados pelos clientes. Qualquer sinal de interesse vira um alerta com a transcrição na sua tela.</p>
-      <div class="pillar-highlight">Você só entra quando tem dinheiro na mesa</div>
+      <span class="pillar-icon">⏰</span>
+      <h3>Follow-up Implacável</h3>
+      <p>Enviou o orçamento e o cliente não respondeu há 3 dias? O sistema percebe e manda uma mensagem automática de cobrança sutil. Nenhuma venda esfria.</p>
+      <div class="pillar-highlight">Taxa de resposta aumenta em até 60%</div>
     </div>
   </div>
 </section>
@@ -510,72 +544,65 @@ footer strong { color: var(--accent); }
 <!-- DEMO -->
 <section id="demonstracao">
   <span class="eyebrow">03 — Demonstração</span>
-  <h2>Veja como funciona<br>na prática.</h2>
+  <h2>Veja o fluxo perfeito<br>na prática.</h2>
   <div class="divider"></div>
-  <p class="section-desc">Cinco passos automáticos que qualificam o cliente e entregam o lead pronto para fechar.</p>
+  <p class="section-desc">Do primeiro "Oi" do cliente até a geração automática do contrato. Tudo documentado no seu painel.</p>
   <div class="demo-layout">
     <div class="demo-steps">
       <div class="step">
         <span class="step-num">01</span>
         <div>
-          <h4>Cliente chega e escolhe o serviço</h4>
-          <p>Menu estruturado: Elétrica, Segurança, Redes ou Automação. Resposta imediata, sem robô genérico.</p>
+          <h4>IA atende e Qualifica</h4>
+          <p>O cliente chama no WhatsApp. A IA entende a demanda e salva no CRM (Kanban) como "Novo Lead".</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">02</span>
         <div>
-          <h4>Tira dúvidas com a IA especialista</h4>
-          <p>O cliente pode perguntar livremente. A IA responde como técnico da área — curto e objetivo.</p>
+          <h4>Você cria o orçamento rápido</h4>
+          <p>Você abre o celular, digita "Instalação de Câmera R$ 800" no painel. O sistema faz a mágica.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">03</span>
         <div>
-          <h4>Bot qualifica o lead automaticamente</h4>
-          <p>Coleta região e tipo (residencial ou comercial) antes de transferir. Você recebe o lead já pronto.</p>
+          <h4>Disparo do PDF Oficial</h4>
+          <p>O cliente recebe o arquivo PDF formatado pelo seu WhatsApp com a instrução: "Responda EU APROVO".</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">04</span>
         <div>
-          <h4>🔥 Alerta completo no seu celular</h4>
-          <p>Serviço, tipo, região e número do cliente — tudo numa notificação. Você entra e fecha o negócio.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">05</span>
-        <div>
-          <h4>Áudios são transcritos automaticamente</h4>
-          <p>Cliente não pode digitar? O agente escuta o áudio, transcreve em texto e notifica você na hora. Nenhum contato é perdido.</p>
+          <h4>Automação (Caso ele suma)</h4>
+          <p>Se passar 72h, a IA manda: "Olá, sobrou alguma dúvida no orçamento?". O CRM trabalha por você.</p>
         </div>
       </div>
     </div>
     <div class="demo-chat-wrap">
+      <div class="pdf-preview">
+        📄 <strong>ORÇAMENTO TÉCNICO</strong><br>
+        ------------------------<br>
+        Serviços Elétricos Ltda<br><br>
+        Item 1 ........ R$ 800,00<br>
+        Item 2 ........ R$ 200,00<br><br>
+        <strong>TOTAL: R$ 1.000,00</strong>
+      </div>
       <div class="demo-chat">
         <div class="dc-header">
           <div class="dc-avatar">🤖</div>
           <div>
-            <div class="dc-title">Assistente Virtual</div>
+            <div class="dc-title">IA Comercial</div>
             <div class="dc-status">● Online agora</div>
           </div>
         </div>
         <div class="dc-body">
-          <div class="dmsg in">👋 Bem-vindo à MSIFORCE! Como posso te ajudar?<br><br>1️⃣ Elétrica &nbsp;2️⃣ Segurança<br>3️⃣ Redes &nbsp;&nbsp;&nbsp;&nbsp;4️⃣ Automação<br>5️⃣ Falar com Atendente</div>
-          <div class="dmsg out">2</div>
-          <div class="dmsg in">🔒 Segurança Eletrônica<br><br>1️⃣ Câmeras CFTV/IP<br>2️⃣ Alarme<br>3️⃣ Controle de acesso<br>4️⃣ Interfone<br>5️⃣ Orçamento</div>
-          <div class="dmsg out">qual a diferença de câmera IP pra analógica?</div>
-          <div class="dmsg in">Câmera IP transmite via rede, tem resolução maior e acesso remoto pelo celular. Analógica usa cabo coaxial, é mais simples e barata. Para comércios, recomendamos IP. 📷</div>
-          <div class="dmsg out">quero orçamento</div>
-          <div class="dmsg in">Ótimo! É residencial ou comercial?<br><br>1️⃣ Residencial &nbsp; 2️⃣ Comercial</div>
-          <div class="dmsg out">2</div>
-          <div class="dmsg in">📍 Qual sua região/bairro?</div>
-          <div class="dmsg out">Mooca, SP</div>
-          <div class="dmsg in">✅ Perfeito! O Mário vai te contatar em breve com o orçamento! 🔔</div>
-        </div>
-        <div class="dc-alert">
-          <strong>🔥 Lead Qualificado!</strong>
-          Câmeras IP · Comercial · Mooca, SP
+          <div class="dmsg in">Olá! É para residência ou empresa?</div>
+          <div class="dmsg out">Empresa. Preciso de rede elétrica nova.</div>
+          <div class="dmsg in">✅ Registrado! O técnico já avaliou sua planta. Segue o Orçamento Oficial em PDF:</div>
+          <div class="dmsg in" style="border:1px solid var(--accent2); background:rgba(255,77,0,0.1); color:#fff;">📁 orcamento_1042.pdf<br><small>Baixar Arquivo</small></div>
+          <div class="dmsg in">Para confirmar o serviço, basta responder <strong>EU APROVO</strong>.</div>
+          <div class="dmsg out" style="margin-top:20px;">EU APROVO</div>
+          <div class="dmsg in">🎉 Perfeito! Sua data será agendada.</div>
         </div>
       </div>
     </div>
@@ -584,99 +611,75 @@ footer strong { color: var(--accent); }
 
 <!-- INVESTIMENTO -->
 <section id="fechamento">
-  <span class="eyebrow">04 — Investimento</span>
-  <h2>Menos que um cliente<br>perdido por mês.</h2>
+  <span class="eyebrow">04 — Oferta de Lançamento</span>
+  <h2>Preço Exclusivo de Fundadores</h2>
   <div class="divider"></div>
-  <p class="section-desc">Quanto vale o cliente que você perde hoje porque demorou 1 hora para responder? O sistema se paga no primeiro lead que você não teria fechado sozinho.</p>
+  <p class="section-desc">Desenvolvemos uma tecnologia de multinacionais para o pequeno empresário. Para celebrar nosso lançamento, os <strong>50 primeiros clientes</strong> ganham um super desconto vitalício!</p>
 
   <div class="pricing-grid">
-
     <div class="price-card">
       <div class="price-label">Plano START</div>
-      <div class="price-audience">MEI e Pequenos Comércios</div>
-      <h3>O Essencial</h3>
-      <div class="price-amount">R$ 297 <small>setup</small></div>
-      <div class="price-monthly">+ R$ 147/mês manutenção</div>
+      <div class="price-audience">MEI e Profissionais Autônomos</div>
+      <h3>Automação Básica</h3>
+      <div class="price-strike">De R$ 297</div>
+      <div class="price-amount"><small>R$</small> 147 <small>setup</small></div>
+      <div class="price-monthly"><span>R$ 147/mês</span> <strong>R$ 97/mês</strong> manutenção</div>
       <ul class="price-features">
-        <li><span class="check">✓</span> Atendimento 24h no WhatsApp</li>
-        <li><span class="check">✓</span> IA Llama 3 treinada com seu negócio</li>
-        <li><span class="check">✓</span> Memória de conversa — 12h de contexto</li>
-        <li><span class="check">✓</span> Alerta de leads em tempo real</li>
-        <li><span class="check">✓</span> Menu interativo por área de serviço</li>
-        <li><span class="check">✓</span> Qualificação automática (região + tipo)</li>
-        <li><span class="check">✓</span> Servidor em nuvem dedicado</li>
+        <li><span class="check">✓</span> Robô Atendente 24h</li>
+        <li><span class="check">✓</span> Qualificação Básica (Região e Serviço)</li>
+        <li><span class="check">✓</span> Alerta de Leads no Celular</li>
+        <li><span class="check">✓</span> Hospedagem Cloud Básica</li>
       </ul>
-      <div class="price-support">🎫 Suporte via ticket &nbsp;·&nbsp; <strong>resposta em 48h</strong></div>
+      <div class="price-support" style="margin-top:auto;">🎫 Suporte Ticket (48h)</div>
     </div>
 
     <div class="price-card pro">
-      <div class="price-badge green">🔥 MAIS VENDIDO</div>
-      <div class="price-label">Plano PRO</div>
-      <div class="price-audience">Empresas de Serviço / Clínicas</div>
-      <h3>O Mais Vendido</h3>
-      <div class="price-amount">R$ 497 <small>setup</small></div>
-      <div class="price-monthly">+ R$ 247/mês manutenção</div>
+      <div class="price-badge green">🔥 MAIS ESCOLHIDO</div>
+      <div class="price-label">Plano PRO (CRM COMPLETO)</div>
+      <div class="price-audience">Empresas de Serviço Estruturadas</div>
+      <h3>O SaaS Completo</h3>
+      <div class="price-strike">De R$ 497</div>
+      <div class="price-amount"><small>R$</small> 297 <small>setup</small></div>
+      <div class="price-monthly"><span>R$ 247/mês</span> <strong style="color:var(--accent);">R$ 147/mês</strong> manutenção</div>
       <ul class="price-features">
-        <li><span class="check">✓</span> Tudo do START, mais:</li>
-        <li><span class="check">✓</span> Transcrição automática de áudios em texto</li>
-        <li><span class="check">✓</span> IA com Treinamento VIP — personalidade da marca</li>
-        <li><span class="check">✓</span> Memória ampliada — 48h de contexto</li>
-        <li><span class="check">✓</span> IA tira dúvidas técnicas por área</li>
-        <li><span class="check">✓</span> Ajustes de prompt ilimitados no 1º mês</li>
-        <li><span class="check">✓</span> Onboarding remoto guiado</li>
+        <li><span class="check">✓</span> Tudo do START, e mais:</li>
+        <li><span class="check">✓</span> <strong>Painel CRM (Kanban) Completo</strong></li>
+        <li><span class="check">✓</span> <strong>Motor Gerador de Orçamentos PDF</strong></li>
+        <li><span class="check">✓</span> IA Llama 3 (Framework BANT)</li>
+        <li><span class="check">✓</span> Automação de Follow-up Inteligente</li>
+        <li><span class="check">✓</span> Dashboard de Vendas em Tempo Real</li>
+        <li><span class="check">✓</span> Transcrição de Áudios de Clientes</li>
       </ul>
-      <div class="price-support">💬 Suporte WhatsApp &nbsp;·&nbsp; <strong>resposta em 12h</strong></div>
+      <div class="price-support" style="margin-top:auto;">💬 Suporte WhatsApp (12h)</div>
     </div>
 
     <div class="price-card elite">
-      <div class="price-badge gold-b">👑 CONSULTORIA</div>
+      <div class="price-badge gold-b">👑 ASSESSORIA</div>
       <div class="price-label">Plano ELITE</div>
-      <div class="price-audience">Empresas em Expansão</div>
-      <h3>Consultoria Completa</h3>
-      <div class="price-amount">R$ 997 <small>setup</small></div>
-      <div class="price-monthly">+ R$ 497/mês manutenção</div>
+      <div class="price-audience">Franquias e Redes</div>
+      <h3>SaaS + Consultoria</h3>
+      <div class="price-strike">De R$ 997</div>
+      <div class="price-amount"><small>R$</small> 497 <small>setup</small></div>
+      <div class="price-monthly"><span>R$ 497/mês</span> <strong style="color:var(--gold);">R$ 297/mês</strong> manutenção</div>
       <ul class="price-features">
-        <li><span class="check gld">✓</span> Tudo do PRO, mais:</li>
-        <li><span class="check gld">✓</span> Memória premium — 7 dias de contexto</li>
-        <li><span class="check gld">✓</span> Relatório semanal de leads e conversões</li>
-        <li><span class="check gld">✓</span> Reunião mensal de otimização do bot</li>
-        <li><span class="check gld">✓</span> Análise de leads + ajustes mensais de prompt</li>
-        <li><span class="check gld">✓</span> SLA com garantia de uptime 99,9%</li>
+        <li><span class="check gld">✓</span> Tudo do PRO, e mais:</li>
+        <li><span class="check gld">✓</span> Treinamento Exclusivo da IA com o seu material de vendas</li>
+        <li><span class="check gld">✓</span> Relatório Analítico Mensal</li>
+        <li><span class="check gld">✓</span> Reuniões Estratégicas Bimestrais</li>
       </ul>
-      <div class="price-support">⚡ Suporte Prioritário &nbsp;·&nbsp; <strong class="gld">resposta em 4h</strong></div>
-    </div>
-
-  </div>
-
-  <div class="roi-block">
-    <div>
-      <span class="roi-num">24h</span>
-      <span class="roi-label">Atendimento ininterrupto todos os dias</span>
-    </div>
-    <div>
-      <span class="roi-num">2h+</span>
-      <span class="roi-label">Economizadas por dia em digitação</span>
-    </div>
-    <div>
-      <span class="roi-num">3s</span>
-      <span class="roi-label">Tempo médio de resposta ao cliente</span>
-    </div>
-    <div>
-      <span class="roi-num">0</span>
-      <span class="roi-label">Leads perdidos por demora na resposta</span>
+      <div class="price-support" style="margin-top:auto;">⚡ Suporte VIP Prioritário (4h)</div>
     </div>
   </div>
 </section>
 
 <!-- CONTATO -->
 <section id="contato">
-  <span class="eyebrow">05 — Próximo Passo</span>
-  <h2>Pronto para não perder<br>mais nenhum cliente?</h2>
+  <span class="eyebrow">05 — Vagas Limitadas</span>
+  <h2>Garanta a promoção<br>de Fundador hoje.</h2>
   <div class="divider"></div>
-  <p class="section-desc">Solicite uma demonstração ao vivo. Em menos de 2 minutos você vê o robô funcionando no seu próprio WhatsApp.</p>
+  <p class="section-desc">Seja uma das primeiras 50 empresas a transformar o WhatsApp num CRM completo e trave seu desconto vitalício.</p>
   <div class="cta-row">
-    <a href="https://wa.me/5511910773865?text=Oi!%20Quero%20ver%20uma%20demo%20do%20Atendente%20Inteligente" class="btn-primary" target="_blank">💬 Solicitar Demo no WhatsApp</a>
-    <a href="mailto:mario.junior@msiforce.com.br" class="btn-ghost">Enviar E-mail</a>
+    <a href="https://wa.me/5511910773865?text=Oi!%20Quero%20aproveitar%20a%20OFERTA%20DE%20FUNDADORES%20da%20Plataforma%20CRM." class="btn-primary" target="_blank">💬 Quero a Oferta Fundador no WhatsApp</a>
   </div>
 </section>
 
