@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM para Eletricistas: Como Organizar Leads e Orçamentos | MSIFORCE</title>
+<meta name="description" content="Entenda o que é um CRM e como ele pode ajudar eletricistas e instaladores a organizar clientes, enviar orçamentos e não perder vendas no WhatsApp.">
+<link rel="icon" href="https://msiforce.com.br/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F97316;
+  --black: #020617;
+  --dark: #0F172A;
+  --dark2: #1E293B;
+  --dark3: #334155;
+  --white: #F8FAFC;
+  --gray: #94A3B8;
+  --gray2: #64748B;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.7;}
+
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9995}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:70px;
+  background:rgba(2,6,23,.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(249,115,22,.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:40px;width:auto}
+.nav-name{font-family:'Outfit',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--orange);line-height:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gray);
+  text-decoration:none;transition:color .2s;position:relative
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:width .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--orange);color:var(--black)!important;
+  padding:10px 28px;font-weight:800!important;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--white)!important}
+
+/* ── ARTICLE HEADER ── */
+.article-header {
+    padding: 140px 24px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.article-tag {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 16px;
+    border: 1px solid rgba(249,115,22,.3);
+    padding: 4px 12px; border-radius: 4px;
+}
+.article-h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.05; letter-spacing: .02em;
+    margin-bottom: 24px;
+}
+.article-meta {
+    font-size: 0.9rem; color: var(--gray2);
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.article-meta img {
+    width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+}
+.hero-image-wrap {
+    max-width: 1000px; margin: 0 auto 60px; padding: 0 24px;
+}
+.hero-image {
+    width: 100%; height: auto; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+    max-width: 720px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+.article-body h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.4rem; color: var(--white);
+    margin: 60px 0 24px; line-height: 1.1; letter-spacing: 0.02em;
+}
+.article-body h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem; color: var(--orange);
+    margin: 40px 0 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.article-body p { margin-bottom: 20px; }
+.article-body ul, .article-body ol { margin-bottom: 24px; padding-left: 24px; }
+.article-body li { margin-bottom: 10px; }
+.article-body strong { color: var(--white); font-weight: 600; }
+.article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 4px; }
+.article-body a:hover { color: var(--white); }
+
+/* ── VISUAL BLOCKS ── */
+.info-box {
+    background: var(--dark2); border-left: 4px solid var(--orange);
+    padding: 24px; margin: 32px 0; border-radius: 0 8px 8px 0;
+}
+.info-box p:last-child { margin-bottom: 0; }
+
+/* ── CTA BOTTOM ── */
+.article-cta {
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border: 1px solid rgba(249,115,22,.2);
+    padding: 40px; border-radius: 12px;
+    text-align: center; margin-top: 60px;
+}
+.article-cta h3 {
+    margin-top: 0; font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem; color: var(--white); letter-spacing: 0.02em; text-transform: none;
+}
+.article-cta p { font-size: 1.05rem; margin-bottom: 30px; }
+.article-body a.btn-primary {
+    display: inline-block;
+    background: var(--orange); color: var(--black);
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none !important; padding: 16px 40px;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+}
+.article-body a.btn-primary:hover {
+    background: var(--white); transform: translateY(-2px); color: var(--black) !important;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark2);
+  border-top:1px solid rgba(249,115,22,.1);
+  padding:36px 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.f-logo{display:flex;align-items:center;gap:10px}
+.f-logo img{height:36px}
+.f-name{font-family:'Outfit',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--orange)}
+.f-copy{font-size:.76rem;color:var(--gray2);text-align:center;line-height:1.6}
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; height: 60px; }
+  .nav-logo img { height: 32px; }
+  .nav-name { font-size: 1.2rem; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 20px 40px; }
+  .article-cta { padding: 30px 20px; }
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEU_ID_AQUI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SEU_ID_AQUI');
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="nav-logo">
+    <img src="../../logo.png" alt="MSIFORCE Logo" onerror="this.src='https://api.iconify.design/mdi:lightning-bolt.svg?color=%23F5A623';">
+    <span class="nav-name">MSIFORCE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../atendente/index.html" style="color: var(--orange);">CRM + IA</a></li>
+    <li><a href="../../index.html#sobre">Sobre</a></li>
+    <li><a href="../../index.html#servicos">Serviços</a></li>
+    <li><a href="../index.html" style="color: var(--white);">Blog</a></li>
+    <li><a href="https://wa.me/5511910773865" class="nav-cta">Orçamento</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+    <span class="article-tag">Gestão de Negócios</span>
+    <h1 class="article-h1">CRM para Eletricistas: Como Organizar Leads, Orçamentos e Clientes</h1>
+    <div class="article-meta">
+        <img src="https://ui-avatars.com/api/?name=Mario+Sergio&background=F5A623&color=000" alt="Mário Sérgio">
+        <span>Por <strong>Mário Sérgio</strong></span>
+        <span>•</span>
+        <span>Tempo de leitura: 5 min</span>
+    </div>
+</header>
+
+<div class="hero-image-wrap">
+    <img src="../thumb_crm.png" alt="Eletricista usando celular para organizar clientes" class="hero-image">
+</div>
+
+<main class="article-body">
+    <p>Você sabe exatamente quantas pessoas pediram um orçamento para você na última semana e não fecharam? Sabe quais desses orçamentos você ainda precisa cobrar uma resposta? Se a sua resposta for "eu precisaria olhar o histórico do meu WhatsApp", então você tem um problema sério de organização de vendas.</p>
+    
+    <p>O WhatsApp é uma ferramenta incrível de comunicação, mas é péssimo como ferramenta de gestão. As conversas vão descendo, você visualiza e esquece de responder porque estava dirigindo ou em cima de uma escada, e o dinheiro fica na mesa.</p>
+
+    <p>É aqui que entra o **CRM** (<em>Customer Relationship Management</em>, ou Gestão de Relacionamento com o Cliente). E não, isso não é coisa de multinacional. É ferramenta obrigatória para eletricistas e instaladores que querem profissionalizar o negócio e ganhar mais dinheiro.</p>
+
+    <h2>O que é um CRM na Prática?</h2>
+
+    <p>Esqueça termos difíceis. Um CRM para prestadores de serviço funciona como um <strong>"painel de controle visual"</strong> (conhecido como Kanban). Nele, você tem colunas que representam as etapas do seu processo de vendas, por exemplo:</p>
+
+    <ul>
+        <li><strong>Coluna 1: Novos Contatos</strong> (Pessoas que mandaram mensagem hoje)</li>
+        <li><strong>Coluna 2: Orçamento Enviado</strong> (Estão aguardando a decisão)</li>
+        <li><strong>Coluna 3: Negociação</strong> (Aqueles que pediram desconto ou estão tirando dúvidas)</li>
+        <li><strong>Coluna 4: Fechado (Ganhos)</strong> (Serviços com sinal pago e agendados)</li>
+        <li><strong>Coluna 5: Perdidos</strong> (Clientes que acharam caro ou desistiram)</li>
+    </ul>
+
+    <p>Quando você abre esse painel, você sabe em 5 segundos onde está o dinheiro. Você olha para a coluna "Orçamento Enviado" e vê que tem R$ 8.500 parados ali precisando de um simples empurrão (o famoso <a href="../ghosting-whatsapp-cliente-some-orcamento/index.html">follow-up</a>) para virar dinheiro no bolso.</p>
+
+    <h2>O Problema de Usar Apenas o WhatsApp</h2>
+
+    <h3>1. Esquecimento Custa Caro</h3>
+    <p>O cliente fala: "Legal, vou mostrar para a minha esposa e te aviso amanhã". Amanhã chega, ele esquece. Você, na correria de comprar material na loja, também esquece de cobrar. A venda morre.</p>
+
+    <h3>2. Misturar Pessoal com Profissional</h3>
+    <p>Seus leads se misturam com o grupo da família e o churrasco do final de semana. Fica impossível saber quem é quem depois de duas semanas.</p>
+
+    <h3>3. Dificuldade de Escalar</h3>
+    <p>Se amanhã você precisar contratar um ajudante ou colocar alguém para atender seus orçamentos, como você passa o celular? Você não tem um histórico claro, não sabe o valor que foi passado para quem, nem quando.</p>
+
+    <h2>Como Resolver Isso Sem Sair do Celular</h2>
+
+    <p>A maioria dos CRMs do mercado (como Pipedrive, RD Station, Kommo) são complexos. Foram feitos para vendedores que ficam o dia todo sentados de frente para um computador no ar-condicionado. Para o eletricista que vive em campo, isso não funciona.</p>
+
+    <div class="info-box">
+        <p>Você precisa de algo simples, que caiba no celular e que preencha as informações <strong>sozinho</strong>.</p>
+    </div>
+
+    <p>Na <a href="../../atendente/index.html">Plataforma MSIFORCE CRM</a>, nós conectamos a Inteligência Artificial diretamente ao WhatsApp. Quando um cliente te chama e diz o que precisa, o robô entende a dor dele e <strong>cria o cartãozinho do lead na Coluna 1 do seu CRM automaticamente</strong>.</p>
+
+    <p>Você não precisa digitar nome, telefone nem "o que ele quer". A IA já fez isso por você. Você só entra no aplicativo pelo celular quando tiver um tempo livre, vê os clientes organizadinhos lá, gera o <a href="../modelo-orcamento-eletricista-pdf/index.html">Orçamento em PDF</a> com 3 cliques, e o sistema move ele automaticamente para a Coluna 2.</p>
+
+    <div class="article-cta">
+        <h3>Pare de Perder Vendas no Histórico do WhatsApp</h3>
+        <p>Organize seus clientes de forma visual e automática com o CRM feito sob medida para eletricistas e instaladores.</p>
+        <p>Nossa plataforma une o atendimento via IA com um painel Kanban simples e intuitivo.</p>
+        <a href="../../atendente/index.html" class="btn-primary">🚀 Conhecer a MSIFORCE CRM</a>
+    </div>
+
+</main>
+
+<footer>
+  <div class="f-logo">
+    <span class="f-name">MSIFORCE</span>
+  </div>
+  <div class="f-copy">© 2026 MSIFORCE Tech Solutions. Todos os direitos reservados. <br><a href="../../cartao/index.html" style="color:var(--gray2);text-decoration:none;">Conheça o Mário</a></div>
+</footer>
+
+</body>
+</html>

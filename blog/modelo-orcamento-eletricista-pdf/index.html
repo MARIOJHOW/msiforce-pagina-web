@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelo de Orçamento em PDF para Eletricistas: Como Montar o Seu | MSIFORCE</title>
+<meta name="description" content="Descubra como criar um PDF de orçamento profissional que transmite segurança ao cliente e aumenta suas chances de fechar o serviço de elétrica ou CFTV.">
+<link rel="icon" href="https://msiforce.com.br/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F97316;
+  --black: #020617;
+  --dark: #0F172A;
+  --dark2: #1E293B;
+  --dark3: #334155;
+  --white: #F8FAFC;
+  --gray: #94A3B8;
+  --gray2: #64748B;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.7;}
+
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9995}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:70px;
+  background:rgba(2,6,23,.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(249,115,22,.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:40px;width:auto}
+.nav-name{font-family:'Outfit',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--orange);line-height:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gray);
+  text-decoration:none;transition:color .2s;position:relative
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:width .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--orange);color:var(--black)!important;
+  padding:10px 28px;font-weight:800!important;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--white)!important}
+
+/* ── ARTICLE HEADER ── */
+.article-header {
+    padding: 140px 24px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.article-tag {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 16px;
+    border: 1px solid rgba(249,115,22,.3);
+    padding: 4px 12px; border-radius: 4px;
+}
+.article-h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.05; letter-spacing: .02em;
+    margin-bottom: 24px;
+}
+.article-meta {
+    font-size: 0.9rem; color: var(--gray2);
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.article-meta img {
+    width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+}
+.hero-image-wrap {
+    max-width: 1000px; margin: 0 auto 60px; padding: 0 24px;
+}
+.hero-image {
+    width: 100%; height: auto; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+    max-width: 720px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+.article-body h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.4rem; color: var(--white);
+    margin: 60px 0 24px; line-height: 1.1; letter-spacing: 0.02em;
+}
+.article-body h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem; color: var(--orange);
+    margin: 40px 0 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.article-body p { margin-bottom: 20px; }
+.article-body ul, .article-body ol { margin-bottom: 24px; padding-left: 24px; }
+.article-body li { margin-bottom: 10px; }
+.article-body strong { color: var(--white); font-weight: 600; }
+.article-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 4px; }
+.article-body a:hover { color: var(--white); }
+
+/* ── VISUAL BLOCKS ── */
+.info-box {
+    background: var(--dark2); border-left: 4px solid var(--orange);
+    padding: 24px; margin: 32px 0; border-radius: 0 8px 8px 0;
+}
+.info-box p:last-child { margin-bottom: 0; }
+
+/* ── CTA BOTTOM ── */
+.article-cta {
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border: 1px solid rgba(249,115,22,.2);
+    padding: 40px; border-radius: 12px;
+    text-align: center; margin-top: 60px;
+}
+.article-cta h3 {
+    margin-top: 0; font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem; color: var(--white); letter-spacing: 0.02em; text-transform: none;
+}
+.article-cta p { font-size: 1.05rem; margin-bottom: 30px; }
+.article-body a.btn-primary {
+    display: inline-block;
+    background: var(--orange); color: var(--black);
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none !important; padding: 16px 40px;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+}
+.article-body a.btn-primary:hover {
+    background: var(--white); transform: translateY(-2px); color: var(--black) !important;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark2);
+  border-top:1px solid rgba(249,115,22,.1);
+  padding:36px 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.f-logo{display:flex;align-items:center;gap:10px}
+.f-logo img{height:36px}
+.f-name{font-family:'Outfit',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--orange)}
+.f-copy{font-size:.76rem;color:var(--gray2);text-align:center;line-height:1.6}
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; height: 60px; }
+  .nav-logo img { height: 32px; }
+  .nav-name { font-size: 1.2rem; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 20px 40px; }
+  .article-cta { padding: 30px 20px; }
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEU_ID_AQUI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SEU_ID_AQUI');
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="nav-logo">
+    <img src="../../logo.png" alt="MSIFORCE Logo" onerror="this.src='https://api.iconify.design/mdi:lightning-bolt.svg?color=%23F5A623';">
+    <span class="nav-name">MSIFORCE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../atendente/index.html" style="color: var(--orange);">CRM + IA</a></li>
+    <li><a href="../../index.html#sobre">Sobre</a></li>
+    <li><a href="../../index.html#servicos">Serviços</a></li>
+    <li><a href="../index.html" style="color: var(--white);">Blog</a></li>
+    <li><a href="https://wa.me/5511910773865" class="nav-cta">Orçamento</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+    <span class="article-tag">Gestão</span>
+    <h1 class="article-h1">Como Montar um PDF de Orçamento Profissional para Eletricistas</h1>
+    <div class="article-meta">
+        <img src="https://ui-avatars.com/api/?name=Mario+Sergio&background=F5A623&color=000" alt="Mário Sérgio">
+        <span>Por <strong>Mário Sérgio</strong></span>
+        <span>•</span>
+        <span>Tempo de leitura: 5 min</span>
+    </div>
+</header>
+
+<div class="hero-image-wrap">
+    <img src="../thumb_orcamento.png" alt="Notebook e projeto em cima da mesa" class="hero-image">
+</div>
+
+<main class="article-body">
+    <p>Imagine a seguinte situação: um cliente solicita um orçamento para refazer a fiação de um quadro de distribuição. Você calcula tudo de cabeça e responde no WhatsApp: <em>"Fica R$ 1.800 de mão de obra, chefe. Os materiais você compra à parte."</em></p>
+    
+    <p>O seu concorrente, por outro lado, envia um <strong>documento em PDF</strong>. Lá tem a logo da empresa dele, os dados do cliente, um escopo detalhado do que será feito passo a passo, prazos de garantia e as opções de parcelamento. Ele cobra R$ 2.400 pelo mesmo serviço.</p>
+
+    <p>Adivinhe quem o cliente contrata? O seu concorrente. E ele pagou mais caro, porque o PDF transmitiu <strong>segurança, transparência e profissionalismo</strong>.</p>
+
+    <h2>O Problema de Mandar Preço por Texto</h2>
+
+    <p>Quando você envia o preço "solto" no meio de uma conversa de WhatsApp, o cliente foca em apenas uma coisa: o número. Ele não vê o valor do seu trabalho, não entende a complexidade técnica e, se houver qualquer problema no futuro, vocês não têm nenhum documento formalizando o que estava (ou não) incluso naquele valor.</p>
+
+    <h2>A Estrutura de um Orçamento Perfeito</h2>
+
+    <p>Um orçamento profissional de serviços elétricos ou de CFTV precisa conter obrigatoriamente 6 elementos fundamentais:</p>
+
+    <h3>1. Cabeçalho de Identificação</h3>
+    <p>Sua logo, nome da empresa, CNPJ (se tiver), telefone e e-mail. Do outro lado, o nome completo do cliente, endereço da obra e a data de emissão do orçamento. Isso mostra que o documento foi feito <em>exclusivamente</em> para ele.</p>
+
+    <h3>2. Escopo do Serviço (O que VAI ser feito)</h3>
+    <p>Nunca escreva apenas "Revisão elétrica". Seja específico: "Troca de 4 disjuntores DIN, balanceamento de fases no quadro principal e identificação dos circuitos."</p>
+
+    <h3>3. Exclusões (O que NÃO vai ser feito)</h3>
+    <p>Isso salva vidas. Deixe claro, por exemplo, que "Nenhum reparo em alvenaria ou pintura está incluso neste orçamento após a passagem dos conduítes". Isso evita a famosa frase: <em>"Achei que você ia tampar o buraco que quebrou na parede"</em>.</p>
+
+    <h3>4. Materiais vs. Mão de Obra</h3>
+    <p>Especifique se os materiais estão inclusos. Se não estiverem, forneça a lista ou diga que será orçada separadamente em loja parceira. Deixe a mão de obra isolada e clara.</p>
+    
+    <h3>5. Prazo de Validade e Garantia</h3>
+    <p>Todo orçamento precisa de uma validade (ex: 15 dias), pois o preço do cobre e dos componentes elétricos muda toda semana. Além disso, deixe por escrito a garantia do seu serviço (ex: 90 dias conforme CDC, ou 1 ano por sua conta).</p>
+
+    <h3>6. Condições de Pagamento</h3>
+    <p>Sinal de 50% para iniciar? Parcelamento no cartão em até 3x com juros? Pix à vista com 5% de desconto? Quanto mais opções claras, mais fácil o cliente tomar a decisão e não te dar <a href="../ghosting-whatsapp-cliente-some-orcamento/index.html">ghosting</a>.</p>
+
+    <h2>Como Automatizar Isso?</h2>
+
+    <p>Fazer esse PDF no Word ou no Canva à noite, depois de passar o dia inteiro na rua passando cabo, é cansativo. É por isso que muitos acabam mandando o preço em texto mesmo.</p>
+
+    <div class="info-box">
+        <p>A solução inteligente é usar um sistema que gere o PDF para você em <strong>30 segundos</strong>, usando apenas o seu celular de dentro do carro.</p>
+    </div>
+
+    <p>Com a <a href="../../atendente/index.html">Plataforma MSIFORCE CRM</a>, você não precisa abrir o notebook. Você preenche três campos no seu painel pelo celular (Cliente, Serviço, Preço) e o nosso sistema gera instantaneamente um PDF lindo, formatado, com a sua logo e suas regras, e já envia automaticamente para o WhatsApp do cliente.</p>
+
+    <div class="article-cta">
+        <h3>Gere Orçamentos em Segundos</h3>
+        <p>Aumente sua taxa de fechamento parando de enviar preços por texto. Entregue valor através de documentos profissionais que se montam sozinhos.</p>
+        <p>A ferramenta de emissão de PDFs já está inclusa no nosso CRM projetado para prestadores de serviços.</p>
+        <a href="../../atendente/index.html" class="btn-primary">🚀 Conhecer a MSIFORCE CRM</a>
+    </div>
+
+</main>
+
+<footer>
+  <div class="f-logo">
+    <span class="f-name">MSIFORCE</span>
+  </div>
+  <div class="f-copy">© 2026 MSIFORCE Tech Solutions. Todos os direitos reservados. <br><a href="../../cartao/index.html" style="color:var(--gray2);text-decoration:none;">Conheça o Mário</a></div>
+</footer>
+
+</body>
+</html>

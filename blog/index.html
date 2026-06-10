@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog MSIFORCE | Gestão e Automação para Prestadores de Serviço</title>
+<meta name="description" content="Artigos, dicas e estratégias de atendimento, automação no WhatsApp e CRM para eletricistas, instaladores e prestadores de serviço.">
+<link rel="icon" href="https://msiforce.com.br/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F97316;
+  --black: #020617;
+  --dark: #0F172A;
+  --dark2: #1E293B;
+  --white: #F8FAFC;
+  --gray: #94A3B8;
+  --gray2: #64748B;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9995}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:70px;
+  background:rgba(2,6,23,.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(249,115,22,.1);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:40px;width:auto}
+.nav-name{font-family:'Outfit',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--orange);line-height:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.8rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gray);
+  text-decoration:none;transition:color .2s;position:relative
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:width .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--orange);color:var(--black)!important;
+  padding:10px 28px;font-weight:800!important;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--white)!important}
+
+/* ── HEADER BLOG ── */
+.blog-header {
+    padding: 150px 64px 80px;
+    text-align: center;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(249,115,22,.12);
+}
+.blog-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Outfit', sans-serif; font-size: .8rem;
+    font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 24px;
+}
+.blog-h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1; letter-spacing: .02em;
+}
+.blog-h1 em { font-style: normal; color: var(--orange); }
+.blog-desc {
+    margin: 20px auto 0;
+    font-size: 1.1rem; color: var(--gray);
+    max-width: 600px; line-height: 1.6;
+}
+
+/* ── BLOG GRID ── */
+.blog-container {
+    padding: 80px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+}
+.blog-card {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(249,115,22,.3);
+}
+.blog-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: var(--dark3);
+}
+.blog-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.blog-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 12px;
+}
+.blog-title {
+    font-size: 1.4rem; font-weight: 700; line-height: 1.3;
+    margin-bottom: 15px; color: var(--white); text-decoration: none;
+    transition: color 0.2s;
+}
+.blog-title:hover { color: var(--orange); }
+.blog-excerpt {
+    font-size: 0.95rem; color: var(--gray); line-height: 1.6;
+    margin-bottom: 25px; flex-grow: 1;
+}
+.blog-readmore {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--orange);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: gap 0.2s;
+}
+.blog-readmore:hover { gap: 12px; }
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark2);
+  border-top:1px solid rgba(249,115,22,.1);
+  padding:36px 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.f-logo{display:flex;align-items:center;gap:10px}
+.f-logo img{height:36px}
+.f-name{font-family:'Outfit',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--orange)}
+.f-copy{font-size:.76rem;color:var(--gray2);text-align:center;line-height:1.6}
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; height: 60px; }
+  .nav-logo img { height: 32px; }
+  .nav-name { font-size: 1.2rem; }
+  .nav-links { display: none; }
+  .blog-header { padding: 120px 24px 60px; }
+  .blog-h1 { font-size: 2.5rem; }
+  .blog-container { padding: 60px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEU_ID_AQUI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SEU_ID_AQUI');
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo.png" alt="MSIFORCE Logo" onerror="this.src='https://api.iconify.design/mdi:lightning-bolt.svg?color=%23F5A623';">
+    <span class="nav-name">MSIFORCE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../atendente/index.html" style="color: var(--orange);">CRM + IA</a></li>
+    <li><a href="../index.html#sobre">Sobre</a></li>
+    <li><a href="../index.html#servicos">Serviços</a></li>
+    <li><a href="index.html" style="color: var(--white);">Blog</a></li>
+    <li><a href="https://wa.me/5511910773865" class="nav-cta">Orçamento</a></li>
+  </ul>
+</nav>
+
+<header class="blog-header">
+    <div class="blog-eyebrow">Conteúdo Oficial</div>
+    <h1 class="blog-h1">Blog <em>MSIFORCE</em></h1>
+    <p class="blog-desc">Guias, estratégias e dicas práticas para eletricistas e prestadores de serviço venderem mais e melhorarem o atendimento no WhatsApp.</p>
+</header>
+
+<main class="blog-container">
+    <div class="blog-grid">
+        
+        <!-- ARTIGO 1 -->
+        <article class="blog-card">
+            <img src="thumb_eletricista.png" alt="Eletricista usando WhatsApp" class="blog-img">
+            <div class="blog-content">
+                <div class="blog-tag">Automação</div>
+                <a href="automatizar-atendimento-orcamento-whatsapp-eletricista/index.html" class="blog-title">Como Automatizar o Atendimento e os Orçamentos pelo WhatsApp</a>
+                <p class="blog-excerpt">Um guia completo para prestadores de serviço que estão perdendo clientes por demorar a responder. Aprenda a qualificar leads e enviar PDFs automaticamente.</p>
+                <a href="automatizar-atendimento-orcamento-whatsapp-eletricista/index.html" class="blog-readmore">Ler artigo completo →</a>
+            </div>
+        </article>
+
+        <!-- ARTIGO 2 -->
+        <article class="blog-card">
+            <img src="thumb_bant.png" alt="Eletricista revisando projeto com cliente" class="blog-img">
+            <div class="blog-content">
+                <div class="blog-tag">Vendas</div>
+                <a href="qualificacao-bant-eletricista-fechar-contratos/index.html" class="blog-title">O Que É Qualificação BANT e Como Ela Ajuda Eletricistas a Fechar Mais Contratos</a>
+                <p class="blog-excerpt">Aprenda o método BANT para qualificar clientes e parar de perder tempo com orçamentos que não fecham. Blindando seu tempo com inteligência.</p>
+                <a href="qualificacao-bant-eletricista-fechar-contratos/index.html" class="blog-readmore">Ler artigo completo →</a>
+            </div>
+        </article>
+
+        <!-- ARTIGO 3 -->
+        <article class="blog-card">
+            <img src="thumb_ghosting.png" alt="Eletricista frustrado com celular" class="blog-img">
+            <div class="blog-content">
+                <div class="blog-tag">Comportamento do Cliente</div>
+                <a href="ghosting-whatsapp-cliente-some-orcamento/index.html" class="blog-title">Ghosting no WhatsApp: Por Que os Clientes Somem Após o Orçamento</a>
+                <p class="blog-excerpt">Entenda por que o seu cliente visualiza seu orçamento e não responde mais, e descubra a técnica para recuperar essas vendas esquecidas.</p>
+                <a href="ghosting-whatsapp-cliente-some-orcamento/index.html" class="blog-readmore">Ler artigo completo →</a>
+            </div>
+        </article>
+
+        <!-- ARTIGO 4 -->
+        <article class="blog-card">
+            <img src="thumb_orcamento.png" alt="Notebook e projeto em cima da mesa" class="blog-img">
+            <div class="blog-content">
+                <div class="blog-tag">Gestão</div>
+                <a href="modelo-orcamento-eletricista-pdf/index.html" class="blog-title">Como Montar um PDF de Orçamento Profissional para Eletricistas</a>
+                <p class="blog-excerpt">Descubra a estrutura de um orçamento profissional que transmite segurança e faz o cliente pagar mais caro sem reclamar.</p>
+                <a href="modelo-orcamento-eletricista-pdf/index.html" class="blog-readmore">Ler artigo completo →</a>
+            </div>
+        </article>
+
+        <!-- ARTIGO 5 -->
+        <article class="blog-card">
+            <img src="thumb_crm.png" alt="Eletricista usando celular para organizar clientes" class="blog-img">
+            <div class="blog-content">
+                <div class="blog-tag">Gestão de Negócios</div>
+                <a href="crm-para-eletricistas/index.html" class="blog-title">CRM para Eletricistas: Como Organizar Leads, Orçamentos e Clientes</a>
+                <p class="blog-excerpt">Entenda o que é um CRM e como ele pode te ajudar a organizar clientes, enviar orçamentos e parar de perder vendas perdidas no WhatsApp.</p>
+                <a href="crm-para-eletricistas/index.html" class="blog-readmore">Ler artigo completo →</a>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<footer>
+  <div class="f-logo">
+    <span class="f-name">MSIFORCE</span>
+  </div>
+  <div class="f-copy">© 2026 MSIFORCE Tech Solutions. Todos os direitos reservados.</div>
+</footer>
+
+</body>
+</html>
