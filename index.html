@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MSIFORCE — Elétrica & Segurança Eletrônica</title>
+<title>MSIFORCE — Engenharia, Elétrica & Segurança Eletrônica</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --orange: #F5A623;
@@ -48,7 +48,7 @@ nav{
 }
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo img{height:40px;width:auto}
-.nav-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--orange);line-height:1}
+.nav-name{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:.08em;color:var(--orange);line-height:1}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{
   font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;
@@ -80,7 +80,7 @@ nav{
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;
+  font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;
   letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
   margin-bottom:24px;
   opacity:0;animation:fadeUp .7s ease .2s forwards;
@@ -89,15 +89,14 @@ nav{
 .hero-eyebrow .blink{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:blink 1.4s infinite}
 
 .hero-h1{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Outfit',sans-serif;font-weight:900;
   font-size:clamp(4.5rem,7.5vw,8.5rem);
   line-height:.9;letter-spacing:.02em;
   opacity:0;animation:fadeUp .8s ease .4s forwards;
 }
 .hero-h1 .line-orange{color:var(--orange);display:block}
 .hero-h1 .line-stroke{
-  -webkit-text-stroke:2px rgba(255,255,255,.35);
-  color:transparent;display:block;
+  color:var(--white);display:block;
 }
 .hero-h1 .line-white{display:block}
 
@@ -193,7 +192,7 @@ nav{
   max-width:160px;
 }
 .cert-icon{font-size:1.8rem;display:block;margin-bottom:6px}
-.cert-t1{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.08em;color:var(--orange);display:block;line-height:1}
+.cert-t1{font-family:'Outfit',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:.08em;color:var(--orange);display:block;line-height:1}
 .cert-t2{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:4px;display:block}
 
 /* ── STATS BAR ── */
@@ -208,7 +207,7 @@ nav{
 }
 .stat-cell:last-child{border-right:none}
 .stat-n{
-  font-family:'Bebas Neue',sans-serif;font-size:2.8rem;
+  font-family:'Outfit',sans-serif;font-weight:900;font-size:2.8rem;
   line-height:1;color:var(--black);
 }
 .stat-lbl{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(0,0,0,.55);line-height:1.4}
@@ -240,13 +239,13 @@ nav{
 .sec-alt{background:var(--dark)}
 .s-eye{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:'Barlow Condensed',sans-serif;font-size:.72rem;
+  font-family:'Outfit',sans-serif;font-size:.72rem;
   font-weight:700;letter-spacing:.22em;text-transform:uppercase;
   color:var(--orange);margin-bottom:16px;
 }
 .s-eye::before{content:'';display:block;width:24px;height:2px;background:var(--orange)}
 .s-title{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Outfit',sans-serif;font-weight:900;
   font-size:clamp(3rem,5vw,5.5rem);
   line-height:.92;letter-spacing:.02em;margin-bottom:0;
 }
@@ -321,7 +320,7 @@ nav{
 .svc-card:hover::before{transform:scaleX(1)}
 .svc-card:hover{background:var(--dark3)}
 .svc-num{
-  font-family:'Bebas Neue',sans-serif;font-size:4rem;
+  font-family:'Outfit',sans-serif;font-weight:900;font-size:4rem;
   color:rgba(245,166,35,.08);line-height:1;margin-bottom:16px;
   transition:color .3s;
 }
@@ -370,7 +369,7 @@ nav{
   align-items:center;gap:60px;
 }
 .cta-t{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Outfit',sans-serif;font-weight:900;
   font-size:clamp(2.5rem,4.5vw,4.8rem);
   line-height:.9;letter-spacing:.02em;
 }
@@ -383,7 +382,7 @@ nav{
   display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;
 }
 .contact-h{
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Outfit',sans-serif;font-weight:900;
   font-size:clamp(3.5rem,6vw,6rem);
   line-height:.88;margin-bottom:44px;
 }
@@ -443,7 +442,7 @@ footer{
 }
 .f-logo{display:flex;align-items:center;gap:10px}
 .f-logo img{height:36px}
-.f-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--orange)}
+.f-name{font-family:'Outfit',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.08em;color:var(--orange)}
 .f-copy{font-size:.76rem;color:var(--gray2);text-align:center;line-height:1.6}
 .f-norms{
   font-family:'Barlow Condensed',sans-serif;font-size:.68rem;
@@ -576,6 +575,7 @@ footer{
   </a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
+      <li><a href="index_v2.html" style="color:var(--orange);">Software CRM & IA</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#contato">Contato</a></li>
     <li><a href="https://wa.me/5511910773865" class="nav-cta">Orçamento</a></li>
@@ -590,8 +590,8 @@ footer{
       Elétrica &amp; Segurança Eletrônica
     </div>
     <h1 class="hero-h1">
-      <span class="line-stroke">ELÉTRICA</span>
-      <span class="line-orange">&amp; SEGURANÇA</span>
+      <span class="line-stroke">ENGENHARIA</span>
+      <span class="line-orange">&amp; ELÉTRICA</span>
       <span class="line-white">ELETRÔNICA</span>
     </h1>
     <p class="hero-tagline">
@@ -691,7 +691,7 @@ footer{
       <div style="background:var(--dark2);border:1px solid rgba(245,166,35,.15);padding:48px 40px;position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange2))"></div>
         <div style="position:absolute;bottom:-50px;right:-50px;width:180px;height:180px;border:36px solid rgba(245,166,35,.05);border-radius:50%"></div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1.2;margin-bottom:28px">
+        <div style="font-family:'Outfit',sans-serif;font-weight:900;font-size:2rem;line-height:1.2;margin-bottom:28px">
           "Do fio ao projeto — <span style="color:var(--orange)">entregamos</span> com excelência."
         </div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
