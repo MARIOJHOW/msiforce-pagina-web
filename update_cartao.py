@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os
+
+file_path = r"d:\Users\jhowu\bot-whatsapp\site-msiforce\cartao\index.html"
+
+new_html = """<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +81,7 @@ END:VCARD`;
 </head>
 <body class="min-h-screen bg-msiblack flex items-center justify-center p-4 sm:p-6 text-slate-200">
     <!-- Noise Overlay -->
-    <div class="fixed inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E');"></div>
+    <div class="fixed inset-0 opacity-[0.03] pointer-events-none z-0" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\\'0 0 200 200\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cfilter id=\\'n\\'%3E%3CfeTurbulence type=\\'fractalNoise\\' baseFrequency=\\'0.85\\' numOctaves=\\'4\\' stitchTiles=\\'stitch\\'/%3E%3C/filter%3E%3Crect width=\\'100%25\\' height=\\'100%25\\' filter=\\'url(%23n)\\'/%3E%3C/svg%3E');"></div>
 
     <div class="w-full max-w-md rounded-[2rem] glass-card shadow-2xl overflow-hidden relative z-10">
         
@@ -206,3 +210,9 @@ END:VCARD`;
     </div>
 </body>
 </html>
+"""
+
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(new_html)
+
+print("Redesign do cartão concluído!")
