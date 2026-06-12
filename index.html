@@ -316,7 +316,18 @@ nav{
   width:100%;height:3px;background:var(--orange);
   transform:scaleX(0);transform-origin:left;
   transition:transform .4s ease;
+  z-index:10;
 }
+.svc-img {
+  width:calc(100% + 64px);
+  margin:-40px -32px 32px -32px;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  opacity:0.9;
+  transition:opacity .3s ease;
+}
+.svc-card:hover .svc-img { opacity: 1; }
 .svc-card:hover::before{transform:scaleX(1)}
 .svc-card:hover{background:var(--dark3)}
 .svc-num{
@@ -543,6 +554,10 @@ footer{
   #contato { grid-template-columns: 1fr; gap: 50px; padding: 60px 24px; }
   .contact-h { font-size: 2.5rem; margin-bottom: 24px; }
   .fr { grid-template-columns: 1fr; }
+  .svc-img {
+    width: calc(100% + 48px) !important;
+    margin: -32px -24px 24px -24px !important;
+  }
   
   /* Footer */
   footer { padding: 32px 24px; flex-direction: column; text-align: center; gap: 16px; }
@@ -720,6 +735,7 @@ footer{
 
   <div class="svc-grid reveal" style="transition-delay:.1s">
     <div class="svc-card hot">
+      <img src="svc_eletrica.png" class="svc-img" alt="Instalações Elétricas">
       <div class="svc-num">01</div>
       <div class="svc-icon">⚡</div>
       <div class="svc-name">Instalações Elétricas</div>
@@ -733,6 +749,7 @@ footer{
       </ul>
     </div>
     <div class="svc-card">
+      <img src="svc_iluminacao.png" class="svc-img" alt="Iluminação Moderna">
       <div class="svc-num">02</div>
       <div class="svc-icon">💡</div>
       <div class="svc-name">Iluminação Moderna</div>
@@ -745,11 +762,12 @@ footer{
         <li>Economia de energia</li>
       </ul>
     </div>
-    <a href="automacao.html" class="svc-card" style="text-decoration:none; display:block;">
+    <a href="automacao.html" class="svc-card" style="text-decoration:none; display:block; color:inherit; position:relative;">
+      <img src="svc_automacao.png" class="svc-img" alt="Automação Residencial">
       <div class="svc-num">03</div>
       <div class="svc-icon">📱</div>
       <div class="svc-name">Automação Residencial</div>
-      <div class="svc-scope">Smart Home · Controle</div>
+      <div class="svc-scope" style="color:#00F0FF;">Smart Home · Controle</div>
       <p class="svc-desc">Controle de luzes, cortinas, tomadas e equipamentos pelo celular ou assistente de voz.</p>
       <ul class="svc-list">
         <li>Tomadas e interruptores smart</li>
@@ -757,8 +775,12 @@ footer{
         <li>Controle por smartphone</li>
         <li>Cenários e automações</li>
       </ul>
+      <div style="margin-top:24px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.05); color:#00F0FF; font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:flex; align-items:center; gap:8px;">
+        Conhecer Landing Page <span style="font-size:1.1rem; transition:transform 0.3s ease;" class="arrow-hover">→</span>
+      </div>
     </a>
     <div class="svc-card">
+      <img src="svc_cftv.png" class="svc-img" alt="CFTV & Câmeras">
       <div class="svc-num">04</div>
       <div class="svc-icon">📹</div>
       <div class="svc-name">CFTV &amp; Câmeras</div>
@@ -772,6 +794,7 @@ footer{
       </ul>
     </div>
     <div class="svc-card">
+      <img src="svc_acesso.png" class="svc-img" alt="Controle de Acesso">
       <div class="svc-num">05</div>
       <div class="svc-icon">🔐</div>
       <div class="svc-name">Controle de Acesso</div>
@@ -785,6 +808,7 @@ footer{
       </ul>
     </div>
     <div class="svc-card">
+      <img src="svc_alarme.png" class="svc-img" alt="Alarmes & Cerca">
       <div class="svc-num">06</div>
       <div class="svc-icon">🚨</div>
       <div class="svc-name">Alarmes &amp; Cerca</div>
