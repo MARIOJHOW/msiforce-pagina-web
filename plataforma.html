@@ -979,6 +979,91 @@ footer strong { color: var(--orange); }
 .blog-desc { font-size: 0.85rem; color: rgba(240,237,232,0.5); line-height: 1.6; margin-bottom: 1rem; }
 .blog-link { font-size: 0.8rem; color: var(--orange); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; }
 
+/* ════════════════════════════════════════════
+   SHOWCASE KANBAN & PDF
+════════════════════════════════════════════ */
+#showcase {
+  background: var(--dark2); padding: 100px 3rem;
+  position: relative; overflow: hidden;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+#showcase .eyebrow, #showcase h2, #showcase .divider,
+#showcase .section-desc { position: relative; }
+#showcase .divider { margin-left: auto; margin-right: auto; }
+#showcase .section-desc { margin-left: auto; margin-right: auto; }
+
+.showcase-grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
+  max-width: 1200px; margin: 60px auto 0; text-align: left;
+}
+/* Kanban Mockup */
+.mockup-kanban {
+  background: var(--black); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.mk-header {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;
+}
+.mk-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--orange); }
+.mk-board {
+  display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px;
+}
+.mk-board::-webkit-scrollbar { height: 4px; }
+.mk-col {
+  flex: 1; min-width: 220px; background: rgba(255,255,255,0.02);
+  border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 12px;
+}
+.mk-col-title {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--gray); display: flex; justify-content: space-between;
+}
+.mk-card {
+  background: var(--dark3); border-left: 3px solid var(--orange);
+  border-radius: 6px; padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s; cursor: pointer;
+}
+.mk-card:hover { transform: translateY(-3px); }
+.mk-card.c-green { border-left-color: #25D366; }
+.mk-card.c-blue { border-left-color: #3b82f6; }
+.mk-card-tag { font-size: 0.6rem; background: rgba(255,255,255,0.05); padding: 3px 6px; border-radius: 4px; color: var(--gray2); display: inline-block; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.mk-card-name { font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; color: var(--white); }
+.mk-card-val { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.9rem; color: var(--orange); }
+.mk-card-val.v-green { color: #25D366; }
+
+/* PDF Mockup */
+.mockup-pdf-wrapper {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.mockup-pdf {
+  background: #fff; width: 100%; max-width: 320px;
+  border-radius: 8px; padding: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,166,35,0.2);
+  color: #1e293b; position: relative;
+  transform: rotate(2deg); transition: transform 0.4s;
+}
+.mockup-pdf:hover { transform: rotate(0deg) scale(1.02); }
+.mp-logo { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: #020617; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 16px; }
+.mp-client { font-size: 0.75rem; color: #64748b; margin-bottom: 20px; line-height: 1.5; }
+.mp-client strong { color: #0f172a; }
+.mp-table { width: 100%; font-size: 0.75rem; border-collapse: collapse; margin-bottom: 20px; }
+.mp-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #cbd5e1; color: #475569; }
+.mp-table td { padding: 10px 0; border-bottom: 1px dashed #e2e8f0; font-weight: 500; }
+.mp-table td.val { text-align: right; color: #0f172a; }
+.mp-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.1rem; color: #020617; margin-bottom: 24px; }
+.mp-btn { background: #25D366; color: #fff; text-align: center; padding: 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; display: block; box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
+
+@media (max-width: 768px) {
+  #showcase { padding: 60px 24px; }
+  .showcase-grid { grid-template-columns: 1fr; gap: 60px; }
+  .mockup-pdf { transform: rotate(0); }
+}
+
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1762,6 +1847,96 @@ footer strong { color: var(--orange); }
   </div>
 </section>
 
+
+<!-- ════════════════════════════════════════════
+     SHOWCASE KANBAN E PDF
+════════════════════════════════════════════ -->
+<section id="showcase">
+  <span class="eyebrow">04.5 — Visão Real</span>
+  <h2 class="reveal">A <em>plataforma</em><br>em ação.</h2>
+  <div class="divider"></div>
+  <p class="section-desc reveal">Exemplos reais do que a MSIFORCE constrói automaticamente enquanto você trabalha ou descansa.</p>
+  
+  <div class="showcase-grid">
+    <!-- KANBAN -->
+    <div class="mockup-kanban reveal reveal-delay-1">
+      <div class="mk-header">
+        <div class="mk-title">Gestão de Leads (CRM Kanban)</div>
+        <div style="display:flex;gap:8px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--orange);"></div>
+        </div>
+      </div>
+      <div class="mk-board">
+        <div class="mk-col">
+          <div class="mk-col-title"><span>Novos Leads</span> <span>2</span></div>
+          <div class="mk-card">
+            <span class="mk-card-tag">Via WhatsApp IA</span>
+            <div class="mk-card-name">João Silva (Instalação)</div>
+            <div class="mk-card-val">Pendente...</div>
+          </div>
+          <div class="mk-card">
+            <span class="mk-card-tag">Via WhatsApp IA</span>
+            <div class="mk-card-name">Clínica Sorriso (CFTV)</div>
+            <div class="mk-card-val">Qualificando...</div>
+          </div>
+        </div>
+        <div class="mk-col">
+          <div class="mk-col-title"><span>Orçamento</span> <span>1</span></div>
+          <div class="mk-card c-blue">
+            <span class="mk-card-tag">PDF Gerado Automático</span>
+            <div class="mk-card-name">Cond. Altos (Portaria)</div>
+            <div class="mk-card-val">R$ 4.500,00</div>
+          </div>
+        </div>
+        <div class="mk-col">
+          <div class="mk-col-title"><span>Fechado</span> <span>1</span></div>
+          <div class="mk-card c-green">
+            <span class="mk-card-tag">Aprovado pelo Cliente</span>
+            <div class="mk-card-name">Padaria Central</div>
+            <div class="mk-card-val v-green">R$ 2.850,00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF -->
+    <div class="mockup-pdf-wrapper reveal reveal-delay-2">
+      <div class="mockup-pdf">
+        <div class="mp-logo">SUA EMPRESA</div>
+        <div class="mp-client">
+          Orçamento para:<br>
+          <strong>Condomínio Altos (Portaria)</strong><br>
+          Data: Hoje | Válido por: 7 dias
+        </div>
+        <table class="mp-table">
+          <thead>
+            <tr>
+              <th>Descrição do Serviço</th>
+              <th style="text-align:right">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kit 4 Câmeras Intelbras</td>
+              <td class="val">R$ 2.800,00</td>
+            </tr>
+            <tr>
+              <td>Mão de obra especializada</td>
+              <td class="val">R$ 1.700,00</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mp-total">
+          <span>Total:</span>
+          <span style="color:#f5a623">R$ 4.500,00</span>
+        </div>
+        <div class="mp-btn">✓ APROVAR ORÇAMENTO</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ROI -->
 
