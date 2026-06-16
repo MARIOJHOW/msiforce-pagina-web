@@ -967,6 +967,79 @@ footer{
   </div>
 </div>
 
+<!-- FAQ -->
+<section id="faq" style="padding:100px 64px;background:var(--black);">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="margin-bottom:56px;">
+      <div class="s-eye">Perguntas frequentes</div>
+      <h2 class="s-title">Suas dúvidas,<br><em>respondidas.</em></h2>
+    </div>
+    <div id="faq-list" style="display:flex;flex-direction:column;gap:2px;">
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">Você atende em finais de semana e feriados?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Sim. Atendo de segunda a sábado, e em casos de emergência elétrica também aos domingos e feriados. Basta me chamar no WhatsApp e verificamos a disponibilidade.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">Os serviços têm garantia?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Sim, todos os serviços têm garantia. Instalações elétricas e sistemas de segurança têm garantia de <strong style="color:var(--white);">12 meses</strong> em mão de obra. Peças e equipamentos seguem a garantia do fabricante. Qualquer problema dentro do prazo, retorno sem custo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">Emite nota fiscal?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Sim. Emito nota fiscal para pessoa física e jurídica. Também forneço <strong style="color:var(--white);">laudo técnico e ART</strong> (Anotação de Responsabilidade Técnica) quando necessário para projetos que exigem documentação formal.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">Qual o prazo para execução do serviço?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Depende do serviço. Pequenos reparos e instalações simples são resolvidos <strong style="color:var(--white);">no mesmo dia</strong>. Projetos maiores (painéis, CFTV completo, automação) têm prazo estimado no orçamento, geralmente entre 1 e 5 dias úteis.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">O orçamento tem algum custo?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Não. O orçamento é <strong style="color:var(--white);">totalmente gratuito e sem compromisso</strong>. Você descreve o que precisa pelo WhatsApp ou pelo formulário, eu analiso e envio uma proposta detalhada com valores, materiais e prazo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--dark2);overflow:hidden;">
+        <button class="faq-q" onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:none;border:none;cursor:pointer;text-align:left;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);">Quais cidades você atende?</span>
+          <span class="faq-icon" style="width:28px;height:28px;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange);font-size:1.2rem;transition:transform .3s;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 32px;">
+          <p style="font-size:.95rem;color:var(--gray);line-height:1.75;padding-bottom:24px;">Atendo <strong style="color:var(--white);">São Paulo e toda a Grande SP</strong> — incluindo Santo André, São Bernardo, Mauá, Guarulhos, Osasco, Barueri e região. Para projetos fora dessa área, consulte disponibilidade.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contato">
   <div class="reveal">
@@ -1024,6 +1097,27 @@ footer{
 </footer>
 
 <script>
+// FAQ accordion
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const ans=item.querySelector('.faq-a');
+  const icon=item.querySelector('.faq-icon');
+  const isOpen=ans.style.maxHeight&&ans.style.maxHeight!=='0px';
+  document.querySelectorAll('.faq-item').forEach(i=>{
+    i.querySelector('.faq-a').style.maxHeight='0px';
+    i.querySelector('.faq-a').style.paddingBottom='0';
+    i.querySelector('.faq-icon').textContent='+';
+    i.querySelector('.faq-icon').style.transform='rotate(0deg)';
+    i.style.borderLeft='none';
+  });
+  if(!isOpen){
+    ans.style.maxHeight=ans.scrollHeight+'px';
+    icon.textContent='×';
+    icon.style.transform='rotate(90deg)';
+    item.style.borderLeft='3px solid var(--orange)';
+  }
+}
+
 // Cursor
 const cur=document.getElementById('cur'), curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
