@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MSIFORCE: O CRM com IA que atende, qualifica leads e envia orçamentos em PDF no WhatsApp 24h por dia. Aumente suas vendas de serviços.">
+<meta property="og:title" content="MSIFORCE — CRM & Inteligência Artificial no WhatsApp">
+<meta property="og:description" content="O CRM com IA que atende, qualifica leads e envia orçamentos em PDF no WhatsApp 24h por dia. Aumente suas vendas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://msiforce.com.br/plataforma.html">
 <title>MSIFORCE — CRM & Inteligência Artificial no WhatsApp</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -1605,6 +1610,17 @@ footer strong { color: var(--orange); }
   <div class="trust-item"><span class="ti-icon">📱</span><span><strong>WhatsApp</strong> nativo (sem número fake)</span></div>
 </div>
 
+<div style="background: var(--black); padding: 40px 20px 60px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gray2); margin-bottom: 24px; font-weight: 700;">Empresas de serviço que já aceleram com a MSIFORCE</p>
+  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.4; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.2rem; filter: grayscale(100%);">
+    <span>⚡ ELÉTRICA SP</span>
+    <span>📷 MAX CFTV</span>
+    <span>💧 HIDRO PRIME</span>
+    <span>🔧 CLIMA AR</span>
+    <span>🏠 SMART HOUSE</span>
+  </div>
+</div>
+
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
@@ -2263,30 +2279,11 @@ footer strong { color: var(--orange); }
     </a>
   </div>
   <div class="cf reveal" style="transition-delay:.15s">
-    <div class="s-eye" style="margin-bottom:16px">Orçamento rápido</div>
-    <div class="fr">
-      <div class="fg"><label class="fl">Nome</label><input type="text" class="fi" placeholder="Seu nome" id="f-nome"></div>
-      <div class="fg"><label class="fl">Telefone</label><input type="tel" class="fi" placeholder="(11) 9xxxx-xxxx" id="f-tel"></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Serviço de interesse</label>
-      <select class="fs" id="f-svc">
-        <option value="">Selecione um serviço...</option>
-        <option>Instalação Elétrica Residencial</option>
-        <option>Instalação Elétrica Comercial</option>
-        <option>Iluminação com Perfil de LED</option>
-        <option>Automação Residencial</option>
-        <option>Projeto Elétrico + Laudo Técnico</option>
-        <option>CFTV / Câmeras de Segurança</option>
-        <option>Controle de Acesso / Fechadura</option>
-        <option>Alarme &amp; Cerca Elétrica</option>
-        <option>Redes Estruturadas</option>
-        <option>Som Ambiente / Home Theater</option>
-        <option>Outro</option>
-      </select>
-    </div>
-    <div class="fg"><label class="fl">Descrição do projeto</label><textarea class="ft" id="f-desc" placeholder="Descreva brevemente o que você precisa..."></textarea></div>
-    <button class="btn-send" onclick="sendWA()">⚡ Enviar pelo WhatsApp</button>
+    <div class="s-eye" style="margin-bottom:16px">Fale com a IA agora</div>
+    <h3 style="font-family:'Outfit',sans-serif;font-size:1.8rem;margin-bottom:20px;line-height:1.2;">Teste a plataforma<br>na prática!</h3>
+    <p style="color:var(--gray);font-size:0.95rem;line-height:1.6;margin-bottom:15px;">Em vez de preencher um formulário longo que vai cair numa caixa de e-mail esquecida, clique no botão abaixo para conversar com a nossa Inteligência Artificial.</p>
+    <p style="color:var(--gray);font-size:0.95rem;line-height:1.6;margin-bottom:30px;">Ela vai te atender, tirar suas dúvidas e te enviar um orçamento de teste em PDF agora mesmo.</p>
+    <a href="https://wa.me/5511910773865?text=Oi%21%20Vim%20pelo%20site%20e%20quero%20testar%20a%20Intelig%C3%AAncia%20Artificial%20da%20MSIFORCE." class="btn-hero" style="font-size:1.05rem;padding:18px 48px;width:100%;justify-content:center;" target="_blank">💬 Iniciar Teste no WhatsApp</a>
   </div>
 </section>
 
@@ -2353,20 +2350,7 @@ document.querySelectorAll('[data-count]').forEach(el=>{
   co.observe(el);
 });
 
-// WA form
-function sendWA(){
-  const nome=document.getElementById('f-nome').value.trim();
-  const tel=document.getElementById('f-tel').value.trim();
-  const svc=document.getElementById('f-svc').value;
-  const desc=document.getElementById('f-desc').value.trim();
-  if(!nome){alert('Por favor, informe seu nome.');return;}
-  let msg='Olá! Vim pelo site da MSIFORCE.\n\n';
-  if(nome) msg+=`*Nome:* ${nome}\n`;
-  if(tel)  msg+=`*Telefone:* ${tel}\n`;
-  if(svc)  msg+=`*Serviço:* ${svc}\n`;
-  if(desc) msg+=`*Descrição:* ${desc}\n`;
-  window.open('https://wa.me/5511910773865?text='+encodeURIComponent(msg),'_blank');
-}
+// WA form removido - substituído por link direto de teste da IA
 </script>
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -2410,5 +2394,9 @@ function toggleFaq(id) {
 }
 </script>
 
+<!-- STICKY MOBILE CTA -->
+<div class="mobile-sticky-cta">
+  <a href="#fechamento" class="btn-hero">🚀 Ver Planos e Preços</a>
+</div>
 </body>
 </html>
