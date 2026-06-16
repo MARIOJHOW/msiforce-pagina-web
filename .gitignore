@@ -1,7 +1,16 @@
 *.pem
 node_modules/
+.claude/
+
+# documentos internos
 aws-deploy-msiforce.docx
+*.docx
+
+# scripts de manutenção pontual
+*.py
+*.ps1
 generate_doc.js
+extract_logo.js
+setup_git_pagina.ps1
 package.json
 package-lock.json
-setup_git_pagina.ps1
