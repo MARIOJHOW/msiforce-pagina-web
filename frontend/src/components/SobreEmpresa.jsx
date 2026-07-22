@@ -83,19 +83,6 @@ export default function SobreEmpresa() {
           <div className="sobre-foto-placeholder">
             <img src="/mario_tecnico.png" alt="Mario Sérgio — Fundador MSIFORCE" />
           </div>
-          <div className="sobre-card-fundador">
-            <div className="sobre-card-nome">Mario Sérgio</div>
-            <div className="sobre-card-cargo">Fundador & Responsável Técnico</div>
-            <div className="sobre-card-tags">
-              <span>NR-10</span>
-              <span>NR-35</span>
-              <span>Cloud</span>
-            </div>
-            <p className="sobre-card-frase">
-              "Saí do CLT em busca de qualidade de vida — e encontrei propósito entregando
-              projetos de infraestrutura que realmente fazem diferença para quem contrata."
-            </p>
-          </div>
         </motion.div>
       </motion.div>
     </section>
