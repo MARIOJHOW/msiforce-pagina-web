@@ -1,0 +1,337 @@
+.svc-page {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.svc-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 6% 80px;
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+}
+
+.svc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.93) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.svc-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.svc-eyebrow {
+  margin-bottom: 20px;
+}
+
+.svc-eyebrow a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.svc-eyebrow a:hover { color: #fff; }
+
+.svc-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.svc-sub {
+  font-size: 1.05rem;
+  color: #bbbbbb;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.svc-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  padding: 16px 36px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.svc-cta:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+/* SECTIONS */
+.svc-section {
+  padding: 100px 6%;
+  background: var(--black);
+}
+
+.svc-section--alt {
+  background: #060606;
+}
+
+.svc-header {
+  margin-bottom: 64px;
+}
+
+.svc-eyebrow-section {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.svc-eyebrow-section::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.svc-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* BENEFÍCIOS */
+.svc-beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.svc-beneficio {
+  padding: 36px;
+  background: #0c0c0c;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-top: 2px solid rgba(197,160,89,0.3);
+  transition: border-top-color 0.3s;
+}
+
+.svc-beneficio:hover { border-top-color: var(--gold); }
+
+.svc-b-icon {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.svc-b-titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.svc-b-desc {
+  font-size: 0.88rem;
+  color: #aaaaaa;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* APLICAÇÕES */
+.svc-aplicacoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.svc-aplicacao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #0c0c0c;
+  border: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.9rem;
+  color: #cccccc;
+  font-family: 'Outfit', sans-serif;
+}
+
+.svc-ap-check {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* PROCESSO */
+.svc-processo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2px;
+}
+
+.svc-passo {
+  padding: 36px 28px;
+  background: #0c0c0c;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.svc-passo-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.2;
+  margin-bottom: 16px;
+}
+
+.svc-passo-titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.svc-passo-desc {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* FAQ */
+.svc-faq {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+}
+
+.svc-faq-item {
+  padding: 28px;
+  background: #0c0c0c;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 2px solid rgba(197,160,89,0.3);
+}
+
+.svc-faq-q {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.svc-faq-a {
+  font-size: 0.88rem;
+  color: #aaaaaa;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* CTA FINAL */
+.svc-cta-section {
+  padding: 120px 6%;
+  text-align: center;
+  background: #060606;
+  border-top: 1px solid rgba(197,160,89,0.1);
+}
+
+.svc-cta-inner { max-width: 700px; margin: 0 auto; }
+
+.svc-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.svc-cta-gold { color: var(--gold); font-style: italic; }
+
+.svc-cta-sub {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* RELACIONADOS */
+.svc-related-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.svc-related-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.svc-related-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #0c0c0c;
+  border: 1px solid rgba(255,255,255,0.06);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.svc-related-card:hover {
+  border-color: rgba(197,160,89,0.3);
+  background: #111;
+}
+
+.svc-related-icon { font-size: 1rem; }
+
+.svc-related-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #cccccc;
+}
+
+.svc-related-arrow {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+  .svc-faq { grid-template-columns: 1fr; }
+  .svc-hero { min-height: 55vh; }
+  .svc-cta-section { padding: 80px 5%; }
+}

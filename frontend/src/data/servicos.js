@@ -1,0 +1,152 @@
+export const SERVICOS_DATA = {
+  eletrica: {
+    title: 'Projetos Elétricos',
+    slug: 'eletrica',
+    headline: 'Instalações elétricas seguras,\nnormalizadas e documentadas.',
+    sub: 'Projetos residenciais e comerciais conforme ABNT NBR 5410, com emissão de ART, laudo técnico e documentação completa para sua empresa ou condomínio.',
+    heroImg: '/img_eletrica.webp',
+    beneficios: [
+      { icon: '📋', titulo: 'ART e laudo técnico', desc: 'Emitimos Anotação de Responsabilidade Técnica para todos os projetos, conforme exigência do CREA e seguradoras.' },
+      { icon: '🔒', titulo: 'Conformidade com NR-10', desc: 'Instalações executadas seguindo rigorosamente a Norma Regulamentadora NR-10, garantindo segurança para colaboradores.' },
+      { icon: '⚡', titulo: 'SPDA e aterramento', desc: 'Projeto e instalação de para-raios e sistemas de aterramento para proteção de equipamentos e pessoas.' },
+      { icon: '📊', titulo: 'Dimensionamento correto', desc: 'Projeto de cargas evita sobrecargas, queima de equipamentos e riscos de incêndio elétrico.' },
+      { icon: '🔧', titulo: 'Quadros de distribuição', desc: 'Montagem e organização de quadros elétricos com disjuntores identificados, DPS e aterramento.' },
+      { icon: '🔄', titulo: 'Manutenção preventiva', desc: 'Contratos de manutenção com inspeções periódicas para identificar falhas antes que causem problemas.' },
+    ],
+    aplicacoes: [
+      'Empresas e escritórios', 'Condomínios residenciais e comerciais', 'Clínicas e consultórios',
+      'Galpões e indústrias', 'Redes de franquias', 'Comércios e lojas',
+      'Hospitais e clínicas veterinárias', 'Academias e estúdios',
+    ],
+    processo: [
+      { titulo: 'Visita técnica', desc: 'Levantamento gratuito da instalação existente, identificação de pontos de risco e necessidades de expansão.' },
+      { titulo: 'Projeto e orçamento', desc: 'Projeto elétrico detalhado com memorial descritivo, lista de materiais e cronograma. Entrega em até 3 dias úteis.' },
+      { titulo: 'Execução', desc: 'Instalação com equipe técnica própria, usando materiais de primeira linha e respeitando a ABNT NBR 5410.' },
+      { titulo: 'Documentação e ART', desc: 'Entrega de laudo técnico, ART, esquema unifilar e manual de operação do sistema.' },
+    ],
+    faq: [
+      { q: 'Vocês emitem ART para projetos elétricos comerciais?', a: 'Sim. Emitimos ART (Anotação de Responsabilidade Técnica) para todos os projetos elétricos, conforme exigência do CREA e exigida por seguradoras e prefeituras para alvarás.' },
+      { q: 'Qual a diferença entre instalação elétrica residencial e comercial?', a: 'Instalações comerciais exigem dimensionamento de carga maior, proteções específicas, aterramento reforçado e conformidade com normas trabalhistas (NR-10). Nossos projetos cobrem ambas as modalidades.' },
+      { q: 'Vocês fazem manutenção preventiva em instalações elétricas?', a: 'Sim. Oferecemos contratos de manutenção com visitas semestrais ou anuais, termografia, verificação de conexões e relatório técnico completo.' },
+      { q: 'É possível instalar um gerador de emergência?', a: 'Sim. Instalamos grupos geradores e fazemos o projeto de transferência automática (QTA) para garantir continuidade operacional em caso de queda de energia.' },
+    ],
+    related: [
+      { slug: 'automacao', name: 'Automação Residencial', icon: '🤖' },
+      { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
+      { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
+    ],
+  },
+
+  cftv: {
+    title: 'CFTV & Monitoramento',
+    slug: 'cftv',
+    headline: 'Vigilância 4K com acesso\nremoto de qualquer lugar.',
+    sub: 'Câmeras IP de alta resolução com visão noturna, analytics de vídeo e acesso pelo celular. Proteção total para empresas, condomínios e comércios.',
+    heroImg: '/img_cftv.webp',
+    beneficios: [
+      { icon: '📷', titulo: 'Câmeras IP 4K', desc: 'Imagens com resolução ultra HD, visão noturna colorida e zoom digital sem perda de qualidade.' },
+      { icon: '📱', titulo: 'Acesso remoto', desc: 'Visualize as câmeras em tempo real pelo smartphone ou computador de qualquer lugar do mundo.' },
+      { icon: '☁️', titulo: 'Armazenamento em nuvem', desc: 'Gravações seguras em nuvem com retenção configurável de 7, 15 ou 30 dias, sem risco de furto do DVR.' },
+      { icon: '🔍', titulo: 'Analytics de vídeo', desc: 'Detecção de movimento, reconhecimento facial, contagem de pessoas e alertas automáticos por e-mail ou WhatsApp.' },
+      { icon: '🔒', titulo: 'Criptografia de ponta a ponta', desc: 'Transmissão e armazenamento criptografados para proteger a privacidade e cumprir requisitos da LGPD.' },
+      { icon: '🔧', titulo: 'Suporte e manutenção', desc: 'Limpeza de lentes, ajuste de posicionamento e atualização de firmware inclusos nos contratos de manutenção.' },
+    ],
+    aplicacoes: [
+      'Condomínios e portarias', 'Empresas e escritórios', 'Lojas e supermercados',
+      'Estacionamentos', 'Clínicas e hospitais', 'Galpões e armazéns',
+      'Redes de franquias', 'Escolas e universidades',
+    ],
+    processo: [
+      { titulo: 'Diagnóstico de segurança', desc: 'Visita técnica para mapear pontos cegos, avaliar iluminação e definir o número e posicionamento ideal de câmeras.' },
+      { titulo: 'Projeto e especificação', desc: 'Indicação dos modelos corretos para cada ambiente (interno, externo, baixa luminosidade) com orçamento detalhado.' },
+      { titulo: 'Instalação e cabeamento', desc: 'Passagem de cabos organizada, fixação de câmeras, instalação de DVR/NVR e configuração de rede.' },
+      { titulo: 'Configuração e treinamento', desc: 'Configuração do acesso remoto, alertas e gravação. Treinamento da equipe para uso do sistema.' },
+    ],
+    faq: [
+      { q: 'Qual a diferença entre câmeras analógicas e IP?', a: 'Câmeras IP oferecem resolução muito superior (até 4K), transmissão via rede, analytics de vídeo inteligente e integração com sistemas de controle de acesso. Câmeras analógicas são tecnologia legada com qualidade inferior.' },
+      { q: 'As gravações ficam seguras contra furto do DVR?', a: 'Sim. Oferecemos armazenamento em nuvem como alternativa ou complemento ao DVR local. Mesmo que o equipamento físico seja furtado, as gravações ficam preservadas na nuvem.' },
+      { q: 'É possível integrar o CFTV com o controle de acesso?', a: 'Sim. Integramos câmeras com catracas, portões, interfones e sistemas de controle de acesso para um gerenciamento unificado de segurança.' },
+      { q: 'Quantas câmeras preciso para minha empresa?', a: 'Depende da planta e dos pontos de risco. Em nossa visita técnica gratuita mapeamos todos os ângulos necessários e apresentamos a solução ideal sem excessos.' },
+    ],
+    related: [
+      { slug: 'acesso', name: 'Controle de Acesso', icon: '🔑' },
+      { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
+      { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
+    ],
+  },
+
+  'redes-ti': {
+    title: 'Redes & Infraestrutura de TI',
+    slug: 'redes-ti',
+    headline: 'Rede corporativa rápida,\nestável e segura.',
+    sub: 'Cabeamento estruturado certificado, Wi-Fi empresarial com cobertura total, rack organizado e infraestrutura de TI projetada para crescer com o seu negócio.',
+    heroImg: '/img_redes.webp',
+    beneficios: [
+      { icon: '🌐', titulo: 'Cabeamento Cat6/Cat6A', desc: 'Certificação ponto a ponto com laudo técnico. Suporte a velocidades de até 10 Gbps.' },
+      { icon: '📶', titulo: 'Wi-Fi empresarial', desc: 'Access points gerenciados com cobertura planejada, handoff automático e separação por VLAN para segurança.' },
+      { icon: '🗄️', titulo: 'Rack e datacenter local', desc: 'Montagem de rack com organização de cabos, patch panels, switches e UPS para alta disponibilidade.' },
+      { icon: '🔒', titulo: 'Segmentação de rede', desc: 'VLANs separadas para dados, VoIP, câmeras e visitantes. Zero contaminação entre redes críticas.' },
+      { icon: '☁️', titulo: 'Cloud e híbrido', desc: 'Integração com ambientes de nuvem (AWS, Azure, Google Cloud) e configuração de VPN para acesso remoto seguro.' },
+      { icon: '📊', titulo: 'Monitoramento 24/7', desc: 'Ferramentas de monitoramento que alertam sobre falhas, gargalos e dispositivos com comportamento anormal.' },
+    ],
+    aplicacoes: [
+      'Escritórios e co-workings', 'Clínicas e hospitais', 'Indústrias e galpões',
+      'Hotéis e pousadas', 'Redes de franquias', 'Condomínios com fibra interna',
+      'Escolas e universidades', 'Centros de distribuição',
+    ],
+    processo: [
+      { titulo: 'Diagnóstico de rede', desc: 'Análise da infraestrutura existente, mapa de cobertura Wi-Fi e identificação de gargalos e vulnerabilidades.' },
+      { titulo: 'Projeto de rede', desc: 'Diagrama de rede, especificação de equipamentos, plano de endereçamento IP e segmentação por VLAN.' },
+      { titulo: 'Instalação e certificação', desc: 'Passagem de cabos, crimpagem, identificação e certificação ponto a ponto com equipamento Fluke.' },
+      { titulo: 'Configuração e entrega', desc: 'Configuração de switches, roteadores, APs e firewall. Entrega de documentação e treinamento básico da equipe.' },
+    ],
+    faq: [
+      { q: 'Qual a diferença entre Cat5e, Cat6 e Cat6A?', a: 'Cat5e suporta até 1 Gbps em 100m. Cat6 suporta 10 Gbps em até 55m. Cat6A suporta 10 Gbps em 100m com maior blindagem contra interferências. Para novas instalações recomendamos Cat6 como mínimo.' },
+      { q: 'Minha empresa precisa de Wi-Fi corporativo ou um roteador comum basta?', a: 'Roteadores domésticos não são projetados para múltiplos usuários simultâneos, não oferecem gerenciamento centralizado e não permitem separação de redes. Para empresas com mais de 10 usuários, o Wi-Fi corporativo é essencial.' },
+      { q: 'O que é VLAN e por que preciso?', a: 'VLAN segmenta sua rede em sub-redes virtuais independentes. Isso significa que um vírus na rede de visitantes não alcança servidores, câmeras ficam em rede isolada e dados financeiros em rede separada.' },
+      { q: 'Vocês cuidam da migração para nuvem?', a: 'Sim. Fazemos diagnóstico, planejamento e execução de migração para AWS, Azure ou Google Cloud, além de configuração de ambientes híbridos e VPN site-to-site.' },
+    ],
+    related: [
+      { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
+      { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
+      { slug: 'automacao', name: 'Automação Residencial', icon: '🤖' },
+    ],
+  },
+
+  automacao: {
+    title: 'Automação Residencial',
+    slug: 'automacao',
+    headline: 'Ambientes inteligentes que\nrespondem à sua rotina.',
+    sub: 'Controle centralizado de iluminação, climatização, cortinas, acesso e áudio para residências, condomínios e apartamentos de alto padrão. Eficiência energética e conforto em um único sistema.',
+    heroImg: '/img_automacao.webp',
+    beneficios: [
+      { icon: '💡', titulo: 'Controle de iluminação', desc: 'Cenas luminosas por ambiente, dimmer, temperatura de cor e automação por horário ou presença.' },
+      { icon: '🌡️', titulo: 'Climatização inteligente', desc: 'Integração com ar-condicionado e VRF para controle centralizado e programação por horário e ocupação.' },
+      { icon: '📱', titulo: 'App e painel central', desc: 'Controle de todos os ambientes por smartphone, tablet ou painel de parede com interface intuitiva.' },
+      { icon: '⚡', titulo: 'Eficiência energética', desc: 'Sensores de presença e automação de cargas reduzem o consumo elétrico em até 35% em áreas comuns.' },
+      { icon: '🎙️', titulo: 'Integração com voz', desc: 'Compatível com Alexa, Google Home e Siri para controle por comandos de voz em qualquer ambiente.' },
+      { icon: '🔗', titulo: 'Integração total', desc: 'Conecta iluminação, clima, CFTV, acesso e áudio em um único ecossistema gerenciável.' },
+    ],
+    aplicacoes: [
+      'Casas e apartamentos de alto padrão', 'Condomínios residenciais', 'Áreas comuns e salões de festas',
+      'Salas de cinema em casa', 'Varandas gourmet', 'Projetos arquitetônicos',
+    ],
+    processo: [
+      { titulo: 'Consultoria de necessidades', desc: 'Entendemos a rotina de uso dos ambientes para propor automações que realmente fazem diferença no dia a dia.' },
+      { titulo: 'Projeto e integração', desc: 'Especificação dos equipamentos, protocolo de comunicação (KNX, Z-Wave, Wi-Fi) e mapa de integração com sistemas existentes.' },
+      { titulo: 'Instalação e programação', desc: 'Instalação dos dispositivos e programação das cenas, agendamentos e automações por ambiente.' },
+      { titulo: 'Treinamento e suporte', desc: 'Treinamento da equipe ou moradores e suporte técnico para ajustes e expansões futuras do sistema.' },
+    ],
+    faq: [
+      { q: 'A automação exige obra ou quebra-quebra?', a: 'Não necessariamente. Trabalhamos com protocolos wireless (Z-Wave, Zigbee, Wi-Fi) que não exigem fiação adicional em 80% dos casos. Em instalações novas, optamos por protocolos com fio para maior robustez.' },
+      { q: 'O sistema funciona sem internet?', a: 'Sim. Os sistemas que instalamos operam localmente mesmo sem internet. A nuvem é usada para acesso remoto, não para funcionamento local.' },
+      { q: 'É possível automatizar apenas uma sala ou área?', a: 'Sim. Não é preciso automatizar o imóvel inteiro de uma vez. Começamos pelos ambientes prioritários e expandimos conforme necessidade e orçamento.' },
+      { q: 'A automação ajuda a reduzir a conta de energia?', a: 'Sim. Sensores de presença, automação de climatização e iluminação com dimmer reduzem o consumo em 20 a 35% em áreas comuns, com payback típico entre 18 e 36 meses.' },
+    ],
+    related: [
+      { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
+      { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
+      { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
+    ],
+  },
+};

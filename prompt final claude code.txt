@@ -1,0 +1,101 @@
+PROMPT — EVOLUÇÃO DE CREDIBILIDADE E CONVERSÃO (MSIFORCE)
+
+Você está trabalhando no site da MSIFORCE, uma empresa de infraestrutura
+elétrica, automação, segurança eletrônica e TI para clientes corporativos
+em São Paulo.
+
+O site já passou por um redesign completo (Fases 1–4) e está em:
+  d:\Users\jhowu\bot-whatsapp\site-msiforce\frontend
+
+Stack: React + Framer Motion + Vite + CSS puro.
+Roteamento: React Router com layout em App.jsx.
+Componentes principais: Home.jsx, Servico.jsx, FormDiagnostico.jsx, Navbar.jsx, Footer.jsx.
+
+─────────────────────────────────────────────
+CONTEXTO DO PROBLEMA
+─────────────────────────────────────────────
+O site comunica bem O QUE a empresa faz, mas ainda não responde
+POR QUE contratar a MSIFORCE e não um concorrente.
+Os problemas prioritários são:
+
+1. IMAGENS GENÉRICAS — as fotos do bento grid são de banco de imagem,
+   não da empresa. Precisam ser substituídas por fotos reais de obras.
+   [O usuário fornecerá as fotos reais antes da execução]
+
+2. CASES FICTÍCIOS — os 3 cases de sucesso na homepage têm dados
+   plausíveis mas sem empresa real, foto ou depoimento verificável.
+   [O usuário fornecerá dados reais dos cases antes da execução]
+
+3. DIFERENCIAL ÚNICO AUSENTE — o site não comunica o "porquê você"
+   de forma visceral. Não há promessa específica de tempo de resposta,
+   especialização por vertical ou garantia incomum.
+   [O usuário fornecerá os diferenciais reais antes da execução]
+
+4. BLOG DESCONECTADO — os artigos atuais são escritos para o
+   eletricista (prestador), não para o comprador corporativo
+   (síndico, gerente de TI, dono de franquia).
+   Arquivo: src/pages/Blog.jsx
+
+5. AUSÊNCIA DE PROVA DE EXISTÊNCIA — sem seção "Sobre a empresa",
+   sem foto da equipe, sem CNPJ visível, sem link para Google Meu Negócio.
+
+─────────────────────────────────────────────
+TAREFAS A EXECUTAR (nesta ordem)
+─────────────────────────────────────────────
+
+TAREFA 1 — SUBSTITUIR IMAGENS DO BENTO GRID
+  • Receber do usuário as fotos reais de obras (ele vai fornecer os
+    caminhos ou fazer upload na pasta /public)
+  • Converter todas para WebP com sharp (qualidade 85)
+  • Atualizar src/pages/Home.jsx — array SERVICES — com os novos paths
+  • Atualizar src/data/servicos.js — campo heroImg — de cada serviço
+
+TAREFA 2 — ATUALIZAR CASES DE SUCESSO COM DADOS REAIS
+  • Receber do usuário: nome da empresa/cliente, setor, escopo do
+    projeto e resultados mensuráveis (ex: "30% menos consumo", "entregue
+    em 45 dias", "68 câmeras instaladas")
+  • Atualizar o array CASES em src/pages/Home.jsx com dados reais
+  • Se o usuário tiver depoimento em texto, adicionar ao card do case
+  • Se houver foto do local, usar como background do card
+
+TAREFA 3 — CRIAR SEÇÃO "SOBRE A EMPRESA"
+  • Adicionar seção #sobre na Home.jsx entre Trust Bar e Setores
+  • Conteúdo: história da empresa, anos de mercado, missão em 1 frase,
+    foto do Mario (ou da equipe) com nome e cargo
+  • Componente visual: split layout — texto à esquerda, foto à direita
+  • Incluir no rodapé do card: CNPJ da empresa e link para
+    Google Meu Negócio (usuário fornecerá ambos)
+  • [O usuário fornecerá: foto, texto de apresentação, CNPJ, link GMB]
+
+TAREFA 4 — ADICIONAR DIFERENCIAL ÚNICO NO HERO
+  • Receber do usuário: qual é o diferencial real da empresa
+    (ex: "orçamento em 3h", "única empresa com NR-10 + CFTV + TI no ABC",
+    "100% das obras entregues no prazo nos últimos 3 anos")
+  • Criar um componente <DiferencialBanner> — uma linha destacada
+    logo abaixo do hero, antes da Trust Bar — com a promessa principal
+  • Estilo: fundo gold, texto preto, fonte Outfit bold, 1 linha curta
+
+TAREFA 5 — REESCREVER O BLOG PARA O COMPRADOR CORPORATIVO
+  • Atualizar os artigos existentes em src/pages/Blog.jsx (array articles)
+    com títulos e categorias orientados ao comprador, não ao prestador
+  • Novos títulos sugeridos (adaptar conforme conteúdo real):
+    - "Quanto custa estruturar a rede de um escritório de 50 pessoas em SP?"
+    - "CFTV analógico vs IP: o custo real de não atualizar as câmeras"
+    - "O que um condomínio deve exigir no contrato de manutenção elétrica"
+    - "Automação predial: quando o investimento se paga?"
+    - "NR-10 na prática: o que muda para a sua empresa"
+  • Atualizar categorias: trocar "Vendas e Conversão" por
+    categorias do comprador: "Infraestrutura", "Segurança", "Gestão",
+    "Regulamentação", "Tecnologia"
+  • Atualizar thumbs para as versões .webp já existentes na /public
+
+─────────────────────────────────────────────
+REGRAS DE EXECUÇÃO
+─────────────────────────────────────────────
+• Antes de cada tarefa que depende de conteúdo real do usuário,
+  PERGUNTE e aguarde. Não invente dados reais.
+• Mantenha o design system existente: dark mode, gold (#C5A059),
+  Playfair Display para títulos, Outfit para UI, Inter para corpo.
+• Após cada tarefa, tire screenshot da seção alterada para validação.
+• Rode npm run build ao final para confirmar zero erros.
+• NÃO altere rotas, estrutura de pastas ou dependências existentes.

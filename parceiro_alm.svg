@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" width="220" height="70">
+  <!-- Building icon -->
+  <g transform="translate(8, 8)">
+    <polygon points="22,0 44,14 44,50 0,50 0,14" fill="#1a4fa0"/>
+    <rect x="16" y="28" width="12" height="22" fill="white"/>
+    <rect x="4" y="22" width="8" height="8" fill="white"/>
+    <rect x="32" y="22" width="8" height="8" fill="white"/>
+    <rect x="4" y="34" width="8" height="8" fill="white"/>
+    <rect x="32" y="34" width="8" height="8" fill="white"/>
+  </g>
+  <!-- Text: ALM STEEL -->
+  <text x="62" y="28" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#1a1a1a" letter-spacing="1">ALM STEEL</text>
+  <!-- Taglines -->
+  <text x="62" y="40" font-family="Arial, sans-serif" font-size="6.5" fill="#555" letter-spacing="1.5">ESTRUTURAS METÁLICAS</text>
+  <text x="62" y="50" font-family="Arial, sans-serif" font-size="6.5" fill="#555" letter-spacing="1.5">ALPINISMO INDUSTRIAL</text>
+  <text x="62" y="60" font-family="Arial, sans-serif" font-size="6.5" fill="#555" letter-spacing="1.5">LINHAS DE VIDA</text>
+</svg>
