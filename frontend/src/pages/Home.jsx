@@ -323,7 +323,7 @@ export default function Home() {
         >
           <motion.div variants={fadeUp} className="h-eyebrow-section">Portfólio completo</motion.div>
           <motion.h2 variants={fadeUp} className="h-h2">
-            11 soluções,<br />um único parceiro.
+            8 soluções,<br />um único parceiro.
           </motion.h2>
           <motion.p variants={fadeUp} className="h-section-sub">
             Elimine a complexidade de gerenciar múltiplos fornecedores. A MSIFORCE
