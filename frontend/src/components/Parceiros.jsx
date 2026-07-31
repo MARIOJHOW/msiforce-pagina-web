@@ -17,7 +17,7 @@ const PARCEIROS = [
   {
     nome: 'Delta Solution',
     segmento: 'Automação industrial & Indústria 4.0',
-    logo: '/parceiro_delta.webp',
+    logo: '/parceiro_delta_v2.webp',
     url: 'https://deltasolution.com.br',
   },
   {
