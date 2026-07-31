@@ -15,10 +15,10 @@ const PARCEIROS = [
     url: 'https://www.vetorconstrucaocivil.com.br',
   },
   {
-    nome: 'Delta Sollutions',
+    nome: 'Delta Solution',
     segmento: 'Automação industrial & Indústria 4.0',
     logo: '/parceiro_delta.webp',
-    url: 'https://deltasollutions.com.br',
+    url: 'https://deltasolution.com.br',
   },
   {
     nome: 'ALM Steel',
