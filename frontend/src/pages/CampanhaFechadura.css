@@ -301,6 +301,14 @@
 
 .modelo-info {
   text-align: center;
+  /* Ocupa a altura restante do card para o CTA poder descer até a base:
+     os 4 modelos têm quantidades diferentes de badges e os botões
+     ficavam em alturas distintas. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
 }
 
 .modelo-tag {
@@ -327,6 +335,8 @@
   gap: 0.5rem;
   justify-content: center;
   margin-top: 1rem;
+  /* respiro mínimo até o CTA, que é empurrado para a base pelo margin-top:auto */
+  margin-bottom: 1.5rem;
 }
 
 .metodo-badge {
@@ -396,7 +406,8 @@
 /* --- Novos Estilos: Botões do Kit e Instalação Avulsa --- */
 
 .botao-comprar-kit {
-  margin-top: 1.5rem;
+  /* auto alinha o CTA na base do card, independente do nº de badges */
+  margin-top: auto;
   width: 100%;
   font-size: 0.95rem;
   padding: 0.8rem;
