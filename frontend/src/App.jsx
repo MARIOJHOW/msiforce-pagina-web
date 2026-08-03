@@ -12,6 +12,7 @@ import V2 from './pages/V2';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import ServicoPage from './pages/ServicoPage';
+import CampanhaFechadura from './pages/CampanhaFechadura';
 
 function V1Layout() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
         <Route path="/v2" element={<V2 />} />
+        <Route path="/fechadura-digital-sp" element={<CampanhaFechadura />} />
       </Routes>
     </Router>
   );
