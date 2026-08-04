@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import './automacao.css';
-import WhatsAppButton from '../components/WhatsAppButton';
-import { iniciarAds } from '../lib/ads';
+import './Automacao.css';
+import WhatsAppButton from '../../components/WhatsAppButton';
+import { iniciarAds } from '../../lib/ads';
 import {
   MSG_FECHADURA_AUTOMACAO,
   MSG_ACESSO_CORPORATIVO,
   MSG_AUTOMACAO_PROJETO,
-} from '../lib/gatilhos';
+} from '../../lib/gatilhos';
 
 export default function Automacao() {
   const [quizStep, setQuizStep] = useState(0);

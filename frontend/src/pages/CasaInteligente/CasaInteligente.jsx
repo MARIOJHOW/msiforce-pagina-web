@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './CampanhaFechadura.css';
-import WhatsAppButton from '../components/WhatsAppButton';
-import { iniciarAds } from '../lib/ads';
+import './CasaInteligente.css';
+import WhatsAppButton from '../../components/WhatsAppButton';
+import { iniciarAds } from '../../lib/ads';
 import {
   MSG_FECHADURA_COMBO,
   MSG_FECHADURA_INSTALACAO,
   msgFechaduraModelo,
-} from '../lib/gatilhos';
+} from '../../lib/gatilhos';
 
 const VALOR_INSTALACAO_A_PARTIR = null;
 

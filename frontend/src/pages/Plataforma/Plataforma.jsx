@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import useSEO from '../hooks/useSEO';
+import useSEO from '../../hooks/useSEO';
 import './Plataforma.css';
 
 export default function Plataforma() {

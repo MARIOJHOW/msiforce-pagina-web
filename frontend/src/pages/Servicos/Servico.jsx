@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { trackCTA } from '../hooks/useAnalytics';
+import { trackCTA } from '../../hooks/useAnalytics';
 import './Servico.css';
 
 const WA_BASE = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20saber%20mais%20sobre%20';

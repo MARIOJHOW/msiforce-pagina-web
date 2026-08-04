@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { SERVICOS_DATA } from '../data/servicos';
+import { SERVICOS_DATA } from '../../data/servicos';
 import Servico from './Servico';
 
 export default function ServicoPage() {

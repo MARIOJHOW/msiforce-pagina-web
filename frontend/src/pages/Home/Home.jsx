@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { trackCTA } from '../hooks/useAnalytics';
-import FormDiagnostico from '../components/FormDiagnostico';
-import DiferencialBanner from '../components/DiferencialBanner';
-import Parceiros from '../components/Parceiros';
-import SobreEmpresa from '../components/SobreEmpresa';
+import { trackCTA } from '../../hooks/useAnalytics';
+import FormDiagnostico from '../../components/FormDiagnostico';
+import DiferencialBanner from '../../components/DiferencialBanner';
+import Parceiros from '../../components/Parceiros';
+import SobreEmpresa from '../../components/SobreEmpresa';
 import './Home.css';
 
 const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';

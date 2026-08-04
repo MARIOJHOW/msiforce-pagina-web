@@ -5,13 +5,13 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ScriptRunner from './components/ScriptRunner';
 
 // Pages
-import Home from './pages/Home';
-import Automacao from './pages/Automacao';
-import V2 from './pages/V2';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import ServicoPage from './pages/ServicoPage';
-import CampanhaFechadura from './pages/CampanhaFechadura';
+import Home from './pages/Home/Home';
+import Automacao from './pages/Automacao/Automacao';
+import V2 from './pages/V2/V2';
+import Blog from './pages/Blog/Blog';
+import BlogPost from './pages/Blog/BlogPost';
+import ServicoPage from './pages/Servicos/ServicoPage';
+import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 
 function V1Layout() {
   return (
@@ -41,7 +41,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
         <Route path="/v2" element={<V2 />} />
-        <Route path="/casa-inteligente" element={<CampanhaFechadura />} />
+        <Route path="/casa-inteligente" element={<CasaInteligente />} />
       </Routes>
     </Router>
   );
