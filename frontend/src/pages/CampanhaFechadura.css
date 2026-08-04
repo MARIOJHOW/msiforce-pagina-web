@@ -664,10 +664,35 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(74, 222, 128, 0.05);
 }
 
+.cert-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cert-logo {
+  height: 45px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.3));
+}
+
 .cert-content h3 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.cert-content h4 {
+  font-size: 1.4rem;
   color: #fff;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .cert-content p {

@@ -196,7 +196,11 @@ const CampanhaFechadura = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h3>Instalação Especializada e Certificada</h3>
+          <div className="cert-header">
+            <img src="/logo.webp" alt="MSIFORCE" className="cert-logo" />
+            <h3>MSIFORCE</h3>
+          </div>
+          <h4>Instalação Especializada e Certificada</h4>
           <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
         </motion.div>
       </section>
