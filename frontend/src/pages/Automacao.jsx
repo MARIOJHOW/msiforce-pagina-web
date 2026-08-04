@@ -63,9 +63,11 @@ export default function Automacao() {
           <motion.p variants={fadeUp} className="hero-p">
             Transformamos ambientes de alto padrão em ecossistemas inteligentes. Comece pela porta: fechadura digital com biometria, e depois iluminação, clima, áudio e segurança com um único toque.
           </motion.p>
-          <WhatsAppButton message={MSG_FECHADURA_AUTOMACAO} className="btn-primary">
-            Quero minha Fechadura Digital
-          </WhatsAppButton>
+          <motion.div variants={fadeUp} className="hero-cta">
+            <WhatsAppButton message={MSG_FECHADURA_AUTOMACAO} className="btn-primary">
+              Quero minha Fechadura Digital
+            </WhatsAppButton>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -285,7 +287,7 @@ export default function Automacao() {
                 <div style={{ fontSize: "3rem", marginBottom: "16px", color: "var(--gold)" }}>✓</div>
                 <h3>Solicitação <span>recebida!</span></h3>
                 <p style={{ color: "var(--gray)", fontSize: "1rem", marginTop: "16px" }}>Nosso Especialista entrará em contato em breve.</p>
-                <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary" >
+                <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary quiz-cta">
                   Falar no WhatsApp Agora
                 </WhatsAppButton>
               </motion.div>

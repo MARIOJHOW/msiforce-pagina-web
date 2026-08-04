@@ -67,6 +67,10 @@
   margin-bottom: 50px;
 }
 
+.hero-cta {
+  display: inline-block;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -416,6 +420,10 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+}
+
+.quiz-cta {
+  margin-top: 24px;
 }
 
 /* FINAL CTA */
