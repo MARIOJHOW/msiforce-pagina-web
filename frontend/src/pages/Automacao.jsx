@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './automacao.css';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { iniciarAds } from '../lib/ads';
+import {
+  MSG_FECHADURA_AUTOMACAO,
+  MSG_ACESSO_CORPORATIVO,
+  MSG_AUTOMACAO_PROJETO,
+} from '../lib/gatilhos';
 
 export default function Automacao() {
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState([]);
   const [quizFinished, setQuizFinished] = useState(false);
   const [quizSuccess, setQuizSuccess] = useState(false);
+
+  // Página recebe tráfego pago: sem isto nenhuma conversão é registrada.
+  useEffect(() => { iniciarAds(); }, []);
 
   const handleQuizAnswer = (answer) => {
     const newAnswers = [...quizAnswers, answer];
@@ -51,11 +61,11 @@ export default function Automacao() {
           <motion.div variants={fadeUp} className="eyebrow">Smart Home Premium</motion.div>
           <motion.h1 variants={fadeUp} className="hero-h1">O futuro do luxo é<br /><span>invisível e responsivo.</span></motion.h1>
           <motion.p variants={fadeUp} className="hero-p">
-            Transformamos ambientes de alto padrão em ecossistemas inteligentes. Controle iluminação, clima, áudio e segurança com um único toque ou através da sua voz.
+            Transformamos ambientes de alto padrão em ecossistemas inteligentes. Comece pela porta: fechadura digital com biometria, e depois iluminação, clima, áudio e segurança com um único toque.
           </motion.p>
-          <motion.a variants={fadeUp} href="https://wa.me/5511910773865" target="_blank" rel="noreferrer" className="btn-primary">
-            Falar com Especialista
-          </motion.a>
+          <WhatsAppButton message={MSG_FECHADURA_AUTOMACAO} className="btn-primary">
+            Quero minha Fechadura Digital
+          </WhatsAppButton>
         </motion.div>
       </section>
 
@@ -98,6 +108,15 @@ export default function Automacao() {
               <li>Notificações em tempo real no celular</li>
               <li>Integração com câmeras e alarmes</li>
             </ul>
+            <div className="zz-ctas">
+              <WhatsAppButton message={MSG_FECHADURA_AUTOMACAO} className="btn-primary">
+                Quero para minha casa
+              </WhatsAppButton>
+              <WhatsAppButton message={MSG_ACESSO_CORPORATIVO} className="btn-secondary">
+                Empresa ou condomínio
+              </WhatsAppButton>
+            </div>
+            <a href="/fechadura-digital-sp" className="zz-link">ver modelos e instalação →</a>
           </motion.div>
         </motion.div>
 
@@ -266,9 +285,9 @@ export default function Automacao() {
                 <div style={{ fontSize: "3rem", marginBottom: "16px", color: "var(--gold)" }}>✓</div>
                 <h3>Solicitação <span>recebida!</span></h3>
                 <p style={{ color: "var(--gray)", fontSize: "1rem", marginTop: "16px" }}>Nosso Especialista entrará em contato em breve.</p>
-                <a href="https://wa.me/5511910773865" target="_blank" rel="noreferrer" className="btn-primary" style={{ marginTop: "24px" }}>
+                <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary" >
                   Falar no WhatsApp Agora
-                </a>
+                </WhatsAppButton>
               </motion.div>
             )}
           </AnimatePresence>
@@ -280,9 +299,9 @@ export default function Automacao() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
           <h2>Sua casa. <span>Suas regras.</span></h2>
           <p>Agende uma consultoria gratuita. Vamos desenhar o projeto perfeito para elevar o padrão da sua residência sem dores de cabeça.</p>
-          <a href="https://wa.me/5511910773865" target="_blank" rel="noreferrer" className="btn-primary">
+          <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary">
             Iniciar Meu Projeto
-          </a>
+          </WhatsAppButton>
         </motion.div>
       </section>
 

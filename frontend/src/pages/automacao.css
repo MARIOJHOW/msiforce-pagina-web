@@ -444,3 +444,36 @@
   margin: 0 auto 40px;
   line-height: 1.7;
 }
+
+.zz-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.zz-ctas .btn-secondary {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.zz-ctas .btn-secondary:hover {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.zz-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--gray);
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.zz-link:hover { color: var(--white); }
