@@ -45,13 +45,38 @@ for (const { rota, ancoras } of PAGINAS) {
   console.log(`\n########## ${rota} ##########`);
   await page.goto(BASE + rota, { waitUntil: 'networkidle' });
 
-  const links = await page.$$eval('a[href*="wa.me"]', (as) =>
-    as.map((a) => ({ href: a.getAttribute('href'), texto: (a.innerText || '').trim().slice(0, 40) }))
-  );
+  // `herdado` = true quando o CTA vem do layout compartilhado do V1Layout
+  // (Navbar `nav.msi-nav` + drawer mobile `.msi-drawer`, Footer `footer.msi-footer`,
+  // ou o balão flutuante `.msi-wa` renderizado por ele) em vez do conteúdo próprio
+  // da rota. Checagem no DOM, não lista fixa de mensagens — lista fixa envelhece
+  // em silêncio.
+  //
+  // `.msi-wa` sozinho NÃO basta: a CampanhaFechadura (landing da fechadura) reusa
+  // o MESMO componente flutuante para um CTA próprio, com mensagem da campanha
+  // (ver `src/pages/CampanhaFechadura.jsx`, comentário "Flutuante: leva o gatilho
+  // da campanha"). Essa página não roda dentro do V1Layout — não tem `nav.msi-nav`
+  // nem `footer.msi-footer`. Por isso só conta o `.msi-wa` como herdado quando os
+  // dois marcadores exclusivos do V1Layout também estão presentes na página.
+  const links = await page.$$eval('a[href*="wa.me"]', (as) => {
+    const layoutV1Ativo =
+      document.querySelector('nav.msi-nav') !== null &&
+      document.querySelector('footer.msi-footer') !== null;
+    return as.map((a) => ({
+      href: a.getAttribute('href'),
+      texto: (a.innerText || '').trim().slice(0, 40),
+      herdado:
+        a.closest('nav.msi-nav, footer.msi-footer, .msi-drawer') !== null ||
+        (layoutV1Ativo && a.closest('.msi-wa') !== null),
+    }));
+  });
 
-  console.log(`\nCTAs de WhatsApp encontrados: ${links.length}\n`);
+  const proprios = links.filter((l) => !l.herdado);
+  const herdados = links.filter((l) => l.herdado);
 
-  for (const { href, texto } of links) {
+  console.log(`\nCTAs de WhatsApp encontrados: ${links.length} (${proprios.length} próprios da página + ${herdados.length} herdados do layout)\n`);
+
+  console.log(`-- Próprios da página: têm de bater com algum detector do bot --\n`);
+  for (const { href, texto } of proprios) {
     const url = new URL(href);
     const numero = url.pathname.replace('/', '');
     const msg = url.searchParams.get('text') || '';
@@ -65,6 +90,23 @@ for (const { rota, ancoras } of PAGINAS) {
     console.log(`   numero: ${numero} ${okNumero ? '' : '<< ESPERADO ' + NUMERO_ESPERADO}`);
     console.log(`   msg:    ${msg}`);
     console.log(`   bot:    ${destino || 'NENHUM DETECTOR RECONHECE'}\n`);
+  }
+
+  // Herdados (nav/footer/balão flutuante): existem em todas as páginas do site
+  // institucional e sempre levaram ao menu principal do bot por design — não são
+  // regressão desta página. Reportados como INFO para não sumir da visibilidade,
+  // mas não contam como falha nem derrubam o exit code.
+  if (herdados.length > 0) {
+    console.log(`-- Herdados do layout compartilhado (nav/footer/balão flutuante): informativo, não conta como falha --\n`);
+    for (const { href, texto } of herdados) {
+      const url = new URL(href);
+      const msg = url.searchParams.get('text') || '';
+      const destino = classificar(msg);
+
+      console.log(`INFO [${texto || '(icone)'}]`);
+      console.log(`   msg: ${msg}`);
+      console.log(`   bot: ${destino || 'NENHUM DETECTOR RECONHECE (cai no menu principal do bot, por design)'}\n`);
+    }
   }
 
   // Âncoras usadas pelos sitelinks do Google Ads. Página sem âncoras (ex.: /automacao)
