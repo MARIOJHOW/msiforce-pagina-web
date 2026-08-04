@@ -7,7 +7,6 @@ import ScriptRunner from './components/ScriptRunner';
 // Pages
 import Home from './pages/Home';
 import Automacao from './pages/Automacao';
-import Plataforma from './pages/Plataforma';
 import V2 from './pages/V2';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -36,7 +35,6 @@ function App() {
         <Route element={<V1Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/automacao" element={<Automacao />} />
-          <Route path="/plataforma" element={<Plataforma />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />

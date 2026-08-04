@@ -86,7 +86,6 @@ const Footer = () => {
         <nav className="msi-f-links">
           <Link to="/">Home</Link>
           <Link to="/automacao">Automação</Link>
-          <Link to="/plataforma">CRM</Link>
           <Link to="/blog">Blog</Link>
         </nav>
       </div>

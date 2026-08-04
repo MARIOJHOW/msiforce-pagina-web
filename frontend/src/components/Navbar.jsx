@@ -45,7 +45,6 @@ const Navbar = () => {
           </li>
           <li><Link to="/automacao">Automação</Link></li>
           <li><Link to="/fechadura-digital-sp">Fechaduras Digitais</Link></li>
-          <li><Link to="/plataforma">Software CRM</Link></li>
           <li><Link to="/blog">Blog</Link></li>
           <li>
             {isHome ? <a href="#contato">Contato</a> : <Link to="/#contato">Contato</Link>}
@@ -88,7 +87,6 @@ const Navbar = () => {
           </li>
           <li><Link to="/automacao" onClick={() => setMenuOpen(false)}>Automação</Link></li>
           <li><Link to="/fechadura-digital-sp" onClick={() => setMenuOpen(false)}>Fechaduras Digitais</Link></li>
-          <li><Link to="/plataforma" onClick={() => setMenuOpen(false)}>Software CRM</Link></li>
           <li><Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link></li>
           <li>
             {isHome
