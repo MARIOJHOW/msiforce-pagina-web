@@ -44,7 +44,7 @@ const Navbar = () => {
             {isHome ? <a href="#servicos">Serviços</a> : <Link to="/#servicos">Serviços</Link>}
           </li>
           <li><Link to="/automacao">Automação</Link></li>
-          <li><Link to="/fechadura-digital-sp">Fechaduras Digitais</Link></li>
+          <li><Link to="/casa-inteligente">Fechaduras Digitais</Link></li>
           <li><Link to="/blog">Blog</Link></li>
           <li>
             {isHome ? <a href="#contato">Contato</a> : <Link to="/#contato">Contato</Link>}
@@ -86,7 +86,7 @@ const Navbar = () => {
               : <Link to="/#servicos" onClick={() => setMenuOpen(false)}>Serviços</Link>}
           </li>
           <li><Link to="/automacao" onClick={() => setMenuOpen(false)}>Automação</Link></li>
-          <li><Link to="/fechadura-digital-sp" onClick={() => setMenuOpen(false)}>Fechaduras Digitais</Link></li>
+          <li><Link to="/casa-inteligente" onClick={() => setMenuOpen(false)}>Fechaduras Digitais</Link></li>
           <li><Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link></li>
           <li>
             {isHome

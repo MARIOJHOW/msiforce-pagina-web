@@ -27,7 +27,7 @@ function classificar(msg) {
 
 const BASE = process.argv[2] || 'http://localhost:4173';
 const PAGINAS = [
-  { rota: '/fechadura-digital-sp', ancoras: ['modelos', 'instalacao', 'combo'] },
+  { rota: '/casa-inteligente', ancoras: ['modelos', 'instalacao', 'combo'] },
   { rota: '/automacao', ancoras: [] },
 ];
 const NUMERO_ESPERADO = '5511910773865';

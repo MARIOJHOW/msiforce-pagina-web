@@ -118,7 +118,7 @@ export default function Automacao() {
                 Empresa ou condomínio
               </WhatsAppButton>
             </div>
-            <a href="/fechadura-digital-sp" className="zz-link">ver modelos e instalação →</a>
+            <a href="/casa-inteligente" className="zz-link">ver modelos e instalação →</a>
           </motion.div>
         </motion.div>
 

@@ -41,7 +41,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
         <Route path="/v2" element={<V2 />} />
-        <Route path="/fechadura-digital-sp" element={<CampanhaFechadura />} />
+        <Route path="/casa-inteligente" element={<CampanhaFechadura />} />
       </Routes>
     </Router>
   );
