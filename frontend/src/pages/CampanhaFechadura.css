@@ -1,6 +1,8 @@
+/* CampanhaFechadura.css */
+
 .campanha-container {
   font-family: 'Inter', 'Roboto', sans-serif;
-  background-color: #0d0d0d;
+  background-color: #050505; /* Deep rich black */
   color: #f0f0f0;
   min-height: 100vh;
   display: flex;
@@ -8,482 +10,427 @@
   overflow-x: hidden;
 }
 
+/* --- Hero Section & Mesh Gradients --- */
 .campanha-hero {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 6rem 2rem 4rem;
-  background: radial-gradient(circle at top, #1a2a6c 0%, #112 50%, #0d0d0d 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8rem 2rem 5rem;
+  background-color: #000;
+  overflow: hidden;
 }
 
-.campanha-hero::before {
-  content: '';
+.mesh-gradient-bg {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('data:image/svg+xml;utf8,<svg opacity="0.03" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23fff"/></svg>');
+  top: -20%; left: -10%; right: -10%; bottom: 0;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(26, 42, 108, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(74, 222, 128, 0.15) 0%, transparent 50%);
+  filter: blur(80px);
   z-index: 0;
   pointer-events: none;
 }
 
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .campanha-badge {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.2rem;
   border-radius: 50px;
   font-size: 0.85rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  z-index: 1;
-  color: #4ade80;
-  backdrop-filter: blur(5px);
+  margin-bottom: 2rem;
+  color: #a3a3a3;
+  backdrop-filter: blur(10px);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 .campanha-hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  z-index: 1;
-  background: linear-gradient(135deg, #ffffff 0%, #a0a5ba 100%);
+  color: #fff;
+}
+
+.text-highlight {
+  background: linear-gradient(135deg, #4ade80 0%, #06cb3f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  max-width: 800px;
 }
 
 .campanha-hero p {
-  font-size: 1.25rem;
-  color: #a0a5ba;
-  margin-bottom: 2.5rem;
-  z-index: 1;
-  max-width: 600px;
+  font-size: 1.2rem;
+  color: #a3a3a3;
+  margin-bottom: 3rem;
+  max-width: 650px;
   line-height: 1.6;
 }
 
+/* Botões */
 .campanha-btn-primary {
-  background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
-  color: white;
-  padding: 1rem 2rem;
+  background: #fff;
+  color: #000;
+  padding: 1rem 2.5rem;
   font-size: 1.1rem;
   font-weight: 700;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  z-index: 1;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .campanha-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
-  color: white;
+  transform: translateY(-2px);
+  background: #f0f0f0;
+  color: #000;
 }
 
-.pulse-icon {
-  animation: pulse 2s infinite;
+.glow-effect {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+.black-text {
+  color: #000 !important;
 }
 
-.campanha-mockup {
-  margin-top: 3rem;
-  width: 100%;
-  max-width: 600px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  z-index: 1;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: #222;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-.campanha-mockup img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Sections */
-.campanha-section {
-  padding: 5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.campanha-section-alt {
-  background-color: #111;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-
-.campanha-section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.campanha-section-subtitle {
-  color: #888;
-  text-align: center;
-  margin-bottom: 4rem;
-  max-width: 700px;
-  font-size: 1.1rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  max-width: 1100px;
-}
-
-.feature-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2.5rem;
-  border-radius: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-10px);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.feature-card p {
-  color: #999;
-  line-height: 1.5;
-}
-
-/* Offer Section */
-.offer-box {
-  background: linear-gradient(145deg, #16222a 0%, #3a6073 100%);
-  padding: 4rem;
-  border-radius: 30px;
-  text-align: center;
-  max-width: 900px;
-  width: 100%;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-  position: relative;
-  overflow: hidden;
-}
-
-.offer-box::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.offer-box h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.offer-box p {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
-  color: #d1d5db;
-  position: relative;
-  z-index: 1;
-}
-
-/* Footer */
-.campanha-footer {
-  text-align: center;
-  padding: 3rem;
-  border-top: 1px solid #222;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .campanha-hero h1 { font-size: 2.5rem; }
-  .offer-box { padding: 2rem; }
-  .offer-box h2 { font-size: 2rem; }
-}
-
+/* --- Vitrine Modelos --- */
 .modelos-vitrine {
   width: 100%;
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 6rem;
+  position: relative;
   z-index: 2;
 }
 
 .vitrine-titulo {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
 }
 
 .modelos-grid {
   display: grid;
-  /* 240px faz os 4 modelos caberem em uma linha só nos 1100px (evita o card órfão) */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.glass-panel {
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
 }
 
 .modelo-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.03);
   padding: 2rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
 }
 
 .modelo-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(74, 222, 128, 0.5);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(35, 35, 35, 0.5);
 }
 
 .modelo-imagem {
   width: 100%;
-  height: 250px;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
+  height: 220px;
+  margin-bottom: 2rem;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+}
+
+.modelo-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(74, 222, 128, 0.15);
+  filter: blur(40px);
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .modelo-imagem img {
   max-height: 100%;
   object-fit: contain;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+.modelo-card:hover .modelo-imagem img {
+  transform: scale(1.05) translateY(-5px);
 }
 
 .modelo-info {
-  text-align: center;
-  /* Ocupa a altura restante do card para o CTA poder descer até a base:
-     os 4 modelos têm quantidades diferentes de badges e os botões
-     ficavam em alturas distintas. */
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex: 1;
-  width: 100%;
 }
 
 .modelo-tag {
-  display: inline-block;
-  background: rgba(74, 222, 128, 0.1);
-  color: #4ade80;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e5e5e5;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 1rem;
   letter-spacing: 1px;
+  margin-bottom: 1rem;
 }
 
 .modelo-info h4 {
   font-size: 1.4rem;
   color: #fff;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .metodos-abertura {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
-  margin-top: 1rem;
-  /* respiro mínimo até o CTA, que é empurrado para a base pelo margin-top:auto */
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .metodo-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.5rem 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.7rem;
   border-radius: 6px;
-  font-size: 0.85rem;
-  color: #ddd;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: #a3a3a3;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.image-animada {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.image-animada img {
-  width: 100%;
-  height: auto;
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 15px 25px rgba(0, 242, 254, 0.4));
-}
-
-.image-animada::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 50%; height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-25deg);
-  animation: shine 4s infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes shine {
-  0% { left: -100%; }
-  20% { left: 200%; }
-  100% { left: 200%; }
-}
-
-/* Faixa de preço do hero — só renderiza quando o valor está preenchido */
-.campanha-faixa-preco {
-  font-size: 1.05rem;
-  color: #4ade80;
-  margin-bottom: 1.5rem;
-}
-
-.campanha-faixa-preco strong {
-  color: #fff;
-  font-weight: 700;
-}
-
-/* --- Novos Estilos: Botões do Kit e Instalação Avulsa --- */
 
 .botao-comprar-kit {
-  /* auto alinha o CTA na base do card, independente do nº de badges */
   margin-top: auto;
   width: 100%;
   font-size: 0.95rem;
-  padding: 0.8rem;
-  background: linear-gradient(90deg, #06cb3f, #05a032);
+  padding: 1rem;
+  background: transparent;
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
   font-weight: 600;
-  text-transform: uppercase;
   transition: all 0.3s ease;
   cursor: pointer;
-  display: block;
   text-decoration: none;
   text-align: center;
 }
 
 .botao-comprar-kit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(6, 203, 63, 0.4);
+  background: #fff;
+  color: #000;
 }
 
-.campanha-instalacao-avulsa {
-  padding: 5rem 2rem;
-  background-color: #080808;
+
+/* --- BENTO GRID Features --- */
+.campanha-section {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.section-header {
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 4rem;
+}
+
+.campanha-section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.campanha-section-subtitle {
+  color: #a3a3a3;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.bento-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.bento-glass {
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+}
+
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 250px;
+  transition: transform 0.3s ease;
+}
+.bento-card:hover {
+  transform: translateY(-5px);
+}
+
+.bento-large {
+  grid-column: span 2;
+  min-height: 350px;
+}
+
+.bento-content {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.bento-large h3 {
+  font-size: 2rem;
+}
+
+.bento-card p {
+  color: #a3a3a3;
+  line-height: 1.5;
+  font-size: 1.05rem;
+  max-width: 80%;
+}
+
+.bento-bg-gradient {
+  position: absolute;
+  top: 0; right: 0;
+  width: 60%; height: 100%;
+  background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+
+/* --- Instalação Avulsa --- */
+.campanha-instalacao-avulsa {
+  padding: 6rem 2rem;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
 }
 
 .instalacao-content {
   max-width: 800px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 3rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 4rem;
+  text-align: center;
 }
 
 .instalacao-content h3 {
   font-size: 2rem;
-  color: #06cb3f;
+  color: #fff;
   margin-bottom: 1.5rem;
 }
 
 .instalacao-content p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 2rem;
-}
-
-.instalacao-content strong {
-  color: #fff;
+  color: #a3a3a3;
+  margin-bottom: 2.5rem;
 }
 
 .beneficios-instalacao {
   list-style: none;
   text-align: left;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 3rem;
   display: inline-block;
   padding: 0;
 }
 
 .beneficios-instalacao li {
   font-size: 1.1rem;
-  color: #f0f0f0;
-  margin-bottom: 0.8rem;
+  color: #e5e5e5;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-icon {
+  color: #4ade80;
+  font-weight: bold;
 }
 
 .botao-instalacao-avulsa {
-  background: transparent;
-  color: #06cb3f;
-  border: 2px solid #06cb3f;
-  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 1rem 2.5rem;
   font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 30px;
+  font-weight: 600;
+  border-radius: 50px;
   display: inline-block;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -491,20 +438,111 @@
 }
 
 .botao-instalacao-avulsa:hover {
-  background: rgba(6, 203, 63, 0.1);
-  transform: translateY(-2px);
+  background: #fff;
+  color: #000;
 }
 
+
+/* --- Offer Box Upsell --- */
+.premium-gradient {
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offer-box {
+  padding: 5rem 3rem;
+  border-radius: 30px;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-glow {
+  position: absolute;
+  top: -50%; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.offer-box h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-box p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #a3a3a3;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.bonus-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+
+/* --- Footer --- */
+.campanha-footer {
+  text-align: center;
+  padding: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #666;
+  font-size: 0.9rem;
+}
+
+
+/* --- Mobile Responsive --- */
 @media (max-width: 768px) {
+  .campanha-hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+  
+  .campanha-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .bento-features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-large {
+    grid-column: span 1;
+    min-height: 250px;
+  }
+
+  .bento-card p {
+    max-width: 100%;
+  }
+
   .instalacao-content {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
-  .instalacao-content h3 {
-    font-size: 1.5rem;
+
+  .offer-box {
+    padding: 3rem 1.5rem;
   }
-  .botao-instalacao-avulsa {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.8rem;
+
+  .offer-box h2 {
+    font-size: 2.2rem;
   }
 }

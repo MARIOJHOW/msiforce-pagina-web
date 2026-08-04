@@ -1,0 +1,238 @@
+- generic [ref=f3e2]:
+  - navigation [ref=f3e3]:
+    - link "MSIFORCE Logo MSIFORCE" [ref=f3e4] [cursor=pointer]:
+      - /url: /
+      - img "MSIFORCE Logo" [ref=f3e5]
+      - generic [ref=f3e6]: MSIFORCE
+    - list [ref=f3e7]:
+      - listitem [ref=f3e8]:
+        - link "Sobre" [ref=f3e9] [cursor=pointer]:
+          - /url: /#sobre
+      - listitem [ref=f3e10]:
+        - link "Serviços" [ref=f3e11] [cursor=pointer]:
+          - /url: /#servicos
+      - listitem [ref=f3e12]:
+        - link "Automação" [ref=f3e13] [cursor=pointer]:
+          - /url: /automacao
+      - listitem [ref=f3e14]:
+        - link "Fechaduras Digitais" [ref=f3e15] [cursor=pointer]:
+          - /url: /fechadura-digital-sp
+      - listitem [ref=f3e16]:
+        - link "Software CRM" [ref=f3e17] [cursor=pointer]:
+          - /url: /plataforma
+      - listitem [ref=f3e18]:
+        - link "Blog" [ref=f3e19] [cursor=pointer]:
+          - /url: /blog
+      - listitem [ref=f3e20]:
+        - link "Contato" [ref=f3e21] [cursor=pointer]:
+          - /url: /#contato
+      - listitem [ref=f3e22]:
+        - link "Orçamento" [ref=f3e23] [cursor=pointer]:
+          - /url: https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria.
+  - list [ref=f3e25]:
+    - listitem [ref=f3e26]:
+      - link [ref=f3e27] [cursor=pointer]:
+        - /url: /#sobre
+        - text: Sobre
+    - listitem [ref=f3e28]:
+      - link [ref=f3e29] [cursor=pointer]:
+        - /url: /#servicos
+        - text: Serviços
+    - listitem [ref=f3e30]:
+      - link [ref=f3e31] [cursor=pointer]:
+        - /url: /automacao
+        - text: Automação
+    - listitem [ref=f3e32]:
+      - link [ref=f3e33] [cursor=pointer]:
+        - /url: /fechadura-digital-sp
+        - text: Fechaduras Digitais
+    - listitem [ref=f3e34]:
+      - link [ref=f3e35] [cursor=pointer]:
+        - /url: /plataforma
+        - text: Software CRM
+    - listitem [ref=f3e36]:
+      - link [ref=f3e37] [cursor=pointer]:
+        - /url: /blog
+        - text: Blog
+    - listitem [ref=f3e38]:
+      - link [ref=f3e39] [cursor=pointer]:
+        - /url: /#contato
+        - text: Contato
+    - listitem [ref=f3e40]:
+      - link [ref=f3e41] [cursor=pointer]:
+        - /url: https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria.
+        - text: Solicitar Orçamento
+  - generic [ref=f3e42]:
+    - generic [ref=f3e45]:
+      - generic [ref=f3e46]: Smart Home Premium
+      - heading "O futuro do luxo é invisível e responsivo." [level=1] [ref=f3e47]: O futuro do luxo éinvisível e responsivo.
+      - paragraph [ref=f3e48]: "Transformamos ambientes de alto padrão em ecossistemas inteligentes. Comece pela porta: fechadura digital com biometria, e depois iluminação, clima, áudio e segurança com um único toque."
+      - link "Quero minha Fechadura Digital" [ref=f3e50] [cursor=pointer]:
+        - /url: https://wa.me/5511910773865?text=Ol%C3%A1!%20Quero%20uma%20fechadura%20digital%20inteligente%20para%20minha%20casa.
+    - generic [ref=f3e51]:
+      - generic [ref=f3e52]:
+        - heading "Experiências Exclusivas" [level=2] [ref=f3e53]
+        - paragraph [ref=f3e54]: A tecnologia não deve ser vista, deve ser sentida. Descubra como elevamos o padrão de conforto da sua residência.
+      - generic [ref=f3e55]:
+        - img "Iluminação Inteligente" [ref=f3e57]
+        - generic [ref=f3e58]:
+          - heading "Iluminação Cênica" [level=3] [ref=f3e59]
+          - paragraph [ref=f3e60]: Esqueça dezenas de interruptores espalhados pela parede. Crie cenas perfeitas para o Jantar, Cinema ou Festa com apenas um toque no seu smartphone ou painel de vidro.
+          - list [ref=f3e61]:
+            - listitem [ref=f3e62]: → Controle absoluto por Alexa ou Apple Home
+            - listitem [ref=f3e63]: → Dimming suave para relaxamento
+            - listitem [ref=f3e64]: → Agendamento automático com o nascer do sol
+      - generic [ref=f3e65]:
+        - img "Fechadura Biométrica" [ref=f3e67]
+        - generic [ref=f3e68]:
+          - heading "Segurança Invisível" [level=3] [ref=f3e69]
+          - paragraph [ref=f3e70]: Sua digital é a sua chave. Fechaduras biométricas de design impecável que garantem segurança extrema sem comprometer a arquitetura da sua porta.
+          - list [ref=f3e71]:
+            - listitem [ref=f3e72]: → Acesso remoto para visitantes e funcionários
+            - listitem [ref=f3e73]: → Notificações em tempo real no celular
+            - listitem [ref=f3e74]: → Integração com câmeras e alarmes
+          - generic [ref=f3e75]:
+            - link "Quero para minha casa" [ref=f3e76] [cursor=pointer]:
+              - /url: https://wa.me/5511910773865?text=Ol%C3%A1!%20Quero%20uma%20fechadura%20digital%20inteligente%20para%20minha%20casa.
+            - link "Empresa ou condomínio" [ref=f3e77] [cursor=pointer]:
+              - /url: https://wa.me/5511910773865?text=Ol%C3%A1!%20Preciso%20de%20controle%20de%20acesso%20para%20minha%20empresa%20ou%20condom%C3%ADnio.
+          - link "ver modelos e instalação →" [ref=f3e78] [cursor=pointer]:
+            - /url: /fechadura-digital-sp
+      - generic [ref=f3e79]:
+        - img "Home Theater" [ref=f3e81]
+        - generic [ref=f3e82]:
+          - heading "Entretenimento Imersivo" [level=3] [ref=f3e83]
+          - paragraph [ref=f3e84]: Transforme sua sala em uma sala de cinema particular. Com o comando "Hora do filme", as cortinas se fecham, as luzes diminuem e o projetor liga automaticamente.
+          - list [ref=f3e85]:
+            - listitem [ref=f3e86]: → Áudio Multi-room embutido e sem fios
+            - listitem [ref=f3e87]: → Qualidade Hi-Fi para música e cinema
+            - listitem [ref=f3e88]: → Controle integrado no Spotify ou Apple Music
+      - generic [ref=f3e89]:
+        - img "Controle pelo Celular" [ref=f3e91]
+        - generic [ref=f3e92]:
+          - heading "Sua Casa na Palma da Mão" [level=3] [ref=f3e93]
+          - paragraph [ref=f3e94]: Esteja você no escritório ou em uma viagem de negócios em outro continente, sua residência está sempre sob seu controle em tempo real.
+          - list [ref=f3e95]:
+            - listitem [ref=f3e96]: → Acesse câmeras e portas de qualquer lugar
+            - listitem [ref=f3e97]: → Receba alertas instantâneos de qualquer evento
+            - listitem [ref=f3e98]: → Aplicativo único para toda a automação
+    - generic [ref=f3e99]:
+      - generic [ref=f3e100]:
+        - heading "Por que Automatizar?" [level=2] [ref=f3e101]
+        - paragraph [ref=f3e102]: Mais do que tecnologia, entregamos qualidade de vida, economia e valorização imobiliária.
+      - generic [ref=f3e103]:
+        - generic [ref=f3e106]:
+          - generic [ref=f3e107]: 🎙️
+          - heading "O poder da sua voz" [level=4] [ref=f3e108]
+          - paragraph [ref=f3e109]: "Diga: \"Alexa, boa noite\". Todas as luzes se apagam, as portas trancam, o ar ajusta para a temperatura ideal e o alarme é ativado instantaneamente."
+        - generic [ref=f3e112]:
+          - generic [ref=f3e113]: 🔋
+          - heading "Economia Inteligente" [level=4] [ref=f3e114]
+          - paragraph [ref=f3e115]: Sensores desligam o ar e luzes se o ambiente estiver vazio. Gestão de energia premium.
+        - generic [ref=f3e118]:
+          - generic [ref=f3e119]: 🪟
+          - heading "Cortinas Motorizadas" [level=4] [ref=f3e120]
+          - paragraph [ref=f3e121]: Motores ultra-silenciosos protegem seus móveis do sol e garantem privacidade com um clique.
+        - generic [ref=f3e124]:
+          - generic [ref=f3e125]: 📈
+          - heading "Valorização do Imóvel" [level=4] [ref=f3e126]
+          - paragraph [ref=f3e127]: Casas inteligentes são o novo padrão do mercado de luxo. A automação eleva o valor de revenda do seu imóvel imediatamente.
+        - generic [ref=f3e130]:
+          - generic [ref=f3e131]: 🛡️
+          - heading "Segurança Ativa" [level=4] [ref=f3e132]
+          - paragraph [ref=f3e133]: Receba notificações instantâneas no celular em caso de movimentação suspeita.
+    - generic [ref=f3e134]:
+      - generic [ref=f3e135]:
+        - heading "Qual o projeto ideal para você?" [level=2] [ref=f3e136]
+        - paragraph [ref=f3e137]: Responda 3 perguntas rápidas para desenharmos a sua solução premium.
+      - generic [ref=f3e143]:
+        - heading "Qual o tamanho do imóvel?" [level=3] [ref=f3e144]
+        - paragraph [ref=f3e145]: Isso nos ajuda a dimensionar a infraestrutura.
+        - generic [ref=f3e146]:
+          - button "Até 70m² (Compacto)" [ref=f3e147] [cursor=pointer]
+          - button "71m² a 150m² (Padrão)" [ref=f3e148] [cursor=pointer]
+          - button "151m² a 300m² (Alto Padrão)" [ref=f3e149] [cursor=pointer]
+          - button "Acima de 300m² (Mansão)" [ref=f3e150] [cursor=pointer]
+    - generic [ref=f3e152]:
+      - heading "Sua casa. Suas regras." [level=2] [ref=f3e153]
+      - paragraph [ref=f3e154]: Agende uma consultoria gratuita. Vamos desenhar o projeto perfeito para elevar o padrão da sua residência sem dores de cabeça.
+      - link "Iniciar Meu Projeto" [ref=f3e155] [cursor=pointer]:
+        - /url: https://wa.me/5511910773865?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20Automa%C3%A7%C3%A3o%20e%20quero%20um%20projeto%20para%20minha%20casa.
+  - contentinfo [ref=f3e156]:
+    - generic [ref=f3e157]:
+      - generic [ref=f3e158]:
+        - generic [ref=f3e159]:
+          - img "MSIFORCE Logo" [ref=f3e160]
+          - generic [ref=f3e161]: MSIFORCE
+        - paragraph [ref=f3e162]: Elétrica. Tecnologia. Segurança.Tudo em um parceiro.
+        - generic [ref=f3e163]:
+          - generic [ref=f3e164]: NR-10
+          - generic [ref=f3e165]: NR-35
+          - generic [ref=f3e166]: ABNT 5410
+      - generic [ref=f3e167]:
+        - heading "Soluções" [level=4] [ref=f3e168]
+        - list [ref=f3e169]:
+          - listitem [ref=f3e170]:
+            - link "Projetos Elétricos" [ref=f3e171] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e172]:
+            - link "Automação Residencial" [ref=f3e173] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e174]:
+            - link "CFTV & Monitoramento" [ref=f3e175] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e176]:
+            - link "Controle de Acesso" [ref=f3e177] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e178]:
+            - link "Redes Estruturadas" [ref=f3e179] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e180]:
+            - link "Infraestrutura de TI" [ref=f3e181] [cursor=pointer]:
+              - /url: /#servicos
+          - listitem [ref=f3e182]:
+            - link "Manutenção Preventiva & Corretiva" [ref=f3e183] [cursor=pointer]:
+              - /url: /#servicos
+      - generic [ref=f3e184]:
+        - heading "Setores" [level=4] [ref=f3e185]
+        - list [ref=f3e186]:
+          - listitem [ref=f3e187]: Empresas & Escritórios
+          - listitem [ref=f3e188]: Condomínios
+          - listitem [ref=f3e189]: Indústrias
+          - listitem [ref=f3e190]: Clínicas & Consultórios
+          - listitem [ref=f3e191]: Comércios
+          - listitem [ref=f3e192]: Redes de Franquias
+      - generic [ref=f3e193]:
+        - heading "Contato" [level=4] [ref=f3e194]
+        - list [ref=f3e195]:
+          - listitem [ref=f3e196]:
+            - generic [ref=f3e197]: 📱
+            - link "(11) 91077-3865" [ref=f3e198] [cursor=pointer]:
+              - /url: https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.
+          - listitem [ref=f3e199]:
+            - generic [ref=f3e200]: ✉️
+            - link "mario.junior@msiforce.com.br" [ref=f3e201] [cursor=pointer]:
+              - /url: mailto:mario.junior@msiforce.com.br
+          - listitem [ref=f3e202]:
+            - generic [ref=f3e203]: 📍
+            - generic [ref=f3e204]: São Paulo, SP — Brasil
+          - listitem [ref=f3e205]:
+            - generic [ref=f3e206]: 🕐
+            - generic [ref=f3e207]: Seg–Sex, 8h–18h
+        - link "Falar no WhatsApp" [ref=f3e208] [cursor=pointer]:
+          - /url: https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.
+    - generic [ref=f3e209]:
+      - paragraph [ref=f3e210]: © 2026 MSIFORCE — Todos os direitos reservados · São Paulo, SP
+      - navigation [ref=f3e211]:
+        - link "Home" [ref=f3e212] [cursor=pointer]:
+          - /url: /
+        - link "Automação" [ref=f3e213] [cursor=pointer]:
+          - /url: /automacao
+        - link "CRM" [ref=f3e214] [cursor=pointer]:
+          - /url: /plataforma
+        - link "Blog" [ref=f3e215] [cursor=pointer]:
+          - /url: /blog
+  - generic [ref=f3e216]:
+    - generic [ref=f3e217]: Fale Agora!
+    - link "💬" [ref=f3e218] [cursor=pointer]:
+      - /url: https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20atendimento.

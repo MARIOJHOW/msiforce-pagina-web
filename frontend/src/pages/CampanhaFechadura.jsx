@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import './CampanhaFechadura.css';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { iniciarAds } from '../lib/ads';
@@ -8,9 +9,16 @@ import {
   msgFechaduraModelo,
 } from '../lib/gatilhos';
 
-// FASE 2: preencha com o valor da instalação (ex.: 'R$ 350').
-// Enquanto for null a faixa de preço simplesmente não aparece — nada de valor inventado.
 const VALOR_INSTALACAO_A_PARTIR = null;
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+};
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
 
 const MODELOS = [
   {
@@ -18,7 +26,7 @@ const MODELOS = [
     nome: 'Intelbras MFR 3000 V',
     tag: 'Premium (Embutir)',
     imagem: '/mfr3000v.webp',
-    metodos: ['👆 Digital', '📱 Celular (App)', '💳 Tag', '🔢 Senha', '🔑 Chave'],
+    metodos: ['👆 Digital', '📱 App', '💳 Tag', '🔢 Senha', '🔑 Chave'],
   },
   {
     id: 'fr221v',
@@ -45,7 +53,7 @@ const MODELOS = [
 
 const CampanhaFechadura = () => {
   useEffect(() => {
-    document.title = 'Fechadura Digital em SP - Sua Casa Inteligente Começa na Porta';
+    document.title = 'Fechadura Digital em SP - MSIFORCE Premium';
     window.scrollTo(0, 0);
     iniciarAds();
   }, []);
@@ -54,28 +62,56 @@ const CampanhaFechadura = () => {
     <div className="campanha-container">
       {/* Hero Section */}
       <section className="campanha-hero">
-        <div className="campanha-badge">🔒 Oferta Especial São Paulo</div>
-        <h1>Sua Casa Inteligente Começa na Porta</h1>
-        <p>
-          Esqueceu a chave? Com a fechadura digital, seu dedo é a única chave que você precisa.
-          Instalação rápida e especializada em toda São Paulo.
-        </p>
-        {VALOR_INSTALACAO_A_PARTIR && (
-          <p className="campanha-faixa-preco">
-            Instalação profissional a partir de <strong>{VALOR_INSTALACAO_A_PARTIR}</strong>
-          </p>
-        )}
-        <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary pulse-icon">
-          Solicitar Orçamento no WhatsApp
-        </WhatsAppButton>
+        <div className="mesh-gradient-bg"></div>
+        
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="hero-content-wrapper"
+        >
+          <motion.div variants={fadeUp} className="campanha-badge">
+            <span className="badge-dot"></span> Oferta Especial São Paulo
+          </motion.div>
+          
+          <motion.h1 variants={fadeUp}>
+            Sua Casa Inteligente<br />
+            <span className="text-highlight">Começa na Porta.</span>
+          </motion.h1>
+          
+          <motion.p variants={fadeUp}>
+            Eleve o nível de segurança e design da sua residência. Esqueça as chaves e tenha o controle total do seu lar na palma da mão ou na ponta dos dedos.
+          </motion.p>
+          
+          {VALOR_INSTALACAO_A_PARTIR && (
+            <motion.p variants={fadeUp} className="campanha-faixa-preco">
+              Instalação especializada a partir de <strong>{VALOR_INSTALACAO_A_PARTIR}</strong>
+            </motion.p>
+          )}
+          
+          <motion.div variants={fadeUp}>
+            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
+              Falar com Especialista
+            </WhatsAppButton>
+          </motion.div>
+        </motion.div>
 
-        <div className="modelos-vitrine" id="modelos">
-          <h3 className="vitrine-titulo">Escolha o modelo ideal para sua porta</h3>
+        {/* Vitrine de Modelos */}
+        <motion.div 
+          className="modelos-vitrine" 
+          id="modelos"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <motion.h3 variants={fadeUp} className="vitrine-titulo">Linha Premium Intelbras</motion.h3>
           <div className="modelos-grid">
             {MODELOS.map((m) => (
-              <div className="modelo-card" key={m.id}>
-                <div className="modelo-imagem image-animada">
-                  <img src={m.imagem} alt={m.nome} loading="lazy" width="300" height="300" />
+              <motion.div variants={fadeUp} className="modelo-card glass-panel" key={m.id}>
+                <div className="modelo-imagem">
+                  <div className="modelo-glow"></div>
+                  <img src={m.imagem} alt={m.nome} loading="lazy" />
                 </div>
                 <div className="modelo-info">
                   <span className="modelo-tag">{m.tag}</span>
@@ -91,87 +127,117 @@ const CampanhaFechadura = () => {
                     message={msgFechaduraModelo(m.nome.replace('Intelbras ', ''))}
                     className="botao-comprar-kit"
                   >
-                    Quero Fechadura + Instalação
+                    Instalar este modelo
                   </WhatsAppButton>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
+      </section>
+
+      {/* Problema / Solução - Features Bento Grid */}
+      <section className="campanha-section campanha-section-alt">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="section-header"
+        >
+          <motion.h2 variants={fadeUp} className="campanha-section-title">A Revolução na sua Porta</motion.h2>
+          <motion.p variants={fadeUp} className="campanha-section-subtitle">
+            Muito além de trancar e destrancar. Um ecossistema de segurança projetado para o seu conforto.
+          </motion.p>
+        </motion.div>
+
+        <motion.div 
+          className="bento-features-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <motion.div variants={fadeUp} className="bento-card bento-large bento-glass">
+            <div className="bento-content">
+              <div className="bento-icon">👆</div>
+              <h3>Acesso Biométrico Instantâneo</h3>
+              <p>Sua digital é sua chave. Abra a porta em menos de 0.5 segundos sem precisar procurar nada na bolsa.</p>
+            </div>
+            <div className="bento-bg-gradient bento-bg-1"></div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="bento-card bento-glass">
+            <div className="bento-content">
+              <div className="bento-icon">📱</div>
+              <h3>App & Senhas Remotas</h3>
+              <p>Crie senhas temporárias para visitas, diaristas ou familiares de onde estiver, direto pelo celular.</p>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="bento-card bento-glass">
+            <div className="bento-content">
+              <div className="bento-icon">🛡️</div>
+              <h3>Segurança Máxima</h3>
+              <p>Travamento automático, alarme anti-arrombamento e aviso de pilha fraca.</p>
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Seção Instalação Avulsa */}
       <section className="campanha-instalacao-avulsa" id="instalacao">
-        <div className="instalacao-content">
-          <h3>Já comprou sua fechadura na internet?</h3>
+        <motion.div 
+          className="instalacao-content glass-panel"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeUp}
+        >
+          <h3>Já comprou sua fechadura?</h3>
           <p>
-            Não arrisque perder a garantia da sua fechadura digital entregando a porta da sua casa nas mãos
-            de pessoas inexperientes. A <strong>MsiForce</strong> oferece o serviço especializado de{' '}
-            <strong>Apenas Instalação</strong>.
+            Não arrisque arranhar sua porta ou perder a garantia do produto com curiosos. 
+            Temos especialistas em portas Pivotantes, Madeira Maciça e Aço. 
           </p>
           <ul className="beneficios-instalacao">
-            <li>✔️ Acabamento Impecável em portas de madeira ou metal</li>
-            <li>✔️ Configuração completa de senhas, biometrias e tags</li>
-            <li>✔️ Treinamento para os moradores usarem com facilidade</li>
+            <li><span className="check-icon">✓</span> Acabamento de marcenaria fina</li>
+            <li><span className="check-icon">✓</span> Configuração completa da rede Wi-Fi</li>
+            <li><span className="check-icon">✓</span> Treinamento presencial para a família</li>
           </ul>
           <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="botao-instalacao-avulsa">
-            🛠️ Quero orçamento SÓ da instalação
+            Orçar Apenas a Instalação
           </WhatsAppButton>
-        </div>
-      </section>
-
-      {/* Problema / Solução - Features */}
-      <section className="campanha-section campanha-section-alt">
-        <h2 className="campanha-section-title">Por que mudar para a Fechadura Digital?</h2>
-        <p className="campanha-section-subtitle">
-          Mais do que segurança, é o primeiro passo para ter a sua casa na palma da sua mão.
-        </p>
-
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">👆</div>
-            <h3>Acesso Biométrico</h3>
-            <p>Esqueça o molho de chaves. Acesse sua casa com sua digital em menos de 1 segundo.</p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">📱</div>
-            <h3>Controle pelo Celular</h3>
-            <p>Gere senhas temporárias para visitas, prestadores de serviço ou familiares de onde estiver.</p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">🛡️</div>
-            <h3>Alta Segurança</h3>
-            <p>Sistemas anti-arrombamento, alarme de bateria fraca e fechamento automático ao encostar a porta.</p>
-          </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Oferta / Upsell */}
       <section className="campanha-section" id="combo">
-        <div className="offer-box">
-          <h2>Combo: Fechadura + Instalação</h2>
+        <motion.div 
+          className="offer-box premium-gradient"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <div className="offer-glow"></div>
+          <h2>Projeto Porta Pronta</h2>
           <p>
-            Não se preocupe com furos na porta ou configurações complicadas. Nossos especialistas em automação
-            residencial cuidam de tudo para você em São Paulo.
+            Da compra da fechadura ao acabamento na sua porta. Cuidamos de tudo para você ter a melhor experiência possível.
           </p>
-          <p style={{ fontStyle: 'italic', color: '#4ade80', marginBottom: '2rem' }}>
-            🎁 Bônus: Ganhe uma consultoria gratuita de Automação para sua casa após a instalação!
-          </p>
-          <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary">
+          <div className="bonus-tag">
+            <span>🎁</span> Bônus Exclusivo: Consultoria de Automação gratuita no local!
+          </div>
+          <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
             Quero Agendar Minha Instalação
           </WhatsAppButton>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
       <footer className="campanha-footer">
-        <p>© {new Date().getFullYear()} MSI Force - Automação Residencial. Todos os direitos reservados.</p>
-        <p>São Paulo, SP</p>
+        <p>© {new Date().getFullYear()} MSIFORCE - Automação Residencial. Padrão Premium em São Paulo.</p>
       </footer>
 
-      {/* Flutuante: leva o gatilho da campanha, não a mensagem genérica do site */}
       <WhatsAppButton message={MSG_FECHADURA_COMBO} />
     </div>
   );
