@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './automacao.css';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -16,7 +17,10 @@ export default function Automacao() {
   const [quizSuccess, setQuizSuccess] = useState(false);
 
   // Página recebe tráfego pago: sem isto nenhuma conversão é registrada.
-  useEffect(() => { iniciarAds(); }, []);
+  useEffect(() => { 
+    window.scrollTo(0, 0);
+    iniciarAds(); 
+  }, []);
 
   const handleQuizAnswer = (answer) => {
     const newAnswers = [...quizAnswers, answer];
@@ -118,7 +122,7 @@ export default function Automacao() {
                 Empresa ou condomínio
               </WhatsAppButton>
             </div>
-            <a href="/casa-inteligente" className="zz-link">ver modelos e instalação →</a>
+            <Link to="/casa-inteligente" className="zz-link">ver modelos e instalação →</Link>
           </motion.div>
         </motion.div>
 
@@ -304,6 +308,22 @@ export default function Automacao() {
           <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary">
             Iniciar Meu Projeto
           </WhatsAppButton>
+        </motion.div>
+      </section>
+
+      {/* Cross-link para Fechaduras */}
+      <section style={{ padding: '6rem 2rem', background: '#050505', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'center' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+          style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212, 175, 55, 0.2)', padding: '4rem 2rem', borderRadius: '24px', maxWidth: '800px', width: '100%' }}
+        >
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>Buscando apenas Fechaduras?</h2>
+          <p style={{ color: '#c0c0c0', marginBottom: '2rem', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
+            Não quer um projeto completo agora? Sem problemas. Conheça nossa linha premium de Fechaduras Digitais com instalação especializada em São Paulo.
+          </p>
+          <Link to="/casa-inteligente" className="btn-primary" style={{ background: 'transparent', border: '2px solid var(--gold)', color: 'var(--gold)', display: 'inline-block', textDecoration: 'none' }}>
+            Ver Fechaduras Digitais
+          </Link>
         </motion.div>
       </section>
 

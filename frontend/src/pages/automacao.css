@@ -86,8 +86,11 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
   text-decoration: none;
+  box-sizing: border-box;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .btn-primary:hover {
@@ -240,7 +243,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: transform 0.4s, border-color 0.4s;
+  transition: transform 0.4s ease, border-color 0.4s ease;
   position: relative;
   overflow: hidden;
   min-height: 400px;
@@ -379,7 +382,9 @@
   font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  box-sizing: border-box;
+  transform: translateZ(0);
 }
 
 .quiz-opt:hover {
@@ -469,6 +474,8 @@
   text-decoration: none;
   font-weight: 600;
   transition: border-color 0.3s ease, background 0.3s ease;
+  box-sizing: border-box;
+  transform: translateZ(0);
 }
 
 .zz-ctas .btn-secondary:hover {
