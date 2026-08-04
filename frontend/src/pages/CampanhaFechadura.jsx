@@ -97,6 +97,23 @@ const CampanhaFechadura = () => {
             </WhatsAppButton>
           </motion.div>
         </motion.div>
+        {/* Banner Especialista Certificado */}
+        <section className="certificacoes-banner">
+          <motion.div 
+            className="cert-content glass-panel"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <div className="cert-header">
+              <img src="/logo.webp" alt="MSIFORCE" className="cert-logo" />
+              <h3>MSIFORCE</h3>
+            </div>
+            <h4>Instalação Especializada e Certificada</h4>
+            <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
+          </motion.div>
+        </section>
 
         {/* Vitrine de Modelos */}
         <motion.div 
@@ -187,23 +204,6 @@ const CampanhaFechadura = () => {
         </motion.div>
       </section>
 
-      {/* Banner Especialista Certificado */}
-      <section className="certificacoes-banner">
-        <motion.div 
-          className="cert-content glass-panel"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <div className="cert-header">
-            <img src="/logo.webp" alt="MSIFORCE" className="cert-logo" />
-            <h3>MSIFORCE</h3>
-          </div>
-          <h4>Instalação Especializada e Certificada</h4>
-          <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
-        </motion.div>
-      </section>
 
       {/* Guia Especializado (Tabs) */}
       <section className="campanha-guia-section" id="guia">
