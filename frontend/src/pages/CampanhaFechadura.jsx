@@ -76,37 +76,51 @@ const CampanhaFechadura = () => {
       <section className="campanha-hero">
         <div className="mesh-gradient-bg"></div>
         
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="hero-content-wrapper"
-        >
-          <motion.div variants={fadeUp} className="campanha-badge">
-            <span className="badge-dot"></span> Oferta Especial São Paulo
-          </motion.div>
-          
-          <motion.h1 variants={fadeUp}>
-            Sua Casa Inteligente<br />
-            <span className="text-highlight">Começa na Porta.</span>
-          </motion.h1>
-          
-          <motion.p variants={fadeUp}>
-            Eleve o nível de segurança e design da sua residência. Esqueça as chaves e tenha o controle total do seu lar na palma da mão ou na ponta dos dedos.
-          </motion.p>
-          
-          {VALOR_INSTALACAO_A_PARTIR && (
-            <motion.p variants={fadeUp} className="campanha-faixa-preco">
-              Instalação especializada a partir de <strong>{VALOR_INSTALACAO_A_PARTIR}</strong>
+        <div className="hero-content-wrapper">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="hero-text"
+          >
+            <motion.div variants={fadeUp} className="campanha-badge">
+              <span className="badge-dot"></span> Oferta Especial São Paulo
+            </motion.div>
+            
+            <motion.h1 variants={fadeUp}>
+              Sua Casa Inteligente<br />
+              <span className="text-highlight">Começa na Porta.</span>
+            </motion.h1>
+            
+            <motion.p variants={fadeUp}>
+              Eleve o nível de segurança e design da sua residência. Esqueça as chaves e tenha o controle total do seu lar na palma da mão ou na ponta dos dedos.
             </motion.p>
-          )}
-          
-          <motion.div variants={fadeUp}>
-            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
-              Falar com Especialista
-            </WhatsAppButton>
+            
+            {VALOR_INSTALACAO_A_PARTIR && (
+              <motion.p variants={fadeUp} className="campanha-faixa-preco">
+                Instalação especializada a partir de <strong>{VALOR_INSTALACAO_A_PARTIR}</strong>
+              </motion.p>
+            )}
+            
+            <motion.div variants={fadeUp}>
+              <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
+                Falar com Especialista
+              </WhatsAppButton>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          <motion.div 
+            className="hero-image-container"
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="hero-image-complete">
+              <div className="hero-image-glow"></div>
+              <img src="/fechadura_completa.png" alt="Fechadura Inteligente" className="main-lock-img complete-img" />
+            </div>
+          </motion.div>
+        </div>
         {/* Banner Especialista Certificado */}
         <section className="certificacoes-banner">
           <motion.div 
