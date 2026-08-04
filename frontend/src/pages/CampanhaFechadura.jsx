@@ -2,18 +2,15 @@ import { useEffect } from 'react';
 import './CampanhaFechadura.css';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { iniciarAds } from '../lib/ads';
+import {
+  MSG_FECHADURA_COMBO,
+  MSG_FECHADURA_INSTALACAO,
+  msgFechaduraModelo,
+} from '../lib/gatilhos';
 
 // FASE 2: preencha com o valor da instalação (ex.: 'R$ 350').
 // Enquanto for null a faixa de preço simplesmente não aparece — nada de valor inventado.
 const VALOR_INSTALACAO_A_PARTIR = null;
-
-// Os textos abaixo são os GATILHOS que o bot reconhece (services/fechadura.js).
-// Mudar a redação aqui exige mudar lá — senão o lead cai no menu genérico.
-const MSG_GERAL = 'Olá! Vim pela página da Fechadura Digital. Quero mais informações!';
-const MSG_INSTALACAO =
-  'Olá! Eu já tenho uma fechadura digital e gostaria de contratar APENAS o serviço de instalação profissional da MsiForce.';
-const msgCombo = (modelo) =>
-  `Olá! Gostaria de um orçamento do pacote completo: Fechadura ${modelo} + Instalação MsiForce.`;
 
 const MODELOS = [
   {
@@ -68,7 +65,7 @@ const CampanhaFechadura = () => {
             Instalação profissional a partir de <strong>{VALOR_INSTALACAO_A_PARTIR}</strong>
           </p>
         )}
-        <WhatsAppButton message={MSG_GERAL} className="campanha-btn-primary pulse-icon">
+        <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary pulse-icon">
           Solicitar Orçamento no WhatsApp
         </WhatsAppButton>
 
@@ -91,7 +88,7 @@ const CampanhaFechadura = () => {
                     ))}
                   </div>
                   <WhatsAppButton
-                    message={msgCombo(m.nome.replace('Intelbras ', ''))}
+                    message={msgFechaduraModelo(m.nome.replace('Intelbras ', ''))}
                     className="botao-comprar-kit"
                   >
                     Quero Fechadura + Instalação
@@ -117,7 +114,7 @@ const CampanhaFechadura = () => {
             <li>✔️ Configuração completa de senhas, biometrias e tags</li>
             <li>✔️ Treinamento para os moradores usarem com facilidade</li>
           </ul>
-          <WhatsAppButton message={MSG_INSTALACAO} className="botao-instalacao-avulsa">
+          <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="botao-instalacao-avulsa">
             🛠️ Quero orçamento SÓ da instalação
           </WhatsAppButton>
         </div>
@@ -162,7 +159,7 @@ const CampanhaFechadura = () => {
           <p style={{ fontStyle: 'italic', color: '#4ade80', marginBottom: '2rem' }}>
             🎁 Bônus: Ganhe uma consultoria gratuita de Automação para sua casa após a instalação!
           </p>
-          <WhatsAppButton message={MSG_GERAL} className="campanha-btn-primary">
+          <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary">
             Quero Agendar Minha Instalação
           </WhatsAppButton>
         </div>
@@ -175,7 +172,7 @@ const CampanhaFechadura = () => {
       </footer>
 
       {/* Flutuante: leva o gatilho da campanha, não a mensagem genérica do site */}
-      <WhatsAppButton message={MSG_GERAL} />
+      <WhatsAppButton message={MSG_FECHADURA_COMBO} />
     </div>
   );
 };
