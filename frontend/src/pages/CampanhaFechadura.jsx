@@ -23,28 +23,28 @@ const staggerContainer = {
 const MODELOS = [
   {
     id: 'mfr3000v',
-    nome: 'Fechadura MFR 3000',
+    nome: 'Modelo Premium',
     tag: 'Premium (Embutir)',
     imagem: '/fechadura_premium_3d.png',
     metodos: ['👆 Digital', '📱 App', '💳 Tag', '🔢 Senha', '🔑 Chave'],
   },
   {
     id: 'fr221v',
-    nome: 'Fechadura FR 221',
+    nome: 'Modelo Design',
     tag: 'Design (Embutir)',
     imagem: '/fechadura_design_3d.png',
     metodos: ['👆 Digital', '🔢 Senha'],
   },
   {
     id: 'fr102',
-    nome: 'Fechadura FR 102',
+    nome: 'Modelo Intermediário',
     tag: 'Intermediária (Sobrepor)',
     imagem: '/fechadura_inter_3d.png',
     metodos: ['🔢 Senha (Touch)'],
   },
   {
     id: 'fr10',
-    nome: 'Fechadura FR 10',
+    nome: 'Modelo Custo-Benefício',
     tag: 'Custo-Benefício (Sobrepor)',
     imagem: '/fechadura_custo_3d.png',
     metodos: ['🔢 Senha'],
@@ -187,6 +187,20 @@ const CampanhaFechadura = () => {
         </motion.div>
       </section>
 
+      {/* Banner Especialista Certificado */}
+      <section className="certificacoes-banner">
+        <motion.div 
+          className="cert-content glass-panel"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <h3>Instalação Especializada e Certificada</h3>
+          <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
+        </motion.div>
+      </section>
+
       {/* Guia Especializado (Tabs) */}
       <section className="campanha-guia-section" id="guia">
         <motion.div
@@ -262,16 +276,16 @@ const CampanhaFechadura = () => {
                 <h3>Recursos de Segurança e Praticidade</h3>
                 <ul className="guia-list">
                   <li>
-                    <strong>👆 Múltiplos Acessos:</strong> Biometria (para praticidade diária), Senha (para segurança) e Tag RFID (ótimo para crianças e idosos que têm dificuldade em memorizar senhas).
+                    <strong>📱 Gestão na Palma da Mão:</strong> Acompanhamento em tempo real (saiba quem entrou e a que horas) e liberação da porta à distância via aplicativo.
                   </li>
                   <li>
-                    <strong>🛡️ Segurança Anti-Arrombamento:</strong> Travamento totalmente automático ao encostar a porta. Alarme sonoro integrado que dispara em caso de tentativa de violação.
+                    <strong>🔑 Senhas de Uso Único e Temporárias:</strong> Crie senhas exclusivas para prestadores de serviço, faxineiras ou hóspedes, que expiram automaticamente após o uso.
                   </li>
                   <li>
-                    <strong>🔢 Senha Falsa (Modo Não Perturbe):</strong> Permite digitar números aleatórios antes da sua senha real, evitando que curiosos ou câmeras no hall identifiquem seu código.
+                    <strong>🏠 Cenas em Automação Residencial:</strong> Integre sua fechadura à casa inteligente. Exemplo: ao abrir a porta com a sua digital, as luzes da sala acendem e o ar-condicionado liga sozinho.
                   </li>
                   <li>
-                    <strong>📱 Conectividade Wi-Fi/Bluetooth:</strong> Controle de acessos e geração de senhas temporárias à distância através do aplicativo no celular.
+                    <strong>🛡️ Segurança Anti-Arrombamento:</strong> Travamento automático ao encostar a porta, alarme integrado e modo "senha falsa" (digite números aleatórios antes da senha real para despistar curiosos).
                   </li>
                 </ul>
               </motion.div>
