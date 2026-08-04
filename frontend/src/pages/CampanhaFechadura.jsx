@@ -336,39 +336,6 @@ const CampanhaFechadura = () => {
         </motion.div>
       </section>
 
-      {/* Prova Social (Nossos Trabalhos) */}
-      <section className="campanha-social-proof">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          className="section-header"
-        >
-          <motion.h2 variants={fadeUp} className="campanha-section-title">Instalações Reais</motion.h2>
-          <motion.p variants={fadeUp} className="campanha-section-subtitle">
-            Veja a qualidade do nosso acabamento de marcenaria fina. Sem arranhões, sem fios aparentes, integração perfeita com a sua porta.
-          </motion.p>
-        </motion.div>
-        
-        <motion.div 
-          className="social-proof-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeUp} className="proof-card glass-panel">
-            <img src="/IMG_0672.jpg" alt="Instalação de Fechadura Digital MSIFORCE 1" loading="lazy" width="600" height="800" />
-          </motion.div>
-          <motion.div variants={fadeUp} className="proof-card glass-panel">
-            <img src="/IMG_0676.jpg" alt="Instalação de Fechadura Digital MSIFORCE 2" loading="lazy" width="600" height="800" />
-          </motion.div>
-          <motion.div variants={fadeUp} className="proof-card glass-panel">
-            <img src="/IMG_0678.jpg" alt="Instalação de Fechadura Digital MSIFORCE 3" loading="lazy" width="600" height="800" />
-          </motion.div>
-        </motion.div>
-      </section>
 
       {/* Seção Instalação Avulsa */}
       <section className="campanha-instalacao-avulsa" id="instalacao">
