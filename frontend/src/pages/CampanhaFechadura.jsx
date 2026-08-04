@@ -55,7 +55,16 @@ const CampanhaFechadura = () => {
   const [activeTab, setActiveTab] = useState('portas');
 
   useEffect(() => {
-    document.title = 'Fechadura Digital em SP - MSIFORCE Premium';
+    document.title = 'Casa Inteligente e Fechaduras Digitais - MSIFORCE';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = "Instalação especializada de fechaduras digitais e projetos de Casa Inteligente em São Paulo. Autorizada Intelbras, Yale, Pado, Papaiz. Solicite orçamento.";
+
     window.scrollTo(0, 0);
     iniciarAds();
   }, []);
@@ -130,7 +139,7 @@ const CampanhaFechadura = () => {
               <motion.div variants={fadeUp} className="modelo-card glass-panel" key={m.id}>
                 <div className="modelo-imagem">
                   <div className="modelo-glow"></div>
-                  <img src={m.imagem} alt={m.nome} loading="lazy" />
+                  <img src={m.imagem} alt={m.nome} loading="lazy" width="400" height="400" />
                 </div>
                 <div className="modelo-info">
                   <span className="modelo-tag">{m.tag}</span>
@@ -227,22 +236,31 @@ const CampanhaFechadura = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <div className="guia-tabs-header">
+          <div className="guia-tabs-header" role="tablist">
             <button 
               className={`guia-tab-btn ${activeTab === 'portas' ? 'active' : ''}`}
               onClick={() => setActiveTab('portas')}
+              role="tab"
+              aria-selected={activeTab === 'portas'}
+              tabIndex={activeTab === 'portas' ? 0 : -1}
             >
               Tipos de Porta
             </button>
             <button 
               className={`guia-tab-btn ${activeTab === 'funcoes' ? 'active' : ''}`}
               onClick={() => setActiveTab('funcoes')}
+              role="tab"
+              aria-selected={activeTab === 'funcoes'}
+              tabIndex={activeTab === 'funcoes' ? 0 : -1}
             >
               Funções
             </button>
             <button 
               className={`guia-tab-btn ${activeTab === 'aplicacoes' ? 'active' : ''}`}
               onClick={() => setActiveTab('aplicacoes')}
+              role="tab"
+              aria-selected={activeTab === 'aplicacoes'}
+              tabIndex={activeTab === 'aplicacoes' ? 0 : -1}
             >
               Aplicações
             </button>
@@ -315,6 +333,40 @@ const CampanhaFechadura = () => {
               </motion.div>
             )}
           </div>
+        </motion.div>
+      </section>
+
+      {/* Prova Social (Nossos Trabalhos) */}
+      <section className="campanha-social-proof">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="section-header"
+        >
+          <motion.h2 variants={fadeUp} className="campanha-section-title">Instalações Reais</motion.h2>
+          <motion.p variants={fadeUp} className="campanha-section-subtitle">
+            Veja a qualidade do nosso acabamento de marcenaria fina. Sem arranhões, sem fios aparentes, integração perfeita com a sua porta.
+          </motion.p>
+        </motion.div>
+        
+        <motion.div 
+          className="social-proof-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeUp} className="proof-card glass-panel">
+            <img src="/IMG_0672.jpg" alt="Instalação de Fechadura Digital MSIFORCE 1" loading="lazy" width="600" height="800" />
+          </motion.div>
+          <motion.div variants={fadeUp} className="proof-card glass-panel">
+            <img src="/IMG_0676.jpg" alt="Instalação de Fechadura Digital MSIFORCE 2" loading="lazy" width="600" height="800" />
+          </motion.div>
+          <motion.div variants={fadeUp} className="proof-card glass-panel">
+            <img src="/IMG_0678.jpg" alt="Instalação de Fechadura Digital MSIFORCE 3" loading="lazy" width="600" height="800" />
+          </motion.div>
         </motion.div>
       </section>
 
