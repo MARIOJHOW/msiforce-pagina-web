@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './CampanhaFechadura.css';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -52,6 +52,8 @@ const MODELOS = [
 ];
 
 const CampanhaFechadura = () => {
+  const [activeTab, setActiveTab] = useState('portas');
+
   useEffect(() => {
     document.title = 'Fechadura Digital em SP - MSIFORCE Premium';
     window.scrollTo(0, 0);
@@ -182,6 +184,119 @@ const CampanhaFechadura = () => {
               <p>Travamento automático, alarme anti-arrombamento e aviso de pilha fraca.</p>
             </div>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Guia Especializado (Tabs) */}
+      <section className="campanha-guia-section" id="guia">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="section-header"
+        >
+          <motion.h2 variants={fadeUp} className="campanha-section-title">Guia Especializado</motion.h2>
+          <motion.p variants={fadeUp} className="campanha-section-subtitle">
+            Entenda como escolher a fechadura certa para sua necessidade e conheça todas as vantagens.
+          </motion.p>
+        </motion.div>
+
+        <motion.div 
+          className="guia-tabs-container"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <div className="guia-tabs-header">
+            <button 
+              className={`guia-tab-btn ${activeTab === 'portas' ? 'active' : ''}`}
+              onClick={() => setActiveTab('portas')}
+            >
+              Tipos de Porta
+            </button>
+            <button 
+              className={`guia-tab-btn ${activeTab === 'funcoes' ? 'active' : ''}`}
+              onClick={() => setActiveTab('funcoes')}
+            >
+              Funções
+            </button>
+            <button 
+              className={`guia-tab-btn ${activeTab === 'aplicacoes' ? 'active' : ''}`}
+              onClick={() => setActiveTab('aplicacoes')}
+            >
+              Aplicações
+            </button>
+          </div>
+
+          <div className="guia-tab-content glass-panel">
+            {activeTab === 'portas' && (
+              <motion.div 
+                className="guia-panel"
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
+              >
+                <h3>Qual modelo serve na minha porta?</h3>
+                <ul className="guia-list">
+                  <li>
+                    <strong>🚪 Portas Pivotantes / Madeira Maciça:</strong> Recomendamos <em>Fechaduras de Embutir</em>. Elas substituem a maçaneta original, têm o maquinário dentro da porta e oferecem o acabamento mais luxuoso.
+                  </li>
+                  <li>
+                    <strong>🏢 Portas Padrão (Apartamento):</strong> Recomendamos <em>Fechaduras de Sobrepor</em>. Instaladas acima da maçaneta atual. Perfeitas para quem mora de aluguel ou não quer modificar a porta.
+                  </li>
+                  <li>
+                    <strong>🧊 Portas de Vidro:</strong> Modelos específicos de encaixe ou pressão (com fita de alta fixação). Instalação segura sem necessidade de furar o vidro temperado.
+                  </li>
+                  <li>
+                    <strong>🏠 Portas de Correr / Alumínio:</strong> Modelos de perfil estreito com lingueta em gancho (bico de papagaio) que travam lateralmente.
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+
+            {activeTab === 'funcoes' && (
+              <motion.div 
+                className="guia-panel"
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
+              >
+                <h3>Recursos de Segurança e Praticidade</h3>
+                <ul className="guia-list">
+                  <li>
+                    <strong>👆 Múltiplos Acessos:</strong> Biometria (para praticidade diária), Senha (para segurança) e Tag RFID (ótimo para crianças e idosos que têm dificuldade em memorizar senhas).
+                  </li>
+                  <li>
+                    <strong>🛡️ Segurança Anti-Arrombamento:</strong> Travamento totalmente automático ao encostar a porta. Alarme sonoro integrado que dispara em caso de tentativa de violação.
+                  </li>
+                  <li>
+                    <strong>🔢 Senha Falsa (Modo Não Perturbe):</strong> Permite digitar números aleatórios antes da sua senha real, evitando que curiosos ou câmeras no hall identifiquem seu código.
+                  </li>
+                  <li>
+                    <strong>📱 Conectividade Wi-Fi/Bluetooth:</strong> Controle de acessos e geração de senhas temporárias à distância através do aplicativo no celular.
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+
+            {activeTab === 'aplicacoes' && (
+              <motion.div 
+                className="guia-panel"
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
+              >
+                <h3>Onde utilizar?</h3>
+                <ul className="guia-list">
+                  <li>
+                    <strong>🏠 Residências e Condomínios:</strong> Diga adeus ao molho de chaves pesado. Ideal para famílias grandes, facilitando o acesso de todos sem precisar fazer cópias de chave.
+                  </li>
+                  <li>
+                    <strong>🏢 Escritórios e Clínicas:</strong> Controle total de quem entra e quem sai. Perfeito para restringir acesso a salas específicas (TI, Estoque, Diretoria) apenas para funcionários autorizados.
+                  </li>
+                  <li>
+                    <strong>🧳 Airbnb / Locação por Temporada:</strong> A solução definitiva. Gere senhas temporárias que expiram automaticamente na data e hora do check-out do seu hóspede.
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+          </div>
         </motion.div>
       </section>
 
