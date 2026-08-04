@@ -23,28 +23,28 @@ const staggerContainer = {
 const MODELOS = [
   {
     id: 'mfr3000v',
-    nome: 'Intelbras MFR 3000 V',
+    nome: 'Fechadura MFR 3000',
     tag: 'Premium (Embutir)',
     imagem: '/fechadura_premium_3d.png',
     metodos: ['👆 Digital', '📱 App', '💳 Tag', '🔢 Senha', '🔑 Chave'],
   },
   {
     id: 'fr221v',
-    nome: 'Intelbras FR 221 V',
+    nome: 'Fechadura FR 221',
     tag: 'Design (Embutir)',
     imagem: '/fechadura_design_3d.png',
     metodos: ['👆 Digital', '🔢 Senha'],
   },
   {
     id: 'fr102',
-    nome: 'Intelbras FR 102',
+    nome: 'Fechadura FR 102',
     tag: 'Intermediária (Sobrepor)',
     imagem: '/fechadura_inter_3d.png',
     metodos: ['🔢 Senha (Touch)'],
   },
   {
     id: 'fr10',
-    nome: 'Intelbras FR 10',
+    nome: 'Fechadura FR 10',
     tag: 'Custo-Benefício (Sobrepor)',
     imagem: '/fechadura_custo_3d.png',
     metodos: ['🔢 Senha'],
@@ -105,7 +105,7 @@ const CampanhaFechadura = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
         >
-          <motion.h3 variants={fadeUp} className="vitrine-titulo">Linha Premium Intelbras</motion.h3>
+          <motion.h3 variants={fadeUp} className="vitrine-titulo">Linha Premium Smart</motion.h3>
           <div className="modelos-grid">
             {MODELOS.map((m) => (
               <motion.div variants={fadeUp} className="modelo-card glass-panel" key={m.id}>
@@ -124,7 +124,7 @@ const CampanhaFechadura = () => {
                     ))}
                   </div>
                   <WhatsAppButton
-                    message={msgFechaduraModelo(m.nome.replace('Intelbras ', ''))}
+                    message={msgFechaduraModelo(m.nome)}
                     className="botao-comprar-kit"
                   >
                     Instalar este modelo
