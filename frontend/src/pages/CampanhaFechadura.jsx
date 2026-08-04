@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './CampanhaFechadura.css';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -359,6 +360,25 @@ const CampanhaFechadura = () => {
           <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="botao-instalacao-avulsa">
             Orçar Apenas a Instalação
           </WhatsAppButton>
+        </motion.div>
+      </section>
+      {/* Chamada para Automação Completa */}
+      <section className="campanha-section" style={{ background: '#050505', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <motion.div 
+          className="offer-box glass-panel"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(74, 222, 128, 0.2)' }}
+        >
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>Quer ir além da porta?</h2>
+          <p style={{ color: '#c0c0c0', marginBottom: '2rem', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
+            Descubra como transformar sua casa inteira. Controle iluminação, ar-condicionado, cortinas e home theater por comando de voz ou celular.
+          </p>
+          <Link to="/automacao" className="campanha-btn-primary glow-effect" style={{ background: 'transparent', border: '2px solid #4ade80', color: '#4ade80', padding: '1rem 2.5rem', display: 'inline-block' }}>
+            Conhecer Projetos de Automação
+          </Link>
         </motion.div>
       </section>
 
