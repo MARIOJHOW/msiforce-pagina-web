@@ -8,8 +8,8 @@
 // Enquanto estiverem vazias nada é carregado e nada é disparado — a página funciona
 // normalmente, só não reporta conversão. Não existe estado quebrado no meio.
 
-export const ADS_CONVERSION_ID = ''; // ex.: 'AW-1234567890'
-export const ADS_CONVERSION_LABEL = ''; // ex.: 'AbC-D_efGhIjKlMnOp'
+export const ADS_CONVERSION_ID = 'AW-18144467371';
+export const ADS_CONVERSION_LABEL = 'o9lQCJG_zNscEKuz-stD';
 
 let carregando = false;
 
@@ -48,5 +48,7 @@ export function registrarConversaoWhatsApp() {
 
   window.gtag('event', 'conversion', {
     send_to: `${ADS_CONVERSION_ID}/${ADS_CONVERSION_LABEL}`,
+    value: 1.0,
+    currency: 'BRL'
   });
 }
