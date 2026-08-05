@@ -60,7 +60,7 @@ const Footer = () => {
             </li>
             <li>
               <span className="msi-f-contact-icon">✉️</span>
-              <a href="mailto:mario.junior@msiforce.com.br">mario.junior@msiforce.com.br</a>
+              <a href="mailto:contato@msiforce.com.br">contato@msiforce.com.br</a>
             </li>
             <li>
               <span className="msi-f-contact-icon">📍</span>
