@@ -112,3 +112,10 @@ body::after {
   font-style: normal;
   color: var(--orange);
 }
+
+/* Fix global para evitar que a tela trema ao passar o mouse nos botoes */
+a, button, [class*="btn"], .msi-nav-cta {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
