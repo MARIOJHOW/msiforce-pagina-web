@@ -18,6 +18,20 @@ const browser = await chromium.launch();
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+
+  // As seções usam whileInView do Framer Motion: sem rolar, elas ficam em
+  // opacity 0 e a captura sai "quebrada". Rola até o fim antes de fotografar.
+  await page.evaluate(async () => {
+    const passo = window.innerHeight * 0.6;
+    for (let y = 0; y < document.body.scrollHeight; y += passo) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    window.scrollTo(0, 0);
+    await new Promise((r) => setTimeout(r, 600));
+  });
+  await page.waitForTimeout(1000);
+
   await page.screenshot({ path: outFile, fullPage: true });
   console.log(`OK  ${url}  ->  ${outFile}`);
 } catch (e) {
