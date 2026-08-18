@@ -117,7 +117,7 @@ const CampanhaFechadura = () => {
           >
             <div className="hero-image-complete">
               <div className="hero-image-glow"></div>
-              <img src="/fechadura_completa.png" alt="Fechadura Inteligente" className="main-lock-img complete-img" />
+              <img src="/fechadura_completa.webp" alt="Fechadura digital instalada pela MSIFORCE" className="main-lock-img complete-img" width="520" height="520" />
             </div>
           </motion.div>
         </div>
