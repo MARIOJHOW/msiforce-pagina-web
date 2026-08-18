@@ -41,6 +41,8 @@ Valores copiados literalmente do spec. Valem para **todas** as tarefas.
 - **Âncoras obrigatórias no DOM:** `id="modelos"`, `id="instalacao"`, `id="combo"`. São sitelinks do anúncio ativo — removê-las quebra a campanha em silêncio.
 - **Telefone oficial:** `5511910773865`. Nenhum outro número pode aparecer em link de WhatsApp.
 - **Preços "a partir de":** Essencial R$ 200 · Design R$ 250 · Conectado R$ 400 · Premium R$ 700.
+- **O menor preço nunca é escrito à mão.** Ele existe uma vez, em `PLANOS`, e todo o resto (hero, título da vitrine, FAQ) o deriva de `PRECO_MINIMO`. Um reajuste futuro muda um número e a página inteira acompanha.
+- **Nenhum verde fora do botão do WhatsApp** — inclusive nos textos de porta compatível. Não usar `#4ade80`, `rgba(74,222,128,…)` nem `#7fbf8f`. Compatibilidade se marca com o check dourado + texto cinza claro.
 - **Nunca estampar valor de parcela.** A frase é sempre `em até 12x no cartão`.
 - **Asterisco obrigatório** ao pé da vitrine de planos, literal: `*Valor varia de acordo com o modelo da fechadura e o material da porta. Parcelamento no cartão com taxa da operadora.`
 - **Prova social:** apenas `5,0 no Google` e `82 avaliações`. **Não inventar** depoimento, nome de cliente, foto de obra ou qualquer outro número.
@@ -286,6 +288,10 @@ export const PLANOS = [
   },
 ];
 
+// Menor preço da régua. Existe UMA vez: hero, título da vitrine e FAQ derivam daqui.
+// Reajustou preço em PLANOS? A página inteira acompanha sozinha.
+export const PRECO_MINIMO = Math.min(...PLANOS.map((p) => p.apartirde));
+
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },
   { id: 'entrada', rotulo: 'Mais em conta' },
@@ -352,7 +358,7 @@ export const PASSOS = [
 export const FAQ = [
   {
     p: 'Vocês instalam fechadura que eu comprei em outro lugar?',
-    r: 'Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ 200, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.',
+    r: `Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ ${PRECO_MINIMO}, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
   },
   {
     p: 'Quanto tempo demora?',
@@ -392,10 +398,10 @@ export const NOTA_LEGAL =
 
 ```bash
 cd frontend
-node --input-type=module -e "import('./src/pages/CasaInteligente/dados.js').then(m=>{console.log(m.PLANOS.length, m.MODELOS.length, m.FAQ.length, m.GOOGLE.nota)})"
+node --input-type=module -e "import('./src/pages/CasaInteligente/dados.js').then(m=>{console.log(m.PLANOS.length, m.MODELOS.length, m.FAQ.length, m.GOOGLE.nota, m.PRECO_MINIMO); console.log(m.FAQ[0].r.includes('R$ 200') ? 'FAQ deriva OK' : 'FAQ NAO deriva')})"
 ```
 
-Esperado: `4 4 6 5,0`
+Esperado: `4 4 6 5,0 200` e `FAQ deriva OK`
 
 - [ ] **Passo 3: Commit**
 
@@ -669,7 +675,7 @@ O coração da página. Substitui a vitrine de produtos como seção principal.
 - Create: `frontend/src/pages/CasaInteligente/VitrinePlanos.css`
 
 **Interfaces:**
-- Consumes: `PLANOS`, `FILTRO_BOLSO`, `FILTRO_PORTA`, `NOTA_LEGAL` de `./dados`; `IcoCheck` de `./icones`; `msgPlanoInstalacao` de `../../lib/gatilhos`; `WhatsAppButton` de `../../components/WhatsAppButton`.
+- Consumes: `PLANOS`, `PRECO_MINIMO`, `FILTRO_BOLSO`, `FILTRO_PORTA`, `NOTA_LEGAL` de `./dados`; `IcoCheck` de `./icones`; `msgPlanoInstalacao` de `../../lib/gatilhos`; `WhatsAppButton` de `../../components/WhatsAppButton`.
 - Produces: `<VitrinePlanos />`. Renderiza a seção com `id="instalacao"` — **âncora obrigatória de sitelink**.
 
 - [ ] **Passo 1: Criar o componente**
@@ -678,7 +684,7 @@ O coração da página. Substitui a vitrine de produtos como seção principal.
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './VitrinePlanos.css';
-import { PLANOS, FILTRO_BOLSO, FILTRO_PORTA, NOTA_LEGAL } from './dados';
+import { PLANOS, PRECO_MINIMO, FILTRO_BOLSO, FILTRO_PORTA, NOTA_LEGAL } from './dados';
 import { IcoCheck } from './icones';
 import { msgPlanoInstalacao } from '../../lib/gatilhos';
 import WhatsAppButton from '../../components/WhatsAppButton';
@@ -701,7 +707,7 @@ const VitrinePlanos = () => {
   return (
     <section className="planos-secao" id="instalacao">
       <div className="section-header">
-        <h2 className="campanha-section-title">Instalação a partir de R$ 200</h2>
+        <h2 className="campanha-section-title">Instalação a partir de R$ {PRECO_MINIMO}</h2>
         <p className="campanha-section-subtitle">
           O preço acompanha a complexidade da sua porta e da fechadura — não o seu CEP.
           Escolha a faixa que cabe no seu bolso.
@@ -771,7 +777,7 @@ const VitrinePlanos = () => {
                 ))}
               </ul>
 
-              <p className="plano-porta">{p.porta}</p>
+              <p className="plano-porta"><IcoCheck className="plano-porta-check" /> {p.porta}</p>
 
               <WhatsAppButton
                 message={msgPlanoInstalacao(p.nome)}
@@ -860,7 +866,7 @@ export default VitrinePlanos;
 }
 .plano-check { color: var(--orange); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
 
-.plano-porta { font-size: 12px; color: #7fbf8f; line-height: 1.45; margin: 0 0 18px; }
+.plano-porta { font-size: 12px; color: #b0b0b0; line-height: 1.45; margin: 0 0 18px; }
 
 .plano-btn {
   display: block; text-align: center; text-decoration: none;
@@ -923,6 +929,7 @@ Três componentes pequenos numa tarefa só: nascem juntos, são todos consumo di
 ```jsx
 import { motion } from 'framer-motion';
 import { MODELOS } from './dados';
+import { IcoCheck } from './icones';
 import { msgFechaduraModelo } from '../../lib/gatilhos';
 import WhatsAppButton from '../../components/WhatsAppButton';
 
@@ -963,7 +970,7 @@ const VitrineModelos = () => (
                 <span className="metodo-badge" key={metodo}>{metodo}</span>
               ))}
             </div>
-            <p className="modelo-porta">{m.porta}</p>
+            <p className="modelo-porta"><IcoCheck className="modelo-porta-check" /> {m.porta}</p>
             <WhatsAppButton message={msgFechaduraModelo(m.nome)} className="modelo-btn">
               Orçar este modelo
             </WhatsAppButton>
@@ -1062,7 +1069,8 @@ Acrescente ao fim do arquivo:
 /* ── Modelos (seção secundária) ──────────────── */
 .modelos-secao { padding: 80px 5%; background: var(--black); }
 .modelo-paraquem { color: #9a9a9a; font-size: 13px; line-height: 1.5; margin: 6px 0 12px; }
-.modelo-porta { font-size: 12px; color: #7fbf8f; margin: 10px 0 14px; }
+.modelo-porta { font-size: 12px; color: #b0b0b0; margin: 10px 0 14px; }
+.modelo-porta-check, .plano-porta-check { color: var(--orange); font-size: 14px; vertical-align: -2px; }
 .modelo-btn {
   display: block; text-align: center; text-decoration: none; padding: 12px; border-radius: 9px;
   font-weight: 800; font-size: 13.5px;
@@ -1207,7 +1215,7 @@ return (
 );
 ```
 
-A seção de prova social precisa de `import { GOOGLE } from './dados';` e deste CSS ao fim de `CasaInteligente.css`:
+A seção de prova social e a âncora de preço do hero compartilham o import `import { GOOGLE, PRECO_MINIMO } from './dados';`. CSS ao fim de `CasaInteligente.css`:
 
 ```css
 /* ── Prova social ────────────────────────────── */
@@ -1228,9 +1236,11 @@ Dentro de `.hero-text`, logo após o `<motion.p>` de apoio e antes do botão, in
 </motion.div>
 
 <motion.p variants={fadeUp} className="campanha-faixa-preco">
-  Instalação a partir de <strong>R$ 200</strong> · em até 12x no cartão
+  Instalação a partir de <strong>R$ {PRECO_MINIMO}</strong> · em até 12x no cartão
 </motion.p>
 ```
+
+Isso exige `import { GOOGLE, PRECO_MINIMO } from './dados';` no topo do arquivo — o mesmo import que a seção de prova social usa.
 
 E o CSS correspondente:
 
@@ -1386,7 +1396,7 @@ herdado do layout e parou de conferir seu gatilho."
 - [ ] **Passo 1: Mapear o verde restante**
 
 ```bash
-cd frontend && grep -n "4ade80\|00E676\|#22c55e" src/pages/CasaInteligente/CasaInteligente.css
+cd frontend && grep -n "4ade80\|00E676\|#22c55e\|7fbf8f" src/pages/CasaInteligente/CasaInteligente.css
 ```
 
 Anote as linhas. Todas serão trocadas.
@@ -1407,10 +1417,10 @@ Exceção: o verde do `WhatsAppButton.css` **não** se toca.
 - [ ] **Passo 4: Verificar que o verde sumiu**
 
 ```bash
-grep -n "4ade80\|rgba(74, 222, 128" src/pages/CasaInteligente/CasaInteligente.css src/pages/CasaInteligente/CasaInteligente.jsx
+grep -rn "4ade80\|rgba(74, 222, 128\|7fbf8f" src/pages/CasaInteligente/
 ```
 
-Esperado: **nenhuma saída**.
+Esperado: **nenhuma saída**. (A busca é recursiva de propósito: `VitrinePlanos.css` e os componentes das tarefas 7 e 8 também não podem conter verde.)
 
 ```bash
 npm run build && node tools/shot.mjs /casa-inteligente dourado
