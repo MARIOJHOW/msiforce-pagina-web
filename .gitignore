@@ -14,3 +14,6 @@ extract_logo.js
 setup_git_pagina.ps1
 package.json
 package-lock.json
+
+# brainstorming visual (superpowers)
+.superpowers/
