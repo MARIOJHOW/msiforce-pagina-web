@@ -29,7 +29,7 @@ const SeloGoogle = ({ compacto = false }) => {
       </a>
     );
   }
-  return <div className={classe} aria-label={rotulo}>{conteudo}</div>;
+  return <div className={classe} role="group" aria-label={rotulo}>{conteudo}</div>;
 };
 
 export default SeloGoogle;
