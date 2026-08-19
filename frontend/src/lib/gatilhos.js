@@ -23,3 +23,10 @@ export const MSG_FECHADURA_AUTOMACAO = 'Olá! Quero uma fechadura digital inteli
 export const MSG_ACESSO_CORPORATIVO = 'Olá! Preciso de controle de acesso para minha empresa ou condomínio.';
 
 export const MSG_AUTOMACAO_PROJETO = 'Olá! Vim pela página de Automação e quero um projeto para minha casa.';
+
+// CTAs da vitrine de planos. A frase "apenas o serviço de instalação" é o que
+// GATILHOS_INSTALACAO reconhece em fechadura.js — sem ela o lead cai no menu
+// genérico. O nome do plano viaja como texto livre para o atendimento ler; o
+// bot não distingue um plano do outro (decisão registrada no spec).
+export const msgPlanoInstalacao = (plano) =>
+  `Olá! Quero o Plano ${plano} — apenas o serviço de instalação da minha fechadura digital.`;
