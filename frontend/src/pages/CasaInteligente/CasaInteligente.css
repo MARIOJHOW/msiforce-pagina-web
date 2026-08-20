@@ -192,21 +192,6 @@
 }
 
 /* --- Vitrine Modelos --- */
-.modelos-vitrine {
-  width: 100%;
-  margin-top: 6rem;
-  position: relative;
-  z-index: 2;
-}
-
-.vitrine-titulo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
 .modelos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -249,16 +234,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.modelo-glow {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: rgba(74, 222, 128, 0.15);
-  filter: blur(40px);
-  border-radius: 50%;
-  z-index: 0;
 }
 
 .modelo-imagem img {
@@ -313,30 +288,6 @@
   color: #a3a3a3;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-.botao-comprar-kit {
-  margin-top: auto;
-  width: 100%;
-  font-size: 0.95rem;
-  padding: 1rem;
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  font-weight: 600;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-.botao-comprar-kit:hover {
-  background: #fff;
-  color: #000;
-}
-
 
 /* --- BENTO GRID Features --- */
 .campanha-section {
@@ -486,7 +437,6 @@
 
 .check-icon {
   color: #4ade80;
-  font-weight: bold;
 }
 
 .botao-instalacao-avulsa {
@@ -566,16 +516,6 @@
   font-weight: 600;
   margin-bottom: 3rem;
   border: 1px solid rgba(74, 222, 128, 0.2);
-}
-
-
-/* --- Footer --- */
-.campanha-footer {
-  text-align: center;
-  padding: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: #666;
-  font-size: 0.9rem;
 }
 
 
@@ -887,6 +827,6 @@
 .campanha-faixa-preco strong { color: var(--orange); font-size: 1.35rem; font-weight: 800; }
 
 /* ── Ícones (substituem os emojis) ───────────── */
-.bento-icon, .guia-list li > svg, .check-icon { color: var(--orange); }
+.bento-icon, .guia-list li svg, .check-icon, .bonus-tag svg { color: var(--orange); }
 .bento-icon { font-size: 30px; }
 .guia-list li > svg { font-size: 17px; vertical-align: -3px; margin-right: 7px; }

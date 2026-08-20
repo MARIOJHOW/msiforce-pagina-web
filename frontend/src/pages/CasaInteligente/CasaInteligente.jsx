@@ -245,16 +245,16 @@ const CampanhaFechadura = () => {
                 <h3>Qual modelo serve na minha porta?</h3>
                 <ul className="guia-list">
                   <li>
-                    <IcoPorta /> <strong>Portas Pivotantes / Madeira Maciça:</strong> Recomendamos <em>Fechaduras de Embutir</em>. Elas substituem a maçaneta original, têm o maquinário dentro da porta e oferecem o acabamento mais luxuoso.
+                    <strong><IcoPorta /> Portas Pivotantes / Madeira Maciça:</strong> Recomendamos <em>Fechaduras de Embutir</em>. Elas substituem a maçaneta original, têm o maquinário dentro da porta e oferecem o acabamento mais luxuoso.
                   </li>
                   <li>
-                    <IcoPredio /> <strong>Portas Padrão (Apartamento):</strong> Recomendamos <em>Fechaduras de Sobrepor</em>. Instaladas acima da maçaneta atual. Perfeitas para quem mora de aluguel ou não quer modificar a porta.
+                    <strong><IcoPredio /> Portas Padrão (Apartamento):</strong> Recomendamos <em>Fechaduras de Sobrepor</em>. Instaladas acima da maçaneta atual. Perfeitas para quem mora de aluguel ou não quer modificar a porta.
                   </li>
                   <li>
-                    <IcoVidro /> <strong>Portas de Vidro:</strong> Modelos específicos de encaixe ou pressão (com fita de alta fixação). Instalação segura sem necessidade de furar o vidro temperado.
+                    <strong><IcoVidro /> Portas de Vidro:</strong> Modelos específicos de encaixe ou pressão (com fita de alta fixação). Instalação segura sem necessidade de furar o vidro temperado.
                   </li>
                   <li>
-                    <IcoPorta /> <strong>Portas de Correr / Alumínio:</strong> Modelos de perfil estreito com lingueta em gancho (bico de papagaio) que travam lateralmente.
+                    <strong><IcoPorta /> Portas de Correr / Alumínio:</strong> Modelos de perfil estreito com lingueta em gancho (bico de papagaio) que travam lateralmente.
                   </li>
                 </ul>
               </motion.div>
@@ -268,16 +268,16 @@ const CampanhaFechadura = () => {
                 <h3>Recursos de Segurança e Praticidade</h3>
                 <ul className="guia-list">
                   <li>
-                    <IcoApp /> <strong>Gestão na Palma da Mão:</strong> Acompanhamento em tempo real (saiba quem entrou e a que horas) e liberação da porta à distância via aplicativo.
+                    <strong><IcoApp /> Gestão na Palma da Mão:</strong> Acompanhamento em tempo real (saiba quem entrou e a que horas) e liberação da porta à distância via aplicativo.
                   </li>
                   <li>
-                    <IcoDigital /> <strong>Senhas de Uso Único e Temporárias:</strong> Crie senhas exclusivas para prestadores de serviço, faxineiras ou hóspedes, que expiram automaticamente após o uso.
+                    <strong><IcoDigital /> Senhas de Uso Único e Temporárias:</strong> Crie senhas exclusivas para prestadores de serviço, faxineiras ou hóspedes, que expiram automaticamente após o uso.
                   </li>
                   <li>
-                    <IcoApp /> <strong>Cenas em Automação Residencial:</strong> Integre sua fechadura à casa inteligente. Exemplo: ao abrir a porta com a sua digital, as luzes da sala acendem e o ar-condicionado liga sozinho.
+                    <strong><IcoApp /> Cenas em Automação Residencial:</strong> Integre sua fechadura à casa inteligente. Exemplo: ao abrir a porta com a sua digital, as luzes da sala acendem e o ar-condicionado liga sozinho.
                   </li>
                   <li>
-                    <IcoEscudo /> <strong>Segurança Anti-Arrombamento:</strong> Travamento automático ao encostar a porta, alarme integrado e modo "senha falsa" (digite números aleatórios antes da senha real para despistar curiosos).
+                    <strong><IcoEscudo /> Segurança Anti-Arrombamento:</strong> Travamento automático ao encostar a porta, alarme integrado e modo "senha falsa" (digite números aleatórios antes da senha real para despistar curiosos).
                   </li>
                 </ul>
               </motion.div>
@@ -291,13 +291,13 @@ const CampanhaFechadura = () => {
                 <h3>Onde utilizar?</h3>
                 <ul className="guia-list">
                   <li>
-                    <IcoPorta /> <strong>Residências e Condomínios:</strong> Diga adeus ao molho de chaves pesado. Ideal para famílias grandes, facilitando o acesso de todos sem precisar fazer cópias de chave.
+                    <strong><IcoPorta /> Residências e Condomínios:</strong> Diga adeus ao molho de chaves pesado. Ideal para famílias grandes, facilitando o acesso de todos sem precisar fazer cópias de chave.
                   </li>
                   <li>
-                    <IcoPredio /> <strong>Escritórios e Clínicas:</strong> Controle total de quem entra e quem sai. Perfeito para restringir acesso a salas específicas (TI, Estoque, Diretoria) apenas para funcionários autorizados.
+                    <strong><IcoPredio /> Escritórios e Clínicas:</strong> Controle total de quem entra e quem sai. Perfeito para restringir acesso a salas específicas (TI, Estoque, Diretoria) apenas para funcionários autorizados.
                   </li>
                   <li>
-                    <IcoPredio /> <strong>Airbnb / Locação por Temporada:</strong> A solução definitiva. Gere senhas temporárias que expiram automaticamente na data e hora do check-out do seu hóspede.
+                    <strong><IcoPredio /> Airbnb / Locação por Temporada:</strong> A solução definitiva. Gere senhas temporárias que expiram automaticamente na data e hora do check-out do seu hóspede.
                   </li>
                 </ul>
               </motion.div>
