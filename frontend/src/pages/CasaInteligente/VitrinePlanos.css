@@ -1,0 +1,84 @@
+/* Vitrine de planos de instalação — seção principal da landing.
+   Escada visual: a intensidade do dourado cresce do Essencial ao Premium. */
+.planos-secao { padding: 90px 5% 80px; background: var(--dark); }
+
+.planos-filtros { max-width: 1200px; margin: 0 auto 26px; display: flex; flex-wrap: wrap; gap: 22px; }
+.planos-filtro-rot {
+  display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: #6d6d6d; margin-bottom: 8px;
+}
+.planos-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.planos-chip {
+  font: inherit; font-size: 12px; cursor: pointer;
+  padding: 7px 14px; border-radius: 99px;
+  border: 1px solid rgba(255,255,255,.16); background: transparent; color: #aaa;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.planos-chip:hover { border-color: rgba(197,160,89,.6); color: var(--white); }
+.planos-chip.ativo { background: var(--orange); border-color: var(--orange); color: #0a0a0a; font-weight: 700; }
+.planos-chip:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+.planos-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+
+.plano-card {
+  background: #111; border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;
+}
+.plano-trilho { height: 3px; }
+.plano-essencial  .plano-trilho { background: rgba(197,160,89,.30); }
+.plano-design     .plano-trilho { background: rgba(197,160,89,.52); }
+.plano-conectado  .plano-trilho { background: rgba(197,160,89,.76); }
+.plano-premium    .plano-trilho { background: var(--orange); }
+.plano-premium { border-color: rgba(197,160,89,.45); }
+
+.plano-corpo { padding: 20px 18px 22px; display: flex; flex-direction: column; flex: 1; }
+.plano-nome { color: var(--white); font-size: 20px; font-weight: 800; margin: 0 0 4px; }
+.plano-resumo { color: #9a9a9a; font-size: 13px; line-height: 1.5; margin: 0 0 16px; min-height: 39px; }
+
+.plano-preco {
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: 13px 0; margin-bottom: 16px;
+}
+.plano-preco-rot {
+  display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; color: #777;
+}
+.plano-preco-val { display: block; color: var(--orange); font-size: 32px; font-weight: 800; line-height: 1.15; }
+.plano-preco-par { display: block; font-size: 12px; color: #9a9a9a; margin-top: 3px; }
+
+.plano-inclui { list-style: none; padding: 0; margin: 0 0 16px; }
+.plano-inclui li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: #c3c3c3; line-height: 1.5; margin-bottom: 8px;
+}
+.plano-check { color: var(--orange); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+.plano-porta { font-size: 12px; color: #b0b0b0; line-height: 1.45; margin: 0 0 18px; }
+
+.plano-btn {
+  display: block; text-align: center; text-decoration: none;
+  margin-top: auto; padding: 13px; border-radius: 9px;
+  font-weight: 800; font-size: 14px;
+  background: transparent; border: 1px solid rgba(197,160,89,.55); color: var(--orange);
+  transition: background .2s, color .2s;
+}
+.plano-btn:hover { background: var(--orange); color: #0a0a0a; }
+.plano-premium .plano-btn { background: var(--orange); border-color: var(--orange); color: #0a0a0a; }
+.plano-premium .plano-btn:hover { filter: brightness(1.1); }
+
+.planos-vazio { max-width: 700px; margin: 26px auto 0; text-align: center; color: #9a9a9a; font-size: 14px; }
+.planos-legal { max-width: 900px; margin: 22px auto 0; text-align: center; color: #6d6d6d; font-size: 11.5px; line-height: 1.6; }
+
+@media (max-width: 980px) {
+  .planos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .planos-secao { padding: 60px 4% 55px; }
+  .plano-corpo { padding: 16px 14px 18px; }
+  .plano-nome { font-size: 17px; }
+  .plano-resumo { min-height: 0; margin-bottom: 12px; }
+  .plano-preco-val { font-size: 26px; }
+}
