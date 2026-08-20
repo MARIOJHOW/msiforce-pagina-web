@@ -875,3 +875,18 @@
 @media (max-width: 520px) {
   .modelos-secao, .passos-secao, .faq-secao { padding: 55px 4%; }
 }
+
+/* ── Prova social ────────────────────────────── */
+.prova-secao { padding: 70px 5%; background: var(--dark); text-align: center; }
+.prova-secao .selo-google { margin: 18px auto 0; }
+.prova-nota { color: #a8a8a8; font-size: 14px; margin: 14px auto 0; max-width: 520px; }
+
+/* ── Faixa de preço no hero ──────────────────── */
+.hero-prova { margin: 20px 0 14px; }
+.campanha-faixa-preco { color: #c0c0c0; font-size: 1.05rem; margin-bottom: 22px; }
+.campanha-faixa-preco strong { color: var(--orange); font-size: 1.35rem; font-weight: 800; }
+
+/* ── Ícones (substituem os emojis) ───────────── */
+.bento-icon, .guia-list li > svg, .check-icon { color: var(--orange); }
+.bento-icon { font-size: 30px; }
+.guia-list li > svg { font-size: 17px; vertical-align: -3px; margin-right: 7px; }
