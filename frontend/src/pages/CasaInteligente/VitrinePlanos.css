@@ -57,7 +57,6 @@
 .plano-check { color: var(--orange); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
 
 .plano-porta { font-size: 12px; color: #b0b0b0; line-height: 1.45; margin: 0 0 18px; }
-.plano-porta-check { color: var(--orange); }
 
 .plano-btn {
   display: block; text-align: center; text-decoration: none;
