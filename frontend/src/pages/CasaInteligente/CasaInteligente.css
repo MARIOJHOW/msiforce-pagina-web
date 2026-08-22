@@ -829,4 +829,4 @@
 /* ── Ícones (substituem os emojis) ───────────── */
 .bento-icon, .guia-list li svg, .check-icon, .bonus-tag svg { color: var(--orange); }
 .bento-icon { font-size: 30px; }
-.guia-list li > svg { font-size: 17px; vertical-align: -3px; margin-right: 7px; }
+.guia-list li svg { font-size: 17px; vertical-align: -3px; margin-right: 7px; }
