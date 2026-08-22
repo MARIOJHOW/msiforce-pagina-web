@@ -28,7 +28,7 @@ const WhatsAppButton = ({ message, className, children, label = 'Fale Agora!' })
   }
 
   return (
-    <div className="msi-wa">
+    <div className="msi-wa" data-campanha={message ? '1' : undefined}>
       <div className="msi-wa-lbl">{label}</div>
       <a
         href={href}

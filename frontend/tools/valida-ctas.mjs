@@ -51,12 +51,18 @@ for (const { rota, ancoras } of PAGINAS) {
   // da rota. Checagem no DOM, não lista fixa de mensagens — lista fixa envelhece
   // em silêncio.
   //
-  // `.msi-wa` sozinho NÃO basta: a CampanhaFechadura (landing da fechadura) reusa
-  // o MESMO componente flutuante para um CTA próprio, com mensagem da campanha
-  // (ver `src/pages/CampanhaFechadura.jsx`, comentário "Flutuante: leva o gatilho
-  // da campanha"). Essa página não roda dentro do V1Layout — não tem `nav.msi-nav`
-  // nem `footer.msi-footer`. Por isso só conta o `.msi-wa` como herdado quando os
-  // dois marcadores exclusivos do V1Layout também estão presentes na página.
+  // `.msi-wa` sozinho NÃO basta: a /casa-inteligente reusa o MESMO componente
+  // flutuante para um CTA próprio, com a mensagem da campanha (ver
+  // `src/pages/CasaInteligente/CasaInteligente.jsx`, `<WhatsAppButton message=...>`).
+  // Dois filtros, porque um só não cobre os dois cenários que já aconteceram:
+  //   1. `layoutV1Ativo` — numa rota fora do V1Layout (sem `nav.msi-nav` e sem
+  //      `footer.msi-footer`) o balão nunca é herdado, pois não há layout que o
+  //      renderize. Era o caso da landing antes de ela ganhar navbar e rodapé.
+  //   2. `[data-campanha]` — agora que a landing TEM navbar e rodapé, o filtro 1
+  //      passou a classificar o CTA da campanha como herdado e o validador parou
+  //      de conferir seu gatilho. O `WhatsAppButton` marca o wrapper com
+  //      `data-campanha` sempre que recebe `message` próprio; o balão genérico do
+  //      `App.jsx` é renderizado sem `message` e continua sem a marca.
   const links = await page.$$eval('a[href*="wa.me"]', (as) => {
     const layoutV1Ativo =
       document.querySelector('nav.msi-nav') !== null &&
@@ -66,7 +72,9 @@ for (const { rota, ancoras } of PAGINAS) {
       texto: (a.innerText || '').trim().slice(0, 40),
       herdado:
         a.closest('nav.msi-nav, footer.msi-footer, .msi-drawer') !== null ||
-        (layoutV1Ativo && a.closest('.msi-wa') !== null),
+        (layoutV1Ativo &&
+          a.closest('.msi-wa') !== null &&
+          a.closest('.msi-wa[data-campanha]') === null),
     }));
   });
 
