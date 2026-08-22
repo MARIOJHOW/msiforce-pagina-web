@@ -234,7 +234,8 @@ node tools/shot.mjs /casa-inteligente ci-novo      # inspeção visual
 Checklist adicional:
 - [ ] `fechadura_completa.webp` existe na raiz do repositório (o bug do §1 se repete se ficar só em `frontend/public/`). Após o deploy: `curl -s -o /dev/null -w "%{size_download}" https://www.msiforce.com.br/fechadura_completa.webp` retorna o tamanho real do arquivo, não 3.045
 - [ ] Âncoras `#modelos`, `#instalacao`, `#combo` presentes no DOM
-- [ ] Altura da página em 390 px de largura abaixo de 6.500 px
+- [x] Altura da página em 390 px de largura: **12.329 px** — meta original de 6.500 px
+  revista em 21/08/2026, ver §12
 - [ ] Nenhum emoji restante como ícone de interface
 - [ ] Zero erro de console
 
@@ -258,3 +259,37 @@ Checklist adicional:
 - Formulário alternativo ao WhatsApp.
 - Qualquer alteração em `whatsapp-bot-eletrica`.
 - Deploy para produção — só mediante pedido explícito do usuário.
+
+---
+
+## 12. Revisão da meta de altura mobile (21/08/2026)
+
+A meta de 6.500 px foi escrita contra a linha de base de **9.219 px** medida no §1 —
+a página **antiga**. O redesign que este mesmo documento aprova acrescentou cinco
+seções que ela não tinha:
+
+| Seção nova | Altura em 390 px |
+|---|---|
+| Vitrine de planos (`#instalacao`) | 1.809 px |
+| Como funciona (passos) | 833 px |
+| Prova social (selo Google) | 293 px |
+| Perguntas frequentes | 774 px |
+| Rodapé do site, no lugar do `campanha-footer` de ~150 px | 1.152 px |
+| **Soma** | **~4.900 px** |
+
+Ou seja: a meta e o escopo do redesign foram definidos no mesmo documento e são
+incompatíveis entre si. Não é o CSS que está gordo.
+
+**O que já foi espremido** (15.160 → 12.329 px):
+
+- modelos em carrossel horizontal com snap — a seção caiu de 2.916 para 1.046 px (−1.870);
+- respiro vertical desenhado para 1440 px cortado nas seções que ainda usavam 6 rem,
+  e padding interno dos painéis (−960);
+- planos já vinham em grid 2×2 desde a Task 7, conforme o §6.
+
+O conteúdo longo **já está colapsado**: FAQ em `<details>`, guia em tabs, modelos em
+carrossel. Encurtar mais exige apagar seções de conversão.
+
+**Decisão do cliente (21/08/2026): aceitar 12.329 px.** Nenhuma seção foi removida.
+A meta numérica fica registrada como obsoleta, não como dívida — quem retomar não
+deve tentar "consertar" a altura sem antes rediscutir o conteúdo da página.
