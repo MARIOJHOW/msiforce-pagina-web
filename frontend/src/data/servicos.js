@@ -69,7 +69,6 @@ export const SERVICOS_DATA = {
       { q: 'Quantas câmeras preciso para minha empresa?', a: 'Depende da planta e dos pontos de risco. Em nossa visita técnica gratuita mapeamos todos os ângulos necessários e apresentamos a solução ideal sem excessos.' },
     ],
     related: [
-      { slug: 'acesso', name: 'Controle de Acesso', icon: '🔑' },
       { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
       { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
     ],
