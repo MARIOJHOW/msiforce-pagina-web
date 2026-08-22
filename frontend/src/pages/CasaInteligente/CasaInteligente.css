@@ -27,7 +27,7 @@
   top: -20%; left: -10%; right: -10%; bottom: 0;
   background: 
     radial-gradient(circle at 15% 50%, rgba(26, 42, 108, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(74, 222, 128, 0.15) 0%, transparent 50%);
+    radial-gradient(circle at 85% 30%, rgba(197, 160, 89, 0.15) 0%, transparent 50%);
   filter: blur(80px);
   z-index: 0;
   pointer-events: none;
@@ -74,7 +74,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  background: rgba(74, 222, 128, 0.15);
+  background: rgba(197, 160, 89, 0.15);
   filter: blur(80px);
   border-radius: 50%;
   z-index: 0;
@@ -118,9 +118,9 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background-color: #4ade80;
+  background-color: var(--orange);
   border-radius: 50%;
-  box-shadow: 0 0 10px #4ade80;
+  box-shadow: 0 0 10px var(--orange);
   animation: pulse-dot 2s infinite;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .text-highlight {
-  background: linear-gradient(135deg, #4ade80 0%, #06cb3f 100%);
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -310,10 +310,10 @@
 }
 
 .campanha-section-subtitle {
-  color: #a3a3a3;
+  color: #b4b4b4;
   max-width: 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .bento-features-grid {
@@ -385,7 +385,7 @@
   position: absolute;
   top: 0; right: 0;
   width: 60%; height: 100%;
-  background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at top right, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
   z-index: 0;
 }
 
@@ -436,7 +436,7 @@
 }
 
 .check-icon {
-  color: #4ade80;
+  color: var(--orange);
 }
 
 .botao-instalacao-avulsa {
@@ -508,14 +508,14 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(74, 222, 128, 0.1);
-  color: #4ade80;
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--orange);
   padding: 0.8rem 1.5rem;
   border-radius: 12px;
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 3rem;
-  border: 1px solid rgba(74, 222, 128, 0.2);
+  border: 1px solid rgba(197, 160, 89, 0.2);
 }
 
 
@@ -630,10 +630,10 @@
 }
 
 .guia-tab-btn.active {
-  background: rgba(74, 222, 128, 0.15);
-  border-color: rgba(74, 222, 128, 0.4);
-  color: #4ade80;
-  box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+  background: rgba(197, 160, 89, 0.15);
+  border-color: rgba(197, 160, 89, 0.4);
+  color: var(--orange);
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
 }
 
 .guia-tab-content {
@@ -658,13 +658,13 @@
 }
 
 .guia-list li {
-  font-size: 1.1rem;
+  font-size: 14.5px;
   color: #c0c0c0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .guia-list strong {
-  color: #4ade80;
+  color: var(--orange);
   font-size: 1.2rem;
   display: block;
   margin-bottom: 0.4rem;
@@ -700,8 +700,8 @@
   text-align: center;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(74, 222, 128, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(197, 160, 89, 0.05);
 }
 
 .cert-header {
@@ -715,14 +715,14 @@
 .cert-logo {
   height: 45px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.3));
+  filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.3));
 }
 
 .cert-content h3 {
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(90deg, #ffffff, #4ade80);
+  background: linear-gradient(90deg, #ffffff, var(--orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
@@ -742,7 +742,7 @@
 }
 
 .cert-content strong {
-  color: #4ade80;
+  color: var(--orange);
   font-weight: 600;
 }
 
