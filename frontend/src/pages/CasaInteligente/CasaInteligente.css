@@ -830,3 +830,30 @@
 .bento-icon, .guia-list li svg, .check-icon, .bonus-tag svg { color: var(--orange); }
 .bento-icon { font-size: 30px; }
 .guia-list li svg { font-size: 17px; vertical-align: -3px; margin-right: 7px; }
+
+/* ── Mobile: encurtar a rolagem ──────────────── */
+/* A pagina nova traz 5 secoes que a antiga nao tinha (planos, passos, prova,
+   FAQ e o rodape do site no lugar do rodapezinho da campanha). Empilhadas em
+   390px isso vira rolagem infinita. Duas alavancas: cortar o respiro vertical,
+   que foi desenhado para 1440px, e tirar os 4 modelos da pilha. */
+@media (max-width: 520px) {
+  .campanha-section,
+  .campanha-guia-section,
+  .campanha-instalacao-avulsa { padding: 55px 4%; }
+  .certificacoes-banner { padding: 40px 4%; }
+  .prova-secao { padding: 45px 5%; }
+  .instalacao-content { padding: 22px 18px; }
+  .offer-box { padding: 28px 20px; }
+  .campanha-section-title { font-size: 1.7rem; }
+
+  /* Modelos viram carrossel: 4 cards empilhados custavam ~4 telas de rolagem. */
+  .modelos-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modelos-grid .modelo-card { flex: 0 0 78%; scroll-snap-align: start; }
+}
