@@ -26,10 +26,23 @@ function classificar(msg) {
 }
 
 const BASE = process.argv[2] || 'http://localhost:4173';
+// Todas as rotas do SPA que expõem CTA de WhatsApp (ver src/App.jsx). Cobrir só
+// as landings deixou passar por meses os CTAs de /servicos/*: a página de
+// automação do catálogo não acionava o funil que o bot já tinha.
 const PAGINAS = [
   { rota: '/casa-inteligente', ancoras: ['modelos', 'instalacao', 'combo'] },
   { rota: '/automacao', ancoras: [] },
+  { rota: '/', ancoras: [] },
+  { rota: '/blog', ancoras: [] },
+  { rota: '/servicos/eletrica', ancoras: [] },
+  { rota: '/servicos/automacao', ancoras: [] },
+  { rota: '/servicos/cftv', ancoras: [] },
+  { rota: '/servicos/redes-ti', ancoras: [] },
 ];
+
+// Rotas cujos CTAs próprios são institucionais e não têm funil no bot: cair no
+// menu principal é o comportamento correto, então não contam como falha.
+const SEM_FUNIL_PROPRIO = new Set(['/', '/blog', '/servicos/eletrica', '/servicos/cftv', '/servicos/redes-ti']);
 const NUMERO_ESPERADO = '5511910773865';
 
 const browser = await chromium.launch();
@@ -91,7 +104,9 @@ for (const { rota, ancoras } of PAGINAS) {
     const destino = classificar(msg);
 
     const okNumero = numero === NUMERO_ESPERADO;
-    const okGatilho = destino !== null;
+    const institucional = SEM_FUNIL_PROPRIO.has(rota);
+    // o número errado é falha em qualquer rota; o gatilho só onde há funil
+    const okGatilho = destino !== null || institucional;
     if (!okNumero || !okGatilho) falhas++;
 
     console.log(`${okNumero && okGatilho ? 'OK ' : 'FALHA'} [${texto || '(icone)'}]`);

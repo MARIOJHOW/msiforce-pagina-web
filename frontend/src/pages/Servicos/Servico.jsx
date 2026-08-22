@@ -2,9 +2,23 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { trackCTA } from '../../hooks/useAnalytics';
+import { linkWhatsApp } from '../../lib/whatsapp';
+import { MSG_AUTOMACAO_PROJETO } from '../../lib/gatilhos';
 import './Servico.css';
 
-const WA_BASE = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20saber%20mais%20sobre%20';
+// Serviços que TÊM funil próprio no bot precisam da frase exata que o detector
+// reconhece — ver lib/gatilhos.js e services/gatilhos-site.js no repo do bot.
+// Sem ela o lead cai no menu genérico, que era o caso destas duas páginas.
+// `acesso` não entra aqui: não existe /servicos/acesso em SERVICOS_DATA. O funil
+// de acesso corporativo é acionado pelo CTA "Empresa ou condomínio" da /automacao.
+const MSG_POR_SLUG = {
+  automacao: MSG_AUTOMACAO_PROJETO,
+};
+
+// Elétrica, CFTV e Redes/TI não têm funil no bot: a mensagem genérica leva ao
+// menu principal, que é o caminho certo para eles.
+const msgGenerica = (title) =>
+  `Olá, vim pelo site da MSIFORCE e gostaria de saber mais sobre ${title}.`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -25,7 +39,7 @@ export default function Servico({ servico }) {
     window.scrollTo(0, 0);
   }, [title, sub]);
 
-  const waLink = `${WA_BASE}${encodeURIComponent(title)}.`;
+  const waLink = linkWhatsApp(MSG_POR_SLUG[slug] || msgGenerica(title));
 
   return (
     <div className="svc-page">
