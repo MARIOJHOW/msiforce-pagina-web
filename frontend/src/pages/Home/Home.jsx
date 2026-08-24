@@ -422,45 +422,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── DEPOIMENTOS ── */}
-      <section className="h-section h-section--alt">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-          className="h-header"
-        >
-          <motion.div variants={fadeUp} className="h-eyebrow-section">Prova social</motion.div>
-          <motion.h2 variants={fadeUp} className="h-h2">
-            O que nossos<br />clientes dizem.
-          </motion.h2>
-        </motion.div>
-
-        <motion.div
-          className="dep-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-        >
-          {DEPOIMENTOS.map((d) => (
-            <motion.div key={d.name} variants={fadeUp} className="dep-card">
-              <div className="dep-stars">{'★'.repeat(d.stars)}</div>
-              <p className="dep-text">{d.text}</p>
-              <div className="dep-author">
-                <div className="dep-av">{d.initials}</div>
-                <div>
-                  <div className="dep-name">{d.name}</div>
-                  <div className="dep-role">{d.role}</div>
-                  <div className="dep-company">{d.company}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
       {/* ── CERTIFICAÇÕES ── */}
       <section className="h-certs">
         <motion.div
@@ -501,7 +462,7 @@ export default function Home() {
           variants={stagger}
           className="h-header"
         >
-          <motion.div variants={fadeUp} className="h-eyebrow-section">Cases de sucesso</motion.div>
+          <motion.div variants={fadeUp} className="h-eyebrow-section">Prova social</motion.div>
           <motion.h2 variants={fadeUp} className="h-h2">
             Projetos que<br />provam nossa capacidade.
           </motion.h2>
@@ -543,6 +504,38 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Depoimentos vivem aqui, e nao numa secao propria: duas secoes de
+            prova social seguidas, cada uma com eyebrow, H2 e padding inteiro,
+            custavam 1.664px fazendo o mesmo trabalho. Aqui eles entram como
+            faixa, sem cabecalho de secao. */}
+        <motion.div
+          className="prova-depoimentos"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+        >
+          <motion.h3 variants={fadeUp} className="prova-depo-titulo">
+            O que os clientes dizem
+          </motion.h3>
+          <motion.div className="dep-grid dep-grid--faixa" variants={stagger}>
+            {DEPOIMENTOS.map((d) => (
+              <motion.div key={d.name} variants={fadeUp} className="dep-card">
+                <div className="dep-stars">{'★'.repeat(d.stars)}</div>
+                <p className="dep-text">{d.text}</p>
+                <div className="dep-author">
+                  <div className="dep-av">{d.initials}</div>
+                  <div>
+                    <div className="dep-name">{d.name}</div>
+                    <div className="dep-role">{d.role}</div>
+                    <div className="dep-company">{d.company}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 

@@ -498,6 +498,49 @@
 }
 
 /* ── DEPOIMENTOS ─────────────────────────────── */
+/* Faixa dentro da secao de prova social (antes era secao propria, com eyebrow,
+   H2 e padding inteiros). Sem cartao: os depoimentos apoiam os cases, nao
+   competem com eles. */
+.prova-depoimentos {
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prova-depo-titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin-bottom: 26px;
+}
+
+.dep-grid--faixa .dep-card {
+  padding: 0 0 0 18px;
+  background: none;
+  border: none;
+  border-left: 2px solid rgba(197, 160, 89, 0.35);
+}
+
+.dep-grid--faixa .dep-stars {
+  font-size: 0.75rem;
+  margin-bottom: 12px;
+}
+
+.dep-grid--faixa .dep-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.dep-grid--faixa .dep-av {
+  width: 34px;
+  height: 34px;
+  font-size: 0.7rem;
+}
+
 .dep-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
