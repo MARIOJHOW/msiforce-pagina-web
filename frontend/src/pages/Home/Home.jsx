@@ -72,11 +72,11 @@ const SERVICES = [
   { num: '01', title: 'Projetos & Instalações Elétricas',  desc: 'Projetos residenciais e comerciais conforme ABNT NBR 5410. Quadros de distribuição, SPDA, automação de cargas e laudos com ART.', tag: 'Elétrica',   img: '/img_eletrica.webp',   large: true },
   { num: '02', title: 'Automação Residencial',             desc: 'Controle centralizado de iluminação, clima, cortinas e ambientes via app ou painel. Integração com assistentes de voz.',          tag: 'Automação', img: '/img_automacao.webp'  },
   { num: '03', title: 'Segurança Eletrônica',              desc: 'Alarmes perimetrais, sensores de presença e cerca elétrica integrados a um painel central com notificações em tempo real.',         tag: 'Segurança', img: '/img_seguranca.webp'  },
-  { num: '04', title: 'CFTV & Monitoramento',              desc: 'Câmeras IP 4K com visão noturna, acesso remoto pelo celular e armazenamento em nuvem ou DVR local com criptografia.',             tag: 'CFTV',      img: '/img_cftv.webp',      large: true },
+  { num: '04', title: 'CFTV & Monitoramento',              desc: 'Câmeras IP 4K com visão noturna, acesso remoto pelo celular e armazenamento em nuvem ou DVR local com criptografia.',             tag: 'CFTV',      img: '/img_cftv.webp',      },
   { num: '05', title: 'Controle de Acesso',                desc: 'Biometria, cartão RFID, reconhecimento facial e fechaduras eletrônicas com registro de entradas e integração ao CFTV.',            tag: 'Acesso',    img: '/img_acesso.webp'     },
   { num: '06', title: 'Redes Estruturadas',                desc: 'Cabeamento Cat6/Cat6A certificado, rack organizado, Wi-Fi empresarial com cobertura total e segmentação de rede por VLAN.',         tag: 'Redes',     img: '/img_redes.webp'      },
-  { num: '07', title: 'Infraestrutura de TI',              desc: 'Montagem e manutenção de rack, servidores, nobreak e datacenter local. Planejamento de escalabilidade e redundância.',              tag: 'TI',        img: '/img_ti.webp',        large: true },
-  { num: '08', title: 'Manutenção Preventiva & Corretiva', desc: 'Contratos recorrentes com visitas programadas, relatórios técnicos e SLA definido para minimizar paradas operacionais.',            tag: 'Manutenção',img: '/img_manutencao.webp', large: true },
+  { num: '07', title: 'Infraestrutura de TI',              desc: 'Montagem e manutenção de rack, servidores, nobreak e datacenter local. Planejamento de escalabilidade e redundância.',              tag: 'TI',        img: '/img_ti.webp',        },
+  { num: '08', title: 'Manutenção Preventiva & Corretiva', desc: 'Contratos recorrentes com visitas programadas, relatórios técnicos e SLA definido para minimizar paradas operacionais.',            tag: 'Manutenção',img: '/img_manutencao.webp' },
 ];
 
 const DIFERENCIAIS = [

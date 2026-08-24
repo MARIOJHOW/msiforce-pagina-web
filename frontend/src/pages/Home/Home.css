@@ -208,7 +208,9 @@
 
 /* ── SECTION STRUCTURE ────────────────────────── */
 .h-section {
-  padding: 120px 6%;
+  /* era 120px: com 7 secoes na home isso somava 1680px so de respiro vertical.
+     88px mantem a separacao entre blocos sem virar maratona de rolagem. */
+  padding: 88px 6%;
   background: var(--black);
 }
 
@@ -217,7 +219,7 @@
 }
 
 .h-header {
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 
 .h-eyebrow-section {
@@ -302,18 +304,24 @@
   gap: 16px;
 }
 
+/* 300px em vez de 380: o card e um poster com foto, numero, titulo e descricao,
+   e oito posters de 380px faziam a secao sozinha ocupar 3 telas -- o dobro da
+   segunda maior da home. */
 .bento-card {
   position: relative;
-  height: 380px;
+  height: 300px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
+/* Um unico destaque, o servico 01. Antes eram quatro dos oito: com metade em
+   destaque nenhum era, e o span 2 fragmentava a grade de 3 colunas gerando
+   linhas extras. Com 1 large + 7 normais dao 9 celulas = 3 linhas exatas. */
 .bento-card.large {
   grid-column: span 2;
-  height: 420px;
+  height: 300px;
 }
 
 .b-img {
@@ -323,7 +331,9 @@
   height: 100%;
   object-fit: cover;
   transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s;
-  filter: brightness(0.55) grayscale(15%);
+  /* A foto do card e atmosfera, o texto e o conteudo. 0.55 deixava os cards de
+     parede clara (Seguranca, Redes) com a descricao ilegivel. */
+  filter: brightness(0.4) grayscale(20%);
 }
 
 .bento-card:hover .b-img {
@@ -331,16 +341,28 @@
   filter: brightness(0.75) grayscale(0%);
 }
 
+/* O scrim precisa cobrir o bloco de texto inteiro, nao so a base do card. O
+   gradiente antigo ficava transparente a 65% da altura, e o conteudo (tag +
+   numero + titulo + descricao) ocupa mais que isso -- o texto caia sobre a
+   parte clara da foto e sumia. Parada intermediaria em 60% resolve sem chapar
+   a imagem toda. */
 .b-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, transparent 65%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.88) 35%,
+    rgba(0, 0, 0, 0.7) 62%,
+    rgba(0, 0, 0, 0.3) 85%,
+    transparent 100%
+  );
 }
 
 .b-content {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  padding: 26px 28px;
   width: 100%;
 }
 
@@ -376,9 +398,11 @@
 }
 
 .b-content p {
-  font-size: 0.88rem;
-  color: #aaaaaa;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  /* #aaa sobre foto nao aguenta: o fundo varia e a leitura quebra em metade
+     dos cards. */
+  color: #cfcfcf;
+  line-height: 1.55;
   font-weight: 300;
   max-width: 95%;
 }
