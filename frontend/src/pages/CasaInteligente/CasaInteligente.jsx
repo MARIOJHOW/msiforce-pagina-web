@@ -111,7 +111,7 @@ const CampanhaFechadura = () => {
             variants={fadeUp}
           >
             <div className="cert-header">
-              <img src="/logo.webp" alt="MSIFORCE" className="cert-logo" />
+              <img src="/logo-simbolo.webp" alt="" className="cert-logo" />
               <h3>MSIFORCE</h3>
             </div>
             <h4>Instalação Especializada e Certificada</h4>

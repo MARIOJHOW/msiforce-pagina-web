@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       <nav className={`msi-nav${scrolled ? ' msi-nav--scrolled' : ''}`}>
         <Link to="/" className="msi-nav-logo" onClick={() => setMenuOpen(false)}>
-          <img src="/logo.webp" alt="MSIFORCE Logo" />
+          <img src="/logo-simbolo.webp" alt="" width="40" height="40" />
           <span className="msi-nav-name">MSIFORCE</span>
         </Link>
 
