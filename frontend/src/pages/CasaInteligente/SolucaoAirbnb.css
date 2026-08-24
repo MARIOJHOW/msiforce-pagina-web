@@ -1,0 +1,719 @@
+/* Seção "Solução Airbnb" da landing Casa Inteligente.
+   Paleta: dourado da marca (--orange) como primário e o vermelho do Airbnb
+   (#ff5a5f) apenas como acento de contexto. Ícones são SVG (iconesAirbnb.jsx),
+   nunca emoji. */
+
+.airbnb-section {
+  position: relative;
+  background-color: #030303;
+  padding: 6rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.airbnb-mesh-bg {
+  position: absolute;
+  top: -10%; right: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(255, 90, 95, 0.15) 0%, transparent 60%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.airbnb-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* --- Header --- */
+
+.airbnb-header {
+  text-align: center;
+}
+
+.airbnb-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 90, 95, 0.1);
+  border: 1px solid rgba(255, 90, 95, 0.28);
+  color: #ffb3b5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.airbnb-brand svg {
+  font-size: 1.15rem;
+  color: #ff5a5f;
+}
+
+.airbnb-brand strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.airbnb-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.airbnb-title span {
+  color: var(--orange);
+}
+
+.airbnb-subtitle {
+  color: #a3a3a3;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.airbnb-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.badge-item svg {
+  font-size: 1.1rem;
+  color: var(--orange);
+}
+
+/* --- Os quatro pilares (topo da arte) --- */
+
+.airbnb-beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.beneficio-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.6rem 1.4rem;
+}
+
+.beneficio-ico {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  background: rgba(197, 160, 89, 0.08);
+  color: var(--orange);
+  font-size: 1.4rem;
+}
+
+.beneficio-card h4 {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.beneficio-card p {
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --- Como funciona na prática --- */
+
+.airbnb-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.airbnb-section-title {
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.airbnb-section-title span {
+  color: var(--orange);
+}
+
+.airbnb-section-sub {
+  color: #a3a3a3;
+  text-align: center;
+  max-width: 620px;
+  margin: -0.5rem auto 0;
+  line-height: 1.6;
+}
+
+.airbnb-section-sub a {
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.airbnb-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem;
+}
+
+.airbnb-step-card {
+  padding: 2rem 1.25rem;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Seta que liga um passo ao seguinte, alinhada ao centro do número. */
+.step-arrow {
+  position: absolute;
+  top: 52px;
+  left: -1.35rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: rgba(197, 160, 89, 0.55);
+}
+
+@media (max-width: 1000px) {
+  .step-arrow { display: none; }
+}
+
+.step-number {
+  width: 40px; height: 40px;
+  background: var(--orange);
+  color: #000;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+}
+
+.airbnb-step-card h4 {
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin-bottom: 0.8rem;
+}
+
+.airbnb-step-card p {
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Garante folga entre o texto e a tag quando o card não tem espaço sobrando. */
+.airbnb-step-card p:has(+ .step-tag) {
+  margin-bottom: 1rem;
+}
+
+/* margin-top:auto ancora a tag no rodapé do card, para que os passos 3 e 4
+   fiquem alinhados entre si mesmo com textos de alturas diferentes. */
+.step-tag {
+  align-self: center;
+  margin-top: auto;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.step-tag--on {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.step-tag--off {
+  color: #ff5a5f;
+  background: rgba(255, 90, 95, 0.1);
+  border: 1px solid rgba(255, 90, 95, 0.3);
+}
+
+/* --- Circuitos + vantagens --- */
+
+.airbnb-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 850px) {
+  .airbnb-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.airbnb-energy-card, .airbnb-advantages {
+  padding: 2.5rem;
+}
+
+.airbnb-energy-card h3, .airbnb-advantages h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.airbnb-energy-card h3 span {
+  color: #ff5a5f;
+}
+
+.energy-desc {
+  color: #a3a3a3;
+  margin-bottom: 2rem;
+}
+
+.energy-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Três grupos, cada um com sua cor: verde = nunca desliga, dourado = desliga
+   com o cartão, vermelho = alta potência, só entra depois do levantamento. */
+.energy-grupo {
+  border-left: 2px solid;
+  padding-left: 1rem;
+}
+
+.energy-grupo--on { border-color: #4ade80; }
+.energy-grupo--card { border-color: var(--orange); }
+.energy-grupo--off { border-color: #ff5a5f; }
+
+.energy-grupo h4 {
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.energy-grupo--on h4 { color: #4ade80; }
+.energy-grupo--card h4 { color: var(--orange); }
+.energy-grupo--off h4 { color: #ff5a5f; }
+
+.energy-grupo ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+@media (max-width: 500px) {
+  .energy-grupo ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.energy-grupo li {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.energy-grupo li svg {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.energy-grupo--on li svg { color: #4ade80; }
+.energy-grupo--card li svg { color: var(--orange); }
+.energy-grupo--off li svg { color: #ff5a5f; }
+
+/* O item com selo ocupa a linha inteira: em duas colunas o rótulo quebrava
+   no meio da palavra ("Micro-" / "ondas"). */
+.energy-grupo li:has(.item-marca) {
+  grid-column: 1 / -1;
+}
+
+/* Marca o item que puxa muita energia e depende de dimensionamento. */
+.item-marca {
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ff5a5f;
+  border: 1px solid rgba(255, 90, 95, 0.35);
+  border-radius: 50px;
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
+}
+
+.energy-grupo-nota {
+  color: #8a8a8a;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 0.9rem;
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.advantages-list li {
+  color: #c0c0c0;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.check-icon {
+  color: var(--orange);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.testimonial {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+}
+
+.quotes {
+  position: absolute;
+  top: -10px; left: 10px;
+  font-size: 4rem;
+  color: rgba(197, 160, 89, 0.2);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial p {
+  color: #fff;
+  font-style: italic;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.testimonial .author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.testimonial .author strong {
+  color: var(--orange);
+}
+
+.testimonial .author-role {
+  color: #a3a3a3;
+  font-size: 0.85rem;
+}
+
+.testimonial .author-stars {
+  display: flex;
+  gap: 2px;
+  color: var(--orange);
+  font-size: 1.05rem;
+  margin-top: 0.3rem;
+}
+
+/* --- Pacotes --- */
+
+.airbnb-pacotes-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.airbnb-pacotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.pacote-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem;
+}
+
+.pacote-card--destaque {
+  border-color: rgba(197, 160, 89, 0.5);
+  box-shadow: 0 0 40px rgba(197, 160, 89, 0.12);
+}
+
+.pacote-selo {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--orange);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.pacote-nome {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pacote-resumo {
+  color: #a3a3a3;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pacote-inclui {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.pacote-inclui li {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.pacote-btn {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.9rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--orange);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.pacote-btn:hover {
+  background: var(--orange);
+  color: #000;
+}
+
+.pacote-card--destaque .pacote-btn {
+  background: var(--orange);
+  color: #000;
+}
+
+.pacote-card--destaque .pacote-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* --- O que a visita técnica confere --- */
+
+.airbnb-visita {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+}
+
+.airbnb-visita strong {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.airbnb-visita ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+}
+
+.airbnb-visita li {
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.airbnb-visita svg {
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+/* --- Nota de rodapé --- */
+
+.airbnb-legal {
+  color: #7a7a7a;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 760px;
+  margin: -2rem auto 0;
+}
+
+/* --- CTA --- */
+
+.airbnb-cta {
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 90, 95, 0.3);
+  background: linear-gradient(135deg, #1a0f0f 0%, #000 100%);
+}
+
+.airbnb-cta h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content p {
+  color: #a3a3a3;
+}
+
+.airbnb-contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.airbnb-contact-info a,
+.airbnb-contato-zap {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s;
+}
+
+.airbnb-contact-info a:hover,
+.airbnb-contato-zap:hover {
+  color: var(--orange);
+}
+
+.airbnb-contact-info a svg,
+.airbnb-contato-zap svg {
+  font-size: 1.25rem;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.location-info {
+  color: #a3a3a3 !important;
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-info svg {
+  font-size: 1.15rem;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.airbnb-footer-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.airbnb-footer-features span {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.airbnb-footer-features svg {
+  color: var(--orange);
+  flex-shrink: 0;
+}

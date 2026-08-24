@@ -2,18 +2,7 @@
 // diferente em cada SO e derrubavam a sensação premium.
 // Todos herdam cor por currentColor e tamanho por font-size do pai (1em).
 
-const base = {
-  width: '1em',
-  height: '1em',
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.5,
-  strokeLinecap: 'round',
-  strokeLinejoin: 'round',
-  'aria-hidden': true,
-  focusable: false,
-};
+import { base } from './iconeBase';
 
 export const IcoDigital = ({ className }) => (
   <svg {...base} className={className}>

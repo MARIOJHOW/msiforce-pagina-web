@@ -13,6 +13,7 @@ import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
 import ComoFunciona from './ComoFunciona';
 import FaqPagamento from './FaqPagamento';
+import SolucaoAirbnb from './SolucaoAirbnb';
 import {
   IcoDigital, IcoApp, IcoEscudo, IcoPorta,
   IcoPredio, IcoVidro, IcoCheck, IcoPresente,
@@ -305,6 +306,9 @@ const CampanhaFechadura = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Solução Airbnb */}
+      <SolucaoAirbnb />
 
       {/* Seção Instalação Avulsa */}
       <section className="campanha-instalacao-avulsa">

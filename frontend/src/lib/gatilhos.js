@@ -30,3 +30,10 @@ export const MSG_AUTOMACAO_PROJETO = 'Olá! Vim pela página de Automação e qu
 // bot não distingue um plano do outro (decisão registrada no spec).
 export const msgPlanoInstalacao = (plano) =>
   `Olá! Quero o Plano ${plano} — apenas o serviço de instalação da minha fechadura digital.`;
+
+// CTAs dos pacotes da seção Airbnb. Mantêm literalmente a frase
+// "Vim pela página da Fechadura Digital" porque é ela que GATILHOS_COMBO
+// reconhece em fechadura.js; uma frase nova cairia no menu genérico. O nome do
+// pacote viaja como texto livre para o atendimento ler.
+export const msgPacoteAirbnb = (pacote) =>
+  `Olá! Vim pela página da Fechadura Digital. Quero o pacote ${pacote} para meu imóvel de locação por temporada.`;
