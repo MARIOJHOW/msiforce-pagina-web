@@ -415,7 +415,7 @@
 }
 
 .dif-card {
-  padding: 48px 36px;
+  padding: 34px 30px;
   background: #0c0c0c;
   border: 1px solid rgba(255, 255, 255, 0.04);
   transition: border-color 0.3s ease, background 0.3s ease;
@@ -505,7 +505,7 @@
 }
 
 .dep-card {
-  padding: 40px;
+  padding: 30px;
   background: #0c0c0c;
   border-top: 2px solid rgba(197, 160, 89, 0.35);
   border-left: 1px solid rgba(255, 255, 255, 0.04);
@@ -779,7 +779,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 0;
+  padding: 20px 0;
   background: none;
   border: none;
   color: var(--white);
@@ -813,7 +813,7 @@
 
 /* ── CTA FINAL ───────────────────────────────── */
 .h-cta {
-  padding: 140px 6%;
+  padding: 88px 6%;
   text-align: center;
   background: #060606;
   border-top: 1px solid rgba(197, 160, 89, 0.1);

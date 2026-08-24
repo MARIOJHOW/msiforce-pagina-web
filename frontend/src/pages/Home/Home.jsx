@@ -628,9 +628,6 @@ export default function Home() {
             <a href={WA_LINK} target="_blank" rel="noreferrer" className="h-btn h-btn--gold" onClick={() => trackCTA('cta_final_whatsapp', 'whatsapp')}>
               Falar com Especialista no WhatsApp
             </a>
-            <a href="#form-diagnostico" className="h-btn h-btn--secondary" onClick={() => trackCTA('cta_final_form', 'form')}>
-              Solicitar por Formulário
-            </a>
           </div>
         </motion.div>
       </section>
