@@ -126,7 +126,7 @@ export default function Blog() {
                 </div>
                 <div className="b-content">
                   <div className="b-meta">{article.readTime} de leitura</div>
-                  <h3>{article.title}</h3>
+                  <h2>{article.title}</h2>
                   <p>{article.excerpt}</p>
                   <span className="b-readmore">Ler artigo completo →</span>
                 </div>

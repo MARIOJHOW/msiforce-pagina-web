@@ -54,6 +54,69 @@ body {
   cursor: default;
 }
 
+/* ── Acessibilidade ──────────────────────────────────────────────
+   Anel de foco global. Antes existiam tres `:focus-visible` no projeto
+   inteiro (um deles no App.css, numa classe .counter que sobrou do template
+   do Vite e nao e usada), e dois arquivos ainda faziam `outline: none` nos
+   campos dos formularios. Quem navega por teclado nao enxergava onde estava.
+   `:where()` mantem a especificidade em zero, entao qualquer regra de
+   componente continua podendo sobrescrever de proposito. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Sobre superficie dourada o anel dourado desapareceria. */
+:where(.h-btn--gold, .plano-btn, .pacote-card--destaque .pacote-btn,
+       .campanha-btn-primary):focus-visible {
+  outline-color: var(--white);
+}
+
+/* Pular para o conteudo: fica fora da tela ate receber foco por teclado.
+   Usa :focus (e nao :focus-visible) porque o link so existe para o teclado. */
+.pular-conteudo {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 10000;
+  background: var(--brand);
+  color: #000;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 12px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.pular-conteudo:focus {
+  top: 12px;
+}
+
+/* ── Movimento reduzido ──────────────────────────────────────────
+   O site roda sobre Framer Motion com reveal em scroll em praticamente toda
+   secao. Para quem tem sensibilidade vestibular isso e desconforto real, nao
+   preferencia. O <MotionConfig reducedMotion="user"> no App.jsx desliga as
+   animacoes do Framer; este bloco cobre as transitions e keyframes em CSS. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
 /* NOISE TEXTURE */
 body::after {
   content: '';

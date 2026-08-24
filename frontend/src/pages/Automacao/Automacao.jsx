@@ -177,7 +177,7 @@ export default function Automacao() {
             <div className="auto-bento-bg" style={{ backgroundImage: "url('/lux_remote.webp')" }}></div>
             <div className="auto-bento-content">
               <div className="b-icon">🎙️</div>
-              <h4>O poder da sua voz</h4>
+              <h3>O poder da sua voz</h3>
               <p>Diga: "Alexa, boa noite". Todas as luzes se apagam, as portas trancam, o ar ajusta para a temperatura ideal e o alarme é ativado instantaneamente.</p>
             </div>
           </motion.div>
@@ -185,7 +185,7 @@ export default function Automacao() {
             <div className="auto-bento-bg" style={{ backgroundImage: "url('/painel_premium.webp')" }}></div>
             <div className="auto-bento-content">
               <div className="b-icon">🔋</div>
-              <h4>Economia Inteligente</h4>
+              <h3>Economia Inteligente</h3>
               <p>Sensores desligam o ar e luzes se o ambiente estiver vazio. Gestão de energia premium.</p>
             </div>
           </motion.div>
@@ -193,7 +193,7 @@ export default function Automacao() {
             <div className="auto-bento-bg" style={{ backgroundImage: "url('/lux_curtains.webp')" }}></div>
             <div className="auto-bento-content">
               <div className="b-icon">🪟</div>
-              <h4>Cortinas Motorizadas</h4>
+              <h3>Cortinas Motorizadas</h3>
               <p>Motores ultra-silenciosos protegem seus móveis do sol e garantem privacidade com um clique.</p>
             </div>
           </motion.div>
@@ -201,7 +201,7 @@ export default function Automacao() {
             <div className="auto-bento-bg" style={{ backgroundImage: "url('/lux_cinema.webp')" }}></div>
             <div className="auto-bento-content">
               <div className="b-icon">📈</div>
-              <h4>Valorização do Imóvel</h4>
+              <h3>Valorização do Imóvel</h3>
               <p>Casas inteligentes são o novo padrão do mercado de luxo. A automação eleva o valor de revenda do seu imóvel imediatamente.</p>
             </div>
           </motion.div>
@@ -209,7 +209,7 @@ export default function Automacao() {
             <div className="auto-bento-bg" style={{ backgroundImage: "url('/alarme_premium.webp')" }}></div>
             <div className="auto-bento-content">
               <div className="b-icon">🛡️</div>
-              <h4>Segurança Ativa</h4>
+              <h3>Segurança Ativa</h3>
               <p>Receba notificações instantâneas no celular em caso de movimentação suspeita.</p>
             </div>
           </motion.div>

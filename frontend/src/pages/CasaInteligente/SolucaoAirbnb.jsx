@@ -226,7 +226,7 @@ const SolucaoAirbnb = () => {
             <motion.div variants={fadeUp} className="beneficio-card glass-panel" key={title}>
               <span className="beneficio-ico"><Ico /></span>
               <div>
-                <h4>{title}</h4>
+                <h3>{title}</h3>
                 <p>{text}</p>
               </div>
             </motion.div>

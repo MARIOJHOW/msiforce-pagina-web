@@ -127,7 +127,7 @@
   text-transform: uppercase;
 }
 
-.b-content h3 {
+.b-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   margin-bottom: 16px;
@@ -136,7 +136,7 @@
   transition: color 0.3s;
 }
 
-.b-card:hover .b-content h3 {
+.b-card:hover .b-content h2 {
   color: var(--gold);
 }
 

@@ -718,7 +718,8 @@
   filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.3));
 }
 
-.cert-content h3 {
+.cert-header .cert-marca {
+  display: inline-block;
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0;
@@ -728,7 +729,7 @@
   letter-spacing: 1px;
 }
 
-.cert-content h4 {
+.cert-content h2 {
   font-size: 1.4rem;
   color: #fff;
   margin-bottom: 1rem;

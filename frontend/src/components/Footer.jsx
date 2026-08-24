@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
 
         <div className="msi-f-col">
-          <h4 className="msi-f-col-title">Soluções</h4>
+          <h3 className="msi-f-col-title">Soluções</h3>
           <ul>
             <li><a href="/#servicos">Projetos Elétricos</a></li>
             <li><a href="/#servicos">Automação Residencial</a></li>
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         <div className="msi-f-col">
-          <h4 className="msi-f-col-title">Setores</h4>
+          <h3 className="msi-f-col-title">Setores</h3>
           <ul>
             <li><span>Empresas & Escritórios</span></li>
             <li><span>Condomínios</span></li>
@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
 
         <div className="msi-f-col">
-          <h4 className="msi-f-col-title">Contato</h4>
+          <h3 className="msi-f-col-title">Contato</h3>
           <ul className="msi-f-contact">
             <li>
               <span className="msi-f-contact-icon">📱</span>

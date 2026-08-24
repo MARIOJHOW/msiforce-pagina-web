@@ -115,55 +115,88 @@ export default function FormDiagnostico() {
               >
                 <div className="form-row">
                   <div className={`form-group${errors.nome ? ' form-group--error' : ''}`}>
-                    <label>Nome *</label>
+                    <label htmlFor="form-nome">Nome *</label>
                     <input
+                      id="form-nome"
+                      name="nome"
                       type="text"
+                      autoComplete="name"
                       placeholder="Seu nome completo"
                       value={form.nome}
                       onChange={(e) => set('nome', e.target.value)}
+                      aria-invalid={errors.nome ? true : undefined}
+                      aria-describedby={errors.nome ? 'form-nome-erro' : undefined}
                     />
-                    {errors.nome && <span className="form-error">{errors.nome}</span>}
+                    {errors.nome && <span className="form-error" id="form-nome-erro">{errors.nome}</span>}
                   </div>
                   <div className={`form-group${errors.empresa ? ' form-group--error' : ''}`}>
-                    <label>Empresa *</label>
+                    <label htmlFor="form-empresa">Empresa *</label>
                     <input
+                      id="form-empresa"
+                      name="empresa"
                       type="text"
+                      autoComplete="organization"
                       placeholder="Nome da empresa"
                       value={form.empresa}
                       onChange={(e) => set('empresa', e.target.value)}
+                      aria-invalid={errors.empresa ? true : undefined}
+                      aria-describedby={errors.empresa ? 'form-empresa-erro' : undefined}
                     />
-                    {errors.empresa && <span className="form-error">{errors.empresa}</span>}
+                    {errors.empresa && <span className="form-error" id="form-empresa-erro">{errors.empresa}</span>}
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className={`form-group${errors.telefone ? ' form-group--error' : ''}`}>
-                    <label>WhatsApp / Telefone *</label>
+                    <label htmlFor="form-telefone">WhatsApp / Telefone *</label>
                     <input
+                      id="form-telefone"
+                      name="telefone"
                       type="tel"
+                      autoComplete="tel"
                       placeholder="(11) 9 0000-0000"
                       value={form.telefone}
                       onChange={(e) => set('telefone', e.target.value)}
+                      aria-invalid={errors.telefone ? true : undefined}
+                      aria-describedby={errors.telefone ? 'form-telefone-erro' : undefined}
                     />
-                    {errors.telefone && <span className="form-error">{errors.telefone}</span>}
+                    {errors.telefone && <span className="form-error" id="form-telefone-erro">{errors.telefone}</span>}
                   </div>
                   <div className={`form-group${errors.setor ? ' form-group--error' : ''}`}>
-                    <label>Setor *</label>
-                    <select value={form.setor} onChange={(e) => set('setor', e.target.value)}>
+                    <label htmlFor="form-setor">Setor *</label>
+                    <select
+                      id="form-setor"
+                      name="setor"
+                      value={form.setor}
+                      onChange={(e) => set('setor', e.target.value)}
+                      aria-invalid={errors.setor ? true : undefined}
+                      aria-describedby={errors.setor ? 'form-setor-erro' : undefined}
+                    >
                       <option value="">Selecione...</option>
                       {SETORES.map((s) => <option key={s} value={s}>{s}</option>)}
                     </select>
-                    {errors.setor && <span className="form-error">{errors.setor}</span>}
+                    {errors.setor && <span className="form-error" id="form-setor-erro">{errors.setor}</span>}
                   </div>
                 </div>
 
                 <div className={`form-group${errors.servicos ? ' form-group--error' : ''}`}>
-                  <label>Serviços de interesse * <span className="form-label-hint">(selecione um ou mais)</span></label>
-                  <div className="form-chips">
+                  {/* Chips sao botoes de alternancia, nao campos: <label> nao
+                      rotula grupo. role="group" + aria-labelledby dao o nome ao
+                      conjunto, e aria-pressed diz quais estao marcados. */}
+                  <span className="form-label" id="form-servicos-rot">
+                    Serviços de interesse * <span className="form-label-hint">(selecione um ou mais)</span>
+                  </span>
+                  <div
+                    className="form-chips"
+                    role="group"
+                    aria-labelledby="form-servicos-rot"
+                    aria-describedby={errors.servicos ? 'form-servicos-erro' : undefined}
+                  >
                     {SERVICOS.map((s) => (
                       <button
                         key={s}
                         type="button"
+                        aria-pressed={form.servicos.includes(s)}
                         className={`form-chip${form.servicos.includes(s) ? ' form-chip--active' : ''}`}
                         onClick={() => toggleServico(s)}
                       >
@@ -171,12 +204,14 @@ export default function FormDiagnostico() {
                       </button>
                     ))}
                   </div>
-                  {errors.servicos && <span className="form-error">{errors.servicos}</span>}
+                  {errors.servicos && <span className="form-error" id="form-servicos-erro">{errors.servicos}</span>}
                 </div>
 
                 <div className="form-group">
-                  <label>Descreva brevemente sua necessidade <span className="form-label-hint">(opcional)</span></label>
+                  <label htmlFor="form-descricao">Descreva brevemente sua necessidade <span className="form-label-hint">(opcional)</span></label>
                   <textarea
+                    id="form-descricao"
+                    name="descricao"
                     rows={3}
                     placeholder="Ex: precisamos instalar câmeras em 3 filiais e estruturar a rede..."
                     value={form.descricao}

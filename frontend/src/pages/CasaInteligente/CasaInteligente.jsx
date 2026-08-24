@@ -48,7 +48,9 @@ const CampanhaFechadura = () => {
 
   return (
     <div className="campanha-container">
+      <a className="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
       <Navbar />
+      <main id="conteudo">
 
       {/* Hero Section */}
       <section className="campanha-hero">
@@ -112,9 +114,9 @@ const CampanhaFechadura = () => {
           >
             <div className="cert-header">
               <img src="/logo-simbolo.webp" alt="" className="cert-logo" />
-              <h3>MSIFORCE</h3>
+              <span className="cert-marca">MSIFORCE</span>
             </div>
-            <h4>Instalação Especializada e Certificada</h4>
+            <h2>Instalação Especializada e Certificada</h2>
             <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
           </motion.div>
         </section>
@@ -378,6 +380,7 @@ const CampanhaFechadura = () => {
         </motion.div>
       </section>
 
+      </main>
       <Footer />
       <WhatsAppButton message={MSG_FECHADURA_COMBO} />
     </div>

@@ -158,7 +158,7 @@ export default function Servico({ servico }) {
           >
             {faq.map((item, i) => (
               <motion.div key={i} variants={fadeUp} className="svc-faq-item">
-                <h4 className="svc-faq-q">{item.q}</h4>
+                <h3 className="svc-faq-q">{item.q}</h3>
                 <p className="svc-faq-a">{item.a}</p>
               </motion.div>
             ))}

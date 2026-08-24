@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -16,12 +17,15 @@ import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 function V1Layout() {
   return (
     <>
+      <a className="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
       <div className="cur" id="cur"></div>
       <div className="cur-r" id="curR"></div>
       <div className="progress" id="prog"></div>
       <ScriptRunner />
       <Navbar />
-      <Outlet />
+      <main id="conteudo">
+        <Outlet />
+      </main>
       <Footer />
       <WhatsAppButton />
     </>
@@ -30,6 +34,9 @@ function V1Layout() {
 
 function App() {
   return (
+    // reducedMotion="user" faz o Framer Motion respeitar prefers-reduced-motion
+    // do sistema em TODAS as rotas, inclusive as que ficam fora do V1Layout.
+    <MotionConfig reducedMotion="user">
     <Router>
       <Routes>
         <Route element={<V1Layout />}>
@@ -44,6 +51,7 @@ function App() {
         <Route path="/casa-inteligente" element={<CasaInteligente />} />
       </Routes>
     </Router>
+    </MotionConfig>
   );
 }
 
