@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Capturas do tools/shot.mjs (iteracao visual): saida regeneravel, enche a cada
+# sessao. Nao desrastreia as que ja estao versionadas -- so evita que as novas
+# aparecam no status.
+tools/shots/
