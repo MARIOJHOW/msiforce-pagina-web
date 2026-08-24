@@ -186,7 +186,7 @@
   font-family: 'Outfit', sans-serif;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  color: var(--gold);
+  color: var(--stat);
   line-height: 1;
 }
 

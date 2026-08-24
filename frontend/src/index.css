@@ -2,10 +2,27 @@
    Nao volte a usar @import aqui: ele serializa o download atras do CSS. */
 
 :root {
-  --orange: #c5a059;
-  --orange2: #a37c3c;
-  --cyan: #c5a059;
-  --purple: #1a1a1a;
+  /* UM dourado. #c5a059 (latao) e a cor da marca; o ambar #FFB800 fica
+     reservado a --stat, so em numero de estatistica, onde o tom mais quente
+     codifica "isto e uma cifra" em vez de virar enfeite.
+     Por que o latao venceu: o ambar e o amarelo de sinalizacao de risco e, sobre
+     preto, era o elemento mais saturado da tela. Alem disso ja havia 74 rgba
+     fixos em 197,160,89 no CSS contra zero em 255,184,0 -- escolher o latao
+     unifica com o que ja era maioria em vez de reescrever 74 literais.
+     O simbolo do logo mantem o gradiente proprio: marca e asset fixo, a paleta
+     e o sistema em volta dela. */
+  --brand: #c5a059;
+  --brand-deep: #a37c3c;
+  --stat: #FFB800;
+  --surface: #1a1a1a;
+
+  /* Nomes legados, mantidos como alias para os ~160 usos espalhados. Eles
+     mentiam: --orange nunca foi laranja, --cyan nunca foi ciano e --purple e um
+     cinza quase preto. Em codigo novo, use --brand / --brand-deep / --surface. */
+  --orange: var(--brand);
+  --orange2: var(--brand-deep);
+  --cyan: var(--brand);
+  --purple: var(--surface);
   --black: #000000;
   --dark: #0a0a0a;
   --dark2: #0f0f0f;
@@ -16,7 +33,7 @@
   --gray: #aaaaaa;
   --gray2: #666666;
   --green: #00E676;
-  --gold: #FFB800;
+  --gold: var(--brand);
 }
 
 * {
