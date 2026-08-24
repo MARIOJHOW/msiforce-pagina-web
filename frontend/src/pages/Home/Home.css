@@ -753,8 +753,11 @@
   color: var(--gold);
 }
 
+/* SVG herda a cor do .case-setor por currentColor, entao o icone acompanha o
+   rotulo em vez de ter cor propria como o emoji tinha. */
 .case-icon {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 .case-titulo {

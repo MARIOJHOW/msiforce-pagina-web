@@ -5,6 +5,7 @@ import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
 import SobreEmpresa from '../../components/SobreEmpresa';
+import { IcoRede, IcoRaio, IcoEscola } from './icones';
 import './Home.css';
 
 const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';
@@ -142,7 +143,7 @@ const CASES = [
     titulo: 'Cabeamento estruturado e infraestrutura de rede',
     desc: 'Implantação completa de cabeamento Cat6 certificado com patch panel Furukawa, rack organizado e 20+ pontos de rede documentados e rastreáveis por localização e data de instalação.',
     resultados: ['20+ pontos certificados', 'Rack com cabos organizados por velcro', 'Documentação completa entregue'],
-    icon: '🌐',
+    Ico: IcoRede,
     img: '/case_lpm_final.webp',
     parceiro: 'Grupo LPM',
   },
@@ -151,7 +152,7 @@ const CASES = [
     titulo: 'Instalação elétrica em obra comercial',
     desc: 'Projeto e montagem de quadros de distribuição elétrica em obra comercial, com fiação identificada por cores, disjuntores dimensionados e aterramento conforme ABNT NBR 5410.',
     resultados: ['Quadros montados conforme ABNT', 'Fiação identificada por cores', 'Entregue dentro do prazo da obra'],
-    icon: '⚡',
+    Ico: IcoRaio,
     img: '/case_vetor_final.webp',
     parceiro: 'Vetor Construção Civil',
   },
@@ -160,7 +161,7 @@ const CASES = [
     titulo: 'Infraestrutura de TI e elétrica em escola',
     desc: 'Cabeamento estruturado, pontos de rede em salas de aula, rack dedicado e instalação elétrica completa para nova unidade escolar, entregue antes do início do ano letivo.',
     resultados: ['Rede em todas as salas de aula', 'Instalação elétrica certificada', 'Entrega antes da inauguração'],
-    icon: '🏫',
+    Ico: IcoEscola,
     img: '/case_escola_final.webp',
     parceiro: null,
   },
@@ -485,7 +486,7 @@ export default function Home() {
               )}
               <div className="case-body">
                 <div className="case-setor">
-                  <span className="case-icon">{c.icon}</span>
+                  <c.Ico className="case-icon" />
                   <span>{c.setor}</span>
                 </div>
                 {c.parceiro && (

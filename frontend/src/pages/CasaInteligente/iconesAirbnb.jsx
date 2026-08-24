@@ -1,7 +1,7 @@
 // Ícones da seção "Solução Airbnb". Mesma regra do icones.jsx: nada de emoji,
 // que renderiza diferente em cada SO (no Windows, chuveiro e forno saíam como
 // quadrado vazio). Herdam cor por currentColor e tamanho por font-size do pai.
-import { base } from './iconeBase';
+import { base } from '../../lib/iconeBase';
 
 /* --- Circuitos desligados ao retirar o cartão --- */
 

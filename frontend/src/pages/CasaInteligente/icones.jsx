@@ -2,7 +2,7 @@
 // diferente em cada SO e derrubavam a sensação premium.
 // Todos herdam cor por currentColor e tamanho por font-size do pai (1em).
 
-import { base } from './iconeBase';
+import { base } from '../../lib/iconeBase';
 
 export const IcoDigital = ({ className }) => (
   <svg {...base} className={className}>
