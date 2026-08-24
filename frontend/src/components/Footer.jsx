@@ -87,6 +87,7 @@ const Footer = () => {
           <Link to="/">Home</Link>
           <Link to="/automacao">Automação</Link>
           <Link to="/blog">Blog</Link>
+          <Link to="/faq">Perguntas frequentes</Link>
         </nav>
       </div>
     </footer>

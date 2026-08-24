@@ -34,6 +34,7 @@ const PAGINAS = [
   { rota: '/automacao', ancoras: [] },
   { rota: '/', ancoras: [] },
   { rota: '/blog', ancoras: [] },
+  { rota: '/faq', ancoras: [] },
   { rota: '/servicos/eletrica', ancoras: [] },
   { rota: '/servicos/automacao', ancoras: [] },
   { rota: '/servicos/cftv', ancoras: [] },
@@ -42,7 +43,7 @@ const PAGINAS = [
 
 // Rotas cujos CTAs próprios são institucionais e não têm funil no bot: cair no
 // menu principal é o comportamento correto, então não contam como falha.
-const SEM_FUNIL_PROPRIO = new Set(['/', '/blog', '/servicos/eletrica', '/servicos/cftv', '/servicos/redes-ti']);
+const SEM_FUNIL_PROPRIO = new Set(['/', '/blog', '/faq', '/servicos/eletrica', '/servicos/cftv', '/servicos/redes-ti']);
 const NUMERO_ESPERADO = '5511910773865';
 
 const browser = await chromium.launch();

@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Automacao from './pages/Automacao/Automacao';
 import V2 from './pages/V2/V2';
 import Blog from './pages/Blog/Blog';
+import Faq from './pages/Faq/Faq';
 import BlogPost from './pages/Blog/BlogPost';
 import ServicoPage from './pages/Servicos/ServicoPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/automacao" element={<Automacao />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

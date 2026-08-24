@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { trackCTA } from '../../hooks/useAnalytics';
 import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
@@ -172,35 +173,8 @@ const CASES = [
   },
 ];
 
-const FAQS = [
-  {
-    q: 'Vocês atendem contratos recorrentes de manutenção?',
-    a: 'Sim. Oferecemos contratos mensais e anuais com SLA definido, visitas preventivas programadas e relatórios técnicos. Ideal para empresas que precisam de operação contínua sem imprevistos.',
-  },
-  {
-    q: 'Como funciona o processo de orçamento para empresas?',
-    a: 'Agendamos uma visita técnica gratuita para diagnóstico. O projeto e orçamento detalhado são entregues em até 3 dias úteis, com escopo e cronograma definidos.',
-  },
-  {
-    q: 'A MSIFORCE atende múltiplas unidades ou filiais?',
-    a: 'Sim. Atendemos redes de franquias e empresas com múltiplas filiais, com projeto padronizado e execução coordenada para garantir consistência entre as unidades.',
-  },
-  {
-    q: 'Os projetos elétricos têm ART (Anotação de Responsabilidade Técnica)?',
-    a: 'Sim. Emitimos ART para todos os projetos elétricos conforme exigência do CREA, além de laudo técnico e documentação completa da instalação.',
-  },
-  {
-    q: 'Qual a garantia dos serviços instalados?',
-    a: 'Todos os serviços têm garantia mínima de 12 meses com laudo técnico. Clientes com contrato de manutenção têm suporte prioritário durante toda a vigência.',
-  },
-  {
-    q: 'Como é o suporte técnico após a instalação?',
-    a: 'Atendimento remoto em até 2h e visita presencial em até 24h para clientes com contrato ativo. Para projetos pontuais, suporte disponível em horário comercial.',
-  },
-];
 
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState(null);
 
   return (
     <div className="page-home">
@@ -538,59 +512,30 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="h-section" id="faq">
+      {/* ── FAQ (resumo) ── */}
+      {/* As seis perguntas moravam aqui como secao inteira, 854px. Sao conteudo
+          de consulta, nao de funil: quem esta rolando a home quer chegar no
+          formulario. Foram para /faq, que rende FAQPage no Google -- coisa que
+          um accordion dentro da home nao rende bem. Fica a faixa, para nao
+          perder o sinal de "essas duvidas tem resposta". */}
+      <section className="h-faq-faixa" id="faq">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-          className="h-header"
+          className="h-faq-faixa-inner"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
         >
-          <motion.div variants={fadeUp} className="h-eyebrow-section">Dúvidas frequentes</motion.div>
-          <motion.h2 variants={fadeUp} className="h-h2">
-            Perguntas que<br />gestores fazem.
-          </motion.h2>
-        </motion.div>
-
-        <motion.div
-          className="faq-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-        >
-          {FAQS.map((item, index) => (
-            <motion.div variants={fadeUp} className="faq-item" key={index}>
-              <button
-                className="faq-q"
-                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                aria-expanded={openFaq === index}
-              >
-                <span>{item.q}</span>
-                <motion.div
-                  className="faq-icon"
-                  animate={{ rotate: openFaq === index ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  +
-                </motion.div>
-              </button>
-              <AnimatePresence>
-                {openFaq === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1, paddingBottom: '28px' }}
-                    exit={{ height: 0, opacity: 0, paddingBottom: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="faq-a"
-                  >
-                    {item.a}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+          <div>
+            <p className="h-faq-faixa-rot">Dúvidas frequentes</p>
+            <p className="h-faq-faixa-txt">
+              ART, garantia, contrato de manutenção e atendimento a múltiplas filiais
+              — as perguntas que gestores fazem antes de contratar.
+            </p>
+          </div>
+          <Link to="/faq" className="h-faq-faixa-link">
+            Ver perguntas frequentes →
+          </Link>
         </motion.div>
       </section>
 
