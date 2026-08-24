@@ -56,8 +56,8 @@ body {
 
 /* ── Acessibilidade ──────────────────────────────────────────────
    Anel de foco global. Antes existiam tres `:focus-visible` no projeto
-   inteiro (um deles no App.css, numa classe .counter que sobrou do template
-   do Vite e nao e usada), e dois arquivos ainda faziam `outline: none` nos
+   inteiro -- um deles num App.css que sobrou do template do Vite e que nem
+   chegava a ser importado -- e dois arquivos ainda faziam `outline: none` nos
    campos dos formularios. Quem navega por teclado nao enxergava onde estava.
    `:where()` mantem a especificidade em zero, entao qualquer regra de
    componente continua podendo sobrescrever de proposito. */
