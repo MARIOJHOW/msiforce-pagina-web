@@ -262,17 +262,20 @@
 }
 
 /* ── SECTORS ─────────────────────────────────── */
+/* Chips que fluem, e nao grade rigida: sao sete itens, entao qualquer numero de
+   colunas deixa a ultima linha pela metade. Como faixa de apoio, a largura por
+   conteudo faz a quebra parecer deliberada. */
 .sector-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .sector-card {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 20px 24px;
+  gap: 12px;
+  padding: 13px 20px;
   background: #0c0c0c;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: border-color 0.3s ease, background 0.3s ease;
@@ -284,9 +287,13 @@
   background: #111;
 }
 
+/* SVG, nao emoji: precisa de cor propria (o label e cinza) e nao pode encolher
+   quando o rotulo quebra em duas linhas. */
 .sector-icon {
   font-size: 1.4rem;
   line-height: 1;
+  color: var(--brand);
+  flex-shrink: 0;
 }
 
 .sector-label {
@@ -408,6 +415,33 @@
 }
 
 /* ── DIFERENCIAIS ────────────────────────────── */
+/* Faixa dos setores atendidos, dentro da secao de pilares. Mesmo padrao da
+   faixa de depoimentos na prova social: filete, rotulo pequeno, sem cabecalho
+   de secao proprio. */
+.pilares-setores {
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pilares-setores-titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin-bottom: 10px;
+}
+
+.pilares-setores-sub {
+  color: #a3a3a3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 26px;
+}
+
 .dif-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -430,6 +464,7 @@
   font-size: 2rem;
   margin-bottom: 20px;
   display: block;
+  color: var(--brand);
 }
 
 .dif-title {

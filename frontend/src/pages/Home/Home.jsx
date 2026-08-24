@@ -5,7 +5,12 @@ import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
 import SobreEmpresa from '../../components/SobreEmpresa';
-import { IcoRede, IcoRaio, IcoEscola } from './icones';
+import {
+  IcoRede, IcoRaio, IcoEscola,
+  IcoEscritorio, IcoCondominio, IcoIndustria, IcoClinica,
+  IcoComercio, IcoFranquia, IcoChaveInglesa,
+  IcoHub, IcoNorma, IcoSuporte, IcoRegua,
+} from './icones';
 import './Home.css';
 
 const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';
@@ -60,13 +65,13 @@ function StatItem({ value, suffix, label }) {
 }
 
 const SECTORS = [
-  { icon: '🏢', label: 'Empresas & Escritórios' },
-  { icon: '🏗️', label: 'Condomínios' },
-  { icon: '🏭', label: 'Indústrias' },
-  { icon: '🏥', label: 'Clínicas & Consultórios' },
-  { icon: '🛒', label: 'Comércios' },
-  { icon: '🍔', label: 'Redes de Franquias' },
-  { icon: '🔧', label: 'Gestores de Infraestrutura' },
+  { Ico: IcoEscritorio, label: 'Empresas & Escritórios' },
+  { Ico: IcoCondominio, label: 'Condomínios' },
+  { Ico: IcoIndustria, label: 'Indústrias' },
+  { Ico: IcoClinica, label: 'Clínicas & Consultórios' },
+  { Ico: IcoComercio, label: 'Comércios' },
+  { Ico: IcoFranquia, label: 'Redes de Franquias' },
+  { Ico: IcoChaveInglesa, label: 'Gestores de Infraestrutura' },
 ];
 
 const SERVICES = [
@@ -82,22 +87,22 @@ const SERVICES = [
 
 const DIFERENCIAIS = [
   {
-    icon: '⚡',
+    Ico: IcoHub,
     title: 'Parceiro Completo',
     desc: 'Uma única empresa para elétrica, automação, TI e segurança. Menos fornecedores, mais controle e responsabilidade centralizada.',
   },
   {
-    icon: '📋',
+    Ico: IcoNorma,
     title: 'Normas Técnicas',
     desc: 'Projetos executados conforme NR-10, NR-35 e ABNT NBR 5410, com emissão de ART e laudo técnico para cada instalação.',
   },
   {
-    icon: '🔧',
+    Ico: IcoSuporte,
     title: 'Suporte Contínuo',
     desc: 'Contratos de manutenção com SLA garantido. Se algo falhar, nossa equipe resolve — sem depender de terceiros.',
   },
   {
-    icon: '📐',
+    Ico: IcoRegua,
     title: 'Projetos Sob Medida',
     desc: 'Nenhuma empresa é igual. Cada projeto começa com um diagnóstico gratuito para entender sua operação e orçar com precisão.',
   },
@@ -278,41 +283,6 @@ export default function Home() {
       {/* ── PARCEIROS ── */}
       <Parceiros />
 
-      {/* ── SETORES ── */}
-      <section className="h-section h-section--alt" id="setores">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-          className="h-header"
-        >
-          <motion.div variants={fadeUp} className="h-eyebrow-section">Quem atendemos</motion.div>
-          <motion.h2 variants={fadeUp} className="h-h2">
-            Setores que<br />a MSIFORCE atende
-          </motion.h2>
-          <motion.p variants={fadeUp} className="h-section-sub">
-            Cada setor tem exigências específicas. Nossos projetos são consultivos e
-            customizados para a realidade operacional de cada cliente.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="sector-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-        >
-          {SECTORS.map((s) => (
-            <motion.div key={s.label} variants={fadeUp} className="sector-card">
-              <span className="sector-icon">{s.icon}</span>
-              <span className="sector-label">{s.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
       {/* ── SERVIÇOS ── */}
       <section className="h-section" id="servicos">
         <motion.div
@@ -358,8 +328,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── DIFERENCIAIS ── */}
-      <section className="h-section h-section--alt">
+      {/* ── DIFERENCIAIS + SETORES ── */}
+      <section className="h-section h-section--alt" id="por-que">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -382,11 +352,39 @@ export default function Home() {
         >
           {DIFERENCIAIS.map((d) => (
             <motion.div key={d.title} variants={fadeUp} className="dif-card">
-              <div className="dif-icon">{d.icon}</div>
+              <d.Ico className="dif-icon" />
               <h3 className="dif-title">{d.title}</h3>
               <p className="dif-desc">{d.desc}</p>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Os setores atendidos moravam numa secao propria, com eyebrow, H2 e
+            padding inteiros, logo antes de Servicos. Sao uma taxonomia -- "para
+            quem" -- e apoiam o argumento dos pilares em vez de competir com ele.
+            Entram aqui como faixa, mesmo padrao usado na prova social. */}
+        <motion.div
+          className="pilares-setores"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+        >
+          <motion.h3 variants={fadeUp} className="pilares-setores-titulo">
+            Setores que atendemos
+          </motion.h3>
+          <motion.p variants={fadeUp} className="pilares-setores-sub">
+            Cada setor tem exigências específicas. Nossos projetos são consultivos e
+            customizados para a realidade operacional de cada cliente.
+          </motion.p>
+          <motion.div className="sector-grid" variants={stagger}>
+            {SECTORS.map((sec) => (
+              <motion.div key={sec.label} variants={fadeUp} className="sector-card">
+                <sec.Ico className="sector-icon" />
+                <span className="sector-label">{sec.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 
