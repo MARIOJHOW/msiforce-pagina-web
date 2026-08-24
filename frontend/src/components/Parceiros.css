@@ -20,14 +20,17 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #444;
+  /* era #444 sobre #050505: ~2,4:1, abaixo de qualquer piso de leitura */
+  color: #8a8a8a;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .parceiros-grid {
   display: flex;
-  align-items: center;
+  /* stretch, e nao center: os logos tem proporcoes diferentes e com center o
+     card mais alto (o SVG da ALM) desalinhava a fileira inteira. */
+  align-items: stretch;
   gap: 8px;
   flex-wrap: wrap;
   flex: 1;
@@ -56,18 +59,20 @@
 }
 
 .parceiro-card:hover .parceiro-logo {
-  filter: grayscale(0%) brightness(1);
   opacity: 1;
 }
 
 .parceiro-logo {
-  max-height: 36px;
-  max-width: 120px;
+  max-height: 40px;
+  max-width: 130px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(1.8);
-  opacity: 0.55;
-  transition: filter 0.35s ease, opacity 0.35s ease;
+  /* Sem filtro: os arquivos ja sao silhueta branca com alfa (parceiro-*-branco).
+     O grayscale+brightness antigo nao resolvia, porque dois dos logos eram
+     retangulos opacos de fundo claro -- a caixa aparecia e o traco escuro sumia
+     no preto. Normalizar o asset e o que deixa o mural consistente. */
+  opacity: 0.72;
+  transition: opacity 0.35s ease;
 }
 
 .parceiro-logo-text {
@@ -89,14 +94,15 @@
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #333;
+  /* era #333 sobre #0e0e0e: ~1,6:1, ilegivel */
+  color: #8f8f8f;
   text-align: center;
   line-height: 1.3;
   transition: color 0.3s ease;
 }
 
 .parceiro-card:hover .parceiro-nome {
-  color: #666;
+  color: #d8d8d8;
 }
 
 @media (max-width: 900px) {

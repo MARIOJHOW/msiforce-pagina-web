@@ -5,25 +5,25 @@ const PARCEIROS = [
   {
     nome: 'Grupo LPM',
     segmento: 'Soluções em TI & Infraestrutura',
-    logo: '/parceiro_lpm.webp',
+    logo: '/parceiro-lpm-branco.webp',
     url: 'https://www.grupolpm.com.br',
   },
   {
     nome: 'Vetor Construção Civil',
     segmento: 'Construção, reformas e gerenciamento de obras',
-    logo: '/parceiro_vetor.webp',
+    logo: '/parceiro-vetor-branco.webp',
     url: 'https://www.vetorconstrucaocivil.com.br',
   },
   {
     nome: 'Delta Solution',
     segmento: 'Automação industrial & Indústria 4.0',
-    logo: '/parceiro_delta_v3.webp',
+    logo: '/parceiro-delta-branco.webp',
     url: 'https://deltasolution.com.br',
   },
   {
     nome: 'ALM Steel',
     segmento: 'Estruturas metálicas, alpinismo industrial e linhas de vida',
-    logo: '/parceiro_alm.svg',
+    logo: '/parceiro-alm-branco.svg',
     url: 'https://www.almsteel.com.br',
   },
 ];
