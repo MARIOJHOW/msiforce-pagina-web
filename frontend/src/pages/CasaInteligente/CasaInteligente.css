@@ -529,12 +529,18 @@
 }
 
 
+/* Imagem compacta do produto para a primeira dobra do mobile; invisivel no
+   desktop, onde a coluna da direita ja mostra a fechadura grande. */
+.hero-img-mobile {
+  display: none;
+}
+
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
   .campanha-hero {
-    padding: 6rem 1.5rem 3rem;
+    padding: 5rem 1.5rem 2.5rem;
   }
-  
+
   .hero-content-wrapper {
     flex-direction: column;
     text-align: center;
@@ -555,18 +561,33 @@
     text-align: center;
   }
 
-  .hero-image-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .main-lock-img.complete-img {
-    max-width: 90%;
+  /* A dobra do mobile era so texto: badge + h1 + paragrafo + selo + preco + CTA
+     enchiam os 844px e a fechadura so aparecia rolando. A compacta entra entre o
+     titulo e o paragrafo; o container grande sai do fluxo (display:none tambem o
+     tira da arvore de acessibilidade — o alt vive na compacta). O paragrafo
+     encolhe um passo para o CTA continuar dentro da dobra. */
+  .hero-img-mobile {
+    display: block;
+    width: min(46vw, 185px);
+    height: auto;
+    margin: 0.25rem auto 0.35rem;
+    border-radius: 16px;
+    filter: contrast(1.05) brightness(0.95);
   }
 
-  .hero-image-glow {
-    width: 200px;
-    height: 200px;
+  .hero-text > p:not(.campanha-faixa-preco) {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 1rem; /* a base e 3rem; na dobra apertada vira buraco */
+  }
+
+  /* Medido em 390x844: com os valores base o CTA terminava em 882px, 38px alem
+     da dobra. Cada margem aqui paga parte dessa conta. */
+  .hero-prova { margin: 12px 0 10px; }
+  .campanha-faixa-preco { margin-bottom: 16px; }
+
+  .hero-image-container {
+    display: none;
   }
 
   .bento-features-grid {

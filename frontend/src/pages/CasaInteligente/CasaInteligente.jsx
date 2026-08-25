@@ -83,6 +83,19 @@ const CampanhaFechadura = () => {
               <span className="text-highlight">Começa na Porta.</span>
             </motion.h1>
 
+            {/* So mobile (<=768px): no empilhamento em coluna a imagem grande cai
+                ~950px abaixo do topo e o produto nao aparecia na primeira dobra.
+                Compacta aqui, entre o titulo e o resto; o container grande some no
+                mobile. Mesmo arquivo do desktop = zero download extra. */}
+            <motion.img
+              variants={fadeUp}
+              src="/fechadura_completa.webp"
+              alt="Fechadura digital instalada pela MSIFORCE"
+              className="hero-img-mobile"
+              width="1024"
+              height="1024"
+            />
+
             <motion.p variants={fadeUp}>
               Eleve o nível de segurança e design da sua residência. Esqueça as chaves e tenha o controle total do seu lar na palma da mão ou na ponta dos dedos.
             </motion.p>
