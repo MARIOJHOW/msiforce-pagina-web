@@ -221,7 +221,7 @@ export default function Home() {
             <span>NR-10</span>
             <span>NR-35</span>
             <span>ABNT NBR 5410</span>
-            <span>+500 projetos entregues</span>
+            <span>+500 projetos na bagagem</span>
           </motion.div>
         </motion.div>
       </section>
@@ -243,7 +243,7 @@ export default function Home() {
               fundador, não da empresa). Eram três idades diferentes na mesma página. */}
           <StatItem value={2} suffix="" label="Anos de mercado" />
           <div className="trust-divider" />
-          <StatItem value={500} suffix="+" label="Projetos entregues" />
+          <StatItem value={500} suffix="+" label="Projetos na bagagem" />
           <div className="trust-divider" />
           <StatItem value={98} suffix="%" label="Clientes satisfeitos" />
           <div className="trust-divider" />
