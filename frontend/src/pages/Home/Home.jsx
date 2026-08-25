@@ -238,7 +238,10 @@ export default function Home() {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <StatItem value={15} suffix="+" label="Anos de mercado" />
+          {/* 2 anos, não 15: a MSIFORCE tem 2 anos e a mesma home dizia "2 anos de
+              MSIFORCE" logo abaixo, além de "20+ anos de experiência" (que é do
+              fundador, não da empresa). Eram três idades diferentes na mesma página. */}
+          <StatItem value={2} suffix="" label="Anos de mercado" />
           <div className="trust-divider" />
           <StatItem value={500} suffix="+" label="Projetos entregues" />
           <div className="trust-divider" />
