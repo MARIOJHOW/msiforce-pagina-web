@@ -158,9 +158,12 @@ export const FAQ = [
 export const GOOGLE = {
   nota: '5,0',
   avaliacoes: 82,
-  // Sem link até o cliente informar a URL do perfil. Renderização é condicional:
-  // com null o selo aparece como texto, sem virar link quebrado.
-  url: null,
+  // Link de compartilhamento do Perfil da Empresa no Google, informado pelo dono
+  // em 25/08/2026. Resolve para google.com/search?kgmid=/g/11z72c25wt&q=MSIFORCE.
+  // Renderização é condicional (SeloGoogle.jsx): com null o selo vira texto, sem
+  // link quebrado. Se `nota` ou `avaliacoes` saírem de sincronia com o perfil, o
+  // selo passa a desmentir a si mesmo — agora que é clicável, dá para conferir.
+  url: 'https://share.google/MhzSMqPKwtmpCrDVZ',
 };
 
 export const NOTA_LEGAL =
