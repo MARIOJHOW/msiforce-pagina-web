@@ -407,55 +407,6 @@
   margin-top: 3px;
 }
 
-.testimonial {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 16px;
-  position: relative;
-}
-
-.quotes {
-  position: absolute;
-  top: -10px; left: 10px;
-  font-size: 4rem;
-  color: rgba(197, 160, 89, 0.2);
-  font-family: Georgia, serif;
-  line-height: 1;
-}
-
-.testimonial p {
-  color: #fff;
-  font-style: italic;
-  font-size: 1.05rem;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1rem;
-}
-
-.testimonial .author {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.testimonial .author strong {
-  color: var(--orange);
-}
-
-.testimonial .author-role {
-  color: #a3a3a3;
-  font-size: 0.85rem;
-}
-
-.testimonial .author-stars {
-  display: flex;
-  gap: 2px;
-  color: var(--orange);
-  font-size: 1.05rem;
-  margin-top: 0.3rem;
-}
-
 /* --- Pacotes --- */
 
 .airbnb-pacotes-bloco {

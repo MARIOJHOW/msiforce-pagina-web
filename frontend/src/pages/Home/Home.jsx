@@ -116,32 +116,11 @@ const PROCESSO = [
   { num: '04', title: 'Suporte', desc: 'Manutenção preventiva, suporte remoto e atendimento presencial com SLA definido em contrato.' },
 ];
 
-const DEPOIMENTOS = [
-  {
-    stars: 5,
-    text: '"A MSIFORCE substituiu três fornecedores diferentes que tínhamos para elétrica, câmeras e rede. Agora temos um único ponto de contato e a gestão ficou muito mais simples. Atendimento rápido e equipe extremamente profissional."',
-    name: 'Ricardo Campos',
-    role: 'Gerente de Operações',
-    company: 'Rede de Franquias · São Paulo',
-    initials: 'RC',
-  },
-  {
-    stars: 5,
-    text: '"Contratamos para a instalação elétrica e CFTV de dois condomínios. Trabalho impecável, dentro do prazo, com ART e laudo técnico. Os condôminos ficaram satisfeitos com a organização da obra."',
-    name: 'Fernanda Araújo',
-    role: 'Síndica Profissional',
-    company: 'Condomínios · Alphaville / ABC',
-    initials: 'FA',
-  },
-  {
-    stars: 5,
-    text: '"Precisávamos estruturar toda a rede e TI da nova clínica antes da inauguração. A MSIFORCE entregou tudo no prazo, incluindo o sistema de controle de acesso integrado ao CFTV. Recomendo sem hesitar."',
-    name: 'Dra. Patrícia Almeida',
-    role: 'Diretora',
-    company: 'Clínica Médica · Santo André',
-    initials: 'PA',
-  },
-];
+/* Os tres depoimentos que moravam aqui eram ilustrativos, nao reais, e foram
+   removidos em 25/08/2026 a pedido do dono. Nao recriar sem material com
+   nome e autorizacao do cliente: depoimento fabricado e publicidade
+   enganosa (CDC art. 37). A prova social real da home sao os cases (LPM,
+   Vetor, escola) e o selo do Google, esse com perfil publico. */
 
 const CASES = [
   {
@@ -482,37 +461,6 @@ export default function Home() {
           ))}
         </motion.div>
 
-        {/* Depoimentos vivem aqui, e nao numa secao propria: duas secoes de
-            prova social seguidas, cada uma com eyebrow, H2 e padding inteiro,
-            custavam 1.664px fazendo o mesmo trabalho. Aqui eles entram como
-            faixa, sem cabecalho de secao. */}
-        <motion.div
-          className="prova-depoimentos"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-        >
-          <motion.h3 variants={fadeUp} className="prova-depo-titulo">
-            O que os clientes dizem
-          </motion.h3>
-          <motion.div className="dep-grid dep-grid--faixa" variants={stagger}>
-            {DEPOIMENTOS.map((d) => (
-              <motion.div key={d.name} variants={fadeUp} className="dep-card">
-                <div className="dep-stars">{'★'.repeat(d.stars)}</div>
-                <p className="dep-text">{d.text}</p>
-                <div className="dep-author">
-                  <div className="dep-av">{d.initials}</div>
-                  <div>
-                    <div className="dep-name">{d.name}</div>
-                    <div className="dep-role">{d.role}</div>
-                    <div className="dep-company">{d.company}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* ── FAQ (resumo) ── */}

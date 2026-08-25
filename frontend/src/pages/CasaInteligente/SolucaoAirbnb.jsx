@@ -309,21 +309,6 @@ const SolucaoAirbnb = () => {
                 <li key={v}><IcoCheck className="check-icon" /> {v}</li>
               ))}
             </ul>
-
-            <div className="testimonial">
-              <div className="quotes">“</div>
-              <p>
-                Desde que instalei, minha rotina ficou muito mais fácil e meus hóspedes
-                amaram a experiência!
-              </p>
-              <div className="author">
-                <strong>Lucas P.</strong>
-                <span className="author-role">Anfitrião Superhost</span>
-                <span className="author-stars" aria-label="Avaliação 5 de 5">
-                  <IcoEstrela /><IcoEstrela /><IcoEstrela /><IcoEstrela /><IcoEstrela />
-                </span>
-              </div>
-            </div>
           </motion.div>
         </div>
 
