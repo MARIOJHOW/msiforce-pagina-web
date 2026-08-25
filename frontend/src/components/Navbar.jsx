@@ -8,6 +8,13 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Trocou de rota? Fecha o menu ainda na renderizacao, antes da pintura.
+  const [rotaAnterior, setRotaAnterior] = useState(location.pathname);
+  if (rotaAnterior !== location.pathname) {
+    setRotaAnterior(location.pathname);
+    setMenuOpen(false);
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -15,18 +22,9 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
-
-  const linkProps = (anchor) =>
-    isHome
-      ? { href: anchor, onClick: () => setMenuOpen(false) }
-      : { as: Link, to: `/${anchor}` };
 
   return (
     <>
