@@ -99,13 +99,13 @@
 }
 
 /* SECTIONS */
-.section-header {
+.auto-section-header {
   margin-bottom: 80px;
   text-align: center;
   padding: 0 5%;
 }
 
-.section-header h2 {
+.auto-section-header h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 400;
@@ -114,12 +114,12 @@
   margin-bottom: 20px;
 }
 
-.section-header h2 span {
+.auto-section-header h2 span {
   font-style: italic;
   color: var(--gold);
 }
 
-.section-header p {
+.auto-section-header p {
   font-size: 1.1rem;
   color: var(--gray);
   max-width: 600px;

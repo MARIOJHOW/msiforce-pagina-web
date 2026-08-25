@@ -305,7 +305,7 @@
 }
 
 /* ── BENTO GRID ──────────────────────────────── */
-.bento-grid {
+.sol-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
@@ -314,7 +314,7 @@
 /* 300px em vez de 380: o card e um poster com foto, numero, titulo e descricao,
    e oito posters de 380px faziam a secao sozinha ocupar 3 telas -- o dobro da
    segunda maior da home. */
-.bento-card {
+.sol-card {
   position: relative;
   height: 300px;
   overflow: hidden;
@@ -326,12 +326,12 @@
 /* Um unico destaque, o servico 01. Antes eram quatro dos oito: com metade em
    destaque nenhum era, e o span 2 fragmentava a grade de 3 colunas gerando
    linhas extras. Com 1 large + 7 normais dao 9 celulas = 3 linhas exatas. */
-.bento-card.large {
+.sol-card.large {
   grid-column: span 2;
   height: 300px;
 }
 
-.b-img {
+.sol-img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -343,7 +343,7 @@
   filter: brightness(0.4) grayscale(20%);
 }
 
-.bento-card:hover .b-img {
+.sol-card:hover .sol-img {
   transform: scale(1.06);
   filter: brightness(0.75) grayscale(0%);
 }
@@ -353,7 +353,7 @@
    numero + titulo + descricao) ocupa mais que isso -- o texto caia sobre a
    parte clara da foto e sumia. Parada intermediaria em 60% resolve sem chapar
    a imagem toda. */
-.b-overlay {
+.sol-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -366,14 +366,14 @@
   );
 }
 
-.b-content {
+.sol-content {
   position: relative;
   z-index: 2;
   padding: 26px 28px;
   width: 100%;
 }
 
-.b-tag {
+.sol-tag {
   display: inline-block;
   font-family: 'Outfit', sans-serif;
   font-size: 0.65rem;
@@ -386,7 +386,7 @@
   margin-bottom: 12px;
 }
 
-.b-num {
+.sol-num {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--gold);
@@ -395,7 +395,7 @@
   font-style: italic;
 }
 
-.b-content h3 {
+.sol-content h3 {
   font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -404,7 +404,7 @@
   letter-spacing: 0.02em;
 }
 
-.b-content p {
+.sol-content p {
   font-size: 0.86rem;
   /* #aaa sobre foto nao aguenta: o fundo varia e a leitura quebra em metade
      dos cards. */
@@ -963,11 +963,11 @@
     font-size: clamp(2.2rem, 7vw, 3.2rem);
   }
 
-  .bento-grid {
+  .sol-grid {
     grid-template-columns: 1fr;
   }
-  .bento-card,
-  .bento-card.large {
+  .sol-card,
+  .sol-card.large {
     grid-column: span 1;
     height: 320px;
   }

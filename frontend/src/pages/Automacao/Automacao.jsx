@@ -79,7 +79,7 @@ export default function Automacao() {
       <section id="showcase">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer} className="section-header"
+          variants={staggerContainer} className="auto-section-header"
         >
           <motion.h2 variants={fadeUp}>Experiências <span>Exclusivas</span></motion.h2>
           <motion.p variants={fadeUp}>A tecnologia não deve ser vista, deve ser sentida. Descubra como elevamos o padrão de conforto da sua residência.</motion.p>
@@ -163,7 +163,7 @@ export default function Automacao() {
       <section id="bento">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer} className="section-header"
+          variants={staggerContainer} className="auto-section-header"
         >
           <motion.h2 variants={fadeUp}>Por que <span>Automatizar?</span></motion.h2>
           <motion.p variants={fadeUp}>Mais do que tecnologia, entregamos qualidade de vida, economia e valorização imobiliária.</motion.p>
@@ -220,7 +220,7 @@ export default function Automacao() {
       <section id="quiz">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer} className="section-header"
+          variants={staggerContainer} className="auto-section-header"
         >
           <motion.h2 variants={fadeUp}>Qual o <span>projeto ideal</span> para você?</motion.h2>
           <motion.p variants={fadeUp}>Responda 3 perguntas rápidas para desenharmos a sua solução premium.</motion.p>

@@ -277,7 +277,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="bento-grid"
+          className="sol-grid"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
@@ -287,13 +287,13 @@ export default function Home() {
             <motion.div
               key={svc.num}
               variants={fadeUp}
-              className={`bento-card${svc.large ? ' large' : ''}`}
+              className={`sol-card${svc.large ? ' large' : ''}`}
             >
-              <img src={svc.img} alt={svc.title} className="b-img" loading="lazy" />
-              <div className="b-overlay" />
-              <div className="b-content">
-                <div className="b-tag">{svc.tag}</div>
-                <div className="b-num">{svc.num}.</div>
+              <img src={svc.img} alt={svc.title} className="sol-img" loading="lazy" />
+              <div className="sol-overlay" />
+              <div className="sol-content">
+                <div className="sol-tag">{svc.tag}</div>
+                <div className="sol-num">{svc.num}.</div>
                 <h3>{svc.title}</h3>
                 <p>{svc.desc}</p>
               </div>
