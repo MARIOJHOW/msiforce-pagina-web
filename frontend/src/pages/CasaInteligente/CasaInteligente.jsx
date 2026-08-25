@@ -42,7 +42,18 @@ const CampanhaFechadura = () => {
     }
     metaDesc.content = "Instalação especializada de fechaduras digitais e projetos de Casa Inteligente em São Paulo. Autorizada Intelbras, Yale, Pado, Papaiz. Solicite orçamento.";
 
-    window.scrollTo(0, 0);
+    // Chegando por sitelink do Google Ads (#modelos, #instalacao, #combo), este
+    // scrollTo(0,0) cancelava o salto do navegador e o visitante caía no topo —
+    // medido em produção: com #modelos a página ficava em scrollY=0 com a seção
+    // 2220px abaixo. Com hash, o alvo manda; sem hash, o topo continua valendo.
+    const alvoHash = window.location.hash
+      ? document.getElementById(decodeURIComponent(window.location.hash.slice(1)))
+      : null;
+    if (alvoHash) {
+      requestAnimationFrame(() => alvoHash.scrollIntoView());
+    } else {
+      window.scrollTo(0, 0);
+    }
     iniciarAds();
   }, []);
 

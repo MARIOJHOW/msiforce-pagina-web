@@ -1,5 +1,15 @@
 /* CampanhaFechadura.css */
 
+/* Âncoras dos sitelinks do Google Ads. A navbar é fixa (70px no desktop, 60px no
+   mobile) e cobria o título da seção quando o visitante chegava pela âncora — o
+   scroll parava com o topo da seção exatamente em y=0. Medido em produção antes
+   da correção: #instalacao e #combo chegavam com o título atrás da navbar. */
+#modelos,
+#instalacao,
+#combo {
+  scroll-margin-top: 90px;
+}
+
 .campanha-container {
   font-family: 'Inter', 'Roboto', sans-serif;
   background-color: #050505; /* Deep rich black */
