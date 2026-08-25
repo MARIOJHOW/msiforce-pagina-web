@@ -82,12 +82,6 @@ const VitrinePlanos = () => {
               <h3 className="plano-nome">{p.nome}</h3>
               <p className="plano-resumo">{p.resumo}</p>
 
-              <div className="plano-preco">
-                <span className="plano-preco-rot">Mão de obra a partir de</span>
-                <strong className="plano-preco-val">R$ {p.apartirde}</strong>
-                <span className="plano-preco-par">em até 12x no cartão</span>
-              </div>
-
               <ul className="plano-inclui">
                 {p.inclui.map((item) => (
                   <li key={item}><IcoCheck className="plano-check" /> {item}</li>

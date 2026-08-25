@@ -38,18 +38,13 @@
 .plano-nome { color: var(--white); font-size: 20px; font-weight: 800; margin: 0 0 4px; }
 .plano-resumo { color: #9a9a9a; font-size: 13px; line-height: 1.5; margin: 0 0 16px; min-height: 39px; }
 
-.plano-preco {
+/* O bloco de preco saiu do card -- o valor agora aparece so uma vez, no
+   "a partir de R$ 200" do topo. As bordas dele separavam o resumo da lista,
+   entao o filete passa para a propria lista. */
+.plano-inclui {
+  list-style: none; padding: 14px 0 0; margin: 0 0 16px;
   border-top: 1px solid rgba(255,255,255,.08);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  padding: 13px 0; margin-bottom: 16px;
 }
-.plano-preco-rot {
-  display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; color: #777;
-}
-.plano-preco-val { display: block; color: var(--orange); font-size: 32px; font-weight: 800; line-height: 1.15; }
-.plano-preco-par { display: block; font-size: 12px; color: #9a9a9a; margin-top: 3px; }
-
-.plano-inclui { list-style: none; padding: 0; margin: 0 0 16px; }
 .plano-inclui li {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 13px; color: #c3c3c3; line-height: 1.5; margin-bottom: 8px;
@@ -80,5 +75,4 @@
   .plano-corpo { padding: 16px 14px 18px; }
   .plano-nome { font-size: 17px; }
   .plano-resumo { min-height: 0; margin-bottom: 12px; }
-  .plano-preco-val { font-size: 26px; }
 }
