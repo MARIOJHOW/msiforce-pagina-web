@@ -28,18 +28,18 @@
   z-index: 0;
 }
 
-/* A foto estava escurecida ate virar textura: brightness(0.45) sobre um arquivo que
-   ja tem brilho medio 65/255, mais dois gradientes por cima. Nao dava para ver o
-   cracha, a pasta da marca, o letreiro dourado na parede nem a sala de reuniao ao
-   fundo — que e tudo o que a imagem tem de util, ja que o rosto esta cortado no
-   proprio arquivo. Aberta o suficiente para a cena existir, mantendo o lado
-   esquerdo fechado, que e onde o texto do hero fica. */
+/* Foto real de obra (rack Cat6 do case LPM), escolhida pelo dono em 25/08/2026 no
+   lugar da imagem gerada — mesma direcao da remocao dos depoimentos: o que e, nao
+   o que parece. grayscale(92%): os cabos sao verdes, cor que o site removeu de
+   proposito; quase-mono mantem o dourado como unica cor. As etiquetas do switch
+   (IP interno do cliente e patrimonio) foram borradas NO ARQUIVO, nao via CSS —
+   filtro se remove com um clique no inspector. */
 .h-hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 70% 25%;
-  filter: grayscale(55%) contrast(1.12) brightness(0.62);
+  filter: grayscale(92%) contrast(1.18) brightness(0.5);
 }
 
 .h-hero-overlay {

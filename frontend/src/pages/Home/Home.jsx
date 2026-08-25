@@ -161,7 +161,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="h-hero" id="sobre">
         <div className="h-hero-bg">
-          <img src="/hero_msiforce.webp" alt="MSIFORCE — Infraestrutura corporativa" loading="eager" />
+          <img src="/case_lpm_final.webp" alt="Rack de cabeamento estruturado Cat6 instalado pela MSIFORCE" loading="eager" />
           <div className="h-hero-overlay" />
         </div>
 
