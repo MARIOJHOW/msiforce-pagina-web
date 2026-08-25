@@ -84,7 +84,7 @@ export default function V2() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="v2-gallery-item"
           >
-            <img src="/painel_premium.png" alt="Painel Inteligente" className="v2-g-img" />
+            <img src="/painel_premium.webp" alt="Painel Inteligente" className="v2-g-img" />
             <div className="v2-g-overlay"></div>
             <div className="v2-g-content">
               <h3>Infraestrutura Oculta</h3>
@@ -99,7 +99,7 @@ export default function V2() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="v2-gallery-item"
           >
-            <img src="/acesso_premium.png" alt="Acesso Premium" className="v2-g-img" />
+            <img src="/acesso_premium.webp" alt="Acesso Premium" className="v2-g-img" />
             <div className="v2-g-overlay"></div>
             <div className="v2-g-content">
               <h3>Fortaleza Elegante</h3>

@@ -81,7 +81,7 @@ export default function SobreEmpresa() {
         {/* FOTO / CARD */}
         <motion.div variants={fadeUp} className="sobre-foto-wrap">
           <div className="sobre-foto-placeholder">
-            <img src="/mario_tecnico.png" alt="Mario Sérgio — Fundador MSIFORCE" />
+            <img src="/mario_tecnico.webp" alt="Mario Sérgio — Fundador MSIFORCE" />
           </div>
         </motion.div>
       </motion.div>

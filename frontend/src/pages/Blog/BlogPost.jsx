@@ -7,7 +7,7 @@ const articles = {
   "ghosting-whatsapp-cliente-some-orcamento": {
     title: "Ghosting no WhatsApp: O que fazer quando o cliente some após o orçamento?",
     category: "Vendas e Conversão",
-    image: "/thumb_ghosting.png",
+    image: "/thumb_ghosting.webp",
     content: (
       <>
         <p>Você envia o preço, ele visualiza e não responde. O "Ghosting" é um dos maiores problemas para prestadores de serviço hoje. Entenda a técnica de follow-up que recupera mais de 60% dos orçamentos enviados e ignorados.</p>
@@ -21,7 +21,7 @@ const articles = {
   "automatizar-atendimento-orcamento-whatsapp-eletricista": {
     title: "O fim do orçamento 'no boca a boca': Como automatizar seu atendimento",
     category: "Automação",
-    image: "/thumb_eletricista.png",
+    image: "/thumb_eletricista.webp",
     content: (
       <>
         <p>Descubra como pequenos prestadores estão gerando orçamentos em PDF diretamente pelo WhatsApp em menos de 30 segundos usando IA.</p>
@@ -33,7 +33,7 @@ const articles = {
   "qualificacao-bant-eletricista-fechar-contratos": {
     title: "Qualificação BANT: A técnica para parar de perder tempo com leads frios",
     category: "Estratégia",
-    image: "/thumb_bant.png",
+    image: "/thumb_bant.webp",
     content: (
       <>
         <p>Aprenda o framework das grandes empresas de tecnologia adaptado para o prestador de serviços. BANT significa Budget, Authority, Need, e Time (Orçamento, Autoridade, Necessidade e Tempo).</p>
@@ -51,7 +51,7 @@ const articles = {
   "crm-para-eletricistas": {
     title: "CRM para Prestadores de Serviço: O que é e por que você precisa de um",
     category: "Gestão",
-    image: "/thumb_crm.png",
+    image: "/thumb_crm.webp",
     content: (
       <>
         <p>Se você ainda anota contatos de clientes na agenda de papel ou confia apenas na memória, você está perdendo dinheiro todos os meses.</p>
