@@ -20,6 +20,19 @@
   overflow-x: hidden;
 }
 
+/* Unificacao tipografica com o resto do site (25/08/2026): a identidade e
+   Playfair Display nos titulos de peso — home, FAQ, Blog e Servicos ja usam.
+   So a campanha tinha ficado em Inter, e a diferenca lia como acidente, nao
+   como escolha. Playfair cobre h1 e h2 (titulos de secao); os h3 de card e UI
+   continuam em Inter, mesmo padrao da home. Os pesos existentes (700/800)
+   ficam: o index.html ja carrega Playfair em 400/700/800. Sem font-weight
+   aqui de proposito — cada regra de classe segue mandando no seu. */
+.campanha-container h1,
+.campanha-container h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.01em;
+}
+
 /* --- Hero Section & Mesh Gradients --- */
 .campanha-hero {
   position: relative;
