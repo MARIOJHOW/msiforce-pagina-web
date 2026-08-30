@@ -1,39 +1,66 @@
-# Preços de instalação de fechadura digital — mão de obra
+# Preços no bot — o que está na `tabela_precos` e por quê
 
-> Levantamento de 30/08/2026. **Só mão de obra** — o valor da fechadura nunca é informado
-> pelo bot, que responde "confirmo junto com a disponibilidade" por causa do estoque rotativo.
->
-> Este arquivo é a base de duas coisas: a **âncora** que o bot cita no WhatsApp e a
-> **referência do técnico** para fechar o valor real na visita. Os dois números que estão no
-> banco saíram daqui; o resto da matriz não cabe no banco hoje, e é justamente por isso que
-> está escrito.
+> Atualizado em 30/08/2026. Cobre as duas coisas que o bot faz com preço: a **âncora** que o
+> funil da fechadura cita no WhatsApp e a **visita técnica** que o gerador de PDF orça.
+
+## A fonte
+
+A autoridade é a **tabela oficial MSIFORCE — Serviços 2026**, exportada do Google Sheets em
+`bot-whatsapp/Tabela de Preços.html` (130 serviços, 12 categorias).
+
+**A coluna que vale é `Preço Mínimo` / `Preço Máximo`** — é a faixa real praticada. A coluna
+`Preço Capital` **não é autoritativa**: diverge das outras duas e às vezes inverte o sentido
+(análise SPDA é 1.800 na faixa e 850 no capital; cerca elétrica é 60–103 por metro e 25 no
+capital). Enquanto ninguém definir o que ela representa, ignore-a.
+
+Duas coisas na planilha parecem erro de digitação, não decisão: quatro descrições começam com
+"INSTALAÇÃO DE INSTALAÇÃO DE", e "detector de fumaça" está em R$ 1.151–1.720.
 
 ## O que está cadastrado em produção
 
-Tabela `tabela_precos`, tenant `MSIFORCE` (`clientes.id = 4`, instância `api`):
+Tenant `MSIFORCE` (`clientes.id = 4`, instância `api`):
 
-| Descrição | Valor |
-|---|---|
-| `Instalação de fechadura digital de sobrepor` | R$ 180,00 |
-| `Instalação de fechadura digital de embutir` | R$ 280,00 |
-
-**O texto da descrição não é livre.** A busca do bot é
-`LOWER(descricao) LIKE '%instala%fechadura%<montagem>%'` (`index.js:459`), e o `LIKE` é
-ordenado: "instala" precisa vir antes de "fechadura", que vem antes de "sobrepor"/"embutir".
-`Fechadura digital — instalação de sobrepor` **não casa**. Quem for editar, mantenha a ordem.
-
-O `<montagem>` só assume dois valores, vindos do catálogo em `services/fechadura.js`:
-
-| Cliente pede | Modelo | Montagem |
+| Descrição | Valor | De onde vem |
 |---|---|---|
-| Só senha | FR 102 (alt. FR 10) | `sobrepor` |
-| Senha + digital | FR 221 V | `embutir` |
-| Completo (digital, senha, app, tag) | MFR 3000 V | `embutir` |
+| `Instalação de fechadura digital de sobrepor` | R$ 226,00 | piso de "instalação e configuração fechadura inteligente" (226–398) |
+| `Instalação de fechadura digital de embutir` | R$ 350,00 | "instalação de fechadura digital (sem alvenaria)", valor fixo |
+| `Automação Residencial - visita técnica (descontada na aprovação)` | R$ 250,00 | valor praticado pelo dono |
+| `Serviços Elétricos - visita técnica (descontada na aprovação)` | R$ 250,00 | idem |
+| `Segurança Eletrônica - visita técnica (descontada na aprovação)` | R$ 250,00 | idem |
+| `Redes - visita técnica (descontada na aprovação)` | R$ 250,00 | idem |
 
-Há um terceiro caminho — quem **já tem** a fechadura e quer só instalar — que busca com
-montagem vazia, casa com as duas linhas e devolve a mais barata (`ORDER BY valor_unitario ASC`).
+> A planilha traz a visita técnica a R$ 150 nas duas colunas. **Os R$ 250 são o valor
+> praticado**, informado pelo dono em 30/08 e sobrepondo a planilha. Se a planilha for
+> atualizada, os dois devem convergir.
 
-## Matriz completa
+## A fechadura: por que 226 e 350
+
+A tabela oficial tem quatro linhas de fechadura, e nenhuma separa sobrepor de embutir:
+
+| Linha oficial | Mínimo | Máximo |
+|---|---|---|
+| Instalação de fechadura digital (sem alvenaria) | R$ 350 | R$ 350 |
+| Instalação e configuração fechadura inteligente | R$ 226 | R$ 398 |
+| Instalação de fechadura eletrônica (portão social) | R$ 151 | R$ 194 |
+| Instalação de botoeira para fechadura eletrônica | R$ 60 | R$ 81 |
+
+O bot precisa de **um número por montagem**, então cada balde ficou com um valor que existe na
+tabela: `sobrepor` no piso da faixa da fechadura inteligente (226) e `embutir` no valor fixo da
+instalação sem alvenaria (350), que é o serviço mais laborioso dos dois.
+
+**O número é âncora, nunca preço fechado** — o bot diz "a partir de" nos dois caminhos, e quem
+fecha o valor é o técnico na visita. A pesquisa de campo abaixo mostra por quê: a mesma
+instalação varia de R$ 180 a R$ 800+ conforme a porta.
+
+> **Correção registrada:** em 30/08 estas linhas nasceram com 180 e 280, tirados da pesquisa de
+> mercado e não da tabela oficial. Ficaram **abaixo do piso da própria empresa** e foram
+> corrigidos no mesmo dia. A lição: pesquisa de mercado é referência de contexto; o preço é o
+> da tabela oficial.
+
+## Pesquisa de campo — referência do técnico, não fonte de preço
+
+Levantamento de mercado de 30/08/2026. Serve para o técnico entender a variação na hora da
+visita e para dimensionar quanto a âncora pode subir. **Não é o preço da empresa.**
 
 ### Por tipo de fechadura
 
@@ -60,58 +87,75 @@ montagem vazia, casa com as duas linhas e devolve a mais barata (`ORDER BY valor
 - **Substituição de fechadura antiga:** +R$ 50 a 100 quando é preciso tampar furação antiga,
   colocar chapa acabadora ou retrabalhar o batente.
 - **Configuração e integração:** cadastro de biometrias/senhas e ligação com hub Zigbee, Wi-Fi,
-  Alexa ou Google Home normalmente entram na visita; cobra-se à parte se a infraestrutura for
-  complexa.
-- **Deslocamento:** regiões centrais e zonas Sul/Oeste tendem a valor um pouco mais alto, ou
-  têm taxa de deslocamento/estacionamento embutida no pacote.
+  Alexa ou Google Home normalmente entram na visita; cobra-se à parte se a infra for complexa.
+- **Deslocamento:** regiões centrais e zonas Sul/Oeste tendem a valor um pouco mais alto, ou têm
+  taxa de deslocamento/estacionamento embutida no pacote.
 
-## A base por trás dos dois números
+## As regras que uma linha nova precisa respeitar
 
-Cruzando as duas tabelas pelos baldes que o bot sabe consultar:
+**A descrição não é texto livre.** Há duas buscas diferentes, com regras diferentes.
 
-| Balde | Piso | Típico (madeira) | Teto |
-|---|---|---|---|
-| `sobrepor` | **180** | ~215 | 450 (metal) |
-| `embutir` | **280** | ~330 | 800+ (blindada) |
+### 1. Funil da fechadura (`index.js:459`)
 
-Cadastramos o **piso**, não a média, e o bot diz "a partir de". O que sustenta a escolha é que
-180 e 280 são, ao mesmo tempo, o piso global e o piso do **caso mais comum** — porta de
-madeira, maioria do residencial em São Paulo. Âncora que só fosse verdade num caso raro seria
-isca; essa é verdade justamente no cenário mais provável.
+`LIKE '%instala%fechadura%<montagem>%'`, e o `LIKE` é **ordenado**: "instala" antes de
+"fechadura" antes da montagem. `Fechadura digital — instalação de sobrepor` **não casa**.
 
-Dois pontos frágeis, registrados de propósito:
+A montagem só assume dois valores, vindos do catálogo em `services/fechadura.js:12`:
 
-1. **As duas tabelas discordam no piso do embutir**: por tipo, começa em 300; por porta
-   (madeira), em 280. Ficou 280. Se 300 for o número praticado, é só trocar o valor da linha.
-2. **O embutir vai quase sempre fechar acima da âncora** — só a madeira comum começa em 280,
-   todos os outros cenários começam em 300+. Continua honesto porque é "a partir de", mas é o
-   número que mais vai precisar de conversa na visita.
+| Cliente pede | Modelo | Montagem |
+|---|---|---|
+| Só senha | FR 102 (alt. FR 10) | `sobrepor` |
+| Senha + digital | FR 221 V | `embutir` |
+| Completo (digital, senha, app, tag) | MFR 3000 V | `embutir` |
+
+Um terceiro caminho — quem já tem a fechadura — busca com montagem vazia, casa com as duas
+linhas e devolve a mais barata (`ORDER BY valor_unitario ASC`).
+
+### 2. Gerador de PDF (`index.js:954`)
+
+Casa pela **primeira palavra** do serviço pedido, `LIKE '%<palavra>%'`, sem âncora nenhuma. As
+palavras possíveis são nove:
+
+| Palavra | Tem linha? | Observação |
+|---|---|---|
+| `Automação`, `Serviços`, `Segurança`, `Redes` | ✅ visita técnica | os quatro serviços de campo |
+| `Atendimento` | ❌ **e deve continuar assim** | é o fallback de quem não escolheu nada no menu; uma linha com "atendimento" na descrição faria todo lead genérico receber PDF |
+| `Atendente`, `Plataforma`, `Planos`, `Demonstração` | ❌ | fluxos de SaaS, onde orçamento em PDF não faz sentido |
+
+Mais duas armadilhas:
+
+- **O acento precisa bater.** A comparação é `LOWER(descricao) LIKE LOWER('%automação%')` —
+  descrição escrita "automacao" não casa. Vale para `Automação`, `Serviços`, `Segurança` e
+  `Demonstração`.
+- **O PDF tem uma linha só, `qtd: 1`.** Serve para serviço de valor fechado. Não serve para o
+  que se cobra por ponto, por metro ou por circuito — que é a maior parte da tabela oficial. Por
+  isso a linha cadastrada é a **visita técnica**, não a obra: o PDF orça a visita que vai orçar
+  a obra.
 
 ## O que o bot ainda não usa
 
-O funil **coleta** o tipo de porta (`dadosF.porta`: madeira, vidro/blindex, alumínio, ferro) e
-o **bairro** (`dadosF.bairro`, texto livre), mas a busca de preço ignora os dois. Por isso a
-matriz por porta e o deslocamento não têm como sair daqui e virar preço automático.
+O funil **coleta** o tipo de porta (`dadosF.porta`) e o **bairro** (`dadosF.bairro`, texto
+livre), mas a busca de preço ignora os dois. Por isso porta de metal (280–450) e blindada
+(500–800+) são ancoradas no mesmo número da madeira.
 
-Para usar mais desta matriz seria preciso:
+Para usar mais da pesquisa de campo seria preciso:
 
-- **Por tipo de porta:** passar `porta` junto da `montagem` em `_valorInstalacao` e cadastrar
-  uma linha por combinação, com a descrição estendida (`...de embutir em porta de madeira`).
-  O dado já é coletado — falta só consultar.
-- **Por região:** um de-para de bairro → zona de São Paulo. É o trabalho maior dos dois, porque
-  o bairro entra como texto livre.
+- **Por tipo de porta:** passar `porta` junto da `montagem` em `_valorInstalacao` e cadastrar uma
+  linha por combinação, com a descrição estendida (`...de embutir em porta de madeira`). O dado
+  já é coletado — falta só consultar.
+- **Por região:** um de-para de bairro → zona de São Paulo. É o trabalho maior dos dois, porque o
+  bairro entra como texto livre.
 - **Substituição de fechadura antiga:** hoje não há pergunta no funil que capture isso.
-
-Enquanto nada disso existe, o "a partir de" é o que cobre toda a variação — e é por isso que
-nenhum caminho do funil pode voltar a afirmar valor fechado.
 
 ## Referências no código
 
 | O quê | Onde |
 |---|---|
-| Busca do preço (`LIKE` + `ORDER BY`) | `whatsapp-bot-eletrica/index.js:459` |
+| Busca do preço da fechadura (`LIKE` + `ORDER BY`) | `whatsapp-bot-eletrica/index.js:459` |
 | Mensagens que citam o valor | `whatsapp-bot-eletrica/index.js:522` e `:546` |
+| Busca do gerador de PDF | `whatsapp-bot-eletrica/index.js:954` |
 | Catálogo de modelos e montagem | `whatsapp-bot-eletrica/services/fechadura.js:12` |
 | Compatibilidade porta × embutir | `whatsapp-bot-eletrica/services/fechadura.js:19` |
 | Testes do funil | `whatsapp-bot-eletrica/tests/backend/webhook-fechadura.test.js` |
-| Campanha que traz esses leads | `docs/campanha-fechadura-google-ads.md` |
+| Tabela oficial de serviços 2026 | `bot-whatsapp/Tabela de Preços.html` |
+| Campanha que traz os leads de fechadura | `docs/campanha-fechadura-google-ads.md` |
