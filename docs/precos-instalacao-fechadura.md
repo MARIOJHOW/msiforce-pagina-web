@@ -6,7 +6,7 @@
 ## A fonte
 
 A autoridade é a **tabela oficial MSIFORCE — Serviços 2026**, exportada do Google Sheets em
-`bot-whatsapp/Tabela de Preços.html` (130 serviços, 12 categorias).
+`bot-whatsapp/docs/planilhas/Tabela de Preços.html` (130 serviços, 12 categorias).
 
 **A coluna que vale é `Preço Mínimo` / `Preço Máximo`** — é a faixa real praticada. A coluna
 `Preço Capital` **não é autoritativa**: diverge das outras duas e às vezes inverte o sentido
@@ -157,5 +157,5 @@ Para usar mais da pesquisa de campo seria preciso:
 | Catálogo de modelos e montagem | `whatsapp-bot-eletrica/services/fechadura.js:12` |
 | Compatibilidade porta × embutir | `whatsapp-bot-eletrica/services/fechadura.js:19` |
 | Testes do funil | `whatsapp-bot-eletrica/tests/backend/webhook-fechadura.test.js` |
-| Tabela oficial de serviços 2026 | `bot-whatsapp/Tabela de Preços.html` |
+| Tabela oficial de serviços 2026 | `bot-whatsapp/docs/planilhas/Tabela de Preços.html` |
 | Campanha que traz os leads de fechadura | `docs/campanha-fechadura-google-ads.md` |
