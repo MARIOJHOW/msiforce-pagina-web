@@ -2,10 +2,15 @@
 // bundle num preview server, visita cada rota com Playwright e injeta no
 // template original (title/meta/canonical do useSEO, JSON-LD do useJsonLd,
 // conteudo renderizado do #root — h1 incluido) para gravar em
-// dist/<rota>/index.html. O Cloudflare Pages serve arquivo estatico exato com
+// dist/<rota>.html. O Cloudflare Pages serve arquivo estatico exato com
 // prioridade sobre o fallback de SPA, entao qualquer crawler que nao executa
 // JS (auditorias, preview de link, etc.) passa a ver a pagina real em vez da
 // casca generica do index.html. Roda depois do `vite build`.
+//
+// <rota>.html, NAO <rota>/index.html: o Cloudflare Pages 308-redireciona
+// pasta/ pra pasta/ com barra no final (canonicalizacao automatica), e as
+// URLs ja indexadas pelo Google — e o proprio canonical que o useSEO gera —
+// sao sem barra. <rota>.html e servido direto em /<rota>, sem redirect.
 //
 // NAO usa page.content() (DOM inteiro pos-JS): o head tem GTM/gtag, que
 // injetam scripts e disparam beacons de conversao do Google Ads em tempo de
@@ -116,10 +121,10 @@ try {
 
     out = out.replace('<div id="root"></div>', `<div id="root">${dados.rootHtml}</div>`);
 
-    const outDir = rota === '/' ? DIST : join(DIST, rota.slice(1));
-    mkdirSync(outDir, { recursive: true });
-    writeFileSync(join(outDir, 'index.html'), out);
-    console.log(`OK  ${rota}  ->  dist${rota === '/' ? '/' : `/${rota.slice(1)}/`}index.html`);
+    const outFile = rota === '/' ? join(DIST, 'index.html') : join(DIST, `${rota.slice(1)}.html`);
+    mkdirSync(dirname(outFile), { recursive: true });
+    writeFileSync(outFile, out);
+    console.log(`OK  ${rota}  ->  dist${rota === '/' ? '/index.html' : `/${rota.slice(1)}.html`}`);
   }
 } finally {
   await browser.close();
