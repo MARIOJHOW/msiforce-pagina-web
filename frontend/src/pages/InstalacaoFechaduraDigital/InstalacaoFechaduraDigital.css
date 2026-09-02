@@ -13,9 +13,27 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.ifd-hero > div {
-  max-width: 820px;
+.ifd-hero-grid {
+  max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ifd-hero-figura {
+  margin: 0;
+  justify-self: end;
+  width: min(100%, 400px);
+}
+
+.ifd-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(197, 160, 89, 0.18);
 }
 
 .ifd-eyebrow {
@@ -52,6 +70,194 @@
 
 .ifd-hero-cta {
   display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* --- Ofertas (modelos e kits) --- */
+
+.ifd-ofertas {
+  padding: 72px 6% 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ifd-ofertas-cabecalho {
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.ifd-ofertas-cabecalho h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.ifd-ofertas-cabecalho p {
+  color: #a8a8a8;
+  line-height: 1.7;
+}
+
+/* 4 colunas em tela larga, 2 no meio, 1 no celular — auto-fit deixava o
+   quarto card órfão numa segunda linha. */
+.ifd-ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .ifd-ofertas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .ifd-ofertas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ifd-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0e0c08 0%, #050505 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.ifd-card:hover {
+  border-color: rgba(197, 160, 89, 0.55);
+  transform: translateY(-3px);
+}
+
+/* Quadrado: as fechaduras são altas e o 4:3 cortava teclado ou maçaneta; o
+   kit (fechadura + hub, 600x480) cabe no quadrado central com 1px de folga. */
+.ifd-card-img {
+  display: block;
+  width: 100%;
+  height: auto; /* sem isto o height="" do <img> vence e o aspect-ratio é ignorado */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #0b0b0b;
+}
+
+.ifd-card-corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 22px;
+}
+
+.ifd-card-marca {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.ifd-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.ifd-card-tipo {
+  color: #8f8f8f;
+  font-size: 0.86rem;
+}
+
+.ifd-card-lista {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 10px;
+}
+
+.ifd-card-lista li {
+  color: #b8b8b8;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.ifd-card-lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.ifd-card-preco {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ifd-card-preco-prefixo,
+.ifd-card-preco-sufixo {
+  font-size: 0.78rem;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ifd-card-preco strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.ifd-card-nota {
+  color: #6f6f6f;
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.ifd-card-btn {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.ifd-ofertas-instalacao {
+  margin-top: 28px;
+  padding: 22px 26px;
+  border: 1px dashed rgba(197, 160, 89, 0.35);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ifd-ofertas-instalacao p {
+  color: #b8b8b8;
+  line-height: 1.6;
+  max-width: 620px;
+}
+
+.ifd-ofertas-instalacao strong {
+  color: var(--white);
 }
 
 /* --- Blocos de conteúdo --- */
@@ -258,9 +464,31 @@
   border-color: var(--brand);
 }
 
+@media (max-width: 900px) {
+  .ifd-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ifd-hero-figura {
+    justify-self: center;
+    width: min(100%, 300px);
+  }
+}
+
 @media (max-width: 600px) {
   .ifd-hero {
     padding: 104px 6% 44px;
+  }
+
+  .ifd-ofertas {
+    padding: 52px 6% 48px;
+  }
+
+  .ifd-ofertas-instalacao {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
   }
 
   .ifd-secao {
