@@ -1,0 +1,278 @@
+/* Página /instalacao-fechadura-digital. Conteúdo orgânico, sem funil de Ads —
+   herda o ritmo visual da /faq (hero + blocos de texto + acordeão), não a
+   estética de campanha da /casa-inteligente. */
+
+.ifd-page {
+  background: var(--black);
+}
+
+/* --- Hero --- */
+
+.ifd-hero {
+  padding: 128px 6% 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ifd-hero > div {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.ifd-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 18px;
+}
+
+.ifd-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.ifd-titulo span {
+  color: var(--brand);
+  font-style: italic;
+}
+
+.ifd-sub {
+  color: #a3a3a3;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.ifd-hero-cta {
+  display: flex;
+}
+
+/* --- Blocos de conteúdo --- */
+
+.ifd-secao {
+  padding: 64px 6%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.ifd-bloco {
+  margin-bottom: 56px;
+}
+
+.ifd-bloco:last-child {
+  margin-bottom: 0;
+}
+
+.ifd-bloco h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.ifd-bloco p {
+  color: #a8a8a8;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.ifd-bloco p strong {
+  color: var(--white);
+}
+
+.ifd-lista {
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+
+.ifd-lista li {
+  color: #a8a8a8;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  padding-left: 22px;
+  border-left: 2px solid rgba(197, 160, 89, 0.3);
+}
+
+.ifd-lista li strong {
+  color: var(--white);
+}
+
+/* --- FAQ --- */
+
+.ifd-secao--faq {
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ifd-faq-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 56px 0 8px;
+}
+
+.ifd-lista-faq {
+  margin-top: 24px;
+}
+
+.ifd-faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ifd-faq-item-titulo {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.ifd-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white);
+  transition: color 0.25s ease;
+}
+
+.ifd-faq-q:hover {
+  color: var(--brand);
+}
+
+.ifd-faq-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--brand);
+}
+
+.ifd-faq-a {
+  overflow: hidden;
+  color: #a8a8a8;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 660px;
+}
+
+/* --- Fechamento --- */
+
+.ifd-fechamento {
+  max-width: 820px;
+  margin: 24px auto 96px;
+  padding: 44px 40px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  background: linear-gradient(135deg, #0e0c08 0%, #050505 100%);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.ifd-fechamento h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.ifd-fechamento p {
+  color: #a3a3a3;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.ifd-fechamento-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ifd-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 32px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  background: var(--brand);
+  color: #000;
+  border: 1px solid var(--brand);
+  transition: filter 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.ifd-btn:hover {
+  filter: brightness(1.08);
+}
+
+.ifd-btn--secundario {
+  background: transparent;
+  color: var(--brand);
+}
+
+.ifd-btn--secundario:hover {
+  background: var(--brand);
+  color: #000;
+  filter: none;
+}
+
+.ifd-link-automacao {
+  display: inline-block;
+  color: var(--brand);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.ifd-link-automacao:hover {
+  border-color: var(--brand);
+}
+
+@media (max-width: 600px) {
+  .ifd-hero {
+    padding: 104px 6% 44px;
+  }
+
+  .ifd-secao {
+    padding: 48px 6%;
+  }
+
+  .ifd-fechamento {
+    padding: 34px 24px;
+  }
+
+  .ifd-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

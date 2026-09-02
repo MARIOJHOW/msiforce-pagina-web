@@ -256,6 +256,12 @@ const CampanhaFechadura = () => {
 
       <FaqPagamento />
 
+      <p className="campanha-link-conteudo">
+        <Link to="/instalacao-fechadura-digital">
+          Guia completo de instalação de fechadura digital →
+        </Link>
+      </p>
+
       {/* Guia Especializado (Tabs) */}
       <section className="campanha-guia-section" id="guia">
         <motion.div

@@ -14,6 +14,7 @@ import Faq from './pages/Faq/Faq';
 import BlogPost from './pages/Blog/BlogPost';
 import ServicoPage from './pages/Servicos/ServicoPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
+import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/InstalacaoFechaduraDigital';
 
 function V1Layout() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/automacao" element={<Automacao />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/instalacao-fechadura-digital" element={<InstalacaoFechaduraDigital />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

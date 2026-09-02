@@ -35,6 +35,7 @@ const PAGINAS = [
   { rota: '/', ancoras: [] },
   { rota: '/blog', ancoras: [] },
   { rota: '/faq', ancoras: [] },
+  { rota: '/instalacao-fechadura-digital', ancoras: [] },
   { rota: '/servicos/eletrica', ancoras: [] },
   { rota: '/servicos/automacao', ancoras: [] },
   { rota: '/servicos/cftv', ancoras: [] },
