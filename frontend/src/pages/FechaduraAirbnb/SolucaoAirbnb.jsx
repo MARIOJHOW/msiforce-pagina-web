@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import { msgPacoteAirbnb, MSG_FECHADURA_COMBO } from '../../lib/gatilhos';
-import { IcoApp, IcoEscudo, IcoCheck, IcoEstrela, IcoPredio } from './icones';
+import { IcoApp, IcoEscudo, IcoCheck, IcoEstrela, IcoPredio } from '../CasaInteligente/icones';
 import {
   IcoFloco, IcoChuveiro, IcoForno, IcoMicroondas, IcoTomada, IcoCooktop, IcoTv,
   IcoLampada, IcoGeladeira, IcoWifi, IcoCamera,
@@ -55,32 +55,45 @@ const BENEFICIOS = [
 const PASSOS = [
   {
     n: 1,
+    img: '/airbnb-passo-1.webp',
     title: 'Você manda a senha',
     text: 'Pelo celular, com hora para começar e para acabar. Não precisa entregar chave nem estar no imóvel.',
   },
   {
     n: 2,
+    img: '/airbnb-passo-2.webp',
     title: 'O hóspede entra e pega o cartão',
     text: 'Ele digita a senha na fechadura no check-in e retira o cartão, que fica com ele até o fim da estadia.',
   },
   {
     n: 3,
+    img: '/airbnb-passo-3.webp',
     title: 'O cartão liga a casa',
     text: 'Encaixou o cartão na entrada, a energia liberada acende: luzes, tomadas, ar-condicionado.',
     tag: { label: 'Casa ligada', tom: 'on' },
   },
   {
     n: 4,
+    img: '/airbnb-passo-4.webp',
     title: 'Saiu, levou o cartão',
     text: 'O cartão é a chave dele: sem ele não volta a entrar. Então sempre sai com o cartão — e a casa desliga sozinha.',
     tag: { label: 'Casa desligada', tom: 'off' },
   },
   {
     n: 5,
+    img: '/airbnb-passo-5.webp',
     title: 'Você acompanha tudo',
     text: 'Confira os acessos pelo celular, crie a senha do próximo hóspede e cancele qualquer uma na hora.',
   },
 ];
+
+// Depoimento real, extraído da arte da campanha (24/08/2026). Nome abreviado
+// porque é assim que veio autorizado — não inventar sobrenome nem foto.
+const TESTEMUNHO = {
+  texto: 'Desde que instalei, minha rotina ficou muito mais fácil e meus hóspedes amaram a experiência!',
+  autor: 'Lucas P.',
+  papel: 'Anfitrião Superhost',
+};
 
 const CIRCUITOS = [
   {
@@ -181,38 +194,56 @@ const GARANTIAS = [
 
 const SolucaoAirbnb = () => {
   return (
-    <section className="airbnb-section" id="solucao-airbnb">
+    <section className="airbnb-section">
       <div className="airbnb-mesh-bg"></div>
 
       <div className="airbnb-container">
         {/* Header */}
-        <motion.div
-          className="airbnb-header"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-        >
-          <motion.div variants={fadeUp} className="airbnb-brand">
-            <IcoPredio />
-            <span>Para <strong>Airbnb</strong> e locação por temporada</span>
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="airbnb-title">
-            Hospede bem. <span>Automatize.</span> Tenha controle total.
-          </motion.h2>
-          <motion.p variants={fadeUp} className="airbnb-subtitle">
-            Acesso inteligente, energia controlada e gestão simplificada do seu imóvel.
-          </motion.p>
+        <div className="airbnb-header-grid">
+          <motion.div
+            className="airbnb-header"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+          >
+            <motion.div variants={fadeUp} className="airbnb-brand">
+              <IcoPredio />
+              <span>Para <strong>Airbnb</strong> e locação por temporada</span>
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="airbnb-title">
+              Hospede bem. <span>Automatize.</span> Tenha controle total.
+            </motion.h1>
+            <motion.p variants={fadeUp} className="airbnb-subtitle">
+              Acesso inteligente, energia controlada e gestão simplificada do seu imóvel.
+            </motion.p>
 
-          <motion.div variants={fadeUp} className="airbnb-badges">
-            {BADGES.map(({ Ico, label }) => (
-              <div className="badge-item" key={label}>
-                <Ico />
-                {label}
-              </div>
-            ))}
+            <motion.div variants={fadeUp} className="airbnb-badges">
+              {BADGES.map(({ Ico, label }) => (
+                <div className="badge-item" key={label}>
+                  <Ico />
+                  {label}
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          <motion.figure
+            className="airbnb-hero-figura"
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img
+              src="/airbnb-hero.webp"
+              alt="Fechadura digital MSIFORCE instalada em porta de apartamento de temporada"
+              width="385"
+              height="445"
+              loading="eager"
+            />
+          </motion.figure>
+        </div>
 
         {/* Os quatro pilares */}
         <motion.div
@@ -252,7 +283,10 @@ const SolucaoAirbnb = () => {
             {PASSOS.map((step, i) => (
               <motion.div variants={fadeUp} className="airbnb-step-card glass-panel" key={step.n}>
                 {i > 0 && <IcoSeta className="step-arrow" />}
-                <div className="step-number">{step.n}</div>
+                <div className="step-foto">
+                  <img src={step.img} alt={step.title} loading="lazy" width="210" height="230" />
+                  <div className="step-number">{step.n}</div>
+                </div>
                 <h4>{step.title}</h4>
                 <p>{step.text}</p>
                 {step.tag && (
@@ -311,6 +345,24 @@ const SolucaoAirbnb = () => {
             </ul>
           </motion.div>
         </div>
+
+        {/* Depoimento real de anfitrião */}
+        <motion.blockquote
+          className="airbnb-depoimento glass-panel"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="depoimento-estrelas">
+            <IcoEstrela /><IcoEstrela /><IcoEstrela /><IcoEstrela /><IcoEstrela />
+          </div>
+          <p>&ldquo;{TESTEMUNHO.texto}&rdquo;</p>
+          <footer>
+            <strong>{TESTEMUNHO.autor}</strong>
+            <span>{TESTEMUNHO.papel}</span>
+          </footer>
+        </motion.blockquote>
 
         {/* Pacotes */}
         <motion.div

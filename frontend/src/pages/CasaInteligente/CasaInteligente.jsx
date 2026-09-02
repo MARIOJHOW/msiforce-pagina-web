@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './CasaInteligente.css';
@@ -14,10 +14,9 @@ import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
 import ComoFunciona from './ComoFunciona';
 import FaqPagamento from './FaqPagamento';
-import SolucaoAirbnb from './SolucaoAirbnb';
 import {
-  IcoDigital, IcoApp, IcoEscudo, IcoPorta,
-  IcoPredio, IcoVidro, IcoCheck, IcoPresente,
+  IcoDigital, IcoApp, IcoEscudo,
+  IcoPredio, IcoCheck, IcoPresente,
 } from './icones';
 
 const fadeUp = {
@@ -58,8 +57,6 @@ const FAQ_SCHEMA = {
 };
 
 const CampanhaFechadura = () => {
-  const [activeTab, setActiveTab] = useState('portas');
-
   useSEO({
     title: 'Fechadura Digital e Automação Residencial SP',
     description:
@@ -134,11 +131,11 @@ const CampanhaFechadura = () => {
                 mobile. Mesmo arquivo do desktop = zero download extra. */}
             <motion.img
               variants={fadeUp}
-              src="/fechadura_completa.webp"
-              alt="Fechadura digital instalada pela MSIFORCE"
+              src="/casa-hero-fechadura.webp"
+              alt="Fechadura digital MSIFORCE instalada em residência de alto padrão"
               className="hero-img-mobile"
-              width="1024"
-              height="1024"
+              width="460"
+              height="610"
             />
 
             <motion.p variants={fadeUp}>
@@ -168,27 +165,28 @@ const CampanhaFechadura = () => {
           >
             <div className="hero-image-complete">
               <div className="hero-image-glow"></div>
-              <img src="/fechadura_completa.webp" alt="Fechadura digital instalada pela MSIFORCE" className="main-lock-img complete-img" width="520" height="520" />
+              <img src="/casa-hero-fechadura.webp" alt="Fechadura digital MSIFORCE instalada em residência de alto padrão" className="main-lock-img complete-img" width="460" height="610" />
             </div>
           </motion.div>
         </div>
-        {/* Banner Especialista Certificado */}
-        <section className="certificacoes-banner">
-          <motion.div
-            className="cert-content glass-panel"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            <div className="cert-header">
-              <img src="/logo-simbolo.webp" alt="" className="cert-logo" />
-              <span className="cert-marca">MSIFORCE</span>
-            </div>
-            <h2>Instalação Especializada e Certificada</h2>
-            <p>Técnico treinado e certificado pelas maiores marcas do mercado: <strong>Intelbras, Papaiz, Yale, Pado e Elsys</strong>.</p>
-          </motion.div>
-        </section>
+        {/* Barra de confiança — substitui o antigo card solto pós-hero: mesma
+            informação (marcas + certificações), sem uma seção inteira para isso. */}
+        <motion.div
+          className="hero-trust-bar"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <span className="hero-trust-item">
+            Técnico certificado <strong>Intelbras · Papaiz · Yale · Pado · Elsys</strong>
+          </span>
+          <span className="hero-trust-badges">
+            <span className="hero-trust-badge">NR-10</span>
+            <span className="hero-trust-badge">NR-35</span>
+            <span className="hero-trust-badge">ABNT 5410</span>
+          </span>
+        </motion.div>
       </section>
 
       <VitrinePlanos />
@@ -217,15 +215,18 @@ const CampanhaFechadura = () => {
           viewport={{ once: true, margin: '-50px' }}
         >
           <motion.div variants={fadeUp} className="bento-card bento-large bento-glass">
+            <div className="bento-photo-bg" style={{ backgroundImage: "url('/bento-acesso.webp')" }}></div>
+            <div className="bento-photo-scrim"></div>
             <div className="bento-content">
               <div className="bento-icon"><IcoDigital /></div>
               <h3>Acesso Biométrico Instantâneo</h3>
               <p>Sua digital é sua chave. Abra a porta em menos de 0.5 segundos sem precisar procurar nada na bolsa.</p>
             </div>
-            <div className="bento-bg-gradient bento-bg-1"></div>
           </motion.div>
 
           <motion.div variants={fadeUp} className="bento-card bento-glass">
+            <div className="bento-photo-bg" style={{ backgroundImage: "url('/bento-app.webp')" }}></div>
+            <div className="bento-photo-scrim"></div>
             <div className="bento-content">
               <div className="bento-icon"><IcoApp /></div>
               <h3>App & Senhas Remotas</h3>
@@ -234,6 +235,8 @@ const CampanhaFechadura = () => {
           </motion.div>
 
           <motion.div variants={fadeUp} className="bento-card bento-glass">
+            <div className="bento-photo-bg" style={{ backgroundImage: "url('/bento-seguranca.webp')" }}></div>
+            <div className="bento-photo-scrim"></div>
             <div className="bento-content">
               <div className="bento-icon"><IcoEscudo /></div>
               <h3>Segurança Máxima</h3>
@@ -262,197 +265,81 @@ const CampanhaFechadura = () => {
         </Link>
       </p>
 
-      {/* Guia Especializado (Tabs) */}
-      <section className="campanha-guia-section" id="guia">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          className="section-header"
-        >
-          <motion.h2 variants={fadeUp} className="campanha-section-title">Guia Especializado</motion.h2>
-          <motion.p variants={fadeUp} className="campanha-section-subtitle">
-            Entenda como escolher a fechadura certa para sua necessidade e conheça todas as vantagens.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="guia-tabs-container"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <div className="guia-tabs-header" role="tablist">
-            <button
-              className={`guia-tab-btn ${activeTab === 'portas' ? 'active' : ''}`}
-              onClick={() => setActiveTab('portas')}
-              role="tab"
-              aria-selected={activeTab === 'portas'}
-              tabIndex={activeTab === 'portas' ? 0 : -1}
-            >
-              Tipos de Porta
-            </button>
-            <button
-              className={`guia-tab-btn ${activeTab === 'funcoes' ? 'active' : ''}`}
-              onClick={() => setActiveTab('funcoes')}
-              role="tab"
-              aria-selected={activeTab === 'funcoes'}
-              tabIndex={activeTab === 'funcoes' ? 0 : -1}
-            >
-              Funções
-            </button>
-            <button
-              className={`guia-tab-btn ${activeTab === 'aplicacoes' ? 'active' : ''}`}
-              onClick={() => setActiveTab('aplicacoes')}
-              role="tab"
-              aria-selected={activeTab === 'aplicacoes'}
-              tabIndex={activeTab === 'aplicacoes' ? 0 : -1}
-            >
-              Aplicações
-            </button>
-          </div>
-
-          <div className="guia-tab-content glass-panel">
-            {activeTab === 'portas' && (
-              <motion.div
-                className="guia-panel"
-                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
-              >
-                <h3>Qual modelo serve na minha porta?</h3>
-                <ul className="guia-list">
-                  <li>
-                    <strong><IcoPorta /> Portas Pivotantes / Madeira Maciça:</strong> Recomendamos <em>Fechaduras de Embutir</em>. Elas substituem a maçaneta original, têm o maquinário dentro da porta e oferecem o acabamento mais luxuoso.
-                  </li>
-                  <li>
-                    <strong><IcoPredio /> Portas Padrão (Apartamento):</strong> Recomendamos <em>Fechaduras de Sobrepor</em>. Instaladas acima da maçaneta atual. Perfeitas para quem mora de aluguel ou não quer modificar a porta.
-                  </li>
-                  <li>
-                    <strong><IcoVidro /> Portas de Vidro:</strong> Modelos específicos de encaixe ou pressão (com fita de alta fixação). Instalação segura sem necessidade de furar o vidro temperado.
-                  </li>
-                  <li>
-                    <strong><IcoPorta /> Portas de Correr / Alumínio:</strong> Modelos de perfil estreito com lingueta em gancho (bico de papagaio) que travam lateralmente.
-                  </li>
-                </ul>
-              </motion.div>
-            )}
-
-            {activeTab === 'funcoes' && (
-              <motion.div
-                className="guia-panel"
-                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
-              >
-                <h3>Recursos de Segurança e Praticidade</h3>
-                <ul className="guia-list">
-                  <li>
-                    <strong><IcoApp /> Gestão na Palma da Mão:</strong> Acompanhamento em tempo real (saiba quem entrou e a que horas) e liberação da porta à distância via aplicativo.
-                  </li>
-                  <li>
-                    <strong><IcoDigital /> Senhas de Uso Único e Temporárias:</strong> Crie senhas exclusivas para prestadores de serviço, faxineiras ou hóspedes, que expiram automaticamente após o uso.
-                  </li>
-                  <li>
-                    <strong><IcoApp /> Cenas em Automação Residencial:</strong> Integre sua fechadura à casa inteligente. Exemplo: ao abrir a porta com a sua digital, as luzes da sala acendem e o ar-condicionado liga sozinho.
-                  </li>
-                  <li>
-                    <strong><IcoEscudo /> Segurança Anti-Arrombamento:</strong> Travamento automático ao encostar a porta, alarme integrado e modo "senha falsa" (digite números aleatórios antes da senha real para despistar curiosos).
-                  </li>
-                </ul>
-              </motion.div>
-            )}
-
-            {activeTab === 'aplicacoes' && (
-              <motion.div
-                className="guia-panel"
-                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
-              >
-                <h3>Onde utilizar?</h3>
-                <ul className="guia-list">
-                  <li>
-                    <strong><IcoPorta /> Residências e Condomínios:</strong> Diga adeus ao molho de chaves pesado. Ideal para famílias grandes, facilitando o acesso de todos sem precisar fazer cópias de chave.
-                  </li>
-                  <li>
-                    <strong><IcoPredio /> Escritórios e Clínicas:</strong> Controle total de quem entra e quem sai. Perfeito para restringir acesso a salas específicas (TI, Estoque, Diretoria) apenas para funcionários autorizados.
-                  </li>
-                  <li>
-                    <strong><IcoPredio /> Airbnb / Locação por Temporada:</strong> A solução definitiva. Gere senhas temporárias que expiram automaticamente na data e hora do check-out do seu hóspede.
-                  </li>
-                </ul>
-              </motion.div>
-            )}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Solução Airbnb */}
-      <SolucaoAirbnb />
-
-      {/* Seção Instalação Avulsa */}
+      {/* Tem Airbnb? — teaser compacto linkando para a página dedicada
+          (/fechadura-airbnb), em vez de embutir a seção inteira aqui. */}
       <section className="campanha-instalacao-avulsa">
         <motion.div
-          className="instalacao-content glass-panel"
+          className="instalacao-content glass-panel airbnb-teaser"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={fadeUp}
         >
-          <h3>Já comprou sua fechadura?</h3>
+          <span className="airbnb-teaser-tag"><IcoPredio /> Airbnb e locação por temporada</span>
+          <h3>Hospede sem se preocupar com chave</h3>
           <p>
-            Não arrisque arranhar sua porta ou perder a garantia do produto com curiosos.
-            Temos especialistas em portas Pivotantes, Madeira Maciça e Aço.
+            Senha própria para cada hóspede e um cartão que liga a energia do imóvel
+            no check-in e desliga sozinho no check-out. Pacotes com equipamento e
+            instalação inclusos.
           </p>
-          <ul className="beneficios-instalacao">
-            <li><IcoCheck className="check-icon" /> Acabamento de marcenaria fina</li>
-            <li><IcoCheck className="check-icon" /> Configuração completa da rede Wi-Fi</li>
-            <li><IcoCheck className="check-icon" /> Treinamento presencial para a família</li>
-          </ul>
-          <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="botao-instalacao-avulsa">
-            Orçar Apenas a Instalação
-          </WhatsAppButton>
-        </motion.div>
-      </section>
-
-      {/* Chamada para Automação Completa */}
-      <section className="campanha-section" style={{ background: '#050505', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <motion.div
-          className="offer-box glass-panel"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          style={{ textAlign: 'center', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(197, 160, 89, 0.2)' }}
-        >
-          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>Quer ir além da porta?</h2>
-          <p style={{ color: '#c0c0c0', marginBottom: '2rem', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-            Descubra como transformar sua casa inteira. Controle iluminação, ar-condicionado, cortinas e home theater por comando de voz ou celular.
-          </p>
-          <Link to="/automacao" className="campanha-btn-primary glow-effect" style={{ background: 'transparent', border: '2px solid var(--orange)', color: 'var(--orange)', padding: '1rem 2.5rem', display: 'inline-block' }}>
-            Conhecer Projetos de Automação
+          <Link to="/fechadura-airbnb" className="botao-instalacao-avulsa">
+            Ver solução para Airbnb →
           </Link>
         </motion.div>
       </section>
 
-      {/* Oferta / Upsell */}
-      <section className="campanha-section" id="combo">
-        <motion.div
-          className="offer-box premium-gradient"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <div className="offer-glow"></div>
-          <h2>Projeto Porta Pronta</h2>
-          <p>
-            Da compra da fechadura ao acabamento na sua porta. Cuidamos de tudo para você ter a melhor experiência possível.
-          </p>
-          <div className="bonus-tag">
-            <IcoPresente /> Bônus Exclusivo: Consultoria de Automação gratuita no local!
-          </div>
-          <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
-            Quero Agendar Minha Instalação
-          </WhatsAppButton>
-        </motion.div>
+      {/* Fechamento — um bloco só, com o combo em destaque e a instalação
+          avulsa ao lado, em vez de três seções separadas pedindo quase a
+          mesma coisa. O cross-link para automação vira uma linha, não uma
+          seção com padding próprio. */}
+      <section className="campanha-fechamento" id="combo">
+        <div className="fechamento-grid">
+          <motion.div
+            className="offer-box premium-gradient"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={fadeUp}
+          >
+            <div className="offer-glow"></div>
+            <h2>Projeto Porta Pronta</h2>
+            <p>
+              Da compra da fechadura ao acabamento na sua porta. Cuidamos de tudo para você ter a melhor experiência possível.
+            </p>
+            <div className="bonus-tag">
+              <IcoPresente /> Bônus Exclusivo: Consultoria de Automação gratuita no local!
+            </div>
+            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="campanha-btn-primary glow-effect black-text">
+              Quero Agendar Minha Instalação
+            </WhatsAppButton>
+          </motion.div>
+
+          <motion.div
+            className="instalacao-content glass-panel"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={fadeUp}
+          >
+            <h3>Já comprou sua fechadura?</h3>
+            <p>
+              Não arrisque arranhar sua porta ou perder a garantia do produto com curiosos.
+              Temos especialistas em portas Pivotantes, Madeira Maciça e Aço.
+            </p>
+            <ul className="beneficios-instalacao">
+              <li><IcoCheck className="check-icon" /> Acabamento de marcenaria fina</li>
+              <li><IcoCheck className="check-icon" /> Configuração completa da rede Wi-Fi</li>
+              <li><IcoCheck className="check-icon" /> Treinamento presencial para a família</li>
+            </ul>
+            <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="botao-instalacao-avulsa">
+              Orçar Apenas a Instalação
+            </WhatsAppButton>
+          </motion.div>
+        </div>
+
+        <Link to="/automacao" className="fechamento-automacao-link">
+          Quer automatizar a casa inteira, além da porta? Conheça os projetos de automação →
+        </Link>
       </section>
 
       </main>

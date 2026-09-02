@@ -1,0 +1,26 @@
+.airbnb-page {
+  background: #030303;
+}
+
+.airbnb-voltar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 2rem 0;
+}
+
+@media (max-width: 600px) {
+  .airbnb-voltar {
+    padding-top: 84px;
+  }
+}
+
+.airbnb-voltar a {
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.airbnb-voltar a:hover {
+  color: var(--orange);
+}

@@ -33,8 +33,56 @@
 
 /* --- Header --- */
 
+.airbnb-header-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
 .airbnb-header {
-  text-align: center;
+  text-align: left;
+}
+
+.airbnb-header .airbnb-subtitle {
+  margin: 0 0 2rem;
+}
+
+.airbnb-header .airbnb-badges {
+  justify-content: flex-start;
+}
+
+.airbnb-hero-figura {
+  margin: 0;
+  justify-self: center;
+}
+
+.airbnb-hero-figura img {
+  display: block;
+  width: 100%;
+  max-width: 385px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 90, 95, 0.18);
+}
+
+@media (max-width: 900px) {
+  .airbnb-header-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .airbnb-header,
+  .airbnb-header .airbnb-subtitle {
+    text-align: center;
+  }
+  .airbnb-header .airbnb-badges {
+    justify-content: center;
+  }
+  .airbnb-hero-figura {
+    order: -1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 
 .airbnb-brand {
@@ -195,22 +243,42 @@
   flex-direction: column;
 }
 
-/* Seta que liga um passo ao seguinte, alinhada ao centro do número. */
+/* Seta que liga um passo ao seguinte, alinhada ao centro da foto. */
 .step-arrow {
   position: absolute;
-  top: 52px;
+  top: 55px;
   left: -1.35rem;
   transform: translateY(-50%);
   font-size: 1rem;
   color: rgba(197, 160, 89, 0.55);
+  z-index: 1;
 }
 
 @media (max-width: 1000px) {
   .step-arrow { display: none; }
 }
 
+/* A foto sangra até a borda do card (margem negativa cancela o padding do
+   .airbnb-step-card) e o número vira um selo sobre o canto dela, em vez de
+   um círculo solto acima do título. */
+.step-foto {
+  position: relative;
+  margin: -2rem -1.25rem 1.25rem;
+}
+
+.step-foto img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+}
+
 .step-number {
-  width: 40px; height: 40px;
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 34px; height: 34px;
   background: var(--orange);
   color: #000;
   font-weight: 800;
@@ -218,9 +286,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+  font-size: 1.05rem;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
 }
 
 .airbnb-step-card h4 {
@@ -405,6 +472,47 @@
   color: var(--orange);
   flex-shrink: 0;
   margin-top: 3px;
+}
+
+/* --- Depoimento real --- */
+.airbnb-depoimento {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.depoimento-estrelas {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  color: var(--orange);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.airbnb-depoimento p {
+  color: #e5e5e5;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.airbnb-depoimento footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.airbnb-depoimento footer strong {
+  color: #fff;
+  font-size: 0.98rem;
+}
+
+.airbnb-depoimento footer span {
+  color: #8a8a8a;
+  font-size: 0.85rem;
 }
 
 /* --- Pacotes --- */

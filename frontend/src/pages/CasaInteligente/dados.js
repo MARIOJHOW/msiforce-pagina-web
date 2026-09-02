@@ -104,7 +104,7 @@ export const MODELOS = [
     nome: 'Modelo Intermediário',
     tag: 'Intermediária · Sobrepor',
     imagem: '/fechadura_inter_3d.webp',
-    metodos: ['Senha touch'],
+    metodos: ['Senha', 'Tag'],
     porta: 'Porta padrão de apartamento',
     paraQuem: 'Instala acima da maçaneta, sem modificar a porta. Ideal para quem mora de aluguel.',
   },
