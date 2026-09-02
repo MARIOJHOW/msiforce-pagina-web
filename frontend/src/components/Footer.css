@@ -156,7 +156,8 @@
 
 .msi-f-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
 }
 
 .msi-f-links a {

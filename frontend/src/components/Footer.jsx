@@ -86,6 +86,9 @@ const Footer = () => {
         <nav className="msi-f-links">
           <Link to="/">Home</Link>
           <Link to="/automacao">Automação</Link>
+          <Link to="/casa-inteligente">Fechaduras Digitais</Link>
+          <Link to="/instalacao-fechadura-digital">Instalação de Fechadura Digital</Link>
+          <Link to="/fechadura-airbnb">Fechadura Digital para Airbnb</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/faq">Perguntas frequentes</Link>
         </nav>
