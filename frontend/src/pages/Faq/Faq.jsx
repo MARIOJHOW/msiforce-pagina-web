@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
+import useJsonLd from '../../hooks/useJsonLd';
 import { FAQS } from '../../data/faq';
 import { linkWhatsApp } from '../../lib/whatsapp';
 import './Faq.css';
@@ -45,15 +46,7 @@ export default function Faq() {
     canonical: 'https://msiforce.com.br/faq',
   });
 
-  // Injeta e remove o FAQPage. Como o site e SPA, um schema deixado para tras
-  // apareceria em outra rota.
-  useEffect(() => {
-    const el = document.createElement('script');
-    el.type = 'application/ld+json';
-    el.textContent = JSON.stringify(SCHEMA);
-    document.head.appendChild(el);
-    return () => el.remove();
-  }, []);
+  useJsonLd([{ key: 'faq', schema: SCHEMA }]);
 
   return (
     <div className="faqp-page">

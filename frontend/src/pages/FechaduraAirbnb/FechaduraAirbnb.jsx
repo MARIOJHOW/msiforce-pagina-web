@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
+import useJsonLd from '../../hooks/useJsonLd';
 import SolucaoAirbnb from './SolucaoAirbnb';
 // Reaproveita as classes utilitárias da campanha (glass-panel, premium-gradient,
 // campanha-btn-primary...) em vez de duplicá-las — mesma base visual da família
@@ -32,13 +32,7 @@ export default function FechaduraAirbnb() {
     canonical: 'https://msiforce.com.br/fechadura-airbnb',
   });
 
-  useEffect(() => {
-    const el = document.createElement('script');
-    el.type = 'application/ld+json';
-    el.textContent = JSON.stringify(SERVICO_SCHEMA);
-    document.head.appendChild(el);
-    return () => el.remove();
-  }, []);
+  useJsonLd([{ key: 'servico', schema: SERVICO_SCHEMA }]);
 
   return (
     <div className="airbnb-page">

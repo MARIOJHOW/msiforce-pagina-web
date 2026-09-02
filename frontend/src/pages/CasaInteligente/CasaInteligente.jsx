@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import useSEO from '../../hooks/useSEO';
+import useJsonLd from '../../hooks/useJsonLd';
 import { iniciarAds } from '../../lib/ads';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
 import { GOOGLE, PRECO_MINIMO, FAQ } from './dados';
@@ -64,24 +65,10 @@ const CampanhaFechadura = () => {
     canonical: 'https://msiforce.com.br/casa-inteligente',
   });
 
-  // Injeta e remove o schema. Como o site é SPA, um schema deixado para trás
-  // apareceria em outra rota.
-  useEffect(() => {
-    const elServico = document.createElement('script');
-    elServico.type = 'application/ld+json';
-    elServico.textContent = JSON.stringify(SERVICO_SCHEMA);
-    document.head.appendChild(elServico);
-
-    const elFaq = document.createElement('script');
-    elFaq.type = 'application/ld+json';
-    elFaq.textContent = JSON.stringify(FAQ_SCHEMA);
-    document.head.appendChild(elFaq);
-
-    return () => {
-      elServico.remove();
-      elFaq.remove();
-    };
-  }, []);
+  useJsonLd([
+    { key: 'servico', schema: SERVICO_SCHEMA },
+    { key: 'faq', schema: FAQ_SCHEMA },
+  ]);
 
   useEffect(() => {
     // Chegando por sitelink do Google Ads (#modelos, #instalacao, #combo), este

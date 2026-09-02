@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
+import useJsonLd from '../../hooks/useJsonLd';
 import { linkWhatsApp } from '../../lib/whatsapp';
 import {
   MSG_FECHADURA_COMBO,
@@ -62,22 +63,10 @@ export default function InstalacaoFechaduraDigital() {
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
-  useEffect(() => {
-    const elServico = document.createElement('script');
-    elServico.type = 'application/ld+json';
-    elServico.textContent = JSON.stringify(SERVICO_SCHEMA);
-    document.head.appendChild(elServico);
-
-    const elFaq = document.createElement('script');
-    elFaq.type = 'application/ld+json';
-    elFaq.textContent = JSON.stringify(FAQ_SCHEMA);
-    document.head.appendChild(elFaq);
-
-    return () => {
-      elServico.remove();
-      elFaq.remove();
-    };
-  }, []);
+  useJsonLd([
+    { key: 'servico', schema: SERVICO_SCHEMA },
+    { key: 'faq', schema: FAQ_SCHEMA },
+  ]);
 
   return (
     <div className="ifd-page">
