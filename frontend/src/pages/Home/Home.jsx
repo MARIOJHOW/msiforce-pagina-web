@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { trackCTA } from '../../hooks/useAnalytics';
+import useSEO from '../../hooks/useSEO';
 import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
@@ -154,6 +155,12 @@ const CASES = [
 
 
 export default function Home() {
+  useSEO({
+    title: 'Infraestrutura Elétrica e Automação Empresarial',
+    description:
+      'Instalação elétrica, automação, CFTV, controle de acesso e redes estruturadas para empresas, condomínios, clínicas e indústrias em São Paulo. Consultoria gratuita.',
+    canonical: 'https://msiforce.com.br/',
+  });
 
   return (
     <div className="page-home">

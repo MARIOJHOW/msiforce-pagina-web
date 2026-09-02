@@ -5,9 +5,10 @@ import './CasaInteligente.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import WhatsAppButton from '../../components/WhatsAppButton';
+import useSEO from '../../hooks/useSEO';
 import { iniciarAds } from '../../lib/ads';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
-import { GOOGLE, PRECO_MINIMO } from './dados';
+import { GOOGLE, PRECO_MINIMO, FAQ } from './dados';
 import SeloGoogle from './SeloGoogle';
 import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
@@ -28,20 +29,64 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
+// O JSON-LD sai dos MESMOS dados que a página renderiza (dados.js) — escrever o
+// schema a mão seria uma segunda fonte de verdade, como em Faq.jsx.
+const SERVICO_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Automação Residencial e Instalação de Fechadura Digital',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'MSIFORCE',
+    url: 'https://msiforce.com.br',
+    telephone: '+55-11-91077-3865',
+    areaServed: { '@type': 'City', name: 'São Paulo' },
+  },
+  areaServed: { '@type': 'City', name: 'São Paulo' },
+  description:
+    'Projeto e instalação de automação residencial e fechaduras digitais em São Paulo, com integração a Google Home e Alexa.',
+};
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map(({ p, r }) => ({
+    '@type': 'Question',
+    name: p,
+    acceptedAnswer: { '@type': 'Answer', text: r },
+  })),
+};
+
 const CampanhaFechadura = () => {
   const [activeTab, setActiveTab] = useState('portas');
 
+  useSEO({
+    title: 'Fechadura Digital e Automação Residencial SP',
+    description:
+      'Instalação especializada de fechaduras digitais e projetos de Casa Inteligente em São Paulo. Autorizada Intelbras, Yale, Pado, Papaiz. Solicite orçamento.',
+    canonical: 'https://msiforce.com.br/casa-inteligente',
+  });
+
+  // Injeta e remove o schema. Como o site é SPA, um schema deixado para trás
+  // apareceria em outra rota.
   useEffect(() => {
-    document.title = 'Casa Inteligente e Fechaduras Digitais - MSIFORCE';
+    const elServico = document.createElement('script');
+    elServico.type = 'application/ld+json';
+    elServico.textContent = JSON.stringify(SERVICO_SCHEMA);
+    document.head.appendChild(elServico);
 
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = "Instalação especializada de fechaduras digitais e projetos de Casa Inteligente em São Paulo. Autorizada Intelbras, Yale, Pado, Papaiz. Solicite orçamento.";
+    const elFaq = document.createElement('script');
+    elFaq.type = 'application/ld+json';
+    elFaq.textContent = JSON.stringify(FAQ_SCHEMA);
+    document.head.appendChild(elFaq);
 
+    return () => {
+      elServico.remove();
+      elFaq.remove();
+    };
+  }, []);
+
+  useEffect(() => {
     // Chegando por sitelink do Google Ads (#modelos, #instalacao, #combo), este
     // scrollTo(0,0) cancelava o salto do navegador e o visitante caía no topo —
     // medido em produção: com #modelos a página ficava em scrollY=0 com a seção

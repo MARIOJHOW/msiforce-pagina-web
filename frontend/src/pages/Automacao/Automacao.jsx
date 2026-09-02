@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Automacao.css';
 import WhatsAppButton from '../../components/WhatsAppButton';
+import useSEO from '../../hooks/useSEO';
 import { iniciarAds } from '../../lib/ads';
 import {
   MSG_FECHADURA_AUTOMACAO,
@@ -15,6 +16,13 @@ export default function Automacao() {
   const [quizAnswers, setQuizAnswers] = useState([]);
   const [quizFinished, setQuizFinished] = useState(false);
   const [quizSuccess, setQuizSuccess] = useState(false);
+
+  useSEO({
+    title: 'Automação Residencial de Alto Padrão em SP',
+    description:
+      'Projetos de automação residencial premium em São Paulo: fechadura digital com biometria, iluminação, climatização e segurança integradas em um único app.',
+    canonical: 'https://msiforce.com.br/automacao',
+  });
 
   // Página recebe tráfego pago: sem isto nenhuma conversão é registrada.
   useEffect(() => { 
