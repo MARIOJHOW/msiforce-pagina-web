@@ -108,13 +108,7 @@
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  /* "all" reanima background/color/border/box-shadow junto com o transform a
-     cada hover -- no Windows/Chrome isso as vezes faz o texto (uppercase,
-     letter-spacing) tremer por um frame porque o navegador reconstroi a
-     camada composta inteira. will-change isola o transform na GPU antes do
-     hover comecar, e listar as propriedades evita repintar o que nao mudou. */
-  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
-  will-change: transform;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   border: none;
 }
 
@@ -123,10 +117,15 @@
   color: var(--black);
 }
 
+/* SEM transform no hover: confirmado em gravacao de tela (10/09/2026) que
+   translateY(-2px) aqui deslocava a borda do botao por cima de um cursor
+   parado perto dela -- o navegador reavaliava "estou dentro?" a cada frame
+   e alternava hover on/off dezenas de vezes por segundo (visivel como o
+   cursor piscando seta/mao), lido como "a pagina treme". box-shadow sozinho
+   ja da o feedback visual sem mexer na geometria do elemento. */
 .h-btn--primary:hover {
   background: #fff;
   color: var(--black);
-  transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(197, 160, 89, 0.4);
 }
 
@@ -139,7 +138,6 @@
 .h-btn--secondary:hover {
   border-color: var(--gold);
   color: var(--gold);
-  transform: translateY(-2px);
 }
 
 .h-btn--gold {
