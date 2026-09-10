@@ -86,9 +86,17 @@ try {
       const h1 = document.querySelector('h1');
       return h1 && getComputedStyle(h1).opacity === '1';
     }, { timeout: 5000 }).catch(() => {});
-    // useSEO e o(s) JSON-LD de useJsonLd rodam em useEffect logo apos o mount
-    // — folga pra garantir que ja rodaram.
-    await page.waitForTimeout(150);
+    // h1 e so o 2o item do stagger (depois do eyebrow) — os itens seguintes
+    // (paragrafo, CTAs, badges) ainda estao a meio caminho quando o h1
+    // termina, porque cada um comeca staggerChildren depois do anterior e
+    // ainda leva a propria duration inteira pra concluir. Sem esperar por
+    // eles, o snapshot pegava o bloco de botoes do hero em opacity quase 0
+    // (congelado assim pro visitante ate o React montar e re-animar por
+    // cima) — bug achado em 10/09/2026 com o dono vendo o site "tremer" no
+    // hover: eram duas rendericoes sobrepostas, a estatica presa a meio
+    // caminho e a do React entrando de novo. 900ms cobre o pior caso (~6
+    // itens em stagger de 0.15s + duration de 1s) em todas as rotas.
+    await page.waitForTimeout(900);
 
     const dados = await page.evaluate(() => {
       const conteudo = (sel) => document.querySelector(sel)?.getAttribute('content') ?? null;
