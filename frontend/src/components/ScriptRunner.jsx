@@ -68,60 +68,6 @@ export default function ScriptRunner() {
   }, [location]);
 
   useEffect(() => {
-    // 4. Custom Cursor
-    const cur = document.getElementById('cur');
-    const curR = document.getElementById('curR');
-    
-    if (cur && curR) {
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      let animationFrameId;
-      
-      const onMouseMove = (e) => {
-        mx = e.clientX;
-        my = e.clientY;
-        cur.style.left = mx + 'px';
-        cur.style.top = my + 'px';
-      };
-      
-      const loop = () => {
-        rx += (mx - rx) * 0.13;
-        ry += (my - ry) * 0.13;
-        curR.style.left = rx + 'px';
-        curR.style.top = ry + 'px';
-        animationFrameId = requestAnimationFrame(loop);
-      };
-      
-      document.addEventListener('mousemove', onMouseMove);
-      loop();
-      
-      // Cursor hover effects
-      const interactiveEls = document.querySelectorAll('a, button, .svc-card, .feat-item, .norm-badge, .quiz-opt');
-      const onEnter = () => {
-        cur.style.width = '16px'; cur.style.height = '16px';
-        curR.style.width = '48px'; curR.style.height = '48px';
-      };
-      const onLeave = () => {
-        cur.style.width = '10px'; cur.style.height = '10px';
-        curR.style.width = '32px'; curR.style.height = '32px';
-      };
-      
-      interactiveEls.forEach(el => {
-        el.addEventListener('mouseenter', onEnter);
-        el.addEventListener('mouseleave', onLeave);
-      });
-
-      return () => {
-        document.removeEventListener('mousemove', onMouseMove);
-        cancelAnimationFrame(animationFrameId);
-        interactiveEls.forEach(el => {
-          el.removeEventListener('mouseenter', onEnter);
-          el.removeEventListener('mouseleave', onLeave);
-        });
-      };
-    }
-  }, [location]);
-
-  useEffect(() => {
     // 5. Progress bar
     const prog = document.getElementById('prog');
     if (prog) {

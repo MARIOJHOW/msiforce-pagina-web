@@ -21,8 +21,6 @@ function V1Layout() {
   return (
     <>
       <a className="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
-      <div className="cur" id="cur"></div>
-      <div className="cur-r" id="curR"></div>
       <div className="progress" id="prog"></div>
       <ScriptRunner />
       <Navbar />
