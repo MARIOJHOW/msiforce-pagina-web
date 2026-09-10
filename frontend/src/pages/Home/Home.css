@@ -108,7 +108,13 @@
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.35s ease;
+  /* "all" reanima background/color/border/box-shadow junto com o transform a
+     cada hover -- no Windows/Chrome isso as vezes faz o texto (uppercase,
+     letter-spacing) tremer por um frame porque o navegador reconstroi a
+     camada composta inteira. will-change isola o transform na GPU antes do
+     hover comecar, e listar as propriedades evita repintar o que nao mudou. */
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
+  will-change: transform;
   border: none;
 }
 
