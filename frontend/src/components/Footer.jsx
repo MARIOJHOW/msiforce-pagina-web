@@ -10,7 +10,7 @@ const Footer = () => {
 
         <div className="msi-f-brand">
           <div className="msi-f-logo">
-            <img src="/logo-simbolo.webp" alt="" width="36" height="36" />
+            <img src="/logo-simbolo.webp" alt="Logo MSIFORCE" width="36" height="36" />
             <span className="msi-f-name">MSIFORCE</span>
           </div>
           <p className="msi-f-tagline">
