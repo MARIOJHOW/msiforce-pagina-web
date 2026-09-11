@@ -29,16 +29,24 @@ const stagger = {
 
 /* Animated counter hook */
 function useCounter(target, duration = 1800) {
-  const [count, setCount] = useState(0);
+  // Comeca no valor final, nao em 0: o pre-render captura o DOM com a pagina no
+  // topo, e as stats ficam muito abaixo da dobra -- comecando em 0 o HTML
+  // estatico servido ao Google gravava "0+ Projetos" e "0% Clientes".
+  const [count, setCount] = useState(target);
   const ref = useRef(false);
   const nodeRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !ref.current) {
+        // scrollY > 0 e o que garante o numero certo no HTML estatico: o
+        // pre-render fotografa a pagina sem rolar, entao a animacao nunca
+        // dispara ali e o snapshot guarda o valor final, qualquer que seja o
+        // tamanho da viewport do crawler.
+        if (entry.isIntersecting && !ref.current && window.scrollY > 0) {
           ref.current = true;
           let start = 0;
+          setCount(0);
           const step = target / (duration / 16);
           const timer = setInterval(() => {
             start += step;

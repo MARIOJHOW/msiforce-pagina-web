@@ -43,7 +43,6 @@ const Navbar = () => {
           </li>
           <li><Link to="/automacao">Automação</Link></li>
           <li><Link to="/casa-inteligente">Fechaduras Digitais</Link></li>
-          <li><Link to="/blog">Blog</Link></li>
           <li>
             {isHome ? <a href="#contato">Contato</a> : <Link to="/#contato">Contato</Link>}
           </li>
@@ -85,7 +84,6 @@ const Navbar = () => {
           </li>
           <li><Link to="/automacao" onClick={() => setMenuOpen(false)}>Automação</Link></li>
           <li><Link to="/casa-inteligente" onClick={() => setMenuOpen(false)}>Fechaduras Digitais</Link></li>
-          <li><Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link></li>
           <li>
             {isHome
               ? <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>

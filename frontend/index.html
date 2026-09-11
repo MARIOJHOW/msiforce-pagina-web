@@ -31,17 +31,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MSIFORCE | Infraestrutura Elétrica, Tecnologia e Segurança para Empresas em São Paulo</title>
     <meta name="description" content="A MSIFORCE projeta, instala e mantém sistemas elétricos, automação, CFTV, controle de acesso, redes estruturadas e TI para empresas, condomínios, clínicas e indústrias em São Paulo." />
-    <meta name="keywords" content="instalação elétrica empresas São Paulo, automação residencial, CFTV empresarial, controle de acesso, redes estruturadas, infraestrutura TI, manutenção preventiva São Paulo" />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="MSIFORCE | Infraestrutura Elétrica, Tecnologia e Segurança para Empresas" />
     <meta property="og:description" content="Projetos de infraestrutura completos para empresas, condomínios, clínicas e indústrias. Elétrica, automação, CFTV e TI em um único parceiro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <!-- @id fixo: as demais paginas referenciam esta mesma entidade, para o
+         Google consolidar tudo numa empresa so. O nome "MSIFORCE" colide com a
+         marca de hardware MSI nas buscas, entao url/logo/image explicitos
+         ajudam a desambiguar. Falta o sameAs (Perfil da Empresa no Google,
+         Instagram) -- e o que mais reforcaria a entidade. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://msiforce.com.br/#empresa",
       "name": "MSIFORCE",
+      "url": "https://msiforce.com.br/",
+      "logo": "https://msiforce.com.br/logo.webp",
+      "image": "https://msiforce.com.br/hero_msiforce.webp",
       "description": "Infraestrutura elétrica, automação, segurança eletrônica e TI para empresas em São Paulo",
       "address": {
         "@type": "PostalAddress",
@@ -50,7 +58,14 @@
         "addressCountry": "BR"
       },
       "telephone": "+55-11-91077-3865",
-      "areaServed": "São Paulo, SP"
+      "areaServed": {
+        "@type": "City",
+        "name": "São Paulo",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "São Paulo"
+        }
+      }
     }
     </script>
   </head>
