@@ -10,6 +10,7 @@ import {
   msgFechaduraModelo,
 } from '../../lib/gatilhos';
 import { FAQ, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
+import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
 
@@ -91,6 +92,12 @@ export default function InstalacaoFechaduraDigital() {
               <a href="#ofertas" className="ifd-btn ifd-btn--secundario">
                 Ver modelos e preços
               </a>
+            </motion.div>
+
+            {/* A pagina que rankeia era a unica sem prova social: o selo so
+                existia na /casa-inteligente. */}
+            <motion.div variants={fadeUp} className="ifd-hero-prova">
+              <SeloGoogle compacto />
             </motion.div>
           </motion.div>
 

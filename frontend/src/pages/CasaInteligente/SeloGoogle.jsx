@@ -1,5 +1,6 @@
 import { GOOGLE } from './dados';
 import { IcoEstrela } from './icones';
+import './SeloGoogle.css';
 
 /**
  * Selo de reputação. Única prova social confirmada pelo cliente — não adicione

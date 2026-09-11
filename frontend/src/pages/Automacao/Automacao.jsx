@@ -329,8 +329,11 @@ export default function Automacao() {
           <p style={{ color: '#c0c0c0', marginBottom: '2rem', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
             Não quer um projeto completo agora? Sem problemas. Conheça nossa linha premium de Fechaduras Digitais com instalação especializada em São Paulo.
           </p>
-          <Link to="/casa-inteligente" className="btn-primary" style={{ background: 'transparent', border: '2px solid var(--gold)', color: 'var(--gold)', display: 'inline-block', textDecoration: 'none' }}>
-            Ver Fechaduras Digitais
+          {/* Aponta para a pagina de instalacao, nao para a de modelos: o
+              paragrafo acima promete "instalacao especializada em Sao Paulo",
+              que e exatamente o que a outra pagina entrega. */}
+          <Link to="/instalacao-fechadura-digital" className="btn-primary" style={{ background: 'transparent', border: '2px solid var(--gold)', color: 'var(--gold)', display: 'inline-block', textDecoration: 'none' }}>
+            Ver instalação de fechadura digital
           </Link>
         </motion.div>
       </section>

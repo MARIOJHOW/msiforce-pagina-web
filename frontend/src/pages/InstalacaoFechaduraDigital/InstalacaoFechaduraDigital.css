@@ -504,3 +504,8 @@
     justify-content: center;
   }
 }
+
+/* Espaco do selo do Google abaixo dos CTAs do hero. */
+.ifd-hero-prova {
+  margin-top: 22px;
+}
