@@ -128,14 +128,38 @@ export const PASSOS = [
   { n: 4, titulo: 'Treinamos a família', texto: 'Cadastro de digitais e senhas de todo mundo, app no celular e teste com você junto.' },
 ];
 
+// As 4 perguntas marcadas "PAA" vieram do bloco "As pessoas também perguntam"
+// da busca real de "instalação de fechadura digital" em São Paulo (11/09/2026).
+// Entram aqui, e não num texto solto, porque o FAQPage schema das páginas é
+// gerado deste array — pergunta nova vira dado estruturado sozinha.
 export const FAQ = [
+  {
+    // PAA: "Qual o valor da instalação da fechadura digital?"
+    p: 'Qual o valor da instalação da fechadura digital?',
+    r: `A mão de obra começa em R$ ${PRECO_MINIMO}, para fechadura de sobrepor em porta de madeira comum. O que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
+  },
   {
     p: 'Vocês instalam fechadura que eu comprei em outro lugar?',
     r: `Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ ${PRECO_MINIMO}, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
   },
   {
+    // PAA: "O que é preciso para instalar uma fechadura digital?"
+    p: 'O que é preciso para instalar uma fechadura digital?',
+    r: 'Na maioria dos casos, nada além da porta: os modelos funcionam com pilhas e não exigem ponto de energia nem obra elétrica. O que precisa ser definido antes é o tipo — sobrepor ou embutir — conforme o material e a espessura da porta. Modelos com Wi-Fi pedem apenas sinal de rede chegando até a entrada.',
+  },
+  {
+    // PAA: "É difícil instalar fechadura digital?"
+    p: 'É difícil instalar fechadura digital?',
+    r: 'Sobrepor é simples e sai em menos de 1 hora. Embutir é outra história: exige fresagem na porta, e é aí que a instalação por conta própria costuma sair cara — furo fora de esquadro não tem volta e o prejuízo passa a ser a porta inteira. Se não houver folga segura para embutir, recomendamos um modelo de sobrepor em vez de arriscar.',
+  },
+  {
     p: 'Quanto tempo demora?',
     r: 'Fechadura de sobrepor sai em menos de 1 hora. Embutir leva de 2 a 3 horas, porque exige fresagem na porta.',
+  },
+  {
+    // PAA: "Qual a desvantagem da fechadura digital?"
+    p: 'Qual a desvantagem da fechadura digital?',
+    r: 'São três, com honestidade: depende de pilha (o aviso de bateria fraca aparece com semanas de antecedência, e os modelos têm saída de emergência por chave ou alimentação externa); custa mais caro que uma fechadura comum na hora da compra; e exige cadastrar quem entra. Em troca, você para de trocar o segredo toda vez que uma chave se perde.',
   },
   {
     p: 'Como posso pagar?',

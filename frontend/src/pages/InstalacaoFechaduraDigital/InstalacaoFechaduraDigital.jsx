@@ -9,7 +9,7 @@ import {
   MSG_FECHADURA_INSTALACAO,
   msgFechaduraModelo,
 } from '../../lib/gatilhos';
-import { FAQ, PRECO_MINIMO } from '../CasaInteligente/dados';
+import { FAQ, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
 
@@ -191,6 +191,42 @@ export default function InstalacaoFechaduraDigital() {
       </section>
 
       <section className="ifd-secao">
+        <motion.div
+          className="ifd-bloco"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={stagger}
+        >
+          <motion.h2 variants={fadeUp}>
+            Quanto custa instalar uma fechadura digital em São Paulo?
+          </motion.h2>
+          <motion.p variants={fadeUp}>
+            Se a fechadura já é sua, você paga só a mão de obra — a partir de{' '}
+            <strong>R$ {PRECO_MINIMO}</strong>. Se preferir resolver de uma vez,
+            fechadura e instalação saem juntas a partir de{' '}
+            <strong>R$ {formataPreco(OFERTAS[0].preco)}</strong>. O que move o valor
+            dentro dessa faixa é a porta:
+          </motion.p>
+          <motion.ul variants={fadeUp} className="ifd-lista">
+            <li>
+              <strong>Sobrepor ou embutir:</strong> sobrepor instala acima da maçaneta e
+              sai em menos de 1 hora. Embutir exige fresagem na porta e leva de 2 a 3
+              horas — é o que mais pesa no orçamento.
+            </li>
+            <li>
+              <strong>Material da porta:</strong> madeira comum é o cenário mais simples.
+              Alumínio, vidro temperado e blindada pedem ferramenta específica e mais
+              tempo de serviço.
+            </li>
+            <li>
+              <strong>Recursos do modelo:</strong> senha e tag saem na faixa de entrada.
+              Biometria, Wi-Fi e multiponto exigem configuração e testes adicionais.
+            </li>
+          </motion.ul>
+          <motion.p variants={fadeUp}>{NOTA_LEGAL}</motion.p>
+        </motion.div>
+
         <motion.div
           className="ifd-bloco"
           initial="hidden"
