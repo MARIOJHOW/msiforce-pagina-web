@@ -206,7 +206,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="h-hero" id="sobre">
         <div className="h-hero-bg">
-          <img src="/img_automacao.webp" alt="Ambiente residencial com automação e iluminação integradas instalado pela MSIFORCE" loading="eager" />
+          <img src="/home-hero-residencial.webp" alt="Fechadura digital Intelbras instalada em porta de madeira, com o app de automação da casa aberto no celular" loading="eager" />
           <div className="h-hero-overlay" />
         </div>
 
