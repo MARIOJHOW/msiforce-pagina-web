@@ -183,11 +183,14 @@ export const GOOGLE = {
   nota: '5,0',
   avaliacoes: 82,
   // Link de compartilhamento do Perfil da Empresa no Google, informado pelo dono
-  // em 25/08/2026. Resolve para google.com/search?kgmid=/g/11z72c25wt&q=MSIFORCE.
-  // Renderização é condicional (SeloGoogle.jsx): com null o selo vira texto, sem
-  // link quebrado. Se `nota` ou `avaliacoes` saírem de sincronia com o perfil, o
-  // selo passa a desmentir a si mesmo — agora que é clicável, dá para conferir.
-  url: 'https://share.google/MhzSMqPKwtmpCrDVZ',
+  // em 11/09/2026. Substitui o token MhzSMqPKwtmpCrDVZ (25/08/2026), que
+  // resolvia para google.com/search?kgmid=/g/11z72c25wt&q=MSIFORCE: eram dois
+  // links diferentes no ar ao mesmo tempo, um aqui e outro no sameAs do schema.
+  // Agora os dois usam este. Renderização é condicional (SeloGoogle.jsx): com
+  // null o selo vira texto, sem link quebrado. Se `nota` ou `avaliacoes` saírem
+  // de sincronia com o perfil, o selo passa a desmentir a si mesmo — agora que é
+  // clicável, dá para conferir.
+  url: 'https://share.google/tBQU5X2HJmIHZyFcB',
 };
 
 export const NOTA_LEGAL =
