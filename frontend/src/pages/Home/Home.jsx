@@ -7,6 +7,7 @@ import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
 import SobreEmpresa from '../../components/SobreEmpresa';
+import { PRECO_MINIMO } from '../CasaInteligente/dados';
 import {
   IcoRede, IcoRaio, IcoEscola,
   IcoEscritorio, IcoCondominio, IcoIndustria, IcoClinica,
@@ -16,6 +17,35 @@ import {
 import './Home.css';
 
 const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';
+
+// As paginas residenciais so eram alcancaveis pelo menu. Aqui elas ganham link
+// no corpo da home, com o texto da busca real como ancora.
+const RESIDENCIAL = [
+  {
+    href: '/instalacao-fechadura-digital',
+    titulo: 'Instalação de fechadura digital',
+    texto: `Você já tem a fechadura ou quer o kit completo. Mão de obra a partir de R$ ${PRECO_MINIMO}, em porta de madeira, alumínio ou vidro.`,
+    chamada: 'Ver preços e modelos',
+  },
+  {
+    href: '/casa-inteligente',
+    titulo: 'Casa inteligente',
+    texto: 'Fechadura, iluminação e segurança conversando entre si, com marcas homologadas e tudo configurado no seu celular.',
+    chamada: 'Ver como funciona',
+  },
+  {
+    href: '/fechadura-airbnb',
+    titulo: 'Fechadura digital para Airbnb',
+    texto: 'Senha por hóspede, check-in sem entrega de chave e troca automática entre estadias.',
+    chamada: 'Ver pacotes',
+  },
+  {
+    href: '/automacao',
+    titulo: 'Automação residencial',
+    texto: 'Iluminação, climatização, cortinas e som integrados em um projeto único, do ponto elétrico ao app.',
+    chamada: 'Ver projetos',
+  },
+];
 
 /* Framer variants */
 const fadeUp = {
@@ -164,9 +194,9 @@ const CASES = [
 
 export default function Home() {
   useSEO({
-    title: 'Infraestrutura Elétrica e Automação Empresarial',
+    title: 'Fechadura Digital e Automação Residencial em São Paulo',
     description:
-      'Instalação elétrica, automação, CFTV, controle de acesso e redes estruturadas para empresas, condomínios, clínicas e indústrias em São Paulo. Consultoria gratuita.',
+      `Instalação de fechadura digital e automação residencial em São Paulo, por técnico certificado e com hora marcada — mão de obra a partir de R$ ${PRECO_MINIMO}. Também elétrica, CFTV e redes para empresas e condomínios.`,
     canonical: 'https://msiforce.com.br/',
   });
 
@@ -176,7 +206,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="h-hero" id="sobre">
         <div className="h-hero-bg">
-          <img src="/case_lpm_final.webp" alt="Rack de cabeamento estruturado Cat6 instalado pela MSIFORCE" loading="eager" />
+          <img src="/img_automacao.webp" alt="Ambiente residencial com automação e iluminação integradas instalado pela MSIFORCE" loading="eager" />
           <div className="h-hero-overlay" />
         </div>
 
@@ -187,34 +217,34 @@ export default function Home() {
           animate="visible"
         >
           <motion.div variants={fadeUp} className="h-eyebrow">
-            Soluções Corporativas em Infraestrutura
+            Fechadura Digital · Automação · São Paulo
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="h-h1">
-            Sua empresa com a<br />
-            <span className="h-h1-highlight">infraestrutura</span><br />
-            que ela merece.
+            Fechadura digital e<br />
+            <span className="h-h1-highlight">automação residencial</span><br />
+            em São Paulo.
           </motion.h1>
 
           <motion.p variants={fadeUp} className="h-p">
-            Da instalação elétrica à segurança eletrônica, a MSIFORCE projeta,
-            instala e mantém sistemas de infraestrutura completos para empresas,
-            condomínios, clínicas e indústrias em São Paulo.
+            Instalação com hora marcada e valor fechado antes da visita. É a mesma
+            equipe que projeta e mantém a infraestrutura elétrica de empresas,
+            condomínios e clínicas — agora na porta da sua casa.
           </motion.p>
 
           <motion.div variants={fadeUp} className="h-hero-ctas">
             <a href={WA_LINK} target="_blank" rel="noreferrer" className="h-btn h-btn--primary" onClick={() => trackCTA('hero_consultoria', 'whatsapp')}>
-              Solicitar Consultoria Gratuita
+              Pedir Orçamento no WhatsApp
             </a>
-            <a href="#servicos" className="h-btn h-btn--secondary" onClick={() => trackCTA('hero_ver_solucoes', 'scroll')}>
-              Ver Soluções ↓
-            </a>
+            <Link to="/instalacao-fechadura-digital" className="h-btn h-btn--secondary" onClick={() => trackCTA('hero_instalacao_fechadura', 'pagina')}>
+              Instalação de fechadura digital →
+            </Link>
           </motion.div>
 
           <motion.div variants={fadeUp} className="h-hero-badges">
+            <span>Técnico certificado</span>
             <span>NR-10</span>
-            <span>NR-35</span>
-            <span>ABNT NBR 5410</span>
+            <span>Garantia na instalação</span>
             <span>+500 projetos na bagagem</span>
           </motion.div>
         </motion.div>
@@ -245,6 +275,49 @@ export default function Home() {
             <span className="trust-num">24h</span>
             <span className="trust-label">Suporte disponível</span>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ── RESIDENCIAL ── */}
+      <section className="h-section" id="residencial">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+          className="h-header"
+        >
+          <motion.div variants={fadeUp} className="h-eyebrow-section">Para a sua casa</motion.div>
+          <motion.h2 variants={fadeUp} className="h-h2">
+            Fechadura digital<br />e casa inteligente.
+          </motion.h2>
+          <motion.p variants={fadeUp} className="h-section-sub">
+            Instalação por técnico certificado em São Paulo, com o mesmo padrão que
+            aplicamos há anos em obra de empresa: proteção da porta e do piso,
+            ferramenta de fresagem própria e teste completo antes de ir embora.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="h-resid-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+        >
+          {RESIDENCIAL.map((item) => (
+            <motion.div variants={fadeUp} key={item.href}>
+              <Link
+                to={item.href}
+                className="h-resid-card"
+                onClick={() => trackCTA(`residencial_${item.href.slice(1)}`, 'pagina')}
+              >
+                <h3>{item.titulo}</h3>
+                <p>{item.texto}</p>
+                <span className="h-resid-link">{item.chamada} →</span>
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 

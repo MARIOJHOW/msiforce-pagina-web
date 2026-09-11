@@ -948,3 +948,65 @@
     padding: 16px 20px;
   }
 }
+
+/* ── CARDS RESIDENCIAIS ──
+   Mesma linguagem do .cert-badge (fundo #0a0a0a, borda dourada discreta, canto
+   reto) para a secao nova nao parecer enxerto de outro site. */
+.h-resid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.h-resid-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(197, 160, 89, 0.18);
+  background: #0a0a0a;
+  text-decoration: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.h-resid-card:hover {
+  border-color: rgba(197, 160, 89, 0.45);
+  background: #101010;
+}
+
+.h-resid-card h3 {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.h-resid-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.h-resid-link {
+  margin-top: auto;
+  padding-top: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .h-resid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .h-resid-card {
+    padding: 22px;
+  }
+}
