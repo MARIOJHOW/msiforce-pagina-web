@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
+import { linkWhatsApp } from '../../lib/whatsapp';
 import './Blog.css';
 
 const articles = [
@@ -156,7 +157,7 @@ export default function Blog() {
             Diagnóstico gratuito, sem compromisso.
           </p>
           <a
-            href="https://wa.me/5511910773865?text=Ol%C3%A1%2C%20li%20um%20artigo%20no%20blog%20da%20MSIFORCE%20e%20gostaria%20de%20conversar%20com%20um%20especialista."
+            href={linkWhatsApp('Olá, li um artigo no blog da MSIFORCE e gostaria de conversar com um especialista.')}
             target="_blank"
             rel="noreferrer"
             className="blog-cta-btn"

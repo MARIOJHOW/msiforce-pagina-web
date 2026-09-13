@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { linkWhatsApp } from '../lib/whatsapp';
 import './Navbar.css';
+
+const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
 
 const Navbar = () => {
   const location = useLocation();
@@ -48,7 +51,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria."
+              href={linkWhatsApp(WA_MENSAGEM)}
               className="msi-nav-cta"
               target="_blank"
               rel="noopener noreferrer"
@@ -91,7 +94,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria."
+              href={linkWhatsApp(WA_MENSAGEM)}
               className="msi-drawer-cta"
               target="_blank"
               rel="noopener noreferrer"

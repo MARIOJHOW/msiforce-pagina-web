@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
+import { linkWhatsApp } from '../lib/whatsapp';
 import './Footer.css';
 
-const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';
+const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria gratuita.';
 
 const Footer = () => {
+  // Montado no render, não em constante de módulo: o marcador de origem de Ads
+  // precisa entrar no link também quando a rota muda sem recarregar a página.
+  const WA_LINK = linkWhatsApp(WA_MENSAGEM);
+
   return (
     <footer className="msi-footer">
       <div className="msi-f-top">

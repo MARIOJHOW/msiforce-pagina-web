@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackFormSubmit } from '../hooks/useAnalytics';
+import { linkWhatsApp } from '../lib/whatsapp';
 import './FormDiagnostico.css';
 
 const SETORES = [
@@ -14,10 +15,9 @@ const SERVICOS = [
   'Manutenção Preventiva & Corretiva'
 ];
 
-const WA_BASE = 'https://wa.me/5511910773865?text=';
-
+// Texto cru — `linkWhatsApp()` cuida do encode.
 function buildWaMessage(data) {
-  return encodeURIComponent(
+  return (
     `Olá! Vim pelo formulário do site da MSIFORCE e gostaria de solicitar uma consultoria.\n\n` +
     `*Nome:* ${data.nome}\n` +
     `*Empresa:* ${data.empresa}\n` +
@@ -66,7 +66,7 @@ export default function FormDiagnostico() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     trackFormSubmit('diagnostico');
     setSubmitted(true);
-    const waUrl = WA_BASE + buildWaMessage(form);
+    const waUrl = linkWhatsApp(buildWaMessage(form));
     setTimeout(() => window.open(waUrl, '_blank'), 800);
   };
 

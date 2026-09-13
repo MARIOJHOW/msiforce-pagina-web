@@ -8,6 +8,7 @@ import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
 import SobreEmpresa from '../../components/SobreEmpresa';
 import { PRECO_MINIMO } from '../CasaInteligente/dados';
+import { linkWhatsApp } from '../../lib/whatsapp';
 import {
   IcoRede, IcoRaio, IcoEscola,
   IcoEscritorio, IcoCondominio, IcoIndustria, IcoClinica,
@@ -16,7 +17,7 @@ import {
 } from './icones';
 import './Home.css';
 
-const WA_LINK = 'https://wa.me/5511910773865?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MSIFORCE%20e%20gostaria%20de%20solicitar%20uma%20consultoria%20gratuita.';
+const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria gratuita.';
 
 // As paginas residenciais so eram alcancaveis pelo menu. Aqui elas ganham link
 // no corpo da home, com o texto da busca real como ancora.
@@ -199,6 +200,10 @@ export default function Home() {
       `Instalação de fechadura digital e automação residencial em São Paulo, por técnico certificado e com hora marcada — mão de obra a partir de R$ ${PRECO_MINIMO}. Também elétrica, CFTV e redes para empresas e condomínios.`,
     canonical: 'https://msiforce.com.br/',
   });
+
+  // Montado no render, não em constante de módulo: o marcador de origem de Ads
+  // precisa entrar no link também quando a rota muda sem recarregar a página.
+  const WA_LINK = linkWhatsApp(WA_MENSAGEM);
 
   return (
     <div className="page-home">
