@@ -18,6 +18,7 @@ import ServicoPage from './pages/Servicos/ServicoPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/InstalacaoFechaduraDigital';
 import FechaduraAirbnb from './pages/FechaduraAirbnb/FechaduraAirbnb';
+import CRM from './pages/Admin/CRM/CRM';
 
 function V1Layout() {
   return (
@@ -60,6 +61,7 @@ function App() {
         </Route>
         <Route path="/v2" element={<V2 />} />
         <Route path="/casa-inteligente" element={<CasaInteligente />} />
+        <Route path="/admin/crm" element={<CRM />} />
       </Routes>
     </Router>
     </MotionConfig>
