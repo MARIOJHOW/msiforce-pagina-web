@@ -17,3 +17,6 @@ setup_git_pagina.ps1
 
 # brainstorming visual (superpowers)
 .superpowers/
+
+# Worktrees isolados de desenvolvimento (subagent-driven-development)
+.worktrees/
