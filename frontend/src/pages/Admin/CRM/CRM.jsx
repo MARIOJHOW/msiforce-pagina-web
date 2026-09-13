@@ -1,116 +1,282 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { apiFetch, login, logout, getToken } from '../../../lib/api';
 import './CRM.css';
 
-const MOCK_LEADS = [
-  { id: 1, name: 'João Silva', phone: '+55 11 99999-1111', service: 'Energia Solar', status: 'lead', date: 'Há 10 min' },
-  { id: 2, name: 'Maria Oliveira', phone: '+55 11 99999-2222', service: 'Casa Inteligente', status: 'lead', date: 'Há 1 hora' },
-  { id: 3, name: 'Carlos Santos', phone: '+55 11 99999-3333', service: 'CFTV', status: 'qualificado', date: 'Hoje, 09:30' },
-  { id: 4, name: 'Ana Costa', phone: '+55 11 99999-4444', service: 'Energia Solar', status: 'agendado', date: 'Amanhã, 14:00' },
-  { id: 5, name: 'Salu Barbato', phone: '+55 11 99999-5555', service: 'Airbnb', status: 'finalizado', date: 'Ontem' },
+const ETAPAS = ['NOVO_LEAD', 'QUALIFICADO', 'AGENDADO', 'FINALIZADO', 'PERDIDO'];
+
+const COLUNAS = [
+  { id: 'NOVO_LEAD', title: 'Novo Lead', color: '#3b82f6' },
+  { id: 'QUALIFICADO', title: 'Qualificado', color: '#f59e0b' },
+  { id: 'AGENDADO', title: 'Visita Agendada', color: '#8b5cf6' },
+  { id: 'FINALIZADO', title: 'Finalizado', color: '#10b981' },
+  { id: 'PERDIDO', title: 'Perdido', color: '#ef4444' },
 ];
 
-const COLUMNS = [
-  { id: 'lead', title: 'Entrou em Contato', color: '#3b82f6' }, // blue
-  { id: 'qualificado', title: 'Qualificado', color: '#f59e0b' }, // orange
-  { id: 'agendado', title: 'Visita Agendada', color: '#8b5cf6' }, // purple
-  { id: 'finalizado', title: 'Finalizado', color: '#10b981' }, // green
-];
+function LoginForm({ onEntrar }) {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState(null);
+  const [enviando, setEnviando] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setErro(null);
+    setEnviando(true);
+    try {
+      await login(email, senha);
+      onEntrar();
+    } catch (e2) {
+      setErro(e2.message);
+    } finally {
+      setEnviando(false);
+    }
+  }
+
+  return (
+    <div className="crm-login">
+      <form className="crm-login-card" onSubmit={handleSubmit}>
+        <h2>MSI<span>Force</span> — Painel</h2>
+        <input
+          type="email"
+          placeholder="E-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+          required
+        />
+        {erro && <p className="crm-login-erro">{erro}</p>}
+        <button type="submit" className="btn-primary" disabled={enviando}>
+          {enviando ? 'Entrando...' : 'Entrar'}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function ModalValorFechado({ lead, onConfirmar, onCancelar }) {
+  const [valor, setValor] = useState('');
+  const [erro, setErro] = useState(null);
+
+  function handleConfirmar() {
+    const numero = Number(String(valor).replace(',', '.'));
+    if (!Number.isFinite(numero) || numero < 0) {
+      setErro('Informe um valor válido.');
+      return;
+    }
+    onConfirmar(numero);
+  }
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-valor">
+        <h3>Finalizar lead — {lead.nome || lead.telefone}</h3>
+        <p>Qual foi o valor fechado com o cliente?</p>
+        <input
+          type="text"
+          inputMode="decimal"
+          placeholder="Ex: 350"
+          value={valor}
+          onChange={(e) => setValor(e.target.value)}
+          autoFocus
+        />
+        {erro && <p className="crm-login-erro">{erro}</p>}
+        <div className="modal-valor-acoes">
+          <button className="btn-secondary" onClick={onCancelar}>Cancelar</button>
+          <button className="btn-primary" onClick={handleConfirmar}>Confirmar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Resumo({ board }) {
+  const todos = Object.values(board).flat();
+  const doAds = todos.filter((l) => l.origem === 'ads');
+  const finalizadosAds = doAds.filter((l) => l.status === 'FINALIZADO');
+  const totalFechado = finalizadosAds.reduce((soma, l) => soma + (Number(l.valor_fechado) || 0), 0);
+
+  return (
+    <div className="crm-resumo">
+      <div><strong>{doAds.length}</strong> leads via Ads</div>
+      <div><strong>{finalizadosAds.length}</strong> fechados via Ads</div>
+      <div><strong>R$ {totalFechado.toFixed(2)}</strong> faturado via Ads</div>
+    </div>
+  );
+}
 
 export default function CRM() {
-  const [leads] = useState(MOCK_LEADS);
+  const [autenticado, setAutenticado] = useState(Boolean(getToken()));
+  const [board, setBoard] = useState(Object.fromEntries(ETAPAS.map((e) => [e, []])));
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+  const [modalLead, setModalLead] = useState(null);
 
-  // Filter leads by status
-  const getLeadsByStatus = (status) => leads.filter(lead => lead.status === status);
+  // Busca pura: não toca em estado, só devolve o resultado. Assim o efeito abaixo
+  // consegue aplicar o estado depois do await (a regra set-state-in-effect proíbe
+  // fazer isso de forma síncrona dentro do efeito).
+  const buscarBoard = useCallback(async () => {
+    try {
+      const resposta = await apiFetch('/api/leads/board');
+      return { board: resposta.data, erro: null };
+    } catch (e) {
+      return { board: null, erro: e.message };
+    }
+  }, []);
+
+  const aplicarBoard = useCallback(({ board: novo, erro: falha }) => {
+    if (novo) setBoard(novo);
+    setErro(falha);
+    setCarregando(false);
+  }, []);
+
+  useEffect(() => {
+    if (!autenticado) return undefined;
+    let cancelado = false;
+    (async () => {
+      const resultado = await buscarBoard();
+      if (!cancelado) aplicarBoard(resultado);
+    })();
+    return () => { cancelado = true; };
+  }, [autenticado, buscarBoard, aplicarBoard]);
+
+  async function recarregarBoard() {
+    setCarregando(true);
+    aplicarBoard(await buscarBoard());
+  }
+
+  async function moverLead(lead, novaEtapa, valorFechado) {
+    try {
+      await apiFetch(`/api/leads/${lead.id}/stage`, {
+        method: 'PATCH',
+        body: JSON.stringify(
+          valorFechado === undefined ? { etapa: novaEtapa } : { etapa: novaEtapa, valorFechado }
+        ),
+      });
+      await recarregarBoard();
+    } catch (e) {
+      setErro(e.message);
+    }
+  }
+
+  function handleMover(lead, novaEtapa) {
+    if (novaEtapa === 'FINALIZADO') {
+      setModalLead({ lead, novaEtapa });
+      return;
+    }
+    moverLead(lead, novaEtapa);
+  }
+
+  if (!autenticado) {
+    return <LoginForm onEntrar={() => setAutenticado(true)} />;
+  }
 
   return (
     <div className="crm-dashboard">
-      {/* Sidebar */}
       <aside className="crm-sidebar">
         <div className="crm-logo">
           <h2>MSI<span>Force</span></h2>
           <span className="badge">CRM App</span>
         </div>
-        <nav className="crm-nav">
-          <a href="#" className="active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
-            Kanban de Vendas
-          </a>
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            Leads Ativos
-          </a>
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            Agenda (IA)
-          </a>
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            Configurações
-          </a>
-        </nav>
         <div className="crm-bot-status">
           <div className="status-indicator online"></div>
           <div>
-            <strong>Agente de IA</strong>
-            <span>Online e Respondendo</span>
+            <strong>Painel</strong>
+            <span>Sessão ativa</span>
           </div>
         </div>
+        <button
+          className="btn-secondary"
+          style={{ marginTop: '1rem' }}
+          onClick={() => { logout(); setAutenticado(false); }}
+        >
+          Sair
+        </button>
       </aside>
 
-      {/* Main Content */}
       <main className="crm-main">
         <header className="crm-header">
           <div>
             <h1>Funil de Vendas</h1>
             <p>Gerencie os leads gerados pelo Agente de IA do WhatsApp.</p>
           </div>
-          <div className="crm-header-actions">
-            <button className="btn-secondary">Pausar Bot</button>
-            <button className="btn-primary">+ Novo Lead</button>
-          </div>
+          <button className="btn-secondary" onClick={recarregarBoard}>↻ Atualizar</button>
         </header>
 
-        {/* Kanban Board */}
-        <div className="crm-board">
-          {COLUMNS.map(col => (
-            <div key={col.id} className="crm-column">
-              <div className="column-header">
-                <div className="column-title">
-                  <span className="dot" style={{ backgroundColor: col.color }}></span>
-                  <h3>{col.title}</h3>
+        <Resumo board={board} />
+
+        {erro && <p className="crm-login-erro" style={{ padding: '0 2.5rem' }}>{erro}</p>}
+
+        {carregando ? (
+          <p style={{ padding: '2rem' }}>Carregando...</p>
+        ) : (
+          <div className="crm-board">
+            {COLUNAS.map((col) => (
+              <div key={col.id} className="crm-column">
+                <div className="column-header">
+                  <div className="column-title">
+                    <span className="dot" style={{ backgroundColor: col.color }}></span>
+                    <h3>{col.title}</h3>
+                  </div>
+                  <span className="lead-count">{(board[col.id] || []).length}</span>
                 </div>
-                <span className="lead-count">{getLeadsByStatus(col.id).length}</span>
+
+                <div className="column-cards">
+                  {(board[col.id] || []).map((lead) => (
+                    <motion.div
+                      key={lead.id}
+                      className="crm-card"
+                      whileHover={{ y: -2, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="card-header">
+                        <strong>{lead.nome || 'Sem nome'}</strong>
+                        {lead.origem === 'ads' && <span className="badge-ads">Ads</span>}
+                      </div>
+                      <div className="card-body">
+                        <span className="card-service">{lead.servico}</span>
+                        {lead.status === 'FINALIZADO' && lead.valor_fechado != null && (
+                          <span className="card-valor">R$ {Number(lead.valor_fechado).toFixed(2)}</span>
+                        )}
+                      </div>
+                      <div className="card-footer">
+                        <span className="card-phone">{lead.telefone}</span>
+                        <select
+                          className="card-move-select"
+                          value=""
+                          onChange={(e) => { if (e.target.value) handleMover(lead, e.target.value); }}
+                        >
+                          <option value="">Mover para...</option>
+                          {ETAPAS.filter((e) => e !== col.id).map((e) => (
+                            <option key={e} value={e}>{e}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              
-              <div className="column-cards">
-                {getLeadsByStatus(col.id).map(lead => (
-                  <motion.div 
-                    key={lead.id} 
-                    className="crm-card"
-                    whileHover={{ y: -2, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="card-header">
-                      <strong>{lead.name}</strong>
-                      <span className="card-date">{lead.date}</span>
-                    </div>
-                    <div className="card-body">
-                      <span className="card-service">{lead.service}</span>
-                    </div>
-                    <div className="card-footer">
-                      <span className="card-phone">{lead.phone}</span>
-                      <button className="btn-icon" title="Ver conversa">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
+
+      {modalLead && (
+        <ModalValorFechado
+          lead={modalLead.lead}
+          onConfirmar={(valor) => {
+            moverLead(modalLead.lead, modalLead.novaEtapa, valor);
+            setModalLead(null);
+          }}
+          onCancelar={() => setModalLead(null)}
+        />
+      )}
     </div>
   );
 }
