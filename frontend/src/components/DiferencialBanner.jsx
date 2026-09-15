@@ -7,7 +7,13 @@ export default function DiferencialBanner() {
       className="dif-banner"
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      /* Sem delay. Havia um `delay: 1.2` aqui, pensado para a faixa entrar so depois
+         do hero assentar (5 filhos em stagger de 0.12s x 0.9s de duracao, ~1.38s).
+         So que a animacao e `animate`, nao `whileInView`: ela roda no relogio, nao no
+         scroll. No celular, quem desliza o polegar de cara terminava de "revelar" a
+         faixa com ela ja fora da tela -- ou seja, nunca via a unica linha da home que
+         diz que a MSIFORCE faz eletrica, TI e seguranca sem terceirizar. */
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="dif-banner-inner">
         <span className="dif-banner-pill">Por que a MSIFORCE?</span>

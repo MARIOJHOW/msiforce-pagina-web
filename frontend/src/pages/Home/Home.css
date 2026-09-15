@@ -11,12 +11,18 @@
 }
 
 /* ── HERO ─────────────────────────────────────── */
+/* A altura e o padding estao amarrados a faixa dourada (DiferencialBanner) que vem
+   logo abaixo: com 100vh + padding 120/80 o hero media 943px de conteudo e a faixa
+   comecava exatamente na linha da dobra -- zero pixel dela aparecia sem rolar, em
+   qualquer monitor, porque 100vh e a dobra por definicao. O min-height sozinho nao
+   resolve: quem manda na altura aqui e o conteudo (743px), nao o min-height. Por isso
+   o padding tambem encolheu. Mexer nestes numeros move a faixa para fora da dobra. */
 .h-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   display: flex;
   align-items: center;
-  padding: 120px 6% 80px;
+  padding: 100px 6% 58px;
   overflow: hidden;
 }
 
