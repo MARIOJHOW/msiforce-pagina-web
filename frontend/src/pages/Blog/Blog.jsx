@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
-import { linkWhatsApp } from '../../lib/whatsapp';
+import { linkWhatsApp, registrarCliqueWhatsApp } from '../../lib/whatsapp';
 import './Blog.css';
 
 const articles = [
@@ -161,6 +161,7 @@ export default function Blog() {
             target="_blank"
             rel="noreferrer"
             className="blog-cta-btn"
+            onClick={() => registrarCliqueWhatsApp('blog_cta_especialista')}
           >
             Falar no WhatsApp →
           </a>

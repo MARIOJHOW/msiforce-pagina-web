@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { linkWhatsApp } from '../lib/whatsapp';
+import { linkWhatsApp, registrarCliqueWhatsApp } from '../lib/whatsapp';
 import './Navbar.css';
 
 const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
@@ -55,6 +55,7 @@ const Navbar = () => {
               className="msi-nav-cta"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => registrarCliqueWhatsApp('navbar_orcamento')}
             >
               Orçamento
             </a>
@@ -98,7 +99,10 @@ const Navbar = () => {
               className="msi-drawer-cta"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                registrarCliqueWhatsApp('navbar_mobile_orcamento');
+              }}
             >
               Solicitar Orçamento
             </a>

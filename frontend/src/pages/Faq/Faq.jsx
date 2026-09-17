@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import { FAQS } from '../../data/faq';
-import { linkWhatsApp } from '../../lib/whatsapp';
+import { linkWhatsApp, registrarCliqueWhatsApp } from '../../lib/whatsapp';
 import './Faq.css';
 
 const fadeUp = {
@@ -126,7 +126,13 @@ export default function Faq() {
             diagnóstico técnico é gratuito.
           </p>
           <div className="faqp-fechamento-acoes">
-            <a href={linkWhatsApp(MSG_DUVIDA)} target="_blank" rel="noopener noreferrer" className="faqp-btn">
+            <a
+              href={linkWhatsApp(MSG_DUVIDA)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="faqp-btn"
+              onClick={() => registrarCliqueWhatsApp('faq_falar_whatsapp')}
+            >
               Falar no WhatsApp
             </a>
             <Link to="/#form-diagnostico" className="faqp-btn faqp-btn--secundario">

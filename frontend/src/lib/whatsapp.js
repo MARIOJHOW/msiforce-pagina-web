@@ -1,4 +1,5 @@
-import { veioDeAds } from './ads';
+import { registrarConversaoWhatsApp, veioDeAds } from './ads';
+import { trackCTA } from '../hooks/useAnalytics';
 
 // Número único do WhatsApp do bot. Mudou? Muda só aqui.
 export const NUMERO_WHATSAPP = '5511910773865';
@@ -21,4 +22,23 @@ export function linkWhatsApp(mensagem) {
     texto += SUFIXO_ORIGEM_ADS;
   }
   return `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
+}
+
+/**
+ * Um clique de WhatsApp precisa ser contado nos DOIS lugares, e ate agora nenhum
+ * ponto do site contava nos dois: o `trackCTA` (dataLayer -> GTM -> GA4) existia so
+ * na Home e em Servico, e a conversao do Ads (gtag) so no WhatsAppButton. O CTA
+ * principal do hero mandava evento pro GA4 sem disparar conversao no Ads, e a landing
+ * de fechadura digital -- a que recebe o trafego pago -- nao reportava para nenhum.
+ *
+ * Chamar este helper no onClick e a forma unica de registrar o clique. Nao chame
+ * `registrarConversaoWhatsApp` direto num link novo: e assim que os dois sistemas
+ * voltam a divergir.
+ *
+ * Nao importe os eventos-chave do GA4 como conversao no Google Ads: a conversao do
+ * Ads ja e disparada aqui, e importar criaria uma segunda contando o mesmo clique.
+ */
+export function registrarCliqueWhatsApp(label) {
+  trackCTA(label, 'whatsapp');
+  registrarConversaoWhatsApp();
 }
