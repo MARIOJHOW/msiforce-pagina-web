@@ -31,13 +31,17 @@ const Footer = () => {
 
         <div className="msi-f-col">
           <h3 className="msi-f-col-title">Soluções</h3>
+          {/* As soluções com página própria em /servicos/:slug apontam para ela,
+              não para a âncora da home: até 17/09/2026 as quatro páginas eram
+              órfãs (nenhum link no site levava a elas) e o Google só as conhecia
+              por histórico. As duas que ainda não têm página seguem na âncora. */}
           <ul>
-            <li><a href="/#servicos">Projetos Elétricos</a></li>
-            <li><a href="/#servicos">Automação Residencial</a></li>
-            <li><a href="/#servicos">CFTV & Monitoramento</a></li>
+            <li><Link to="/servicos/eletrica">Projetos Elétricos</Link></li>
+            <li><Link to="/servicos/automacao">Automação Predial e de Condomínios</Link></li>
+            <li><Link to="/servicos/cftv">CFTV & Monitoramento</Link></li>
             <li><a href="/#servicos">Controle de Acesso</a></li>
-            <li><a href="/#servicos">Redes Estruturadas</a></li>
-            <li><a href="/#servicos">Infraestrutura de TI</a></li>
+            <li><Link to="/servicos/redes-ti">Redes Estruturadas</Link></li>
+            <li><Link to="/servicos/redes-ti">Infraestrutura de TI</Link></li>
             <li><a href="/#servicos">Manutenção Preventiva & Corretiva</a></li>
           </ul>
         </div>
@@ -90,7 +94,7 @@ const Footer = () => {
         </p>
         <nav className="msi-f-links">
           <Link to="/">Home</Link>
-          <Link to="/automacao">Automação</Link>
+          <Link to="/automacao">Automação Residencial</Link>
           <Link to="/casa-inteligente">Fechaduras Digitais</Link>
           <Link to="/instalacao-fechadura-digital">Instalação de Fechadura Digital</Link>
           <Link to="/fechadura-airbnb">Fechadura Digital para Airbnb</Link>

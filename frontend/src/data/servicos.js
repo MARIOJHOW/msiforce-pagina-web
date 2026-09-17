@@ -31,7 +31,7 @@ export const SERVICOS_DATA = {
       { q: 'É possível instalar um gerador de emergência?', a: 'Sim. Instalamos grupos geradores e fazemos o projeto de transferência automática (QTA) para garantir continuidade operacional em caso de queda de energia.' },
     ],
     related: [
-      { slug: 'automacao', name: 'Automação Residencial', icon: '🤖' },
+      { slug: 'automacao', name: 'Automação Predial', icon: '🤖' },
       { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
       { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
     ],
@@ -108,15 +108,21 @@ export const SERVICOS_DATA = {
     related: [
       { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
       { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
-      { slug: 'automacao', name: 'Automação Residencial', icon: '🤖' },
+      { slug: 'automacao', name: 'Automação Predial', icon: '🤖' },
     ],
   },
 
+  // Eixo PREDIAL/condomínio de propósito, não residencial: /automacao já é a
+  // landing de automação residencial de alto padrão (B2C, "o futuro do luxo").
+  // Enquanto as duas se chamavam "Automação Residencial" disputavam a mesma
+  // busca, e o Google indexaria só uma. O conteúdo aqui (payback, consumo de
+  // áreas comuns, treinamento de equipe, KNX) sempre foi o de decisão de
+  // síndico — só o rótulo é que dizia outra coisa. Separado em 17/09/2026.
   automacao: {
-    title: 'Automação Residencial',
+    title: 'Automação Predial e de Condomínios',
     slug: 'automacao',
-    headline: 'Ambientes inteligentes que\nrespondem à sua rotina.',
-    sub: 'Controle centralizado de iluminação, climatização, cortinas, acesso e áudio para residências, condomínios e apartamentos de alto padrão. Eficiência energética e conforto em um único sistema.',
+    headline: 'Automação que se paga\nnas áreas comuns.',
+    sub: 'Iluminação, climatização, acesso e cenas integrados em condomínios, prédios e residências de alto padrão. Sensores de presença e automação de cargas reduzem o consumo das áreas comuns de 20 a 35%, com payback entre 18 e 36 meses.',
     heroImg: '/img_automacao.webp',
     beneficios: [
       { icon: '💡', titulo: 'Controle de iluminação', desc: 'Cenas luminosas por ambiente, dimmer, temperatura de cor e automação por horário ou presença.' },
@@ -127,7 +133,7 @@ export const SERVICOS_DATA = {
       { icon: '🔗', titulo: 'Integração total', desc: 'Conecta iluminação, clima, CFTV, acesso e áudio em um único ecossistema gerenciável.' },
     ],
     aplicacoes: [
-      'Casas e apartamentos de alto padrão', 'Condomínios residenciais', 'Áreas comuns e salões de festas',
+      'Condomínios residenciais', 'Áreas comuns e salões de festas', 'Casas e apartamentos de alto padrão',
       'Salas de cinema em casa', 'Varandas gourmet', 'Projetos arquitetônicos',
     ],
     processo: [

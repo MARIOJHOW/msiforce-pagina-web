@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página não encontrada | MSIFORCE</title>
+    <!-- Esta página existe para o Cloudflare Pages responder 404 DE VERDADE em
+         URL inexistente. Sem ela, o Pages devolve o index.html com status 200 e
+         o canonical da home — e o Google trata cada URL errada como duplicata
+         da home ("Página alternativa com tag canônica adequada"), em vez de
+         simplesmente descartá-la. Não referencia o bundle do React: é servida
+         em qualquer caminho, inclusive quando nada mais carregou. -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    />
+    <style>
+      :root {
+        --brand: #c5a059;
+        --dark: #0a0a0a;
+        --white: #fdfdfd;
+        --gray: #aaaaaa;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 48px 16px;
+        background: radial-gradient(circle at 50% 0%, #161616 0%, var(--dark) 60%);
+        color: var(--white);
+        font-family: 'Outfit', system-ui, sans-serif;
+        text-align: center;
+      }
+      .codigo {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(5rem, 22vw, 11rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--brand);
+      }
+      h1 {
+        font-size: clamp(1.4rem, 5vw, 2.1rem);
+        font-weight: 800;
+        margin: 8px 0 14px;
+        letter-spacing: -0.02em;
+      }
+      p {
+        max-width: 46ch;
+        margin: 0 auto 32px;
+        color: var(--gray);
+        font-size: 1.02rem;
+        line-height: 1.65;
+      }
+      .acoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      a {
+        display: inline-block;
+        padding: 13px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.97rem;
+        text-decoration: none;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .primario { background: var(--brand); color: #111; }
+      .secundario { border: 1px solid rgba(255, 255, 255, 0.18); color: var(--white); }
+      a:hover { transform: translateY(-2px); }
+      .secundario:hover { background: rgba(255, 255, 255, 0.06); }
+      @media (prefers-reduced-motion: reduce) {
+        a { transition: none; }
+        a:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="codigo">404</p>
+      <h1>Esta página não existe</h1>
+      <p>
+        O endereço pode ter mudado ou o link que trouxe você até aqui está
+        desatualizado. Os serviços da MSIFORCE continuam todos no ar.
+      </p>
+      <div class="acoes">
+        <a class="primario" href="/">Ir para a página inicial</a>
+        <a class="secundario" href="/servicos/eletrica">Ver os serviços</a>
+      </div>
+    </main>
+  </body>
+</html>

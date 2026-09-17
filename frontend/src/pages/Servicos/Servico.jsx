@@ -32,12 +32,12 @@ const stagger = {
 export default function Servico({ servico }) {
   const { title, slug, headline, sub, heroImg, beneficios, aplicacoes, processo, faq, related } = servico;
 
+  // title/description saem do useSEO em ServicoPage (junto do canonical, que
+  // esta pagina precisa declarar). Eram gravados aqui tambem, e duas fontes
+  // para a mesma tag e como elas divergem.
   useEffect(() => {
-    document.title = `${title} | MSIFORCE`;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', sub);
     window.scrollTo(0, 0);
-  }, [title, sub]);
+  }, [slug]);
 
   const waLink = linkWhatsApp(MSG_POR_SLUG[slug] || msgGenerica(title));
 

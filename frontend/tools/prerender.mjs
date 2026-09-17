@@ -30,13 +30,16 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SERVICOS_DATA } from '../src/data/servicos.js';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const DIST = join(ROOT, 'dist');
 
-// So as rotas estaticas do sitemap.xml (SPA, sem parametro). /cartao/ e
-// /blog/:id e /servicos/:slug ficam de fora: cartao e uma pagina propria fora
-// do React Router, as outras duas sao dinamicas.
+// TODA rota publica do React Router precisa estar aqui. Desde que o deploy tem
+// 404.html, o Cloudflare Pages parou de servir o index.html como fallback de
+// SPA: o que nao tiver arquivo proprio responde 404 de verdade. /cartao/ e
+// /midia/ tem HTML proprio fora do React Router. /blog, /blog/:id e /v2 ficam
+// fora de proposito (blog com links quebrados, v2 e rascunho) — caem no 404.
 const ROTAS = [
   '/',
   '/automacao',
@@ -44,6 +47,12 @@ const ROTAS = [
   '/faq',
   '/instalacao-fechadura-digital',
   '/fechadura-airbnb',
+  // Derivado de SERVICOS_DATA, nao escrito a mao: slug novo no data ja entra no
+  // build sozinho (falta so o sitemap.xml, que e manual). Ate 17/09/2026 essas
+  // 4 rotas caiam no fallback e herdavam o canonical da home, entao o Search
+  // Console as marcava como "pagina alternativa com tag canonica adequada" e
+  // nenhuma era indexada.
+  ...Object.keys(SERVICOS_DATA).map((slug) => `/servicos/${slug}`),
 ];
 
 const RASTREADORES = /googletagmanager\.com|google-analytics\.com|doubleclick\.net|googleadservices\.com|googlesyndication\.com/;
@@ -138,3 +147,16 @@ try {
   await browser.close();
   await server.close();
 }
+
+// /admin/crm fica fora do loop: e painel privado atras de login, nao tem
+// conteudo publico pra pre-renderizar (e prerenderizar gravaria a tela de login
+// como HTML estatico). Mas PRECISA de arquivo proprio — sem o fallback de SPA,
+// que o 404.html desligou, o painel responderia 404. Grava so a casca; o React
+// monta o CRM no cliente. O noindex e cinto e suspensorio junto do
+// `Disallow: /admin/` do robots.txt.
+const shellAdmin = template
+  .replace(/<title>[^<]*<\/title>/, '<title>Painel MSIFORCE</title>')
+  .replace(/<meta name="robots" content="[^"]*"\s*\/?>/, '<meta name="robots" content="noindex, nofollow" />');
+mkdirSync(join(DIST, 'admin'), { recursive: true });
+writeFileSync(join(DIST, 'admin', 'crm.html'), shellAdmin);
+console.log('OK  /admin/crm  ->  dist/admin/crm.html  (casca, noindex)');
