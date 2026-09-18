@@ -353,6 +353,20 @@
   margin-bottom: 10px;
 }
 
+/* Links dentro do corpo do artigo (levam às páginas de serviço). Sem regra
+   própria caíam no azul padrão do navegador, ilegível sobre o fundo escuro. */
+.post-body a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.post-body a:hover {
+  opacity: 0.75;
+}
+
 .post-back {
   display: inline-block;
   margin-top: 60px;

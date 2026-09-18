@@ -31,6 +31,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SERVICOS_DATA } from '../src/data/servicos.js';
+import { ARTIGOS } from '../src/data/artigos.js';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const DIST = join(ROOT, 'dist');
@@ -38,8 +39,8 @@ const DIST = join(ROOT, 'dist');
 // TODA rota publica do React Router precisa estar aqui. Desde que o deploy tem
 // 404.html, o Cloudflare Pages parou de servir o index.html como fallback de
 // SPA: o que nao tiver arquivo proprio responde 404 de verdade. /cartao/ e
-// /midia/ tem HTML proprio fora do React Router. /blog, /blog/:id e /v2 ficam
-// fora de proposito (blog com links quebrados, v2 e rascunho) — caem no 404.
+// /midia/ tem HTML proprio fora do React Router. /v2 fica fora de proposito
+// (rascunho) — cai no 404.
 const ROTAS = [
   '/',
   '/automacao',
@@ -53,6 +54,10 @@ const ROTAS = [
   // Console as marcava como "pagina alternativa com tag canonica adequada" e
   // nenhuma era indexada.
   ...Object.keys(SERVICOS_DATA).map((slug) => `/servicos/${slug}`),
+  // Blog: o indice e um arquivo por artigo, tudo derivado de data/artigos.js.
+  // Artigo novo entra la e ja sai pre-renderizado (falta so o sitemap.xml).
+  '/blog',
+  ...ARTIGOS.map((a) => `/blog/${a.id}`),
 ];
 
 const RASTREADORES = /googletagmanager\.com|google-analytics\.com|doubleclick\.net|googleadservices\.com|googlesyndication\.com/;

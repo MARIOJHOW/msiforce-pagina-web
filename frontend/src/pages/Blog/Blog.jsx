@@ -3,52 +3,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
 import { linkWhatsApp, registrarCliqueWhatsApp } from '../../lib/whatsapp';
+import { ARTIGOS } from '../../data/artigos';
 import './Blog.css';
 
-const articles = [
-  {
-    id: "cftv-analogico-vs-ip-custo-real",
-    title: "CFTV analógico vs IP: o custo real de não atualizar as câmeras",
-    category: "Segurança",
-    readTime: "5 min",
-    image: "/thumb_ghosting.webp",
-    excerpt: "Câmeras antigas parecem mais baratas — até você calcular furtos não resolvidos, laudos recusados por seguradora e imagens sem resolução para identificar pessoas. Veja a conta real."
-  },
-  {
-    id: "quanto-custa-rede-escritorio-50-pessoas",
-    title: "Quanto custa estruturar a rede de um escritório de 50 pessoas em São Paulo?",
-    category: "Infraestrutura",
-    readTime: "6 min",
-    image: "/thumb_eletricista.webp",
-    excerpt: "Cabeamento, switches, Wi-Fi corporativo e rack: descubra os itens que fazem o preço variar, o que é essencial e o que é supérfluo para a maioria das empresas."
-  },
-  {
-    id: "contrato-manutencao-eletrica-condominio",
-    title: "O que um condomínio deve exigir no contrato de manutenção elétrica",
-    category: "Gestão",
-    readTime: "4 min",
-    image: "/thumb_bant.webp",
-    excerpt: "SLA de atendimento, laudo técnico semestral, ART e cobertura de emergência 24h — síndicos experientes sabem o que pedir. Veja o checklist completo antes de assinar."
-  },
-  {
-    id: "automacao-predial-quando-investimento-se-paga",
-    title: "Automação predial: quando o investimento realmente se paga?",
-    category: "Tecnologia",
-    readTime: "5 min",
-    image: "/thumb_crm.webp",
-    excerpt: "Redução de consumo elétrico, menor turnover de funcionários insatisfeitos com conforto térmico e menos chamados de TI. Calculamos o payback real para escritórios e condomínios."
-  },
-  {
-    id: "nr10-na-pratica-o-que-muda-para-sua-empresa",
-    title: "NR-10 na prática: o que muda para a sua empresa",
-    category: "Regulamentação",
-    readTime: "4 min",
-    image: "/thumb_orcamento.webp",
-    excerpt: "Não é só obrigação do eletricista — a empresa contratante também é responsável. Entenda o que a norma exige de quem contrata serviços elétricos e como se proteger."
-  }
-];
-
-const CATEGORIES = ['Todos', 'Infraestrutura', 'Segurança', 'Gestão', 'Tecnologia', 'Regulamentação'];
+// Categorias saem dos próprios artigos: uma lista fixa aqui viraria uma terceira
+// fonte de verdade e, mais cedo ou mais tarde, mostraria um filtro sem artigo
+// nenhum (ou esconderia um artigo novo).
+const CATEGORIES = ['Todos', ...new Set(ARTIGOS.map((a) => a.category))];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -65,11 +26,12 @@ export default function Blog() {
   useSEO({
     title: 'Blog',
     description: 'Guias práticos sobre infraestrutura elétrica, redes, segurança eletrônica e TI para gestores, síndicos e donos de empresas em São Paulo.',
+    canonical: 'https://msiforce.com.br/blog',
   });
 
   const filtered = activeCategory === 'Todos'
-    ? articles
-    : articles.filter(a => a.category === activeCategory);
+    ? ARTIGOS
+    : ARTIGOS.filter((a) => a.category === activeCategory);
 
   return (
     <div className="page-blog">
