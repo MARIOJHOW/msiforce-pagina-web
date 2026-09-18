@@ -39,7 +39,7 @@ const Footer = () => {
             <li><Link to="/servicos/eletrica">Projetos Elétricos</Link></li>
             <li><Link to="/servicos/automacao">Automação Predial e de Condomínios</Link></li>
             <li><Link to="/servicos/cftv">CFTV & Monitoramento</Link></li>
-            <li><a href="/#servicos">Controle de Acesso</a></li>
+            <li><Link to="/servicos/acesso">Controle de Acesso</Link></li>
             <li><Link to="/servicos/redes-ti">Redes Estruturadas</Link></li>
             <li><Link to="/servicos/redes-ti">Infraestrutura de TI</Link></li>
             <li><a href="/#servicos">Manutenção Preventiva & Corretiva</a></li>

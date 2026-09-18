@@ -154,4 +154,47 @@ export const SERVICOS_DATA = {
       { slug: 'redes-ti', name: 'Redes & TI', icon: '🌐' },
     ],
   },
+
+  // O serviço já era vendido antes desta página existir (é o item 05 da home e
+  // opção do FormDiagnostico), e o funil de acesso corporativo já rodava no bot
+  // pelo CTA "Empresa ou condomínio" da /automacao. O conteúdo aqui segue a
+  // definição que a home já publicava: biometria, RFID, facial e fechadura
+  // eletrônica com registro de entradas e integração ao CFTV.
+  acesso: {
+    title: 'Controle de Acesso',
+    slug: 'acesso',
+    headline: 'Quem entrou, quando\ne com qual autorização.',
+    sub: 'Biometria, cartão RFID, reconhecimento facial e fechaduras eletrônicas com registro de todas as entradas e integração ao CFTV. Para empresas e condomínios que precisam saber quem circula — e conseguir provar.',
+    heroImg: '/img_acesso.webp',
+    beneficios: [
+      { icon: '📋', titulo: 'Registro auditável', desc: 'Cada entrada e saída fica gravada com data, hora e identificação, em relatório exportável para o RH, o síndico ou uma perícia.' },
+      { icon: '👤', titulo: 'Biometria e facial', desc: 'Digital e reconhecimento facial eliminam cartão emprestado e crachá esquecido — o furo mais comum de quem controla só por cartão.' },
+      { icon: '💳', titulo: 'Cartão e tag RFID', desc: 'Uma credencial por pessoa, com bloqueio imediato em caso de perda ou desligamento, sem trocar fechadura nem recolher chave.' },
+      { icon: '🕐', titulo: 'Permissão por horário e área', desc: 'Cada perfil acessa só o que precisa, no horário em que pode. O prestador entra na área técnica e não no administrativo.' },
+      { icon: '📹', titulo: 'Integração com o CFTV', desc: 'O registro de acesso vira índice da gravação: em vez de varrer horas de vídeo, você salta direto para o evento.' },
+      { icon: '🚪', titulo: 'Catracas, portões e interfonia', desc: 'Integra o que já existe — catraca, portão social, portão de garagem e interfone — num sistema único de gerenciamento.' },
+    ],
+    aplicacoes: [
+      'Condomínios residenciais e comerciais', 'Escritórios e coworkings', 'Portarias e garagens',
+      'Áreas técnicas e data centers', 'Clínicas e consultórios', 'Galpões e áreas restritas',
+      'Academias e estúdios', 'Obras e canteiros',
+    ],
+    processo: [
+      { titulo: 'Levantamento de portas e perfis', desc: 'Mapeamento de cada ponto de acesso e de quem pode passar por onde. É esse desenho, não o número de portas, que define tecnologia e custo.' },
+      { titulo: 'Projeto e escolha da tecnologia', desc: 'Biometria, facial, cartão ou combinação, conforme volume de pessoas, exposição ao tempo e nível de segurança exigido em cada porta.' },
+      { titulo: 'Instalação e integração', desc: 'Leitores, fechos e controladoras instalados e integrados ao CFTV e às catracas e portões que já existem no local.' },
+      { titulo: 'Cadastro, treinamento e suporte', desc: 'Cadastro das credenciais, treinamento de quem vai administrar o sistema e suporte para inclusões, bloqueios e expansões.' },
+    ],
+    faq: [
+      { q: 'O sistema funciona se a internet cair?', a: 'Sim. As controladoras guardam as permissões e os registros localmente — a rede serve para administrar e consultar, não para liberar a porta. Em queda de internet o acesso continua funcionando e os eventos sincronizam depois.' },
+      { q: 'Dá para integrar com a catraca e os portões que já temos?', a: 'Na maioria dos casos, sim. Catracas, portões sociais e de garagem e interfonia costumam aceitar integração. Avaliamos os equipamentos existentes na visita técnica antes de propor qualquer troca.' },
+      { q: 'Reconhecimento facial exige cuidado com a LGPD?', a: 'Sim. Biometria é dado pessoal sensível: exige finalidade definida, aviso aos titulares e controle de quem acessa a base. Orientamos sobre os registros e a configuração necessários, mas a política de privacidade é responsabilidade do contratante.' },
+      { q: 'É possível bloquear um funcionário desligado na hora?', a: 'Sim, pelo painel, sem trocar fechadura nem recolher chave. É a principal vantagem sobre chave física em ambiente com rotatividade — e o ponto em que o controle por chave costuma falhar.' },
+    ],
+    related: [
+      { slug: 'cftv', name: 'CFTV & Monitoramento', icon: '📷' },
+      { slug: 'automacao', name: 'Automação Predial', icon: '🤖' },
+      { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },
+    ],
+  },
 };

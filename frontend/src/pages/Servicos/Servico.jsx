@@ -3,16 +3,19 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { trackCTA } from '../../hooks/useAnalytics';
 import { linkWhatsApp } from '../../lib/whatsapp';
-import { MSG_AUTOMACAO_PROJETO } from '../../lib/gatilhos';
+import { MSG_ACESSO_CORPORATIVO, MSG_AUTOMACAO_PROJETO } from '../../lib/gatilhos';
 import './Servico.css';
 
 // Serviços que TÊM funil próprio no bot precisam da frase exata que o detector
 // reconhece — ver lib/gatilhos.js e services/gatilhos-site.js no repo do bot.
 // Sem ela o lead cai no menu genérico, que era o caso destas duas páginas.
-// `acesso` não entra aqui: não existe /servicos/acesso em SERVICOS_DATA. O funil
-// de acesso corporativo é acionado pelo CTA "Empresa ou condomínio" da /automacao.
+// `acesso` entrou em 17/09/2026, junto com a criação de /servicos/acesso. O funil
+// de acesso corporativo já existia no bot e era acionado só pelo CTA "Empresa ou
+// condomínio" da /automacao — a página nova passa a ser uma segunda porta de
+// entrada para ele, e por isso precisa da mesma frase, não da genérica.
 const MSG_POR_SLUG = {
   automacao: MSG_AUTOMACAO_PROJETO,
+  acesso: MSG_ACESSO_CORPORATIVO,
 };
 
 // Elétrica, CFTV e Redes/TI não têm funil no bot: a mensagem genérica leva ao
