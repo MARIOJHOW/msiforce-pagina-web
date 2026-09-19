@@ -103,7 +103,7 @@ export default function InstalacaoFechaduraDigital() {
                   fechadura. */}
               <p className="ifd-hero-credencial">
                 Técnico em eletrônica cadastrado no CFT · Representante autorizado
-                EZVIZ, Ekasa e Nova Digital
+                EZVIZ, EKAZA e Nova Digital
               </p>
               {/* Diferencial que nenhum concorrente do Local Pack anuncia hoje:
                   a garantia dobra por causa da representacao autorizada. Se o
@@ -305,8 +305,8 @@ export default function InstalacaoFechaduraDigital() {
           <motion.h2 variants={fadeUp}>Marcas homologadas</motion.h2>
           <motion.p variants={fadeUp}>
             Trabalhamos com as principais marcas do mercado, incluindo{' '}
-            <strong>Intelbras, Yale, Pado, Papaiz, EZVIZ, Ekasa e Nova Digital</strong>.
-            Somos <strong>representante autorizado de EZVIZ, Ekasa e Nova Digital</strong>,
+            <strong>Intelbras, Yale, Pado, Papaiz, EZVIZ, EKAZA e Nova Digital</strong>.
+            Somos <strong>representante autorizado de EZVIZ, EKAZA e Nova Digital</strong>,
             e na EZVIZ isso vira garantia: a fechadura comprada e instalada com a gente sai
             com <strong>2 anos</strong> no lugar do 1 ano de fábrica, sem custo a mais. Se
             você já comprou a sua fechadura em outro lugar, de qualquer marca, também
