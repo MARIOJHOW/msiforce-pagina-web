@@ -530,3 +530,41 @@
 .ifd-hero-garantia strong {
   color: var(--gold);
 }
+
+/* Faixa das marcas representadas. Cada peca ja vem com o fundo oficial da
+   marca (EZVIZ bege, EKAZA branco, Nova Digital azul), entao o card aqui so
+   arredonda o canto e da respiro -- nao pinta fundo, para nao brigar com a
+   identidade de cada uma. */
+.ifd-marcas-faixa {
+  margin-top: 28px;
+}
+
+.ifd-marcas-rotulo {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+
+.ifd-marcas-faixa ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ifd-marcas-faixa img {
+  display: block;
+  height: 88px;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+
+@media (max-width: 480px) {
+  .ifd-marcas-faixa img { height: 68px; }
+}

@@ -313,6 +313,29 @@ export default function InstalacaoFechaduraDigital() {
             instalamos: a garantia do fabricante continua valendo, já que instalação por
             técnico certificado não a anula.
           </motion.p>
+
+          {/* Faixa so das marcas REPRESENTADAS. Intelbras, Papaiz, Yale e Pado
+              ficam no texto acima: logo delas aqui sugeriria autorizacao que a
+              MSIFORCE ainda nao tem -- e as duas primeiras estao em processo
+              justamente agora (18/09/2026). Quando assinarem, entram aqui.
+              As pecas sao WebP de ~5KB, com o fundo oficial de cada marca. */}
+          <motion.div variants={fadeUp} className="ifd-marcas-faixa">
+            <p className="ifd-marcas-rotulo">Representante autorizado</p>
+            <ul>
+              <li>
+                <img src="/marcas/marca-ezviz.webp" alt="EZVIZ"
+                     width="230" height="88" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="/marcas/marca-ekaza.webp" alt="EKAZA"
+                     width="85" height="88" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="/marcas/marca-novadigital.webp" alt="Nova Digital"
+                     width="230" height="88" loading="lazy" decoding="async" />
+              </li>
+            </ul>
+          </motion.div>
         </motion.div>
       </section>
 
