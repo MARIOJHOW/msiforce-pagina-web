@@ -32,6 +32,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SERVICOS_DATA } from '../src/data/servicos.js';
 import { ARTIGOS } from '../src/data/artigos.js';
+import { PORTAS_DATA } from '../src/data/portas.js';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const DIST = join(ROOT, 'dist');
@@ -54,6 +55,9 @@ const ROTAS = [
   // Console as marcava como "pagina alternativa com tag canonica adequada" e
   // nenhuma era indexada.
   ...Object.keys(SERVICOS_DATA).map((slug) => `/servicos/${slug}`),
+  // Paginas por tipo de porta, derivadas de data/portas.js pelo mesmo motivo:
+  // porta nova no data ja sai pre-renderizada (o sitemap.xml continua manual).
+  ...Object.keys(PORTAS_DATA).map((slug) => `/fechaduras/${slug}`),
   // Blog: o indice e um arquivo por artigo, tudo derivado de data/artigos.js.
   // Artigo novo entra la e ja sai pre-renderizado (falta so o sitemap.xml).
   '/blog',

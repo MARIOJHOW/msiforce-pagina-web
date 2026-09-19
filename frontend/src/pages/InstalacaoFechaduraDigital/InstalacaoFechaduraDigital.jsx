@@ -273,20 +273,30 @@ export default function InstalacaoFechaduraDigital() {
           variants={stagger}
         >
           <motion.h2 variants={fadeUp}>Qual fechadura combina com a sua porta</motion.h2>
+          {/* Cada tipo de porta com pagina propria linka para ela: sao as
+              buscas em que o cliente descreve a porta dele. Correr/aluminio
+              ainda nao tem pagina, entao segue como texto. */}
           <motion.ul variants={fadeUp} className="ifd-lista">
             <li>
-              <strong>Portas pivotantes e de madeira maciça:</strong> fechadura de
-              embutir. O maquinário fica dentro da porta, com o acabamento mais
-              discreto e sofisticado.
+              <strong>
+                <Link to="/fechaduras/porta-pivotante">Portas pivotantes e de madeira maciça</Link>:
+              </strong>{' '}
+              fechadura de embutir. O maquinário fica dentro da porta, com o acabamento
+              mais discreto e sofisticado.
             </li>
             <li>
-              <strong>Portas padrão de apartamento:</strong> fechadura de sobrepor,
-              instalada acima da maçaneta atual, sem modificar a porta — a opção certa
-              para quem mora de aluguel.
+              <strong>
+                <Link to="/fechaduras/porta-de-apartamento">Portas padrão de apartamento</Link>:
+              </strong>{' '}
+              fechadura de sobrepor, instalada acima da maçaneta atual, sem modificar a
+              porta — a opção certa para quem mora de aluguel.
             </li>
             <li>
-              <strong>Portas de vidro temperado:</strong> modelos específicos de
-              encaixe ou pressão, sem necessidade de furar o vidro.
+              <strong>
+                <Link to="/fechaduras/porta-de-vidro">Portas de vidro temperado</Link>:
+              </strong>{' '}
+              o vidro não pode ser furado, então a fechadura é colada, fixada direto no
+              vidro — e o modelo depende do perfil e da ferragem.
             </li>
             <li>
               <strong>Portas de correr e alumínio:</strong> modelos de perfil estreito,

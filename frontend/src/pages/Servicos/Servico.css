@@ -335,3 +335,12 @@
   .svc-hero { min-height: 55vh; }
   .svc-cta-section { padding: 80px 5%; }
 }
+
+/* Hero sem foto: usado pela /fechaduras/porta-de-vidro, que ainda nao tem
+   imagem de servico real em vidro. Melhor um hero grafico honesto do que a
+   foto de uma porta de madeira numa pagina sobre vidro. */
+.svc-hero--sem-foto {
+  background:
+    radial-gradient(1200px 400px at 70% 0%, rgba(212,175,55,.10), transparent 60%),
+    linear-gradient(180deg, #0f1218 0%, #0b0d12 100%);
+}

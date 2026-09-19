@@ -32,7 +32,21 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-export default function Servico({ servico }) {
+/**
+ * Renderiza tanto /servicos/:slug quanto /fechaduras/:slug (paginas por tipo de
+ * porta, criadas em 18/09/2026). As tres props abaixo sao o que muda entre as
+ * duas familias -- o layout e identico, entao nao foi duplicado.
+ *
+ * @param base         prefixo dos links de "related"
+ * @param relatedTitle rotulo da secao de related
+ * @param voltar       o link do eyebrow, no topo do hero
+ */
+export default function Servico({
+  servico,
+  base = '/servicos',
+  relatedTitle = 'Outros serviços',
+  voltar = { to: '/#servicos', label: '← Todos os serviços' },
+}) {
   const { title, slug, headline, sub, heroImg, beneficios, aplicacoes, processo, faq, related } = servico;
 
   // title/description saem do useSEO em ServicoPage (junto do canonical, que
@@ -42,17 +56,20 @@ export default function Servico({ servico }) {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  const waLink = linkWhatsApp(MSG_POR_SLUG[slug] || msgGenerica(title));
+  const waLink = linkWhatsApp(servico.msg || MSG_POR_SLUG[slug] || msgGenerica(title));
 
   return (
     <div className="svc-page">
 
       {/* HERO */}
-      <section className="svc-hero" style={{ '--hero-img': `url(${heroImg})` }}>
+      <section
+        className={`svc-hero${heroImg ? '' : ' svc-hero--sem-foto'}`}
+        style={heroImg ? { '--hero-img': `url(${heroImg})` } : undefined}
+      >
         <div className="svc-hero-overlay" />
         <motion.div className="svc-hero-content" variants={stagger} initial="hidden" animate="visible">
           <motion.div variants={fadeUp} className="svc-eyebrow">
-            <Link to="/#servicos">← Todos os serviços</Link>
+            <Link to={voltar.to}>{voltar.label}</Link>
           </motion.div>
           <motion.h1 variants={fadeUp} className="svc-h1">{headline}</motion.h1>
           <motion.p variants={fadeUp} className="svc-sub">{sub}</motion.p>
@@ -198,10 +215,10 @@ export default function Servico({ servico }) {
       {/* OUTROS SERVIÇOS */}
       {related?.length > 0 && (
         <section className="svc-section">
-          <div className="svc-related-title">Outros serviços</div>
+          <div className="svc-related-title">{relatedTitle}</div>
           <div className="svc-related-grid">
             {related.map((r) => (
-              <Link key={r.slug} to={`/servicos/${r.slug}`} className="svc-related-card">
+              <Link key={r.slug} to={`${base}/${r.slug}`} className="svc-related-card">
                 <span className="svc-related-icon">{r.icon}</span>
                 <span className="svc-related-name">{r.name}</span>
                 <span className="svc-related-arrow">→</span>

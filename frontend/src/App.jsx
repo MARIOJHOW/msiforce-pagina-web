@@ -15,6 +15,7 @@ import Blog from './pages/Blog/Blog';
 import Faq from './pages/Faq/Faq';
 import BlogPost from './pages/Blog/BlogPost';
 import ServicoPage from './pages/Servicos/ServicoPage';
+import PortaPage from './pages/Portas/PortaPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/InstalacaoFechaduraDigital';
 import FechaduraAirbnb from './pages/FechaduraAirbnb/FechaduraAirbnb';
@@ -57,6 +58,10 @@ function App() {
           <Route path="/fechadura-airbnb" element={<FechaduraAirbnb />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />
+          {/* Paginas por tipo de porta (18/09/2026): buscas em que o cliente
+              descreve a porta dele. Rota nova SO existe em producao depois de
+              entrar no ROTAS do prerender.mjs. */}
+          <Route path="/fechaduras/:slug" element={<PortaPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
         <Route path="/v2" element={<V2 />} />
