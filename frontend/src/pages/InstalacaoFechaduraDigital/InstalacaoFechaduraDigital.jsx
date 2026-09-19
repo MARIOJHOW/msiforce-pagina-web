@@ -108,8 +108,8 @@ export default function InstalacaoFechaduraDigital() {
                   a garantia dobra por causa da representacao autorizada. Se o
                   acordo com a EZVIZ mudar, este e o primeiro texto a corrigir. */}
               <p className="ifd-hero-garantia">
-                Fechadura EZVIZ instalada por nós: <strong>2 anos de garantia</strong>,
-                o dobro do padrão de fábrica
+                Fechadura EZVIZ instalada por nós tem <strong>2 anos de garantia</strong>:
+                a fábrica dá 1 ano e, como representante autorizado, nós dobramos
               </p>
             </motion.div>
           </motion.div>
@@ -304,12 +304,13 @@ export default function InstalacaoFechaduraDigital() {
           <motion.h2 variants={fadeUp}>Marcas homologadas</motion.h2>
           <motion.p variants={fadeUp}>
             Trabalhamos com as principais marcas do mercado, incluindo{' '}
-            <strong>Intelbras, Yale, Pado, Papaiz e EZVIZ</strong>. Somos{' '}
-            <strong>representante autorizado EZVIZ</strong>: fechadura EZVIZ instalada
-            pela MSIFORCE sai com <strong>2 anos de garantia</strong>, em vez de 1. Se
-            você já comprou a sua fechadura em outro lugar, também instalamos — a
-            garantia do fabricante continua valendo, já que instalação por técnico
-            certificado não a anula.
+            <strong>Intelbras, Yale, Pado, Papaiz e EZVIZ</strong>. Como{' '}
+            <strong>representante autorizado EZVIZ</strong>, a fechadura EZVIZ comprada e
+            instalada com a gente sai com <strong>2 anos de garantia</strong> no lugar do
+            1 ano de fábrica — sem custo a mais por isso. Se você já comprou a sua
+            fechadura em outro lugar, de qualquer marca, também instalamos: a garantia do
+            fabricante continua valendo, já que instalação por técnico certificado não a
+            anula.
           </motion.p>
         </motion.div>
       </section>

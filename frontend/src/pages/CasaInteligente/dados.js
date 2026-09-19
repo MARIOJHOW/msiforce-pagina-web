@@ -139,6 +139,13 @@ export const FAQ = [
     r: `A mão de obra começa em R$ ${PRECO_MINIMO}, para fechadura de sobrepor em porta de madeira comum. O que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
   },
   {
+    // Entrou em 18/09/2026, quando a MSIFORCE virou representante autorizada EZVIZ.
+    // Vale so para EZVIZ: e a representacao que permite estender. Nao generalize
+    // para outras marcas sem o dono confirmar.
+    p: 'A garantia da fechadura muda se eu instalar com vocês?',
+    r: 'Na EZVIZ, sim. A fábrica dá 1 ano de garantia e, como representante autorizado, estendemos para 2 anos a fechadura EZVIZ comprada e instalada com a gente — sem custo adicional. Nas outras marcas a garantia é a do próprio fabricante, e ela continua válida: instalação por técnico certificado não anula garantia.',
+  },
+  {
     p: 'Vocês instalam fechadura que eu comprei em outro lugar?',
     r: `Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ ${PRECO_MINIMO}, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
   },
