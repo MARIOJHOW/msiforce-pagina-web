@@ -98,6 +98,19 @@ export default function InstalacaoFechaduraDigital() {
                 existia na /casa-inteligente. */}
             <motion.div variants={fadeUp} className="ifd-hero-prova">
               <SeloGoogle compacto />
+              {/* Credencial de quem executa. Nao use norma eletrica (NR-10,
+                  NR-35, ABNT 5410) como prova aqui: nao tem relacao com
+                  fechadura. */}
+              <p className="ifd-hero-credencial">
+                Técnico em eletrônica cadastrado no CFT · Representante autorizado EZVIZ
+              </p>
+              {/* Diferencial que nenhum concorrente do Local Pack anuncia hoje:
+                  a garantia dobra por causa da representacao autorizada. Se o
+                  acordo com a EZVIZ mudar, este e o primeiro texto a corrigir. */}
+              <p className="ifd-hero-garantia">
+                Fechadura EZVIZ instalada por nós: <strong>2 anos de garantia</strong>,
+                o dobro do padrão de fábrica
+              </p>
             </motion.div>
           </motion.div>
 
@@ -291,9 +304,12 @@ export default function InstalacaoFechaduraDigital() {
           <motion.h2 variants={fadeUp}>Marcas homologadas</motion.h2>
           <motion.p variants={fadeUp}>
             Trabalhamos com as principais marcas do mercado, incluindo{' '}
-            <strong>Intelbras, Yale, Pado e Papaiz</strong>. Se você já comprou a sua
-            fechadura em outro lugar, também instalamos — a garantia do fabricante
-            continua valendo, já que instalação por técnico certificado não a anula.
+            <strong>Intelbras, Yale, Pado, Papaiz e EZVIZ</strong>. Somos{' '}
+            <strong>representante autorizado EZVIZ</strong>: fechadura EZVIZ instalada
+            pela MSIFORCE sai com <strong>2 anos de garantia</strong>, em vez de 1. Se
+            você já comprou a sua fechadura em outro lugar, também instalamos — a
+            garantia do fabricante continua valendo, já que instalação por técnico
+            certificado não a anula.
           </motion.p>
         </motion.div>
       </section>

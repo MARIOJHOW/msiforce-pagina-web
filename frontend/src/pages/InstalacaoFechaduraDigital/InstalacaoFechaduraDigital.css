@@ -509,3 +509,24 @@
 .ifd-hero-prova {
   margin-top: 22px;
 }
+
+/* Credencial de quem executa (CFT / representacao EZVIZ), logo abaixo do selo
+   do Google. Discreta: a prova social principal continua sendo o selo. */
+.ifd-hero-credencial {
+  margin: 10px 0 0;
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.62);
+}
+
+/* A garantia dobrada e oferta, nao credencial: ganha a cor da marca e peso. */
+.ifd-hero-garantia {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.86);
+}
+
+.ifd-hero-garantia strong {
+  color: var(--gold);
+}

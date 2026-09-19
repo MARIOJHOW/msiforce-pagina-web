@@ -170,12 +170,17 @@ const CampanhaFechadura = () => {
           variants={fadeUp}
         >
           <span className="hero-trust-item">
-            Técnico certificado <strong>Intelbras · Papaiz · Yale · Pado · Elsys</strong>
+            Técnico certificado <strong>Intelbras · Papaiz · Yale · Pado · Elsys · EZVIZ</strong>
           </span>
+          {/* NR-10, NR-35 e ABNT 5410 sairam daqui em 18/09/2026: sao normas de
+              trabalho em eletricidade, altura e instalacao de baixa tensao, e nao
+              dizem nada sobre quem instala fechadura. Elas continuam na home, no
+              rodape e nas paginas de eletrica, onde valem. Aqui entra a
+              credencial que de fato qualifica o servico. */}
           <span className="hero-trust-badges">
-            <span className="hero-trust-badge">NR-10</span>
-            <span className="hero-trust-badge">NR-35</span>
-            <span className="hero-trust-badge">ABNT 5410</span>
+            <span className="hero-trust-badge">Técnico em Eletrônica · CFT</span>
+            <span className="hero-trust-badge">Representante autorizado EZVIZ</span>
+            <span className="hero-trust-badge">EZVIZ com 2 anos de garantia</span>
           </span>
         </motion.div>
       </section>
