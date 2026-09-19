@@ -179,7 +179,7 @@ const CampanhaFechadura = () => {
               credencial que de fato qualifica o servico. */}
           <span className="hero-trust-badges">
             <span className="hero-trust-badge">Técnico em Eletrônica · CFT</span>
-            <span className="hero-trust-badge">Representante autorizado EZVIZ</span>
+            <span className="hero-trust-badge">Representante EZVIZ · Ekasa · Nova Digital</span>
             <span className="hero-trust-badge">EZVIZ com 2 anos de garantia</span>
           </span>
         </motion.div>

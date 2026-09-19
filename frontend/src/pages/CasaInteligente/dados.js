@@ -199,7 +199,9 @@ export const FAQ_MODELOS = [
   },
   {
     p: 'Fechadura digital funciona em porta de vidro?',
-    r: 'Funciona, mas pede modelo próprio. Porta de vidro temperado não pode ser furada, então a fechadura tem de se fixar na ferragem existente ou substituí-la — e isso muda o modelo indicado e o tempo de instalação. Mande uma foto da porta e do perfil pelo WhatsApp que dizemos qual serve antes de qualquer visita.',
+    // Corrigido pelo dono em 18/09/2026: em vidro a fechadura e COLADA. A versao
+    // anterior dizia que ela se fixava na ferragem ou a substituia, o que esta errado.
+    r: 'Funciona, e a instalação é diferente das outras portas: vidro temperado não pode ser furado, então a fechadura é colada, fixada direto no vidro. Isso muda o modelo indicado e o tempo de serviço. Mande uma foto da porta pelo WhatsApp que dizemos qual serve antes de qualquer visita.',
   },
   {
     p: 'Qual a diferença entre fechadura de sobrepor e de embutir?',
@@ -212,10 +214,6 @@ export const FAQ_MODELOS = [
   {
     p: 'Precisa de Wi-Fi para funcionar?',
     r: 'Não. Há modelos stand alone, que funcionam sem Wi-Fi nenhum — abrem por digital, senha ou tag, sem depender de internet. O Wi-Fi só entra se você quiser abrir pelo aplicativo ou liberar alguém à distância; nesse caso, basta o sinal da sua rede chegar até a entrada.',
-  },
-  {
-    p: 'Por que escolher uma EZVIZ?',
-    r: 'Porque nela a garantia dobra. A MSIFORCE é representante autorizado EZVIZ: a fechadura EZVIZ comprada e instalada com a gente sai com 2 anos de garantia, no lugar do 1 ano de fábrica, sem custo a mais. Nas outras marcas vale a garantia do próprio fabricante, que também continua intacta quando quem instala é técnico certificado.',
   },
   {
     // PAA: "Qual a desvantagem da fechadura digital?" — estava no FAQ de

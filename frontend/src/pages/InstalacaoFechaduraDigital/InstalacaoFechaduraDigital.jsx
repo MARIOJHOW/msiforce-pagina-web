@@ -102,7 +102,8 @@ export default function InstalacaoFechaduraDigital() {
                   NR-35, ABNT 5410) como prova aqui: nao tem relacao com
                   fechadura. */}
               <p className="ifd-hero-credencial">
-                Técnico em eletrônica cadastrado no CFT · Representante autorizado EZVIZ
+                Técnico em eletrônica cadastrado no CFT · Representante autorizado
+                EZVIZ, Ekasa e Nova Digital
               </p>
               {/* Diferencial que nenhum concorrente do Local Pack anuncia hoje:
                   a garantia dobra por causa da representacao autorizada. Se o
@@ -304,13 +305,13 @@ export default function InstalacaoFechaduraDigital() {
           <motion.h2 variants={fadeUp}>Marcas homologadas</motion.h2>
           <motion.p variants={fadeUp}>
             Trabalhamos com as principais marcas do mercado, incluindo{' '}
-            <strong>Intelbras, Yale, Pado, Papaiz e EZVIZ</strong>. Como{' '}
-            <strong>representante autorizado EZVIZ</strong>, a fechadura EZVIZ comprada e
-            instalada com a gente sai com <strong>2 anos de garantia</strong> no lugar do
-            1 ano de fábrica — sem custo a mais por isso. Se você já comprou a sua
-            fechadura em outro lugar, de qualquer marca, também instalamos: a garantia do
-            fabricante continua valendo, já que instalação por técnico certificado não a
-            anula.
+            <strong>Intelbras, Yale, Pado, Papaiz, EZVIZ, Ekasa e Nova Digital</strong>.
+            Somos <strong>representante autorizado de EZVIZ, Ekasa e Nova Digital</strong>,
+            e na EZVIZ isso vira garantia: a fechadura comprada e instalada com a gente sai
+            com <strong>2 anos</strong> no lugar do 1 ano de fábrica, sem custo a mais. Se
+            você já comprou a sua fechadura em outro lugar, de qualquer marca, também
+            instalamos: a garantia do fabricante continua valendo, já que instalação por
+            técnico certificado não a anula.
           </motion.p>
         </motion.div>
       </section>
