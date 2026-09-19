@@ -41,7 +41,10 @@ export const OFERTAS = [
       'Abertura por senha ou tag/cartão (até 100 de cada)',
       'Chave mecânica de emergência',
       'Senha falsa, não perturbe e travamento automático',
-      '36 meses de garantia do fabricante',
+      // Era "36 meses" ate 18/09/2026. O dono confirmou que a Intelbras da 2
+      // anos: o numero publicado prometia um ano a mais do que o fabricante
+      // cobre. Nao aumentar sem documento do fabricante na mao.
+      '24 meses de garantia do fabricante',
     ],
     precoPrefixo: 'A partir de',
     preco: 650,
