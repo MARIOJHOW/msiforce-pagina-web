@@ -52,7 +52,6 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const formataPreco = (valor) => valor.toLocaleString('pt-BR');
 
 export default function InstalacaoFechaduraDigital() {
   const [aberta, setAberta] = useState(0);
@@ -60,7 +59,7 @@ export default function InstalacaoFechaduraDigital() {
   useSEO({
     title: 'Instalação de Fechadura Digital em São Paulo',
     description:
-      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Kits Intelbras e Papaiz a partir de R$ ${formataPreco(OFERTAS[0].preco)} instalada, ou só a instalação a partir de R$ ${PRECO_MINIMO}. Peça um orçamento.`,
+      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO}, e o equipamento cotado na hora pelo WhatsApp. Peça um orçamento.`,
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
@@ -176,7 +175,7 @@ export default function InstalacaoFechaduraDigital() {
                 </ul>
                 <p className="ifd-card-preco">
                   <span className="ifd-card-preco-prefixo">{o.precoPrefixo}</span>
-                  <strong>R$ {formataPreco(o.preco)}</strong>
+                  <strong>Cotado na hora</strong>
                   <span className="ifd-card-preco-sufixo">{o.precoSufixo}</span>
                 </p>
                 <p className="ifd-card-nota">{o.nota}</p>
@@ -224,10 +223,11 @@ export default function InstalacaoFechaduraDigital() {
           </motion.h2>
           <motion.p variants={fadeUp}>
             Se a fechadura já é sua, você paga só a mão de obra — a partir de{' '}
-            <strong>R$ {PRECO_MINIMO}</strong>. Se preferir resolver de uma vez,
-            fechadura e instalação saem juntas a partir de{' '}
-            <strong>R$ {formataPreco(OFERTAS[0].preco)}</strong>. O que move o valor
-            dentro dessa faixa é a porta:
+            <strong>R$ {PRECO_MINIMO}</strong>, e esse valor é nosso, não depende de
+            fornecedor. Se preferir resolver de uma vez, cotamos a fechadura no dia:
+            trabalhamos sem estoque e compramos a cada venda, então você leva o preço
+            do mercado naquele momento, e não um valor de tabela antigo. O que move a
+            mão de obra é a porta:
           </motion.p>
           <motion.ul variants={fadeUp} className="ifd-lista">
             <li>

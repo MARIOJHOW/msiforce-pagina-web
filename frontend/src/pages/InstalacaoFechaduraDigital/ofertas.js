@@ -24,9 +24,12 @@ export const OFERTAS = [
       'Acesso de emergência com bateria 9V',
       'Fechamento automático ao encostar a porta',
     ],
-    precoPrefixo: 'Promoção',
-    preco: 499,
-    precoSufixo: 'com instalação inclusa',
+    // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
+    // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
+    precoPrefixo: 'Equipamento',
+    precoSufixo: 'instalação a partir de R$ 200',
     nota: 'Instalação inclusa até 10 km; acima disso, deslocamento à parte.',
   },
   {
@@ -46,9 +49,12 @@ export const OFERTAS = [
       // cobre. Nao aumentar sem documento do fabricante na mao.
       '24 meses de garantia do fabricante',
     ],
-    precoPrefixo: 'A partir de',
-    preco: 650,
-    precoSufixo: 'instalada',
+    // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
+    // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
+    precoPrefixo: 'Equipamento',
+    precoSufixo: 'instalação a partir de R$ 200',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -65,9 +71,12 @@ export const OFERTAS = [
       'Troca a fechadura comum sem obra',
       '2 chaves mecânicas e emergência por USB-C',
     ],
-    precoPrefixo: 'A partir de',
-    preco: 800,
-    precoSufixo: 'fechadura + instalação',
+    // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
+    // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
+    precoPrefixo: 'Equipamento',
+    precoSufixo: 'instalação a partir de R$ 200',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -84,9 +93,12 @@ export const OFERTAS = [
       'Compatível com Alexa e cenários de automação',
       'Hub ZigBee: amplie com sensores e sirene',
     ],
-    precoPrefixo: 'A partir de',
-    preco: 900,
-    precoSufixo: 'kit completo instalado',
+    // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
+    // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
+    precoPrefixo: 'Equipamento',
+    precoSufixo: 'instalação a partir de R$ 200',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
 ];
