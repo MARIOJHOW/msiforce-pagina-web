@@ -37,7 +37,7 @@ export default function FechaduraAirbnb() {
   return (
     <div className="airbnb-page">
       <p className="airbnb-voltar">
-        <Link to="/casa-inteligente">← Fechadura digital residencial</Link>
+        <Link to="/casa-inteligente">← Modelos de fechadura digital</Link>
       </p>
       <SolucaoAirbnb />
     </div>

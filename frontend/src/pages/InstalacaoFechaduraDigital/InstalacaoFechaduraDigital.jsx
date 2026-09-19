@@ -378,8 +378,12 @@ export default function InstalacaoFechaduraDigital() {
             Já tenho a fechadura, quero só instalar
           </a>
         </div>
+        {/* Aponta para a pagina de MODELOS, nao para automacao: quem cuida de
+            automacao residencial e a /automacao. Ate 18/09/2026 este link
+            chamava a /casa-inteligente de "Casa Inteligente", o que colidia
+            com a /automacao e escondia o papel real dela. */}
         <Link to="/casa-inteligente" className="ifd-link-automacao">
-          Quer automatizar a casa inteira, além da porta? Conheça a Casa Inteligente →
+          Ainda escolhendo o aparelho? Veja os modelos de fechadura digital →
         </Link>
       </motion.section>
     </div>

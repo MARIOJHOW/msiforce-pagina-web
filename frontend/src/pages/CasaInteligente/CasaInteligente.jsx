@@ -58,10 +58,14 @@ const FAQ_SCHEMA = {
 };
 
 const CampanhaFechadura = () => {
+  // Esta pagina cobre a ESCOLHA do modelo; quem busca contratar a instalacao cai
+  // na /instalacao-fechadura-digital, que e a que o Google ja rankeia para os
+  // termos comerciais. Nao traga "instalacao ... em Sao Paulo" de volta para ca:
+  // as duas disputariam a mesma busca e o Google nao empurra nenhuma com forca.
   useSEO({
-    title: 'Fechadura Digital e Automação Residencial SP',
+    title: 'Modelos de Fechadura Digital: Biometria, Senha e App',
     description:
-      'Instalação especializada de fechaduras digitais e projetos de Casa Inteligente em São Paulo. Autorizada Intelbras, Yale, Pado, Papaiz. Solicite orçamento.',
+      'Compare modelos de fechadura digital para a sua porta: biometria, senha, app e chave. Intelbras, Yale, Pado e Papaiz, com preço e o que cabe em cada tipo de porta.',
     canonical: 'https://msiforce.com.br/casa-inteligente',
   });
 
@@ -108,8 +112,8 @@ const CampanhaFechadura = () => {
             </motion.div>
 
             <motion.h1 variants={fadeUp}>
-              Sua Casa Inteligente<br />
-              <span className="text-highlight">Começa na Porta.</span>
+              Fechadura Digital<br />
+              <span className="text-highlight">Modelos e Preços.</span>
             </motion.h1>
 
             {/* So mobile (<=768px): no empilhamento em coluna a imagem grande cai
@@ -248,7 +252,7 @@ const CampanhaFechadura = () => {
 
       <p className="campanha-link-conteudo">
         <Link to="/instalacao-fechadura-digital">
-          Guia completo de instalação de fechadura digital →
+          Instalação de fechadura digital em São Paulo →
         </Link>
       </p>
 
