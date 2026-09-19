@@ -9,7 +9,7 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import { iniciarAds } from '../../lib/ads';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
-import { GOOGLE, PRECO_MINIMO, FAQ } from './dados';
+import { GOOGLE, PRECO_MINIMO, FAQ_MODELOS } from './dados';
 import SeloGoogle from './SeloGoogle';
 import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
@@ -50,7 +50,7 @@ const SERVICO_SCHEMA = {
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: FAQ.map(({ p, r }) => ({
+  mainEntity: FAQ_MODELOS.map(({ p, r }) => ({
     '@type': 'Question',
     name: p,
     acceptedAnswer: { '@type': 'Answer', text: r },

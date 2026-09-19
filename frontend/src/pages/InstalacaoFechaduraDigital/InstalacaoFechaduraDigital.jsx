@@ -9,7 +9,7 @@ import {
   MSG_FECHADURA_INSTALACAO,
   msgFechaduraModelo,
 } from '../../lib/gatilhos';
-import { FAQ, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
+import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
@@ -45,7 +45,7 @@ const SERVICO_SCHEMA = {
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: FAQ.map(({ p, r }) => ({
+  mainEntity: FAQ_INSTALACAO.map(({ p, r }) => ({
     '@type': 'Question',
     name: p,
     acceptedAnswer: { '@type': 'Answer', text: r },
@@ -332,7 +332,7 @@ export default function InstalacaoFechaduraDigital() {
           viewport={{ once: true, margin: '-60px' }}
           variants={stagger}
         >
-          {FAQ.map((item, i) => (
+          {FAQ_INSTALACAO.map((item, i) => (
             <motion.div variants={fadeUp} className="ifd-faq-item" key={item.p}>
               <h3 className="ifd-faq-item-titulo">
                 <button

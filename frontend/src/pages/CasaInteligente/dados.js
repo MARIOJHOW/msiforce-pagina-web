@@ -131,8 +131,16 @@ export const PASSOS = [
 // As 4 perguntas marcadas "PAA" vieram do bloco "As pessoas também perguntam"
 // da busca real de "instalação de fechadura digital" em São Paulo (11/09/2026).
 // Entram aqui, e não num texto solto, porque o FAQPage schema das páginas é
-// gerado deste array — pergunta nova vira dado estruturado sozinha.
-export const FAQ = [
+// gerado destes arrays — pergunta nova vira dado estruturado sozinha.
+//
+// Sao DOIS arrays desde 18/09/2026, um por intencao. Ate entao as duas paginas
+// de fechadura serviam a mesma lista, e portanto o mesmo FAQPage: a separacao
+// que o resto do site ganhou parava no FAQ. Quem chega em
+// /instalacao-fechadura-digital quer contratar (preco, prazo, minha porta
+// serve); quem chega em /casa-inteligente ainda escolhe o aparelho (biometria
+// ou senha, qual porta, e se acabar a pilha). Pergunta nova vai para o array da
+// intencao dela, nao para os dois.
+export const FAQ_INSTALACAO = [
   {
     // PAA: "Qual o valor da instalação da fechadura digital?"
     p: 'Qual o valor da instalação da fechadura digital?',
@@ -164,11 +172,6 @@ export const FAQ = [
     r: 'Fechadura de sobrepor sai em menos de 1 hora. Embutir leva de 2 a 3 horas, porque exige fresagem na porta.',
   },
   {
-    // PAA: "Qual a desvantagem da fechadura digital?"
-    p: 'Qual a desvantagem da fechadura digital?',
-    r: 'São três, com honestidade: depende de pilha (o aviso de bateria fraca aparece com semanas de antecedência, e os modelos têm saída de emergência por chave ou alimentação externa); custa mais caro que uma fechadura comum na hora da compra; e exige cadastrar quem entra. Em troca, você para de trocar o segredo toda vez que uma chave se perde.',
-  },
-  {
     p: 'Como posso pagar?',
     r: 'Cartão em até 12x (com taxa da operadora), Pix ou dinheiro à vista.',
   },
@@ -183,6 +186,42 @@ export const FAQ = [
   {
     p: 'Atendem qual região?',
     r: 'São Paulo e região metropolitana. Mande o CEP no WhatsApp que confirmamos na hora.',
+  },
+];
+
+// FAQ da /casa-inteligente: duvida de quem ainda escolhe o aparelho. As
+// respostas saem do que o site ja afirma (MODELOS, PLANOS e as ofertas), para
+// nao inventar especificacao que a pagina nao sustenta.
+export const FAQ_MODELOS = [
+  {
+    p: 'Biometria, senha ou app: qual vale mais a pena?',
+    r: 'Depende de quem usa a porta. Senha resolve para a maioria e é o que sai mais em conta — dá para passar o código a um visitante sem entregar chave. Biometria é a mais rápida no dia a dia e a melhor para criança e idoso, que não precisam lembrar de nada. O app vale quando você precisa abrir ou liberar alguém estando fora de casa. Não é escolha excludente: os modelos mais completos aceitam digital, senha, tag, app e chave na mesma porta.',
+  },
+  {
+    p: 'Fechadura digital funciona em porta de vidro?',
+    r: 'Funciona, mas pede modelo próprio. Porta de vidro temperado não pode ser furada, então a fechadura tem de se fixar na ferragem existente ou substituí-la — e isso muda o modelo indicado e o tempo de instalação. Mande uma foto da porta e do perfil pelo WhatsApp que dizemos qual serve antes de qualquer visita.',
+  },
+  {
+    p: 'Qual a diferença entre fechadura de sobrepor e de embutir?',
+    r: 'A de sobrepor instala acima da maçaneta, sem modificar a porta — é a recomendação para apartamento e para quem mora de aluguel, porque sai sem deixar marca relevante. A de embutir substitui a fechadura atual e exige fresagem na porta: acabamento melhor e mais recursos, mas só em porta que tenha espessura e material para isso, como pivotante e madeira maciça.',
+  },
+  {
+    p: 'E se acabar a pilha ou faltar luz?',
+    r: 'Você não fica do lado de fora. Os modelos funcionam com pilhas — no de entrada, quatro AA com autonomia de até um ano — e avisam da bateria fraca com semanas de antecedência. Mesmo se a pilha acabar, há saída de emergência por chave ou por alimentação externa com bateria 9V. Falta de luz não afeta: a fechadura não depende da rede elétrica.',
+  },
+  {
+    p: 'Precisa de Wi-Fi para funcionar?',
+    r: 'Não. Há modelos stand alone, que funcionam sem Wi-Fi nenhum — abrem por digital, senha ou tag, sem depender de internet. O Wi-Fi só entra se você quiser abrir pelo aplicativo ou liberar alguém à distância; nesse caso, basta o sinal da sua rede chegar até a entrada.',
+  },
+  {
+    p: 'Por que escolher uma EZVIZ?',
+    r: 'Porque nela a garantia dobra. A MSIFORCE é representante autorizado EZVIZ: a fechadura EZVIZ comprada e instalada com a gente sai com 2 anos de garantia, no lugar do 1 ano de fábrica, sem custo a mais. Nas outras marcas vale a garantia do próprio fabricante, que também continua intacta quando quem instala é técnico certificado.',
+  },
+  {
+    // PAA: "Qual a desvantagem da fechadura digital?" — estava no FAQ de
+    // instalacao ate 18/09/2026, mas e duvida de quem ainda decide se compra.
+    p: 'Qual a desvantagem da fechadura digital?',
+    r: 'São três, com honestidade: depende de pilha (o aviso de bateria fraca aparece com semanas de antecedência, e os modelos têm saída de emergência por chave ou alimentação externa); custa mais caro que uma fechadura comum na hora da compra; e exige cadastrar quem entra. Em troca, você para de trocar o segredo toda vez que uma chave se perde.',
   },
 ];
 

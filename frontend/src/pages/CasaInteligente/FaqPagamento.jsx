@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FAQ } from './dados';
+import { FAQ_MODELOS } from './dados';
 
 const FaqPagamento = () => (
   <section className="faq-secao">
@@ -17,7 +17,7 @@ const FaqPagamento = () => (
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6 }}
     >
-      {FAQ.map((item) => (
+      {FAQ_MODELOS.map((item) => (
         <details className="faq-item" key={item.p}>
           <summary>{item.p}</summary>
           <p>{item.r}</p>
