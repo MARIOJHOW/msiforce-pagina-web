@@ -2,7 +2,7 @@
 //
 // Fonte: artes da campanha em "Documents/doc empresa/campanha fechadura"
 // (24/08 a 02/09/2026). Preço aqui é o do PACOTE (fechadura + instalação), que
-// é diferente do "a partir de R$ 200" de dados.js da /casa-inteligente — aquele
+// é diferente do "a partir de R$ 249" de dados.js da /casa-inteligente — aquele
 // é só mão de obra, para quem já tem a fechadura. A página mostra os dois,
 // rotulados. Mudou a promoção? Muda aqui e regera a arte, não o contrário.
 //
@@ -29,7 +29,7 @@ export const OFERTAS = [
     // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
     // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação a partir de R$ 200',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Instalação inclusa até 10 km; acima disso, deslocamento à parte.',
   },
   {
@@ -54,7 +54,7 @@ export const OFERTAS = [
     // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
     // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação a partir de R$ 200',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -76,7 +76,7 @@ export const OFERTAS = [
     // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
     // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação a partir de R$ 200',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -98,7 +98,7 @@ export const OFERTAS = [
     // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
     // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação a partir de R$ 200',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
 ];

@@ -31,7 +31,7 @@ export const PORTAS_DATA = {
     slug: 'porta-de-vidro',
     title: 'Fechadura Digital para Porta de Vidro',
     headline: 'Fechadura digital em porta de vidro:\nnão se fura, é colada.',
-    sub: 'Instalação de fechadura digital em porta de vidro temperado em São Paulo. Como o vidro não pode ser furado, a fechadura é colada — o que muda o modelo indicado e o tempo de serviço. Mão de obra a partir de R$ 200.',
+    sub: 'Instalação de fechadura digital em porta de vidro temperado em São Paulo. Como o vidro não pode ser furado, a fechadura é colada — o que muda o modelo indicado e o tempo de serviço. Mão de obra a partir de R$ 249.',
     heroImg: null,
     msg: msgPorta('de vidro temperado'),
     beneficios: [
@@ -69,7 +69,7 @@ export const PORTAS_DATA = {
     slug: 'porta-de-apartamento',
     title: 'Fechadura Digital para Porta de Apartamento',
     headline: 'Fechadura digital em porta de apartamento:\nsobrepor, sem marca na porta.',
-    sub: 'Instalação de fechadura digital em porta de apartamento em São Paulo. O modelo de sobrepor instala acima da maçaneta, não modifica a porta e serve para imóvel alugado. Mão de obra a partir de R$ 200, em menos de 1 hora.',
+    sub: 'Instalação de fechadura digital em porta de apartamento em São Paulo. O modelo de sobrepor instala acima da maçaneta, não modifica a porta e serve para imóvel alugado. Mão de obra a partir de R$ 249, em menos de 1 hora.',
     heroImg: '/fechadura_inter_3d.webp',
     msg: msgPorta('a porta padrão de apartamento'),
     beneficios: [

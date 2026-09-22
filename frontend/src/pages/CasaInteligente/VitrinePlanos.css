@@ -39,7 +39,7 @@
 .plano-resumo { color: #9a9a9a; font-size: 13px; line-height: 1.5; margin: 0 0 16px; min-height: 39px; }
 
 /* O bloco de preco saiu do card -- o valor agora aparece so uma vez, no
-   "a partir de R$ 200" do topo. As bordas dele separavam o resumo da lista,
+   "a partir de R$ 249" do topo. As bordas dele separavam o resumo da lista,
    entao o filete passa para a propria lista. */
 .plano-inclui {
   list-style: none; padding: 14px 0 0; margin: 0 0 16px;

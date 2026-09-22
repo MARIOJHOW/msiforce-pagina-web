@@ -6,7 +6,7 @@ export const PLANOS = [
   {
     id: 'essencial',
     nome: 'Essencial',
-    apartirde: 200,
+    apartirde: 249,
     resumo: 'Parar de andar com chave gastando o mínimo.',
     porta: 'Sobrepor, em porta de madeira comum',
     portaFiltro: ['apartamento'],
@@ -20,7 +20,7 @@ export const PLANOS = [
   {
     id: 'design',
     nome: 'Design',
-    apartirde: 250,
+    apartirde: 299,
     resumo: 'Para quem se importa com a estética da entrada da casa.',
     porta: 'Embutir, em madeira ou pivotante leve',
     portaFiltro: ['pivotante'],
