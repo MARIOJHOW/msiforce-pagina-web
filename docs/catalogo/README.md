@@ -51,9 +51,16 @@ aí ele entra como serviço personalizado.
 17 itens: 5 de fechadura (Chaveiro), 8 de elétrica (Eletricista, a categoria principal, hoje vazia no
 perfil) e 4 de eletrônica/segurança (Engenheiro eletrônico, também vazia).
 
-**Pendência conhecida:** `fechadura-porta-vidro` está sem foto. Ele entra em Serviços no Google
-(que não pede imagem), mas **fica de fora do WhatsApp** até existir foto de um serviço real em porta
-de vidro — a mesma pendência que já estava na lista do dono.
+**Pendência conhecida:** `fechadura-porta-vidro` está **sem preço e sem foto**.
+
+O preço ficou em `sob consulta`: o dono não definiu o valor até 22/09/2026, e os R$ 700 do plano
+Premium não servem como substituto — aquele plano cobre multiponto, blindada e pivotante grande
+além do vidro. A página `/fechaduras/porta-de-vidro` deixou de mostrar número: ela agora diz que o
+valor é fechado depois da foto, que é o que o próprio passo "Definição do modelo" já prometia.
+
+A foto continua faltando. O item entra em Serviços no Google (que não pede imagem), mas **fica de
+fora do WhatsApp** até existir foto de um serviço real em porta de vidro — a mesma pendência que já
+estava na lista do dono.
 
 ## Histórico — o que este arquivo veio resolver
 

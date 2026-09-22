@@ -31,7 +31,7 @@ export const PORTAS_DATA = {
     slug: 'porta-de-vidro',
     title: 'Fechadura Digital para Porta de Vidro',
     headline: 'Fechadura digital em porta de vidro:\nnão se fura, é colada.',
-    sub: 'Instalação de fechadura digital em porta de vidro temperado em São Paulo. Como o vidro não pode ser furado, a fechadura é colada — o que muda o modelo indicado e o tempo de serviço. Mão de obra a partir de R$ 249.',
+    sub: 'Instalação de fechadura digital em porta de vidro temperado em São Paulo. Como o vidro não pode ser furado, a fechadura é colada — o que muda o modelo indicado e o tempo de serviço. O valor da mão de obra é fechado depois da foto da porta, antes da visita.',
     heroImg: null,
     msg: msgPorta('de vidro temperado'),
     beneficios: [
