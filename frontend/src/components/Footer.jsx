@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { linkWhatsApp } from '../lib/whatsapp';
 import './Footer.css';
 
-const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria gratuita.';
+const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
 
 const Footer = () => {
   // Montado no render, não em constante de módulo: o marcador de origem de Ads

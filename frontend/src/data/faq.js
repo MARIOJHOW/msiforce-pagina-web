@@ -8,7 +8,7 @@ export const FAQS = [
   },
   {
     q: 'Como funciona o processo de orçamento para empresas?',
-    a: 'Agendamos uma visita técnica gratuita para diagnóstico. O projeto e orçamento detalhado são entregues em até 3 dias úteis, com escopo e cronograma definidos.',
+    a: 'Primeiro avaliamos pelas fotos no WhatsApp, sem custo. Quando é preciso ir ao local, a visita técnica custa R$ 250 e é descontada se você aprovar o serviço. O projeto e orçamento detalhado são entregues em até 3 dias úteis, com escopo e cronograma definidos.',
   },
   {
     q: 'A MSIFORCE atende múltiplas unidades ou filiais?',

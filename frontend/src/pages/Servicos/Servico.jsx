@@ -81,7 +81,7 @@ export default function Servico({
             className="svc-cta"
             onClick={() => trackCTA(`svc_${slug}_hero`, 'whatsapp')}
           >
-            Solicitar Consultoria Gratuita
+            Solicitar Orçamento
           </motion.a>
         </motion.div>
       </section>
@@ -199,7 +199,7 @@ export default function Servico({
             Pronto para implementar<br />
             <span className="svc-cta-gold">{title}</span> na sua empresa?
           </h2>
-          <p className="svc-cta-sub">Diagnóstico gratuito, sem compromisso. Resposta em até 1 hora.</p>
+          <p className="svc-cta-sub">Orçamento pela foto, sem custo e sem compromisso. Resposta em até 1 hora.</p>
           <a
             href={waLink}
             target="_blank"

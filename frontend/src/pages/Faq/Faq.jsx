@@ -123,7 +123,7 @@ export default function Faq() {
           <h2>Ficou alguma dúvida?</h2>
           <p>
             Mande sua pergunta no WhatsApp. Respondemos em horário comercial, e o
-            diagnóstico técnico é gratuito.
+            orçamento pela foto é sem custo.
           </p>
           <div className="faqp-fechamento-acoes">
             <a

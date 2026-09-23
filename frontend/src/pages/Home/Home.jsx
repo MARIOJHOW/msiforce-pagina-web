@@ -17,7 +17,7 @@ import {
 } from './icones';
 import './Home.css';
 
-const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria gratuita.';
+const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
 
 // As paginas residenciais so eram alcancaveis pelo menu. Aqui elas ganham link
 // no corpo da home, com o texto da busca real como ancora.
@@ -145,12 +145,12 @@ const DIFERENCIAIS = [
   {
     Ico: IcoRegua,
     title: 'Projetos Sob Medida',
-    desc: 'Nenhuma empresa é igual. Cada projeto começa com um diagnóstico gratuito para entender sua operação e orçar com precisão.',
+    desc: 'Nenhuma empresa é igual. Cada projeto começa com um diagnóstico para entender sua operação e orçar com precisão.',
   },
 ];
 
 const PROCESSO = [
-  { num: '01', title: 'Diagnóstico', desc: 'Visita técnica gratuita para mapear suas necessidades e entender o ambiente operacional.' },
+  { num: '01', title: 'Diagnóstico', desc: 'Fotos pelo WhatsApp ou visita técnica (descontada se você aprovar) para mapear suas necessidades e entender o ambiente operacional.' },
   { num: '02', title: 'Projeto', desc: 'Proposta técnica detalhada com escopo, cronograma e orçamento. Entrega em até 3 dias úteis.' },
   { num: '03', title: 'Execução', desc: 'Instalação com equipe técnica própria, dentro do prazo e do orçamento acordado.' },
   { num: '04', title: 'Suporte', desc: 'Manutenção preventiva, suporte remoto e atendimento presencial com SLA definido em contrato.' },
@@ -603,7 +603,7 @@ export default function Home() {
             <span className="h-cta-gold">do futuro da sua empresa.</span>
           </h2>
           <p className="h-cta-sub">
-            Diagnóstico gratuito, sem compromisso. Resposta em até 1 hora nos dias úteis.
+            Orçamento pela foto, sem custo e sem compromisso. Resposta em até 1 hora nos dias úteis.
           </p>
           <div className="h-cta-btns">
             <a href={WA_LINK} target="_blank" rel="noreferrer" className="h-btn h-btn--gold" onClick={() => trackCTA('cta_final_whatsapp', 'whatsapp')}>
