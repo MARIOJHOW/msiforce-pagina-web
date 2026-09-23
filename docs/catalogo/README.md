@@ -76,6 +76,34 @@ A foto continua faltando. O item entra em Serviços no Google (que não pede ima
 fora do WhatsApp** até existir foto de um serviço real em porta de vidro — a mesma pendência que já
 estava na lista do dono.
 
+## Artes a refazer — 5 imagens (22/09/2026)
+
+As fotos dos 4 Produtos do Google são **artes de campanha com o preço impresso na imagem**, de
+campanhas encerradas. Com os preços em 249/299, cada uma anuncia um número que não existe mais. O
+dono vai refazê-las.
+
+| # | Produto no Google | Preço impresso na arte | Preço publicado hoje |
+|---|---|---|---|
+| 1 | Fechadura Digital · Modelo Essencial | **R$ 499,00** + selo "PROMOÇÃO" (campanha 24/08–02/09) | R$ 249 |
+| 2 | Fechadura Digital · Modelo Intermediário | **R$ 650,00** "instalada" | R$ 249 |
+| 3 | Fechadura Digital · Modelo Design | **R$ 900,00** | R$ 299 |
+| 4 | Fechadura Digital · Modelo Premium | **R$ 800,00** | R$ 299 |
+| 5 | `fechadura-porta-vidro` (CSV) | — **não existe foto nenhuma** | sob consulta |
+
+**Especificação:** JPG ou PNG, 720×720 px (mínimo 250×250), 10 KB a 5 MB.
+
+**Regra que evita repetir o problema:** a arte **não leva preço, nem "a partir de", nem selo de
+promoção ou validade**. Preço vive no campo do Google, que se corrige em segundos; impresso na
+imagem, ele vira mentira no dia em que muda — que é exatamente o que aconteceu aqui. A imagem mostra
+o serviço ou o equipamento, não um banner de campanha.
+
+> A #5 é a que mais trava: sem ela, `fechadura-porta-vidro` fica fora do WhatsApp, que exige imagem
+> em todo item. E ela precisa ser **foto de um serviço real em porta de vidro**, não render.
+
+**Quem sobe:** o dono. O editor de Produtos do GBP roda em iframe, e o seletor de arquivo é um
+diálogo nativo do sistema — fora do alcance da automação. Remover a arte sem pôr outra não é opção:
+o Google recusa publicar produto sem foto ("Adicione uma foto do produto"), testado em 22/09/2026.
+
 ## Histórico — o que este arquivo veio resolver
 
 Inventário do perfil do Google em 21/09/2026 encontrou **três preços diferentes no ar ao mesmo tempo**
