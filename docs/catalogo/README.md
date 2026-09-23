@@ -105,6 +105,23 @@ categoria principal) e 4 de eletrônica/segurança (Engenheiro eletrônico).
   no WhatsApp. A página `/fechaduras/porta-de-vidro` **continua no ar e indexada**, sem número,
   mandando para o WhatsApp — vidro segue sob consulta, como a régua diz.
 
+## Preços no Google — estado em 23/09/2026
+
+**Serviços** (mão de obra, "a partir de"):
+
+| Categoria | Serviço | Preço | Nota |
+|---|---|---|---|
+| Chaveiro(a) | Instalação de fechadura eletrônica | **R$ 249** | era 226; descrição perdeu "ou vidro" |
+| Chaveiro(a) | `fechadura inteligente` (avulso) | **R$ 249** | era 226 |
+| Chaveiro(a) | `fechadura digital` (avulso) | — | sem preço, duplicata |
+| Empresa de automação de casas | `fechadura digital` (avulso) | **R$ 400** | era 226; é o plano Conectado |
+| Eletricista | ~25 serviços prontos | — | categoria principal, **toda vazia** |
+
+**Produtos:** os 4 antigos ainda estão no ar com os preços já corrigidos (249, 249, 299, 299) e as
+artes velhas. Eles saem quando os 5 produtos novos subirem.
+
+Não sobrou nenhum R$ 226 publicado.
+
 ## As artes e quem sobe
 
 As 5 artes estão neste diretório, renomeadas para kebab-case (os originais chegaram como
@@ -146,10 +163,11 @@ republicar o número velho.
 
 ## Em aberto
 
-1. **Um serviço do Google ainda está em R$ 226.** É o serviço avulso `fechadura digital`, na
-   categoria *Empresa de automação de casas*, descrito como projeto de automação com fechadura
-   integrada a iluminação, climatização e voz. Pela régua ele é o plano **Conectado, R$ 400** — mas
-   o dono não confirmou, então ficou como estava. É o último 226 no ar.
+1. **Serviços duplicados na categoria Chaveiro.** Três linhas vendem a mesma instalação de
+   fechadura: `Instalação de fechadura eletrônica` (R$ 249), o serviço avulso `fechadura inteligente`
+   (R$ 249, corrigido de 226 em 23/09/2026) e `fechadura digital`, que está **sem preço nenhum**.
+   Os preços não brigam mais, mas o cliente vê o mesmo serviço três vezes. Apagar as duas avulsas é
+   decisão do dono — não mexi.
 2. **Três linhas de fechadura na tabela** com descrições que se sobrepõem: linha 54 (portão social,
    R$ 151), linha 111 (fechadura inteligente, R$ 226) e linha 53 (fechadura digital sem alvenaria,
    R$ 350). Vale o dono confirmar o que separa uma da outra.
