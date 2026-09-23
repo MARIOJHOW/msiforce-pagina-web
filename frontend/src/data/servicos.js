@@ -19,7 +19,7 @@ export const SERVICOS_DATA = {
       'Hospitais e clínicas veterinárias', 'Academias e estúdios',
     ],
     processo: [
-      { titulo: 'Visita técnica', desc: 'Levantamento da instalação existente, pontos de risco e necessidades de expansão. R$ 250, descontados se você aprovar o serviço.' },
+      { titulo: 'Visita técnica', desc: 'Levantamento gratuito para orçamento: instalação existente, pontos de risco e necessidades de expansão.' },
       { titulo: 'Projeto e orçamento', desc: 'Projeto elétrico detalhado com memorial descritivo, lista de materiais e cronograma. Entrega em até 3 dias úteis.' },
       { titulo: 'Execução', desc: 'Instalação com equipe técnica própria, usando materiais de primeira linha e respeitando a ABNT NBR 5410.' },
       { titulo: 'Documentação e ART', desc: 'Entrega de laudo técnico, ART, esquema unifilar e manual de operação do sistema.' },
@@ -66,7 +66,7 @@ export const SERVICOS_DATA = {
       { q: 'Qual a diferença entre câmeras analógicas e IP?', a: 'Câmeras IP oferecem resolução muito superior (até 4K), transmissão via rede, analytics de vídeo inteligente e integração com sistemas de controle de acesso. Câmeras analógicas são tecnologia legada com qualidade inferior.' },
       { q: 'As gravações ficam seguras contra furto do DVR?', a: 'Sim. Oferecemos armazenamento em nuvem como alternativa ou complemento ao DVR local. Mesmo que o equipamento físico seja furtado, as gravações ficam preservadas na nuvem.' },
       { q: 'É possível integrar o CFTV com o controle de acesso?', a: 'Sim. Integramos câmeras com catracas, portões, interfones e sistemas de controle de acesso para um gerenciamento unificado de segurança.' },
-      { q: 'Quantas câmeras preciso para minha empresa?', a: 'Depende da planta e dos pontos de risco. Na visita técnica mapeamos todos os ângulos necessários e apresentamos a solução ideal sem excessos.' },
+      { q: 'Quantas câmeras preciso para minha empresa?', a: 'Depende da planta e dos pontos de risco. Na visita de orçamento, sem custo, mapeamos todos os ângulos necessários e apresentamos a solução ideal sem excessos.' },
     ],
     related: [
       { slug: 'eletrica', name: 'Projetos Elétricos', icon: '⚡' },

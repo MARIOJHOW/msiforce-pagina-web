@@ -74,18 +74,18 @@ export default function FormDiagnostico() {
     <section className="form-section" id="form-diagnostico">
       <div className="form-inner">
         <div className="form-left">
-          <div className="form-eyebrow">Orçamento pela foto</div>
+          <div className="form-eyebrow">Orçamento gratuito</div>
           <h2 className="form-title">
             Solicite uma consultoria<br />
             <span className="form-title-gold">sem compromisso.</span>
           </h2>
           <p className="form-desc">
             Preencha o formulário e entraremos em contato em até 1 hora nos dias úteis.
-            O orçamento pela foto é sem custo e sem obrigação. Se precisar de visita técnica, ela custa R$ 250 e é descontada se você aprovar o serviço.
+            O orçamento é gratuito e sem obrigação de contratação. Visita emergencial e análise de defeito são cobradas, com o valor informado antes de agendar.
           </p>
           <ul className="form-promises">
             <li><span className="form-check">✓</span> Resposta em até 1 hora nos dias úteis</li>
-            <li><span className="form-check">✓</span> Visita técnica descontada se você aprovar</li>
+            <li><span className="form-check">✓</span> Orçamento sem custo</li>
             <li><span className="form-check">✓</span> Orçamento em até 3 dias úteis</li>
             <li><span className="form-check">✓</span> Sem pressão de vendas</li>
           </ul>
@@ -220,7 +220,7 @@ export default function FormDiagnostico() {
                 </div>
 
                 <button type="submit" className="form-submit">
-                  Solicitar Orçamento →
+                  Solicitar Orçamento Gratuito →
                 </button>
                 <p className="form-privacy">
                   Seus dados são usados somente para contato e não são compartilhados com terceiros.

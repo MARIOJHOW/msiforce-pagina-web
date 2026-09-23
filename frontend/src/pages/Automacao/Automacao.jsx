@@ -312,7 +312,7 @@ export default function Automacao() {
       <section id="cta-final">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
           <h2>Sua casa. <span>Suas regras.</span></h2>
-          <p>Mande fotos do seu imóvel pelo WhatsApp e agende uma consultoria. Vamos desenhar o projeto perfeito para elevar o padrão da sua residência sem dores de cabeça.</p>
+          <p>Agende uma visita de orçamento gratuita. Vamos desenhar o projeto perfeito para elevar o padrão da sua residência sem dores de cabeça.</p>
           <WhatsAppButton message={MSG_AUTOMACAO_PROJETO} className="btn-primary">
             Iniciar Meu Projeto
           </WhatsAppButton>

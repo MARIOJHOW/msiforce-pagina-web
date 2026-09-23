@@ -116,7 +116,7 @@ export default function Blog() {
           <h2 className="blog-cta-title">Fale diretamente com um especialista.</h2>
           <p className="blog-cta-sub">
             Nossos artigos dão o panorama geral — mas cada empresa tem uma necessidade específica.
-            Orçamento pela foto, sem custo e sem compromisso.
+            Orçamento gratuito, sem compromisso.
           </p>
           <a
             href={linkWhatsApp('Olá, li um artigo no blog da MSIFORCE e gostaria de conversar com um especialista.')}
