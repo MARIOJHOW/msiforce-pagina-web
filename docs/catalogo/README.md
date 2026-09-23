@@ -111,11 +111,22 @@ categoria principal) e 4 de eletrônica/segurança (Engenheiro eletrônico).
 
 | Categoria | Serviço | Preço | Nota |
 |---|---|---|---|
-| Chaveiro(a) | Instalação de fechadura eletrônica | **R$ 249** | era 226; descrição perdeu "ou vidro" |
-| Chaveiro(a) | `fechadura inteligente` (avulso) | **R$ 249** | era 226 |
-| Chaveiro(a) | `fechadura digital` (avulso) | — | sem preço, duplicata |
+| Chaveiro(a) | Instalação de fechadura eletrônica | **R$ 249** | a descrição abre dizendo que é **mão de obra**, com a fechadura cotada à parte |
 | Empresa de automação de casas | `fechadura digital` (avulso) | **R$ 400** | era 226; é o plano Conectado |
+| Empresa de automação de casas | `fechadura inteligente` (avulso) | — | sem preço |
 | Eletricista | ~25 serviços prontos | — | categoria principal, **toda vazia** |
+
+As duas avulsas que duplicavam a instalação de fechadura dentro do Chaveiro
+(`fechadura inteligente`, R$ 249, e `fechadura digital`, sem preço nem descrição) foram **apagadas
+em 23/09/2026**, a pedido do dono. O diálogo do Google avisa que a exclusão remove o serviço "de
+todas as categorias", mas na prática ela foi pontual: a `fechadura digital` de R$ 400 da categoria
+de automação continuou intacta — conferido depois de cada exclusão.
+
+O próprio dono apagou em seguida a `Instalação de fechadura eletrônica`, e ela foi **recriada no
+mesmo dia** com preço "A partir de R$ 249" e uma descrição que agora começa por onde importa:
+*"Valor de mão de obra, a partir de — a fechadura é cotada à parte, conforme o modelo escolhido."*
+É a linha que impede o cliente de ler os 249 como preço de fechadura, agora que os produtos ao lado
+custam de 499 a 850.
 
 **Produtos:** os 4 antigos ainda estão no ar com os preços já corrigidos (249, 249, 299, 299) e as
 artes velhas. Eles saem quando os 5 produtos novos subirem.
@@ -163,11 +174,8 @@ republicar o número velho.
 
 ## Em aberto
 
-1. **Serviços duplicados na categoria Chaveiro.** Três linhas vendem a mesma instalação de
-   fechadura: `Instalação de fechadura eletrônica` (R$ 249), o serviço avulso `fechadura inteligente`
-   (R$ 249, corrigido de 226 em 23/09/2026) e `fechadura digital`, que está **sem preço nenhum**.
-   Os preços não brigam mais, mas o cliente vê o mesmo serviço três vezes. Apagar as duas avulsas é
-   decisão do dono — não mexi.
+1. **`fechadura inteligente` na categoria de automação está sem preço.** Sobrou dessa faxina; é a
+   última linha de fechadura no Google sem valor. Ou ganha preço, ou some — não mexi.
 2. **Três linhas de fechadura na tabela** com descrições que se sobrepõem: linha 54 (portão social,
    R$ 151), linha 111 (fechadura inteligente, R$ 226) e linha 53 (fechadura digital sem alvenaria,
    R$ 350). Vale o dono confirmar o que separa uma da outra.
