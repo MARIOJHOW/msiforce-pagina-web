@@ -2,11 +2,17 @@
 
 `itens.csv` é a **única** origem dos itens publicados no catálogo da MSIFORCE em dois canais:
 
-| Canal | Superfície | Usa quais campos |
-|---|---|---|
-| Google Business Profile | **Serviços** | `nome`, `categoria_gbp`, `servico_gbp`, `preco`, `preco_rotulo`, `descricao` |
-| Google Business Profile | **Produtos** | idem + `foto` e `link` |
-| WhatsApp Business | **Catálogo** | `nome`, `preco`, `descricao`, `foto` (obrigatória), `link`, `colecao_wa` |
+A coluna **`tipo`** decide onde cada linha é publicada, e as duas metades vendem coisas diferentes:
+
+| `tipo` | Canal e superfície | O que o preço significa | Usa quais campos |
+|---|---|---|---|
+| `servico` | Google **Serviços** | **mão de obra**, para quem já tem a fechadura — sempre "a partir de" | `nome`, `categoria_gbp`, `servico_gbp`, `preco`, `preco_rotulo`, `descricao` |
+| `produto` | Google **Produtos** | **fechadura + instalação**, preço fechado da arte de campanha | idem + `foto` e `link` |
+| ambos | WhatsApp **Catálogo** | conforme a linha | `nome`, `preco`, `descricao`, `foto` (obrigatória), `link`, `colecao_wa` |
+
+Essa separação é o que impede a confusão que o catálogo veio consertar: R$ 249 é o que custa **o
+serviço**; R$ 499 a R$ 850 é o que custa **a fechadura já instalada**. Misturar os dois faz o cliente
+ler um pelo outro.
 
 Mudou preço ou texto? Muda **aqui** e republica nos canais. O contrário — editar direto no Google ou
 no app e deixar este arquivo para trás — é exatamente o que produziu a bagunça que este catálogo veio
@@ -29,8 +35,10 @@ ou WhatsApp). Nos três o serviço varia demais para ter piso honesto: vidro tem
 e o modelo depende do perfil e da ferragem, ferro pede fixação e ferramenta próprias, e área externa
 ainda depende da exposição a chuva e sol.
 
-Na prática: a régua da `/casa-inteligente` ganhou um card **Sob consulta** sem número, e a linha
-`fechadura-porta-vidro` do CSV está com `preco` vazio e `preco_rotulo` = `sob consulta`.
+Na prática: a régua da `/casa-inteligente` ganhou um card **Sob consulta** sem número, e a página
+`/fechaduras/porta-de-vidro` deixou de mostrar valor — ela diz que o preço é fechado depois da foto
+da porta. O item de vidro **não existe mais no CSV**: sem preço e sem foto, ele travava o lote no
+WhatsApp sem entregar nada (ver *O que saiu*).
 
 > Isso passa por cima da linha 54 da tabela (`INSTALAÇÃO DE FECHADURA ELETRÔNICA (PORTÃO SOCIAL)`,
 > R$ 151). Se um item de portão for criado no catálogo, ele nasce sob consulta, não com os 151.
@@ -54,55 +62,61 @@ dizem "equipamento cotado à parte" — isso é deliberado, não é lacuna a pre
 | Campo | Limite adotado | Por quê |
 |---|---|---|
 | `descricao` | **300 caracteres** | é o teto do Google; escrevendo para ele, o texto serve os dois canais sem ter duas versões |
-| `foto` | WebP do repo | o WhatsApp **exige** imagem em todo item; o Google Produtos usa, o Google Serviços não aceita |
+| `nome` | **58 caracteres** | é o teto do campo de nome do Produto no GBP |
+| `foto` | arquivo do repo | o WhatsApp **exige** imagem em todo item; o Google Produtos usa (e **recusa publicar sem ela**), o Google Serviços não aceita |
 | `preco` | número puro, sem `R$` | cada canal formata do seu jeito |
 
 `servico_gbp` vazio significa que o Google **não** tem um serviço pronto com esse nome na categoria —
 aí ele entra como serviço personalizado.
 
-## Estado do primeiro lote
+## Estado do catálogo
 
-17 itens: 5 de fechadura (Chaveiro), 8 de elétrica (Eletricista, a categoria principal, hoje vazia no
-perfil) e 4 de eletrônica/segurança (Engenheiro eletrônico, também vazia).
+**21 itens: 5 produtos e 16 serviços.**
 
-**Pendência conhecida:** `fechadura-porta-vidro` está **sem preço e sem foto**.
+Os **5 produtos** são as fechaduras com instalação inclusa, cada um com a arte de campanha
+correspondente neste diretório. Preço fechado, lido da própria arte — não sai da Tabela 2026:
 
-O preço ficou em `sob consulta`: o dono não definiu o valor até 22/09/2026, e os R$ 700 do plano
-Premium não servem como substituto — aquele plano cobre multiponto, blindada e pivotante grande
-além do vidro. A página `/fechaduras/porta-de-vidro` deixou de mostrar número: ela agora diz que o
-valor é fechado depois da foto, que é o que o próprio passo "Definição do modelo" já prometia.
-
-A foto continua faltando. O item entra em Serviços no Google (que não pede imagem), mas **fica de
-fora do WhatsApp** até existir foto de um serviço real em porta de vidro — a mesma pendência que já
-estava na lista do dono.
-
-## Artes a refazer — 5 imagens (22/09/2026)
-
-As fotos dos 4 Produtos do Google são **artes de campanha com o preço impresso na imagem**, de
-campanhas encerradas. Com os preços em 249/299, cada uma anuncia um número que não existe mais. O
-dono vai refazê-las.
-
-| # | Produto no Google | Preço impresso na arte | Preço publicado hoje |
+| Produto | Tipo | Preço | Arte |
 |---|---|---|---|
-| 1 | Fechadura Digital · Modelo Essencial | **R$ 499,00** + selo "PROMOÇÃO" (campanha 24/08–02/09) | R$ 249 |
-| 2 | Fechadura Digital · Modelo Intermediário | **R$ 650,00** "instalada" | R$ 249 |
-| 3 | Fechadura Digital · Modelo Design | **R$ 900,00** | R$ 299 |
-| 4 | Fechadura Digital · Modelo Premium | **R$ 800,00** | R$ 299 |
-| 5 | `fechadura-porta-vidro` (CSV) | — **não existe foto nenhuma** | sob consulta |
+| Intelbras **FR 101** | sobrepor | **R$ 499** (promocional) | `arte-intelbras-fr101-sobrepor.png` |
+| Papaiz **SL140 B** (Fit Lock) | sobrepor | **R$ 700** | `arte-papaiz-sl140b-sobrepor.jpeg` |
+| Intelbras **MFD2020 D** | sobrepor | **R$ 750** | `arte-intelbras-mfd2020d-sobrepor.png` |
+| Papaiz **Fit Lock** | embutir | **R$ 800** | `arte-papaiz-fitlock-embutir.jpeg` |
+| Intelbras **MFR 3000 V** | embutir | **R$ 850** | `arte-intelbras-mfr3000v-embutir.png` |
 
-**Especificação:** JPG ou PNG, 720×720 px (mínimo 250×250), 10 KB a 5 MB.
+> ⚠️ **O R$ 499 é promocional e tem letra miúda na própria arte:** vale para porta de 25 a 50 mm de
+> espessura e está sujeito às condições de instalação e ao deslocamento. É também o mesmo valor da
+> campanha que o histórico registra como encerrada em 02/09/2026. Antes de publicar, confirme que a
+> promoção continua de pé — senão essa arte recria o problema que as outras vieram resolver.
+>
+> O R$ 850 do MFR 3000 V **é com instalação** (confirmado pelo dono em 23/09/2026). A arte é a única
+> que não escreve "instalada", então a descrição diz isso com todas as letras.
 
-**Regra que evita repetir o problema:** a arte **não leva preço, nem "a partir de", nem selo de
-promoção ou validade**. Preço vive no campo do Google, que se corrige em segundos; impresso na
-imagem, ele vira mentira no dia em que muda — que é exatamente o que aconteceu aqui. A imagem mostra
-o serviço ou o equipamento, não um banner de campanha.
+Os **16 serviços** são mão de obra: 4 de fechadura (Chaveiro), 8 de elétrica (Eletricista, a
+categoria principal) e 4 de eletrônica/segurança (Engenheiro eletrônico).
 
-> A #5 é a que mais trava: sem ela, `fechadura-porta-vidro` fica fora do WhatsApp, que exige imagem
-> em todo item. E ela precisa ser **foto de um serviço real em porta de vidro**, não render.
+### O que saiu em 22–23/09/2026
 
-**Quem sobe:** o dono. O editor de Produtos do GBP roda em iframe, e o seletor de arquivo é um
-diálogo nativo do sistema — fora do alcance da automação. Remover a arte sem pôr outra não é opção:
-o Google recusa publicar produto sem foto ("Adicione uma foto do produto"), testado em 22/09/2026.
+- **As 4 faixas do Google** — "Modelo Essencial", "Intermediário", "Design" e "Premium" — saem. Elas
+  nomeavam equipamento por faixa inventada, e as fotos eram artes com preço impresso de campanhas
+  encerradas (R$ 499, 650, 900 e 800) brigando com o preço do campo. No lugar entram os 5 produtos
+  acima, nomeados pelo **modelo real**, que é o que o cliente procura e o que a arte mostra.
+- **`fechadura-porta-vidro`** sai do catálogo: estava sem preço e sem foto, e travava o lote inteiro
+  no WhatsApp. A página `/fechaduras/porta-de-vidro` **continua no ar e indexada**, sem número,
+  mandando para o WhatsApp — vidro segue sob consulta, como a régua diz.
+
+## As artes e quem sobe
+
+As 5 artes estão neste diretório, renomeadas para kebab-case (os originais chegaram como
+`intelbras sobrepor.png`, `papaiz embutir.jpeg` e afins). Elas trazem preço impresso — o que aqui é
+aceitável, porque o preço do produto é **fechado**, não "a partir de", e a arte e o campo dizem o
+mesmo número. A regra segue valendo para arte de serviço: **mão de obra não leva preço impresso**,
+porque o piso muda e a imagem não acompanha.
+
+**A subida no Google é manual, feita pelo dono.** O editor de Produtos do GBP roda em iframe e o
+"Selecionar uma foto" abre um diálogo nativo do sistema — fora do alcance da automação. E remover a
+arte sem pôr outra não é saída: o Google recusa publicar produto sem foto ("Adicione uma foto do
+produto"), testado em 22/09/2026.
 
 ## Histórico — o que este arquivo veio resolver
 
@@ -132,10 +146,10 @@ republicar o número velho.
 
 ## Em aberto
 
-1. **A régua de planos da `/casa-inteligente` ficou torta.** Os quatro planos são Essencial, Design,
-   Conectado e Premium, e o piso subiu de R$ 200 para R$ 249 — mas o Design continua em **R$ 250**.
-   Um real de diferença entre dois planos lê-se como erro. O Design precisa de um valor novo, e essa
-   é decisão de preço, não de código.
+1. **Um serviço do Google ainda está em R$ 226.** É o serviço avulso `fechadura digital`, na
+   categoria *Empresa de automação de casas*, descrito como projeto de automação com fechadura
+   integrada a iluminação, climatização e voz. Pela régua ele é o plano **Conectado, R$ 400** — mas
+   o dono não confirmou, então ficou como estava. É o último 226 no ar.
 2. **Três linhas de fechadura na tabela** com descrições que se sobrepõem: linha 54 (portão social,
    R$ 151), linha 111 (fechadura inteligente, R$ 226) e linha 53 (fechadura digital sem alvenaria,
    R$ 350). Vale o dono confirmar o que separa uma da outra.
