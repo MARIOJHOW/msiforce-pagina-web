@@ -17,7 +17,7 @@ const VitrinePlanos = () => {
 
   const visiveis = PLANOS.filter(
     (p) =>
-      (bolso === 'todos' || p.bolso === bolso) &&
+      (bolso === 'todos' || p.bolso === null || p.bolso === bolso) &&
       (porta === 'todos' || p.portaFiltro.includes(porta)),
   );
 

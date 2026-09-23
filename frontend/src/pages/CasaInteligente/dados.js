@@ -36,7 +36,7 @@ export const PLANOS = [
     nome: 'Conectado',
     apartirde: 400,
     resumo: 'Fechadura que fala com o celular e com a Alexa.',
-    porta: 'Alumínio, ferro ou pivotante de madeira maciça',
+    porta: 'Alumínio ou pivotante de madeira maciça',
     portaFiltro: ['correr', 'pivotante'],
     bolso: 'medio',
     inclui: [
@@ -50,8 +50,8 @@ export const PLANOS = [
     nome: 'Premium',
     apartirde: 700,
     resumo: 'Biometria facial, multiponto, vidro temperado e blindada.',
-    porta: 'Multiponto, blindada, vidro temperado ou pivotante grande',
-    portaFiltro: ['vidro', 'pivotante'],
+    porta: 'Multiponto, blindada ou pivotante grande',
+    portaFiltro: ['pivotante'],
     bolso: 'alto',
     inclui: [
       'Atendimento com hora marcada',
@@ -59,11 +59,30 @@ export const PLANOS = [
       'Calibração de máxima segurança',
     ],
   },
+  {
+    // Vidro, ferro e area externa saem por consulta por decisao do dono em
+    // 22/09/2026: nos tres o servico varia demais para ter piso publicado --
+    // vidro nao aceita furo, ferro pede fixacao e ferramenta proprias, e area
+    // externa ainda depende de exposicao a chuva e sol. Card sem numero em vez
+    // de card ausente: quem filtra por essas portas precisa achar resposta.
+    id: 'consulta',
+    nome: 'Sob consulta',
+    apartirde: null,
+    resumo: 'Os casos em que publicar um valor de partida seria chute.',
+    porta: 'Vidro temperado, ferro ou portão, e instalação em área externa',
+    portaFiltro: ['vidro', 'ferro', 'externa'],
+    bolso: null,
+    inclui: [
+      'Avaliação por foto, antes da visita',
+      'Modelo definido pelo perfil e pela ferragem',
+      'Valor fechado antes de qualquer execução',
+    ],
+  },
 ];
 
 // Menor preço da régua. Existe UMA vez: hero, título da vitrine e FAQ derivam daqui.
 // Reajustou preço em PLANOS? A página inteira acompanha sozinha.
-export const PRECO_MINIMO = Math.min(...PLANOS.map((p) => p.apartirde));
+export const PRECO_MINIMO = Math.min(...PLANOS.map((p) => p.apartirde).filter(Boolean));
 
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },
@@ -78,6 +97,8 @@ export const FILTRO_PORTA = [
   { id: 'apartamento', rotulo: 'Apartamento' },
   { id: 'vidro', rotulo: 'Vidro' },
   { id: 'correr', rotulo: 'Correr / alumínio' },
+  { id: 'ferro', rotulo: 'Ferro / portão' },
+  { id: 'externa', rotulo: 'Área externa' },
 ];
 
 export const MODELOS = [

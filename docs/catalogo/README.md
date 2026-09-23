@@ -21,6 +21,20 @@ originou cada valor, para conferência.
 A exceção são os 5 itens de fechadura, cujo preço veio de uma decisão do dono que passou por cima da
 tabela (ver abaixo). Nesses, `origem_planilha` registra a decisão e a linha que ela substituiu.
 
+### Os três casos sem preço publicado
+
+Decisão do dono em **22/09/2026**: **porta de vidro, porta de ferro ou portão, e qualquer instalação
+em área externa** saem **sob consulta** — não recebem valor de partida em canal nenhum (site, Google
+ou WhatsApp). Nos três o serviço varia demais para ter piso honesto: vidro temperado não aceita furo
+e o modelo depende do perfil e da ferragem, ferro pede fixação e ferramenta próprias, e área externa
+ainda depende da exposição a chuva e sol.
+
+Na prática: a régua da `/casa-inteligente` ganhou um card **Sob consulta** sem número, e a linha
+`fechadura-porta-vidro` do CSV está com `preco` vazio e `preco_rotulo` = `sob consulta`.
+
+> Isso passa por cima da linha 54 da tabela (`INSTALAÇÃO DE FECHADURA ELETRÔNICA (PORTÃO SOCIAL)`,
+> R$ 151). Se um item de portão for criado no catálogo, ele nasce sob consulta, não com os 151.
+
 Por que a mínima: é o piso real, é o que o resumo da planilha chama de "valor médio base", e casa com
 o padrão que o site já usa. O que varia — distância, tipo de porta, altura, infraestrutura que falta —
 é fechado na visita, não prometido na vitrine.
