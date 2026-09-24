@@ -9,7 +9,7 @@ import {
   MSG_FECHADURA_INSTALACAO,
   msgFechaduraModelo,
 } from '../../lib/gatilhos';
-import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
+import { FAQ_INSTALACAO, NOTA_LEGAL } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
@@ -59,7 +59,7 @@ export default function InstalacaoFechaduraDigital() {
   useSEO({
     title: 'Instalação de Fechadura Digital em São Paulo',
     description:
-      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO}, e o equipamento cotado na hora pelo WhatsApp. Peça um orçamento.`,
+      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra e equipamento orçados pelo WhatsApp, com orçamento gratuito.`,
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
@@ -89,7 +89,7 @@ export default function InstalacaoFechaduraDigital() {
                 Pedir Orçamento no WhatsApp
               </a>
               <a href="#ofertas" className="ifd-btn ifd-btn--secundario">
-                Ver modelos e preços
+                Ver modelos
               </a>
             </motion.div>
 
@@ -200,8 +200,7 @@ export default function InstalacaoFechaduraDigital() {
           variants={fadeUp}
         >
           <p>
-            <strong>Já tem a fechadura?</strong> Instalamos a sua — só a mão de obra sai a
-            partir de <strong>R$ {PRECO_MINIMO}</strong>, e a garantia do fabricante continua
+            <strong>Já tem a fechadura?</strong> Instalamos a sua, e a garantia do fabricante continua
             valendo.
           </p>
           <a href={linkWhatsApp(MSG_FECHADURA_INSTALACAO)} target="_blank" rel="noopener noreferrer" className="ifd-btn ifd-btn--secundario">
@@ -222,8 +221,7 @@ export default function InstalacaoFechaduraDigital() {
             Quanto custa instalar uma fechadura digital em São Paulo?
           </motion.h2>
           <motion.p variants={fadeUp}>
-            Se a fechadura já é sua, você paga só a mão de obra — a partir de{' '}
-            <strong>R$ {PRECO_MINIMO}</strong>, e esse valor é nosso, não depende de
+            Se a fechadura já é sua, você paga só a mão de obra, e esse valor é nosso, não depende de
             fornecedor. Se preferir resolver de uma vez, cotamos a fechadura no dia:
             trabalhamos sem estoque e compramos a cada venda, então você leva o preço
             do mercado naquele momento, e não um valor de tabela antigo. O que move a

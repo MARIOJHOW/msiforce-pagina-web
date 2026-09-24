@@ -1,12 +1,11 @@
 // Conteúdo da landing de fechadura digital. Sem JSX — só dados.
-// Preços são "a partir de" (mão de obra). Faixas internas registradas no spec;
-// nunca estampe o teto na interface.
+// Sem preço desde 23/09/2026: por decisão do dono, valor só no WhatsApp.
+// Não volte a estampar número na interface — nem piso, nem teto.
 
 export const PLANOS = [
   {
     id: 'essencial',
     nome: 'Essencial',
-    apartirde: 249,
     resumo: 'Parar de andar com chave gastando o mínimo.',
     porta: 'Sobrepor, em porta de madeira comum',
     portaFiltro: ['apartamento'],
@@ -20,7 +19,6 @@ export const PLANOS = [
   {
     id: 'design',
     nome: 'Design',
-    apartirde: 299,
     resumo: 'Para quem se importa com a estética da entrada da casa.',
     porta: 'Embutir, em madeira ou pivotante leve',
     portaFiltro: ['pivotante'],
@@ -34,7 +32,6 @@ export const PLANOS = [
   {
     id: 'conectado',
     nome: 'Conectado',
-    apartirde: 400,
     resumo: 'Fechadura que fala com o celular e com a Alexa.',
     porta: 'Alumínio ou pivotante de madeira maciça',
     portaFiltro: ['correr', 'pivotante'],
@@ -48,7 +45,6 @@ export const PLANOS = [
   {
     id: 'premium',
     nome: 'Premium',
-    apartirde: 700,
     resumo: 'Biometria facial, multiponto, vidro temperado e blindada.',
     porta: 'Multiponto, blindada ou pivotante grande',
     portaFiltro: ['pivotante'],
@@ -67,7 +63,6 @@ export const PLANOS = [
     // de card ausente: quem filtra por essas portas precisa achar resposta.
     id: 'consulta',
     nome: 'Sob consulta',
-    apartirde: null,
     resumo: 'Os casos em que publicar um valor de partida seria chute.',
     porta: 'Vidro temperado, ferro ou portão, e instalação em área externa',
     portaFiltro: ['vidro', 'ferro', 'externa'],
@@ -79,10 +74,6 @@ export const PLANOS = [
     ],
   },
 ];
-
-// Menor preço da régua. Existe UMA vez: hero, título da vitrine e FAQ derivam daqui.
-// Reajustou preço em PLANOS? A página inteira acompanha sozinha.
-export const PRECO_MINIMO = Math.min(...PLANOS.map((p) => p.apartirde).filter(Boolean));
 
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },
@@ -165,7 +156,7 @@ export const FAQ_INSTALACAO = [
   {
     // PAA: "Qual o valor da instalação da fechadura digital?"
     p: 'Qual o valor da instalação da fechadura digital?',
-    r: `A mão de obra começa em R$ ${PRECO_MINIMO}, para fechadura de sobrepor em porta de madeira comum. O que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
+    r: `A mão de obra depende da porta. Sobrepor em porta de madeira comum é o caso mais simples; o que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
   },
   {
     // Entrou em 18/09/2026, quando a MSIFORCE virou representante autorizada EZVIZ.
@@ -176,7 +167,7 @@ export const FAQ_INSTALACAO = [
   },
   {
     p: 'Vocês instalam fechadura que eu comprei em outro lugar?',
-    r: `Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ ${PRECO_MINIMO}, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
+    r: `Sim. É o caso mais comum. Você paga só a mão de obra e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
   },
   {
     // PAA: "O que é preciso para instalar uma fechadura digital?"

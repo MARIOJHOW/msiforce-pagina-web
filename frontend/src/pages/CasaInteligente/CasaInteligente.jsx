@@ -9,7 +9,7 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import { iniciarAds } from '../../lib/ads';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
-import { GOOGLE, PRECO_MINIMO, FAQ_MODELOS } from './dados';
+import { GOOGLE, FAQ_MODELOS } from './dados';
 import SeloGoogle from './SeloGoogle';
 import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
@@ -65,7 +65,7 @@ const CampanhaFechadura = () => {
   useSEO({
     title: 'Modelos de Fechadura Digital: Biometria, Senha e App',
     description:
-      'Compare modelos de fechadura digital para a sua porta: biometria, senha, app e chave. Intelbras, Yale, Pado e Papaiz, com preço e o que cabe em cada tipo de porta.',
+      'Compare modelos de fechadura digital para a sua porta: biometria, senha, app e chave. Intelbras, Yale, Pado e Papaiz, e o que cabe em cada tipo de porta.',
     canonical: 'https://msiforce.com.br/casa-inteligente',
   });
 
@@ -113,7 +113,7 @@ const CampanhaFechadura = () => {
 
             <motion.h1 variants={fadeUp}>
               Fechadura Digital<br />
-              <span className="text-highlight">Modelos e Preços.</span>
+              <span className="text-highlight">Modelos e Planos.</span>
             </motion.h1>
 
             {/* So mobile (<=768px): no empilhamento em coluna a imagem grande cai
@@ -138,7 +138,7 @@ const CampanhaFechadura = () => {
             </motion.div>
 
             <motion.p variants={fadeUp} className="campanha-faixa-preco">
-              Instalação a partir de <strong>R$ {PRECO_MINIMO}</strong> · em até 12x no cartão
+              <strong>Orçamento gratuito</strong> pelo WhatsApp · em até 12x no cartão
             </motion.p>
 
             <motion.div variants={fadeUp}>

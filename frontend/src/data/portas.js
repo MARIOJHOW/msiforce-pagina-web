@@ -69,7 +69,7 @@ export const PORTAS_DATA = {
     slug: 'porta-de-apartamento',
     title: 'Fechadura Digital para Porta de Apartamento',
     headline: 'Fechadura digital em porta de apartamento:\nsobrepor, sem marca na porta.',
-    sub: 'Instalação de fechadura digital em porta de apartamento em São Paulo. O modelo de sobrepor instala acima da maçaneta, não modifica a porta e serve para imóvel alugado. Mão de obra a partir de R$ 249, em menos de 1 hora.',
+    sub: 'Instalação de fechadura digital em porta de apartamento em São Paulo. O modelo de sobrepor instala acima da maçaneta, não modifica a porta e serve para imóvel alugado. Instalação em menos de 1 hora.',
     heroImg: '/fechadura_inter_3d.webp',
     msg: msgPorta('a porta padrão de apartamento'),
     beneficios: [

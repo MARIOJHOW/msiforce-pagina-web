@@ -7,7 +7,6 @@ import FormDiagnostico from '../../components/FormDiagnostico';
 import DiferencialBanner from '../../components/DiferencialBanner';
 import Parceiros from '../../components/Parceiros';
 import SobreEmpresa from '../../components/SobreEmpresa';
-import { PRECO_MINIMO } from '../CasaInteligente/dados';
 import { linkWhatsApp } from '../../lib/whatsapp';
 import {
   IcoRede, IcoRaio, IcoEscola,
@@ -25,8 +24,8 @@ const RESIDENCIAL = [
   {
     href: '/instalacao-fechadura-digital',
     titulo: 'Instalação de fechadura digital',
-    texto: `Você já tem a fechadura ou quer o kit completo. Mão de obra a partir de R$ ${PRECO_MINIMO}, em porta de madeira, alumínio ou vidro.`,
-    chamada: 'Ver preços e modelos',
+    texto: `Você já tem a fechadura ou quer o kit completo. Instalamos em porta de madeira, alumínio ou vidro.`,
+    chamada: 'Ver modelos',
   },
   {
     href: '/casa-inteligente',
@@ -197,7 +196,7 @@ export default function Home() {
   useSEO({
     title: 'Fechadura Digital e Automação Residencial em São Paulo',
     description:
-      `Instalação de fechadura digital e automação residencial em São Paulo, por técnico certificado e com hora marcada — mão de obra a partir de R$ ${PRECO_MINIMO}. Também elétrica, CFTV e redes para empresas e condomínios.`,
+      `Instalação de fechadura digital e automação residencial em São Paulo, por técnico certificado e com hora marcada, com orçamento gratuito. Também elétrica, CFTV e redes para empresas e condomínios.`,
     canonical: 'https://msiforce.com.br/',
   });
 
