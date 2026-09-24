@@ -101,12 +101,14 @@ function Resumo({ board }) {
   const doAds = todos.filter((l) => l.origem === 'ads');
   const finalizadosAds = doAds.filter((l) => l.status === 'FINALIZADO');
   const totalFechado = finalizadosAds.reduce((soma, l) => soma + (Number(l.valor_fechado) || 0), 0);
+  const doPanfleto = todos.filter((l) => l.origem === 'panfleto');
 
   return (
     <div className="crm-resumo">
       <div><strong>{doAds.length}</strong> leads via Ads</div>
       <div><strong>{finalizadosAds.length}</strong> fechados via Ads</div>
       <div><strong>R$ {totalFechado.toFixed(2)}</strong> faturado via Ads</div>
+      <div><strong>{doPanfleto.length}</strong> leads via panfleto</div>
     </div>
   );
 }
@@ -238,6 +240,7 @@ export default function CRM() {
                       <div className="card-header">
                         <strong>{lead.nome || 'Sem nome'}</strong>
                         {lead.origem === 'ads' && <span className="badge-ads">Ads</span>}
+                        {lead.origem === 'panfleto' && <span className="badge-panfleto">Panfleto</span>}
                       </div>
                       <div className="card-body">
                         <span className="card-service">{lead.servico}</span>
