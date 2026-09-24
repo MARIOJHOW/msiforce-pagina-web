@@ -205,7 +205,7 @@ export const FAQ_INSTALACAO = [
   },
   {
     p: 'Atendem qual região?',
-    r: 'São Paulo e região metropolitana. Mande o CEP no WhatsApp que confirmamos na hora.',
+    r: 'Saímos de Itaquera: atendemos toda a zona leste de São Paulo e Guarulhos, e o restante da capital e da região metropolitana com o deslocamento combinado. Mande o CEP no WhatsApp que confirmamos na hora.',
   },
 ];
 

@@ -24,6 +24,20 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
 
+// Base em Itaquera; prioridade do dono (24/09/2026): zona leste e Guarulhos.
+// Brigar por "São Paulo" inteira nos deixou na posição 60-80; a região é onde
+// dá para aparecer e é onde está o cliente que dá para atender bem.
+const BAIRROS_ZL = [
+  'Itaquera', 'Guaianases', 'Cidade Líder', 'José Bonifácio', 'Artur Alvim',
+  'São Mateus', 'Vila Carrão', 'Aricanduva', 'Tatuapé', 'Penha', 'Vila Matilde',
+  'Ermelino Matarazzo', 'São Miguel Paulista', 'Itaim Paulista',
+];
+const AREA_ATENDIDA = [
+  { '@type': 'AdministrativeArea', name: 'Zona Leste de São Paulo' },
+  { '@type': 'City', name: 'Guarulhos' },
+  { '@type': 'City', name: 'São Paulo' },
+];
+
 // O JSON-LD sai dos MESMOS dados que a /casa-inteligente renderiza (dados.js) —
 // mesma fonte única usada lá, para as duas páginas nunca divergirem.
 const SERVICO_SCHEMA = {
@@ -35,11 +49,11 @@ const SERVICO_SCHEMA = {
     name: 'MSIFORCE',
     url: 'https://msiforce.com.br',
     telephone: '+55-11-91077-3865',
-    areaServed: { '@type': 'City', name: 'São Paulo' },
+    areaServed: AREA_ATENDIDA,
   },
-  areaServed: { '@type': 'City', name: 'São Paulo' },
+  areaServed: AREA_ATENDIDA,
   description:
-    'Instalação profissional de fechadura digital em São Paulo, em portas de madeira, alumínio e vidro, com marcas homologadas e suporte técnico após o serviço.',
+    'Instalador de fechadura digital com base em Itaquera: instalação em portas de madeira, alumínio e vidro na zona leste de São Paulo e em Guarulhos, com marcas homologadas e suporte técnico após o serviço.',
 };
 
 const FAQ_SCHEMA = {
@@ -57,9 +71,9 @@ export default function InstalacaoFechaduraDigital() {
   const [aberta, setAberta] = useState(0);
 
   useSEO({
-    title: 'Instalação de Fechadura Digital em São Paulo',
+    title: 'Instalador de Fechadura Digital na Zona Leste e Guarulhos',
     description:
-      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO} e kit com fechadura a partir de R$ ${PRECO_KIT}. Orçamento gratuito pelo WhatsApp.`,
+      `Instalador de fechadura digital saindo de Itaquera: instalação na zona leste de São Paulo e em Guarulhos, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO}, kit a partir de R$ ${PRECO_KIT}. Orçamento grátis no WhatsApp.`,
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
@@ -75,12 +89,13 @@ export default function InstalacaoFechaduraDigital() {
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.p variants={fadeUp} className="ifd-eyebrow">Fechadura Digital</motion.p>
             <motion.h1 variants={fadeUp} className="ifd-titulo">
-              Instalação de Fechadura Digital <span>em São Paulo</span>
+              Instalador de Fechadura Digital <span>na Zona Leste e em Guarulhos</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="ifd-sub">
               Trocar a chave por uma fechadura digital é rápido — mas instalar bem, sem
-              arriscar a porta, exige técnico certificado. A MSIFORCE instala fechaduras
-              digitais em portas de madeira, alumínio e vidro em São Paulo, com
+              arriscar a porta, exige instalador certificado. Saindo de Itaquera, a MSIFORCE
+              instala fechaduras digitais em portas de madeira, alumínio e vidro em toda a
+              zona leste de São Paulo e em Guarulhos, com
               equipamentos homologados e a mesma equipe que cuida de instalações
               elétricas para empresas há anos.
             </motion.p>
@@ -348,6 +363,31 @@ export default function InstalacaoFechaduraDigital() {
               </li>
             </ul>
           </motion.div>
+        </motion.div>
+      </section>
+
+      <section className="ifd-secao">
+        <motion.div
+          className="ifd-bloco"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={stagger}
+        >
+          <motion.h2 variants={fadeUp}>
+            Instalador de fechadura digital na zona leste e em Guarulhos
+          </motion.h2>
+          <motion.p variants={fadeUp}>
+            Nossa base fica em <strong>Itaquera</strong>. Por isso a zona leste é onde
+            chegamos mais rápido e com hora marcada: {BAIRROS_ZL.join(', ')} e bairros
+            vizinhos. Em <strong>Guarulhos</strong> atendemos do Centro a Vila Galvão,
+            Bonsucesso, Pimentas e Cumbica. O restante da capital e da região
+            metropolitana também é atendido, com o deslocamento combinado no orçamento.
+          </motion.p>
+          <motion.p variants={fadeUp}>
+            Mande o CEP e a foto da porta no WhatsApp: confirmamos a região, o modelo
+            que combina e o valor na mesma conversa.
+          </motion.p>
         </motion.div>
       </section>
 
