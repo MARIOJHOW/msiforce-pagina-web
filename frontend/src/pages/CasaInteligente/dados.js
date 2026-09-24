@@ -1,6 +1,6 @@
 // Conteúdo da landing de fechadura digital. Sem JSX — só dados.
-// Sem preço desde 23/09/2026: por decisão do dono, valor só no WhatsApp.
-// Não volte a estampar número na interface — nem piso, nem teto.
+// Um só valor publicado: o inicial da mão de obra (decisão do dono, 23/09/2026).
+// Os planos não têm preço — régua e teto ficam para o WhatsApp.
 
 export const PLANOS = [
   {
@@ -74,6 +74,10 @@ export const PLANOS = [
     ],
   },
 ];
+
+// Valor inicial da instalação de fechadura. Existe UMA vez: hero, vitrine, FAQ,
+// home e /instalacao-fechadura-digital derivam daqui. É o único número do site.
+export const PRECO_MINIMO = 249;
 
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },
@@ -156,7 +160,7 @@ export const FAQ_INSTALACAO = [
   {
     // PAA: "Qual o valor da instalação da fechadura digital?"
     p: 'Qual o valor da instalação da fechadura digital?',
-    r: `A mão de obra depende da porta. Sobrepor em porta de madeira comum é o caso mais simples; o que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
+    r: `A mão de obra começa em R$ ${PRECO_MINIMO}, para fechadura de sobrepor em porta de madeira comum. O que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
   },
   {
     // Entrou em 18/09/2026, quando a MSIFORCE virou representante autorizada EZVIZ.
@@ -167,7 +171,7 @@ export const FAQ_INSTALACAO = [
   },
   {
     p: 'Vocês instalam fechadura que eu comprei em outro lugar?',
-    r: `Sim. É o caso mais comum. Você paga só a mão de obra e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
+    r: `Sim. É o caso mais comum. Você paga só a mão de obra, a partir de R$ ${PRECO_MINIMO}, e mantém a garantia do fabricante — instalação por técnico certificado não anula garantia.`,
   },
   {
     // PAA: "O que é preciso para instalar uma fechadura digital?"

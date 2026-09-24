@@ -2,9 +2,9 @@
 //
 // Fonte: artes da campanha em "Documents/doc empresa/campanha fechadura"
 // (24/08 a 02/09/2026). Preço aqui é o do PACOTE (fechadura + instalação), que
-// era diferente do "a partir de" da mão de obra, que saiu do site em 23/09/2026 —
-// valor agora só no WhatsApp. A página não mostra número nenhum.
-// Mudou a promoção? Muda aqui e regera a arte, não o contrário.
+// é diferente do "a partir de R$ 249" de dados.js da /casa-inteligente — aquele
+// é só mão de obra, para quem já tem a fechadura. A página mostra os dois,
+// rotulados. Mudou a promoção? Muda aqui e regera a arte, não o contrário.
 //
 // `modelo` viaja no texto do WhatsApp via msgFechaduraModelo(): o bot reconhece
 // "pacote completo" + "Instalação" e abre o funil da fechadura.
@@ -26,9 +26,10 @@ export const OFERTAS = [
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Desde 23/09/2026 a mao de obra tambem saiu: valor so no WhatsApp.
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação orçada pelo WhatsApp',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Instalação inclusa até 10 km; acima disso, deslocamento à parte.',
   },
   {
@@ -50,9 +51,10 @@ export const OFERTAS = [
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Desde 23/09/2026 a mao de obra tambem saiu: valor so no WhatsApp.
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação orçada pelo WhatsApp',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -71,9 +73,10 @@ export const OFERTAS = [
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Desde 23/09/2026 a mao de obra tambem saiu: valor so no WhatsApp.
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação orçada pelo WhatsApp',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
@@ -92,9 +95,10 @@ export const OFERTAS = [
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Desde 23/09/2026 a mao de obra tambem saiu: valor so no WhatsApp.
+    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
+    // obra continua publicada, porque essa e da casa e nao oscila.
     precoPrefixo: 'Equipamento',
-    precoSufixo: 'instalação orçada pelo WhatsApp',
+    precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
 ];

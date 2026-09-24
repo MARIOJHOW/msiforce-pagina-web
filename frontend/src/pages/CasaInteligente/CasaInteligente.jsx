@@ -9,7 +9,7 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import { iniciarAds } from '../../lib/ads';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
-import { GOOGLE, FAQ_MODELOS } from './dados';
+import { GOOGLE, PRECO_MINIMO, FAQ_MODELOS } from './dados';
 import SeloGoogle from './SeloGoogle';
 import VitrinePlanos from './VitrinePlanos';
 import VitrineModelos from './VitrineModelos';
@@ -138,7 +138,7 @@ const CampanhaFechadura = () => {
             </motion.div>
 
             <motion.p variants={fadeUp} className="campanha-faixa-preco">
-              <strong>Orçamento gratuito</strong> pelo WhatsApp · em até 12x no cartão
+              Instalação a partir de <strong>R$ {PRECO_MINIMO}</strong> · em até 12x no cartão
             </motion.p>
 
             <motion.div variants={fadeUp}>

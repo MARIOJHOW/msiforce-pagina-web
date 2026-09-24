@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './VitrinePlanos.css';
-import { PLANOS, FILTRO_BOLSO, FILTRO_PORTA, NOTA_LEGAL } from './dados';
+import { PLANOS, PRECO_MINIMO, FILTRO_BOLSO, FILTRO_PORTA, NOTA_LEGAL } from './dados';
 import { IcoCheck } from './icones';
 import { msgPlanoInstalacao } from '../../lib/gatilhos';
 import WhatsAppButton from '../../components/WhatsAppButton';
@@ -24,7 +24,7 @@ const VitrinePlanos = () => {
   return (
     <section className="planos-secao" id="instalacao">
       <div className="section-header">
-        <h2 className="campanha-section-title">Escolha o plano da sua porta</h2>
+        <h2 className="campanha-section-title">Instalação a partir de R$ {PRECO_MINIMO}</h2>
         <p className="campanha-section-subtitle">
           O preço acompanha a complexidade da sua porta e da fechadura — não o seu CEP.
           Escolha a faixa que cabe no seu bolso.
