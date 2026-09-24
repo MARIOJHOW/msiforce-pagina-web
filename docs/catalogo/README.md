@@ -14,6 +14,10 @@ Essa separação é o que impede a confusão que o catálogo veio consertar: R$ 
 serviço**; R$ 499 a R$ 850 é o que custa **a fechadura já instalada**. Misturar os dois faz o cliente
 ler um pelo outro.
 
+A exceção é `kit-fechadura-instalacao` (decisão do dono, 23/09/2026): fechadura + instalação, mas
+como **serviço** "a partir de R$ 500", sem modelo. É o valor inicial do kit que o site e o Google
+também mostram. O preço fechado de cada modelo continua nos 5 produtos.
+
 Mudou preço ou texto? Muda **aqui** e republica nos canais. O contrário — editar direto no Google ou
 no app e deixar este arquivo para trás — é exatamente o que produziu a bagunça que este catálogo veio
 consertar (ver *Histórico*).
@@ -73,7 +77,7 @@ aí ele entra como serviço personalizado.
 
 ## Estado do catálogo
 
-**21 itens: 5 produtos e 16 serviços.**
+**23 itens: 5 produtos e 18 serviços.**
 
 Os **5 produtos** são as fechaduras com instalação inclusa, cada um com a arte de campanha
 correspondente neste diretório. Preço fechado, lido da própria arte — não sai da Tabela 2026:
