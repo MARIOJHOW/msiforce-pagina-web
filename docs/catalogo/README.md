@@ -180,11 +180,12 @@ republicar o número velho.
 
 ## Em aberto
 
-1. **`fechadura inteligente` na categoria de automação está sem preço.** Sobrou dessa faxina; é a
-   última linha de fechadura no Google sem valor. Ou ganha preço, ou some — não mexi.
-2. **Três linhas de fechadura na tabela** com descrições que se sobrepõem: linha 54 (portão social,
-   R$ 151), linha 111 (fechadura inteligente, R$ 226) e linha 53 (fechadura digital sem alvenaria,
-   R$ 350). Vale o dono confirmar o que separa uma da outra.
+1. **Republicar no WhatsApp.** O CSV mudou em 23/09/2026 (6 serviços subiram, kit de R$ 500 entrou,
+   emergencial foi a R$ 300) e o catálogo do app ainda mostra os valores antigos.
+
+Resolvidos em 23/09/2026: `fechadura inteligente` ganhou R$ 249 no Google, e as linhas de fechadura
+que se sobrepunham na tabela (MSI-050 e MSI-108) foram trocadas no bot pelos 4 valores deste
+catálogo — 249, 299, 400 e 500. Portão continua sob consulta.
 
 ## Como editar
 
