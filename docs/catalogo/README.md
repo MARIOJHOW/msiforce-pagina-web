@@ -20,9 +20,12 @@ consertar (ver *Histórico*).
 
 ## De onde vêm os preços
 
-Da **Tabela de Preços 2026** (`docs/planilhas/Tabela de Preços.html`, fora de qualquer repo), coluna
-**Preço Mínimo**, sempre rotulada "a partir de". A coluna `origem_planilha` guarda a linha exata que
-originou cada valor, para conferência.
+Da **Tabela de Preços 2026 Modernizada** (`docs/planilhas/Tabela_Precos_MSIFORCE_2026_Modernizada - Tabela de Preços.csv`,
+fora de qualquer repo, códigos MSI-001 a MSI-134), sempre rotulada "a partir de". A coluna
+`origem_planilha` guarda o código MSI que originou cada valor, para conferência.
+
+Qual coluna da planilha vale para cada item é regra do dono, registrada **fora deste repo** (ele é
+público), no `LEIA-ME.md` ao lado da planilha.
 
 A exceção são os 5 itens de fechadura, cujo preço veio de uma decisão do dono que passou por cima da
 tabela (ver abaixo). Nesses, `origem_planilha` registra a decisão e a linha que ela substituiu.
@@ -43,9 +46,8 @@ WhatsApp sem entregar nada (ver *O que saiu*).
 > Isso passa por cima da linha 54 da tabela (`INSTALAÇÃO DE FECHADURA ELETRÔNICA (PORTÃO SOCIAL)`,
 > R$ 151). Se um item de portão for criado no catálogo, ele nasce sob consulta, não com os 151.
 
-Por que a mínima: é o piso real, é o que o resumo da planilha chama de "valor médio base", e casa com
-o padrão que o site já usa. O que varia — distância, tipo de porta, altura, infraestrutura que falta —
-é fechado na visita, não prometido na vitrine.
+O que varia — distância, tipo de porta, altura, infraestrutura que falta — é fechado na conversa,
+não prometido na vitrine.
 
 ### O que NÃO entra neste arquivo
 
