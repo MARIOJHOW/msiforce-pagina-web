@@ -76,8 +76,12 @@ export const PLANOS = [
 ];
 
 // Valor inicial da instalação de fechadura. Existe UMA vez: hero, vitrine, FAQ,
-// home e /instalacao-fechadura-digital derivam daqui. É o único número do site.
+// home e /instalacao-fechadura-digital derivam daqui.
 export const PRECO_MINIMO = 249;
+
+// Kit (fechadura + instalação), valor inicial -- decisão do dono em 23/09/2026.
+// Fica no nível da seção, nunca no card de um modelo: o MFR 3000 V sai por 850.
+export const PRECO_KIT = 500;
 
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },

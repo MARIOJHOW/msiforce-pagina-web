@@ -9,7 +9,7 @@ import {
   MSG_FECHADURA_INSTALACAO,
   msgFechaduraModelo,
 } from '../../lib/gatilhos';
-import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
+import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO, PRECO_KIT } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
@@ -59,7 +59,7 @@ export default function InstalacaoFechaduraDigital() {
   useSEO({
     title: 'Instalação de Fechadura Digital em São Paulo',
     description:
-      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO}, e o equipamento cotado na hora pelo WhatsApp. Peça um orçamento.`,
+      `Instalação de fechadura digital em São Paulo, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO} e kit com fechadura a partir de R$ ${PRECO_KIT}. Orçamento gratuito pelo WhatsApp.`,
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
@@ -142,7 +142,8 @@ export default function InstalacaoFechaduraDigital() {
         >
           <motion.h2 variants={fadeUp}>Modelos e kits com instalação</motion.h2>
           <motion.p variants={fadeUp}>
-            Fechadura + instalação num pacote só, com marcas homologadas. Parcelamos em
+            Fechadura + instalação num pacote só, com marcas homologadas. Kit a partir de{' '}
+            <strong>R$ {PRECO_KIT}</strong>, valor fechado conforme o modelo. Parcelamos em
             até 12x no cartão (até 3x sem juros), Pix ou dinheiro.
           </motion.p>
         </motion.div>
@@ -224,7 +225,8 @@ export default function InstalacaoFechaduraDigital() {
           <motion.p variants={fadeUp}>
             Se a fechadura já é sua, você paga só a mão de obra — a partir de{' '}
             <strong>R$ {PRECO_MINIMO}</strong>, e esse valor é nosso, não depende de
-            fornecedor. Se preferir resolver de uma vez, cotamos a fechadura no dia:
+            fornecedor. Se preferir resolver de uma vez, o kit com fechadura + instalação sai a partir de{' '}
+            <strong>R$ {PRECO_KIT}</strong>. Cotamos a fechadura no dia:
             trabalhamos sem estoque e compramos a cada venda, então você leva o preço
             do mercado naquele momento, e não um valor de tabela antigo. O que move a
             mão de obra é a porta:
