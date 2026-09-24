@@ -1,7 +1,9 @@
 // Ofertas de fechadura + instalação. Sem JSX — só dados.
 //
-// Fonte: artes da campanha em "Documents/doc empresa/campanha fechadura"
-// (24/08 a 02/09/2026). Preço aqui é o do PACOTE (fechadura + instalação), que
+// Fonte: os MESMOS 5 modelos do catálogo (site-msiforce/docs/catalogo/itens.csv),
+// publicados no Google Produtos e no WhatsApp em 24/09/2026. Mudou o catálogo? Muda
+// aqui também — quem chega pela busca tem de ver os modelos que o WhatsApp oferece.
+// Fotos: recorte só da fechadura das artes do catálogo, SEM o preço impresso. Preço aqui é o do PACOTE (fechadura + instalação), que
 // é diferente do "a partir de R$ 249" de dados.js da /casa-inteligente — aquele
 // é só mão de obra, para quem já tem a fechadura. A página mostra os dois,
 // rotulados. Mudou a promoção? Muda aqui e regera a arte, não o contrário.
@@ -11,48 +13,64 @@
 
 export const OFERTAS = [
   {
-    id: 'fr102',
-    modelo: 'Intelbras FR 102',
+    id: 'fr101',
+    modelo: 'Intelbras FR 101',
     marca: 'Intelbras',
-    nome: 'FR 102',
-    tipo: 'Sobrepor · porta padrão de apartamento',
-    imagem: '/oferta-fr102.webp',
-    alt: 'Fechadura digital Intelbras FR 102 instalada em porta de madeira clara',
+    nome: 'FR 101',
+    tipo: 'Sobrepor · portas de 25 a 50 mm',
+    imagem: '/oferta-fr101.webp',
+    alt: 'Fechadura digital de sobrepor Intelbras FR 101 com teclado touch',
     beneficios: [
-      'Até 100 senhas de 4 a 12 dígitos',
-      '4 pilhas AA, autonomia de até 1 ano',
-      'Acesso de emergência com bateria 9V',
-      'Fechamento automático ao encostar a porta',
+      'Teclado touch de 12 teclas',
+      'Até 4 senhas numéricas',
+      'Travamento automático e função Não Perturbe',
+      'Emergência por bateria 9 V',
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
-    // obra continua publicada, porque essa e da casa e nao oscila.
+    // dia. O preco fechado de cada kit fica no catalogo do WhatsApp/Google.
     precoPrefixo: 'Equipamento',
     precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Instalação inclusa até 10 km; acima disso, deslocamento à parte.',
   },
   {
-    id: 'fr201v',
-    modelo: 'Intelbras FR 201 V',
-    marca: 'Intelbras',
-    nome: 'FR 201 V',
-    tipo: 'Sobrepor · portas de 25 a 70 mm',
-    imagem: '/oferta-fr201v.webp',
-    alt: 'Fechadura digital Intelbras FR 201 V instalada em porta de madeira escura',
+    id: 'sl140b',
+    modelo: 'Papaiz SL140 B',
+    marca: 'Papaiz · ASSA ABLOY',
+    nome: 'SL140 B',
+    tipo: 'Sobrepor · painel interno vertical',
+    imagem: '/oferta-sl140b.webp',
+    alt: 'Fechadura digital de sobrepor Papaiz SL140 B em aço escovado com puxador',
     beneficios: [
-      'Abertura por senha ou tag/cartão (até 100 de cada)',
-      'Chave mecânica de emergência',
-      'Senha falsa, não perturbe e travamento automático',
-      // Era "36 meses" ate 18/09/2026. O dono confirmou que a Intelbras da 2
-      // anos: o numero publicado prometia um ano a mais do que o fabricante
-      // cobre. Nao aumentar sem documento do fabricante na mao.
-      '24 meses de garantia do fabricante',
+      'Senha, impressão digital ou chave de emergência',
+      'Abertura pelo painel com toque leve',
+      'Pode ser usada junto com puxador',
+      '2 anos de garantia Papaiz',
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
-    // obra continua publicada, porque essa e da casa e nao oscila.
+    // dia. O preco fechado de cada kit fica no catalogo do WhatsApp/Google.
+    precoPrefixo: 'Equipamento',
+    precoSufixo: 'instalação a partir de R$ 249',
+    nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
+  },
+  {
+    id: 'mfd2020d',
+    modelo: 'Intelbras MFD2020 D',
+    marca: 'Intelbras',
+    nome: 'MFD2020 D',
+    tipo: 'Sobrepor · portas de 25 a 70 mm · hub opcional',
+    imagem: '/oferta-mfd2020-hub.webp',
+    alt: 'Fechadura digital Intelbras MFD2020 D com hub de automação MCA',
+    beneficios: [
+      'Até 150 biometrias, 150 senhas e 150 tags',
+      'Senha temporária e senha protegida',
+      'Emergência por USB-C, 3 anos de garantia',
+      'App Mibo e Alexa com o Hub MCA (opcional)',
+    ],
+    // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
+    // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
+    // dia. O preco fechado de cada kit fica no catalogo do WhatsApp/Google.
     precoPrefixo: 'Equipamento',
     precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
@@ -62,41 +80,39 @@ export const OFERTAS = [
     modelo: 'Papaiz Fit Lock',
     marca: 'Papaiz · ASSA ABLOY',
     nome: 'Fit Lock',
-    tipo: 'Embutir · madeira ou metal, 35 a 70 mm',
+    tipo: 'Embutir · madeira ou metal',
     imagem: '/oferta-papaiz-fitlock.webp',
     alt: 'Fechadura digital de embutir Papaiz Fit Lock em porta de madeira',
     beneficios: [
-      'Até 100 biometrias e 400 senhas',
-      'Stand alone: funciona sem Wi-Fi',
+      'Senha numérica, impressão digital ou chave',
+      'Cadastra vários usuários',
       'Troca a fechadura comum sem obra',
-      '2 chaves mecânicas e emergência por USB-C',
+      'Padrão ABNT, garantia de até 2 anos',
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
-    // obra continua publicada, porque essa e da casa e nao oscila.
+    // dia. O preco fechado de cada kit fica no catalogo do WhatsApp/Google.
     precoPrefixo: 'Equipamento',
     precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
   },
   {
-    id: 'mfd2020-hub',
-    modelo: 'Intelbras MFD 2020 D + HUB MCA 1002',
+    id: 'mfr3000v',
+    modelo: 'Intelbras MFR 3000 V',
     marca: 'Intelbras',
-    nome: 'MFD 2020 D + HUB',
-    tipo: 'Kit sobrepor + automação residencial',
-    imagem: '/oferta-mfd2020-hub.webp',
-    alt: 'Kit fechadura digital Intelbras MFD 2020 D com hub de automação MCA 1002',
+    nome: 'MFR 3000 V',
+    tipo: 'Embutir · porta pivotante ou madeira maciça',
+    imagem: '/oferta-mfr3000v.webp',
+    alt: 'Fechadura digital de embutir Intelbras MFR 3000 V com maçaneta',
     beneficios: [
-      'Biometria, senha, tag e senha temporária',
-      'Abertura remota e relatórios pelo app Mibo',
-      'Compatível com Alexa e cenários de automação',
-      'Hub ZigBee: amplie com sensores e sirene',
+      'Mais de 100 senhas e 100 biometrias',
+      'Acesso por digital ou senha',
+      'Senhas temporárias pelo app',
+      'App Mibo com hub compatível (opcional)',
     ],
     // Sem preco de equipamento desde 18/09/2026: a MSIFORCE nao tem estoque e
     // compra a cada venda, entao o valor do aparelho varia com o fornecedor do
-    // dia. Numero fixo aqui vira promessa que o site nao pode cumprir. A mao de
-    // obra continua publicada, porque essa e da casa e nao oscila.
+    // dia. O preco fechado de cada kit fica no catalogo do WhatsApp/Google.
     precoPrefixo: 'Equipamento',
     precoSufixo: 'instalação a partir de R$ 249',
     nota: 'Valor varia com o modelo de porta e o deslocamento até o local.',
