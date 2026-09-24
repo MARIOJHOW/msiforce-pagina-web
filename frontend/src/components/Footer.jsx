@@ -77,7 +77,7 @@ const Footer = () => {
             </li>
             <li>
               <span className="msi-f-contact-icon">🕐</span>
-              <span>Seg–Sex, 8h–18h</span>
+              <span>Todos os dias, 7h–21h</span>
             </li>
           </ul>
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="msi-f-wa-btn">
