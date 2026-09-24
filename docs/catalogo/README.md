@@ -101,6 +101,21 @@ correspondente neste diretório. Preço fechado, lido da própria arte — não 
 Os **16 serviços** são mão de obra: 4 de fechadura (Chaveiro), 8 de elétrica (Eletricista, a
 categoria principal) e 4 de eletrônica/segurança (Engenheiro eletrônico).
 
+### Serviços revistos em 24/09/2026
+
+Os preços dos serviços foram realinhados com a Tabela 2026, pela regra do dono registrada **fora deste
+repo**. Entraram `instalacao-tomada-industrial` (MSI-095) e `instalacao-chuveiro-luxo` (MSI-044). As
+fechaduras seguem os preços fechados das artes.
+
+### O que saiu em 24/09/2026
+
+- **`inspecao-spda` e `instalacao-ar-condicionado`** saem do catálogo, por decisão do dono. No WhatsApp
+  os dois estão **ocultos** (não apagados). Ninguém os vê, mas dá para voltar atrás.
+- No WhatsApp, tomada, luminária, ventilador, chuveiro, carregador e emergencial trocaram a foto genérica
+  do quadro por fotos próprias de cada serviço. Essas fotos ficam **fora deste repo**, em
+  `docs/fotos-servicos/` na raiz do monorepo, porque parte delas veio da internet. A coluna `foto` destes
+  itens ainda aponta para a imagem antiga do site.
+
 ### O que saiu em 22–23/09/2026
 
 - **As 4 faixas do Google** — "Modelo Essencial", "Intermediário", "Design" e "Premium" — saem. Elas
@@ -134,8 +149,9 @@ mesmo dia** com preço "A partir de R$ 249" e uma descrição que agora começa 
 É a linha que impede o cliente de ler os 249 como preço de fechadura, agora que os produtos ao lado
 custam de 499 a 850.
 
-**Produtos:** os 4 antigos ainda estão no ar com os preços já corrigidos (249, 249, 299, 299) e as
-artes velhas. Eles saem quando os 5 produtos novos subirem.
+**Produtos (24/09/2026):** os **5 produtos novos estão no ar**, com arte, preço, descrição e link
+deste CSV. As 4 faixas antigas foram **editadas** para virar FR 101, SL140 B, Fit Lock e MFR 3000 V
+(nada foi apagado), e a MFD2020 D entrou como produto novo. Categoria de produto: "Fechaduras Digitais".
 
 Não sobrou nenhum R$ 226 publicado.
 
@@ -147,8 +163,12 @@ aceitável, porque o preço do produto é **fechado**, não "a partir de", e a a
 mesmo número. A regra segue valendo para arte de serviço: **mão de obra não leva preço impresso**,
 porque o piso muda e a imagem não acompanha.
 
-**A subida no Google é manual, feita pelo dono.** O editor de Produtos do GBP roda em iframe e o
-"Selecionar uma foto" abre um diálogo nativo do sistema — fora do alcance da automação. E remover a
+**A subida no Google dá para automatizar (desde 24/09/2026).** Dentro da busca, o editor de
+Produtos roda em iframe e a automação não enxerga os campos. Aberto direto em
+`https://www.google.com/local/business/3547041469764745894/editprofile/products`, ele vira página
+comum e o campo de foto aceita upload. Espere a prévia da foto aparecer antes de clicar em Publicar.
+No editor, a miniatura da MFR 3000 V continuou mostrando a arte antiga depois de publicar, mas o
+dono conferiu que no perfil público ela aparece certa. E remover a
 arte sem pôr outra não é saída: o Google recusa publicar produto sem foto ("Adicione uma foto do
 produto"), testado em 22/09/2026.
 
