@@ -6,6 +6,14 @@ import Servico from './Servico';
 
 const BASE = 'https://msiforce.com.br';
 
+// Igual ao areaServed do LocalBusiness no index.html: base em Itaquera,
+// prioridade zona leste e Guarulhos (dono, 24/09/2026).
+const AREA_ATENDIDA = [
+  { '@type': 'AdministrativeArea', name: 'Zona Leste de São Paulo' },
+  { '@type': 'City', name: 'Guarulhos' },
+  { '@type': 'City', name: 'São Paulo' },
+];
+
 export default function ServicoPage() {
   const { slug } = useParams();
   const servico = SERVICOS_DATA[slug];
@@ -24,10 +32,10 @@ export default function ServicoPage() {
 // para a home — e o Google trata a página como duplicata ("Página alternativa
 // com tag canônica adequada") e nunca a indexa. Diagnosticado em 17/09/2026.
 function ServicoComSEO({ servico }) {
-  const { title, slug, sub, heroImg, faq } = servico;
+  const { title, seoTitle, slug, sub, heroImg, faq } = servico;
   const url = `${BASE}/servicos/${slug}`;
 
-  useSEO({ title, description: sub, canonical: url });
+  useSEO({ title: seoTitle || title, description: sub, canonical: url });
 
   useJsonLd([
     {
@@ -40,7 +48,7 @@ function ServicoComSEO({ servico }) {
         url,
         image: `${BASE}${heroImg}`,
         serviceType: title,
-        areaServed: { '@type': 'City', name: 'São Paulo' },
+        areaServed: AREA_ATENDIDA,
         // @id igual ao do LocalBusiness do index.html: o Google consolida as
         // quatro páginas de serviço na MESMA empresa em vez de ler cada uma
         // como um negócio diferente.
@@ -50,7 +58,7 @@ function ServicoComSEO({ servico }) {
           name: 'MSIFORCE',
           url: BASE,
           telephone: '+55-11-91077-3865',
-          areaServed: { '@type': 'City', name: 'São Paulo' },
+          areaServed: AREA_ATENDIDA,
         },
       },
     },
