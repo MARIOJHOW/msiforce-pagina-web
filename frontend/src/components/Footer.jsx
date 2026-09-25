@@ -73,7 +73,7 @@ const Footer = () => {
             </li>
             <li>
               <span className="msi-f-contact-icon">📍</span>
-              <span>São Paulo, SP — Brasil</span>
+              <span>Itaquera, São Paulo – SP · zona leste e Guarulhos</span>
             </li>
             <li>
               <span className="msi-f-contact-icon">🕐</span>

@@ -197,7 +197,7 @@ export default function Home() {
   useSEO({
     title: 'Fechadura Digital e Automação Residencial em São Paulo',
     description:
-      `Instalação de fechadura digital e automação residencial em São Paulo, por técnico certificado e com hora marcada — mão de obra a partir de R$ ${PRECO_MINIMO}. Também elétrica, CFTV e redes para empresas e condomínios.`,
+      `Instalação de fechadura digital e automação residencial em São Paulo, com base em Itaquera: zona leste e Guarulhos, técnico certificado e hora marcada — mão de obra a partir de R$ ${PRECO_MINIMO}. Também elétrica, CFTV e redes.`,
     canonical: 'https://msiforce.com.br/',
   });
 

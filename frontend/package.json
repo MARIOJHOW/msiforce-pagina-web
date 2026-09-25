@@ -8,7 +8,8 @@
     "build": "vite build && node tools/prerender.mjs",
     "sync": "node tools/sync-raiz.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "indexnow": "node tools/indexnow.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
