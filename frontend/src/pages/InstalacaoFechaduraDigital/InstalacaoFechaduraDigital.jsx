@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
-import { linkWhatsApp } from '../../lib/whatsapp';
+import WhatsAppButton from '../../components/WhatsAppButton';
 import {
   MSG_FECHADURA_COMBO,
   MSG_FECHADURA_INSTALACAO,
@@ -14,15 +13,10 @@ import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
-};
+// Pagina reescrita em 28/09/2026 para converter com leitura de 5 segundos: o que
+// e, onde, quanto, por que confiar e como pedir, com UM botao verde repetido.
+// O titulo e a regiao (Itaquera, zona leste, Guarulhos) ficam: sao o que o
+// Search Console esta medindo desde 24/09.
 
 // Base em Itaquera; prioridade do dono (24/09/2026): zona leste e Guarulhos.
 // Brigar por "São Paulo" inteira nos deixou na posição 60-80; a região é onde
@@ -37,6 +31,62 @@ const AREA_ATENDIDA = [
   { '@type': 'City', name: 'Guarulhos' },
   { '@type': 'City', name: 'São Paulo' },
 ];
+
+// As 3 promessas abaixo foram confirmadas pelo dono em 28/09/2026 ("são
+// verdade"): 1 visita, porta sem estrago (gabarito) e orcamento no mesmo dia.
+// Garantia: Intelbras e Papaiz dao ate 3 anos em ALGUNS produtos e a EZVIZ 2
+// anos, por sermos representante autorizado. Por isso "ate 3 anos" e nunca
+// "3 anos" colado num modelo. Nao use norma eletrica (NR-10, NR-35, 5410) como
+// prova aqui: nao tem relacao com fechadura.
+const RAZOES = [
+  {
+    icone: '✓',
+    titulo: 'Sua porta intacta',
+    texto: 'Furação e ajuste com gabarito, sem gambiarra. Tudo em 1 visita.',
+  },
+  {
+    icone: '3',
+    titulo: 'Até 3 anos de garantia',
+    texto: 'Intelbras e Papaiz até 3 anos, EZVIZ 2 anos: garantia estendida por sermos representante autorizado.',
+  },
+  {
+    icone: '☝',
+    titulo: 'Você sai usando',
+    texto: 'Cadastramos digitais e senhas e ensinamos a família a usar.',
+  },
+  {
+    icone: '★',
+    titulo: 'Técnico formado e especializado',
+    texto: 'Representante autorizado de EZVIZ, Intelbras, Papaiz, EKAZA e Nova Digital.',
+  },
+];
+
+// So as marcas REPRESENTADAS. Yale e Pado a gente instala, mas logo delas aqui
+// sugeriria uma autorizacao que a MSIFORCE nao tem. Intelbras e Papaiz
+// entraram em 28/09/2026. Pecas WebP com o fundo oficial de cada marca.
+const MARCAS = [
+  { src: '/marcas/marca-ezviz.webp', alt: 'EZVIZ', w: 230 },
+  { src: '/marcas/marca-intelbras.webp', alt: 'Intelbras', w: 88 },
+  { src: '/marcas/marca-papaiz.webp', alt: 'Papaiz Assa Abloy', w: 88 },
+  { src: '/marcas/marca-ekaza.webp', alt: 'EKAZA', w: 85 },
+  { src: '/marcas/marca-novadigital.webp', alt: 'Nova Digital', w: 230 },
+];
+
+const PASSOS = [
+  'Você manda a foto da porta no WhatsApp',
+  'Recebe o orçamento no mesmo dia',
+  'Instalamos no dia marcado, em 1 visita',
+];
+
+// Cada tipo de porta com pagina propria: sao as buscas em que o cliente
+// descreve a porta dele. A /porta-pivotante depende deste link interno.
+const PORTAS = [
+  { to: '/fechaduras/porta-de-apartamento', nome: 'Porta de apartamento' },
+  { to: '/fechaduras/porta-de-vidro', nome: 'Porta de vidro' },
+  { to: '/fechaduras/porta-pivotante', nome: 'Porta pivotante' },
+];
+
+const FAQ_VISIVEIS = 5;
 
 // O JSON-LD sai dos MESMOS dados que a /casa-inteligente renderiza (dados.js) —
 // mesma fonte única usada lá, para as duas páginas nunca divergirem.
@@ -56,6 +106,7 @@ const SERVICO_SCHEMA = {
     'Instalador de fechadura digital com base em Itaquera: instalação em portas de madeira, alumínio e vidro na zona leste de São Paulo e em Guarulhos, com marcas homologadas e suporte técnico após o serviço.',
 };
 
+// O schema leva TODAS as perguntas, mesmo as que ficam atras do "ver mais".
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -66,9 +117,9 @@ const FAQ_SCHEMA = {
   })),
 };
 
-
 export default function InstalacaoFechaduraDigital() {
   const [aberta, setAberta] = useState(0);
+  const [todasPerguntas, setTodasPerguntas] = useState(false);
 
   useSEO({
     title: 'Instalador de Fechadura Digital na Zona Leste e Guarulhos',
@@ -82,59 +133,47 @@ export default function InstalacaoFechaduraDigital() {
     { key: 'faq', schema: FAQ_SCHEMA },
   ]);
 
+  const perguntas = todasPerguntas ? FAQ_INSTALACAO : FAQ_INSTALACAO.slice(0, FAQ_VISIVEIS);
+
   return (
     <div className="ifd-page">
       <section className="ifd-hero">
         <div className="ifd-hero-grid">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.p variants={fadeUp} className="ifd-eyebrow">Fechadura Digital</motion.p>
-            <motion.h1 variants={fadeUp} className="ifd-titulo">
+          <div>
+            <p className="ifd-eyebrow">Zona Leste · Guarulhos</p>
+            <h1 className="ifd-titulo">
               Instalador de Fechadura Digital <span>na Zona Leste e em Guarulhos</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="ifd-sub">
-              Trocar a chave por uma fechadura digital é rápido — mas instalar bem, sem
-              arriscar a porta, exige instalador certificado. Saindo de Itaquera, a MSIFORCE
-              instala fechaduras digitais em portas de madeira, alumínio e vidro em toda a
-              zona leste de São Paulo e em Guarulhos, com
-              equipamentos homologados e a mesma equipe que cuida de instalações
-              elétricas para empresas há anos.
-            </motion.p>
-            <motion.div variants={fadeUp} className="ifd-hero-cta">
-              <a href={linkWhatsApp(MSG_FECHADURA_COMBO)} target="_blank" rel="noopener noreferrer" className="ifd-btn">
-                Pedir Orçamento no WhatsApp
-              </a>
-              <a href="#ofertas" className="ifd-btn ifd-btn--secundario">
-                Ver modelos
-              </a>
-            </motion.div>
+            </h1>
+            <p className="ifd-sub">
+              Mande a foto da sua porta e receba o orçamento hoje. Instalação em
+              1 visita, sem estragar a porta.
+            </p>
 
-            {/* A pagina que rankeia era a unica sem prova social: o selo so
-                existia na /casa-inteligente. */}
-            <motion.div variants={fadeUp} className="ifd-hero-prova">
+            <div className="ifd-precos">
+              <div>
+                <small>Só a instalação</small>
+                <strong>R$ {PRECO_MINIMO}</strong>
+                <small>a partir de*</small>
+              </div>
+              <div>
+                <small>Fechadura + instalação</small>
+                <strong>R$ {PRECO_KIT}</strong>
+                <small>a partir de*</small>
+              </div>
+            </div>
+
+            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
+              📷 Mandar foto da porta no WhatsApp
+            </WhatsAppButton>
+            <p className="ifd-micro">Orçamento grátis · atendimento das 7h às 21h</p>
+
+            <div className="ifd-prova">
               <SeloGoogle compacto />
-              {/* Credencial de quem executa. Nao use norma eletrica (NR-10,
-                  NR-35, ABNT 5410) como prova aqui: nao tem relacao com
-                  fechadura. */}
-              <p className="ifd-hero-credencial">
-                Técnico em eletrônica cadastrado no CFT · Representante autorizado
-                EZVIZ, Intelbras, Papaiz, EKAZA e Nova Digital
-              </p>
-              {/* Diferencial que nenhum concorrente do Local Pack anuncia hoje:
-                  a garantia dobra por causa da representacao autorizada. Se o
-                  acordo com a EZVIZ mudar, este e o primeiro texto a corrigir. */}
-              <p className="ifd-hero-garantia">
-                Fechadura EZVIZ instalada por nós tem <strong>2 anos de garantia</strong>:
-                a fábrica dá 1 ano e, como representante autorizado, nós dobramos
-              </p>
-            </motion.div>
-          </motion.div>
+              <p className="ifd-prova-garantia">Até <strong>3 anos de garantia</strong></p>
+            </div>
+          </div>
 
-          <motion.figure
-            className="ifd-hero-figura"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <figure className="ifd-hero-figura">
             <img
               src="/fechadura-hero.webp"
               alt="Fechadura digital com biometria instalada pela MSIFORCE em porta de madeira escura"
@@ -143,349 +182,173 @@ export default function InstalacaoFechaduraDigital() {
               height="880"
               loading="eager"
             />
-          </motion.figure>
+          </figure>
         </div>
       </section>
 
-      <section className="ifd-ofertas" id="ofertas">
-        <motion.div
-          className="ifd-ofertas-cabecalho"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>Modelos e kits com instalação</motion.h2>
-          <motion.p variants={fadeUp}>
-            Fechadura + instalação num pacote só, com marcas homologadas. Kit a partir de{' '}
-            <strong>R$ {PRECO_KIT}</strong>, valor fechado conforme o modelo. Parcelamos em
-            até 12x no cartão (até 3x sem juros), Pix ou dinheiro.
-          </motion.p>
-        </motion.div>
+      <section className="ifd-secao" id="ofertas">
+        <div className="ifd-conteudo">
+          <h2>Escolha o modelo</h2>
+          <p className="ifd-lead">
+            Fechadura + instalação num pacote só. Parcelamos em até 12x no cartão, Pix ou dinheiro.
+          </p>
+        </div>
 
-        <motion.div
-          className="ifd-ofertas-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
+        <div className="ifd-trilho">
           {OFERTAS.map((o) => (
-            <motion.article variants={fadeUp} className="ifd-card" key={o.id}>
+            <article className="ifd-modelo" key={o.id}>
               <img
                 src={o.imagem}
                 alt={o.alt}
-                className="ifd-card-img"
                 loading="lazy"
                 width="600"
                 height="450"
               />
-              <div className="ifd-card-corpo">
-                <p className="ifd-card-marca">{o.marca}</p>
-                <h3>{o.nome}</h3>
-                <p className="ifd-card-tipo">{o.tipo}</p>
-                <ul className="ifd-card-lista">
-                  {o.beneficios.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-                <p className="ifd-card-preco">
-                  <span className="ifd-card-preco-prefixo">{o.precoPrefixo}</span>
-                  <strong>Cotado na hora</strong>
-                  <span className="ifd-card-preco-sufixo">{o.precoSufixo}</span>
-                </p>
-                <p className="ifd-card-nota">{o.nota}</p>
-                <a
-                  href={linkWhatsApp(msgFechaduraModelo(o.modelo))}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ifd-btn ifd-card-btn"
-                >
-                  Quero este kit
-                </a>
-              </div>
-            </motion.article>
+              <p className="ifd-modelo-marca">{o.marca}</p>
+              <h3>{o.nome}</h3>
+              <p className="ifd-modelo-tipo">{o.tipo}</p>
+              <WhatsAppButton
+                message={msgFechaduraModelo(o.modelo)}
+                className="ifd-btn ifd-btn--contorno"
+              >
+                Quero esta
+              </WhatsAppButton>
+            </article>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="ifd-ofertas-instalacao"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={fadeUp}
-        >
-          <p>
-            <strong>Já tem a fechadura?</strong> Instalamos a sua — só a mão de obra sai a
-            partir de <strong>R$ {PRECO_MINIMO}</strong>, e a garantia do fabricante continua
-            valendo.
-          </p>
-          <a href={linkWhatsApp(MSG_FECHADURA_INSTALACAO)} target="_blank" rel="noopener noreferrer" className="ifd-btn ifd-btn--secundario">
-            Orçar só a instalação
-          </a>
-        </motion.div>
-      </section>
-
-      <section className="ifd-secao">
-        <motion.div
-          className="ifd-bloco"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>
-            Quanto custa instalar uma fechadura digital em São Paulo?
-          </motion.h2>
-          <motion.p variants={fadeUp}>
-            Se a fechadura já é sua, você paga só a mão de obra — a partir de{' '}
-            <strong>R$ {PRECO_MINIMO}</strong>, e esse valor é nosso, não depende de
-            fornecedor. Se preferir resolver de uma vez, o kit com fechadura + instalação sai a partir de{' '}
-            <strong>R$ {PRECO_KIT}</strong>. Cotamos a fechadura no dia:
-            trabalhamos sem estoque e compramos a cada venda, então você leva o preço
-            do mercado naquele momento, e não um valor de tabela antigo. O que move a
-            mão de obra é a porta:
-          </motion.p>
-          <motion.ul variants={fadeUp} className="ifd-lista">
-            <li>
-              <strong>Sobrepor ou embutir:</strong> sobrepor instala acima da maçaneta e
-              sai em menos de 1 hora. Embutir exige fresagem na porta e leva de 2 a 3
-              horas — é o que mais pesa no orçamento.
-            </li>
-            <li>
-              <strong>Material da porta:</strong> madeira comum é o cenário mais simples.
-              Alumínio, vidro temperado e blindada pedem ferramenta específica e mais
-              tempo de serviço.
-            </li>
-            <li>
-              <strong>Recursos do modelo:</strong> senha e tag saem na faixa de entrada.
-              Biometria, Wi-Fi e multiponto exigem configuração e testes adicionais.
-            </li>
-          </motion.ul>
-          <motion.p variants={fadeUp}>{NOTA_LEGAL}</motion.p>
-        </motion.div>
-
-        <motion.div
-          className="ifd-bloco"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>Instalação completa, não só venda</motion.h2>
-          <motion.p variants={fadeUp}>
-            Diferente de quem só entrega o produto, a MSIFORCE cuida da instalação
-            elétrica completa quando a porta exige adaptação — fiação, fresagem e
-            acabamento incluídos. É o mesmo padrão técnico que aplicamos há anos em
-            instalações elétricas para empresas, condomínios e clínicas, agora também
-            para residências.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="ifd-bloco"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>Qual fechadura combina com a sua porta</motion.h2>
-          {/* Cada tipo de porta com pagina propria linka para ela: sao as
-              buscas em que o cliente descreve a porta dele. Correr/aluminio
-              ainda nao tem pagina, entao segue como texto. */}
-          <motion.ul variants={fadeUp} className="ifd-lista">
-            <li>
-              <strong>
-                <Link to="/fechaduras/porta-pivotante">Portas pivotantes e de madeira maciça</Link>:
-              </strong>{' '}
-              fechadura de embutir. O maquinário fica dentro da porta, com o acabamento
-              mais discreto e sofisticado.
-            </li>
-            <li>
-              <strong>
-                <Link to="/fechaduras/porta-de-apartamento">Portas padrão de apartamento</Link>:
-              </strong>{' '}
-              fechadura de sobrepor, instalada acima da maçaneta atual, sem modificar a
-              porta — a opção certa para quem mora de aluguel.
-            </li>
-            <li>
-              <strong>
-                <Link to="/fechaduras/porta-de-vidro">Portas de vidro temperado</Link>:
-              </strong>{' '}
-              o vidro não pode ser furado, então a fechadura é colada, fixada direto no
-              vidro — e o modelo depende do perfil e da ferragem.
-            </li>
-            <li>
-              <strong>Portas de correr e alumínio:</strong> modelos de perfil estreito,
-              com lingueta lateral compatível com o trilho.
-            </li>
-          </motion.ul>
-        </motion.div>
-
-        <motion.div
-          className="ifd-bloco"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>Marcas homologadas</motion.h2>
-          <motion.p variants={fadeUp}>
-            Trabalhamos com as principais marcas do mercado, incluindo{' '}
-            <strong>Intelbras, Yale, Pado, Papaiz, EZVIZ, EKAZA e Nova Digital</strong>.
-            Somos <strong>representante autorizado de EZVIZ, Intelbras, Papaiz, EKAZA e Nova Digital</strong>,
-            e na EZVIZ isso vira garantia: a fechadura comprada e instalada com a gente sai
-            com <strong>2 anos</strong> no lugar do 1 ano de fábrica, sem custo a mais. Se
-            você já comprou a sua fechadura em outro lugar, de qualquer marca, também
-            instalamos: a garantia do fabricante continua valendo, já que instalação por
-            técnico certificado não a anula.
-          </motion.p>
-
-          {/* Faixa so das marcas REPRESENTADAS. Yale e Pado ficam no texto
-              acima: logo delas aqui sugeriria autorizacao que a MSIFORCE nao
-              tem. Intelbras e Papaiz entraram em 28/09/2026.
-              As pecas sao WebP de ~5KB, com o fundo oficial de cada marca. */}
-          <motion.div variants={fadeUp} className="ifd-marcas-faixa">
-            <p className="ifd-marcas-rotulo">Representante autorizado</p>
-            <ul>
-              <li>
-                <img src="/marcas/marca-ezviz.webp" alt="EZVIZ"
-                     width="230" height="88" loading="lazy" decoding="async" />
-              </li>
-              <li>
-                <img src="/marcas/marca-intelbras.webp" alt="Intelbras"
-                     width="88" height="88" loading="lazy" decoding="async" />
-              </li>
-              <li>
-                <img src="/marcas/marca-papaiz.webp" alt="Papaiz Assa Abloy"
-                     width="88" height="88" loading="lazy" decoding="async" />
-              </li>
-              <li>
-                <img src="/marcas/marca-ekaza.webp" alt="EKAZA"
-                     width="85" height="88" loading="lazy" decoding="async" />
-              </li>
-              <li>
-                <img src="/marcas/marca-novadigital.webp" alt="Nova Digital"
-                     width="230" height="88" loading="lazy" decoding="async" />
-              </li>
-            </ul>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <section className="ifd-secao">
-        <motion.div
-          className="ifd-bloco"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp}>
-            Instalador de fechadura digital na zona leste e em Guarulhos
-          </motion.h2>
-          <motion.p variants={fadeUp}>
-            Nossa base fica em <strong>Itaquera</strong>. Por isso a zona leste é onde
-            chegamos mais rápido e com hora marcada: {BAIRROS_ZL.join(', ')} e bairros
-            vizinhos. Em <strong>Guarulhos</strong> atendemos do Centro a Vila Galvão,
-            Bonsucesso, Pimentas e Cumbica. O restante da capital e da região
-            metropolitana também é atendido, com o deslocamento combinado no orçamento.
-          </motion.p>
-          <motion.p variants={fadeUp}>
-            Mande o CEP e a foto da porta no WhatsApp: confirmamos a região, o modelo
-            que combina e o valor na mesma conversa.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      <section className="ifd-secao ifd-secao--faq">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp} className="ifd-faq-titulo">Perguntas frequentes</motion.h2>
-        </motion.div>
-
-        <motion.div
-          className="ifd-lista-faq"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          {FAQ_INSTALACAO.map((item, i) => (
-            <motion.div variants={fadeUp} className="ifd-faq-item" key={item.p}>
-              <h3 className="ifd-faq-item-titulo">
-                <button
-                  className="ifd-faq-q"
-                  onClick={() => setAberta(aberta === i ? null : i)}
-                  aria-expanded={aberta === i}
-                  aria-controls={`ifd-resposta-${i}`}
-                  id={`ifd-pergunta-${i}`}
-                >
-                  <span>{item.p}</span>
-                  <motion.span
-                    className="ifd-faq-icon"
-                    aria-hidden="true"
-                    animate={{ rotate: aberta === i ? 45 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    +
-                  </motion.span>
-                </button>
-              </h3>
-              <AnimatePresence initial={false}>
-                {aberta === i && (
-                  <motion.div
-                    key="resposta"
-                    id={`ifd-resposta-${i}`}
-                    role="region"
-                    aria-labelledby={`ifd-pergunta-${i}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1, paddingBottom: '26px' }}
-                    exit={{ height: 0, opacity: 0, paddingBottom: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="ifd-faq-a"
-                  >
-                    {item.r}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      <motion.section
-        className="ifd-fechamento"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2>Pronto para trocar a chave?</h2>
-        <p>
-          Mande a foto da sua porta no WhatsApp e receba, em minutos, qual modelo
-          combina e o valor fechado — kit com fechadura ou só a instalação.
-        </p>
-        <div className="ifd-fechamento-acoes">
-          <a href={linkWhatsApp(MSG_FECHADURA_COMBO)} target="_blank" rel="noopener noreferrer" className="ifd-btn">
-            Pedir Orçamento
-          </a>
-          <a href={linkWhatsApp(MSG_FECHADURA_INSTALACAO)} target="_blank" rel="noopener noreferrer" className="ifd-btn ifd-btn--secundario">
-            Já tenho a fechadura, quero só instalar
-          </a>
         </div>
+
+        <div className="ifd-conteudo ifd-apoio">
+          <p>
+            <strong>Já tem a fechadura?</strong> Instalamos qualquer marca, a partir de
+            R$ {PRECO_MINIMO}.{' '}
+            <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="ifd-link">
+              Orçar só a instalação →
+            </WhatsAppButton>
+          </p>
+          <p className="ifd-portas">
+            Guia por tipo de porta:{' '}
+            {PORTAS.map((p, i) => (
+              <span key={p.to}>
+                {i > 0 && ' · '}
+                <Link to={p.to}>{p.nome}</Link>
+              </span>
+            ))}
+          </p>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Por que instalar com a MSIFORCE</h2>
+          <ul className="ifd-razoes">
+            {RAZOES.map((r) => (
+              <li key={r.titulo}>
+                <span className="ifd-razao-icone" aria-hidden="true">{r.icone}</span>
+                <div>
+                  <strong>{r.titulo}</strong>
+                  <p>{r.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <ul className="ifd-marcas" aria-label="Representante autorizado">
+            {MARCAS.map((m) => (
+              <li key={m.alt}>
+                <img src={m.src} alt={m.alt} width={m.w} height="88" loading="lazy" decoding="async" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Como funciona</h2>
+          <ol className="ifd-passos">
+            {PASSOS.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ol>
+          <p className="ifd-nota">{NOTA_LEGAL}</p>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Atendemos a Zona Leste e Guarulhos</h2>
+          <p className="ifd-lead">
+            Base em <strong>Itaquera</strong>: na zona leste chegamos rápido e com hora
+            marcada. Em <strong>Guarulhos</strong>, do Centro a Vila Galvão, Bonsucesso,
+            Pimentas e Cumbica. O resto da capital também, com deslocamento combinado.
+          </p>
+          <ul className="ifd-chips">
+            {[...BAIRROS_ZL, 'Guarulhos'].map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Dúvidas rápidas</h2>
+          <div className="ifd-faq">
+            {perguntas.map((item, i) => (
+              <div className="ifd-faq-item" key={item.p}>
+                <h3>
+                  <button
+                    className="ifd-faq-q"
+                    onClick={() => setAberta(aberta === i ? null : i)}
+                    aria-expanded={aberta === i}
+                    aria-controls={`ifd-resposta-${i}`}
+                    id={`ifd-pergunta-${i}`}
+                  >
+                    <span>{item.p}</span>
+                    <span className="ifd-faq-icone" aria-hidden="true">
+                      {aberta === i ? '−' : '+'}
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={`ifd-resposta-${i}`}
+                  role="region"
+                  aria-labelledby={`ifd-pergunta-${i}`}
+                  className="ifd-faq-a"
+                  hidden={aberta !== i}
+                >
+                  {item.r}
+                </div>
+              </div>
+            ))}
+          </div>
+          {!todasPerguntas && FAQ_INSTALACAO.length > FAQ_VISIVEIS && (
+            <button className="ifd-faq-mais" onClick={() => setTodasPerguntas(true)}>
+              Ver todas as {FAQ_INSTALACAO.length} perguntas
+            </button>
+          )}
+        </div>
+      </section>
+
+      <section className="ifd-fechamento">
+        <h2>Pronto para aposentar a chave?</h2>
+        <p>Mande a foto da porta e receba o modelo que combina e o valor no mesmo dia.</p>
+        <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
+          Pedir orçamento no WhatsApp
+        </WhatsAppButton>
         {/* Aponta para a pagina de MODELOS, nao para automacao: quem cuida de
-            automacao residencial e a /automacao. Ate 18/09/2026 este link
-            chamava a /casa-inteligente de "Casa Inteligente", o que colidia
-            com a /automacao e escondia o papel real dela. */}
-        <Link to="/casa-inteligente" className="ifd-link-automacao">
-          Ainda escolhendo o aparelho? Veja os modelos de fechadura digital →
+            automacao residencial e a /automacao. */}
+        <Link to="/casa-inteligente" className="ifd-link ifd-link--centro">
+          Ainda escolhendo o aparelho? Compare os modelos →
         </Link>
-      </motion.section>
+      </section>
+
+      {/* Barra fixa so no celular: 1 toque ate o WhatsApp em qualquer ponto da
+          leitura. Esconde o balao flutuante global nesta pagina (ver CSS). */}
+      <div className="ifd-barra">
+        <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn">
+          📷 Mandar foto da porta
+        </WhatsAppButton>
+      </div>
     </div>
   );
 }
