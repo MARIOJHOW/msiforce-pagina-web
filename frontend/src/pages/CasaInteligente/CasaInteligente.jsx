@@ -180,7 +180,7 @@ const CampanhaFechadura = () => {
           <span className="hero-trust-badges">
             <span className="hero-trust-badge">Técnico em Eletrônica · CFT</span>
             <span className="hero-trust-badge">Representante EZVIZ · Intelbras · Papaiz · EKAZA · Nova Digital</span>
-            <span className="hero-trust-badge">EZVIZ com 2 anos de garantia</span>
+            <span className="hero-trust-badge">Até 3 anos de garantia</span>
           </span>
         </motion.div>
       </section>
