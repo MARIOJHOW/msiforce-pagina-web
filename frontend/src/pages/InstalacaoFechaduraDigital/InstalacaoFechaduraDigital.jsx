@@ -117,7 +117,7 @@ export default function InstalacaoFechaduraDigital() {
                   fechadura. */}
               <p className="ifd-hero-credencial">
                 Técnico em eletrônica cadastrado no CFT · Representante autorizado
-                EZVIZ, EKAZA e Nova Digital
+                EZVIZ, Papaiz, EKAZA e Nova Digital
               </p>
               {/* Diferencial que nenhum concorrente do Local Pack anuncia hoje:
                   a garantia dobra por causa da representacao autorizada. Se o
@@ -333,7 +333,7 @@ export default function InstalacaoFechaduraDigital() {
           <motion.p variants={fadeUp}>
             Trabalhamos com as principais marcas do mercado, incluindo{' '}
             <strong>Intelbras, Yale, Pado, Papaiz, EZVIZ, EKAZA e Nova Digital</strong>.
-            Somos <strong>representante autorizado de EZVIZ, EKAZA e Nova Digital</strong>,
+            Somos <strong>representante autorizado de EZVIZ, Papaiz, EKAZA e Nova Digital</strong>,
             e na EZVIZ isso vira garantia: a fechadura comprada e instalada com a gente sai
             com <strong>2 anos</strong> no lugar do 1 ano de fábrica, sem custo a mais. Se
             você já comprou a sua fechadura em outro lugar, de qualquer marca, também
@@ -341,10 +341,10 @@ export default function InstalacaoFechaduraDigital() {
             técnico certificado não a anula.
           </motion.p>
 
-          {/* Faixa so das marcas REPRESENTADAS. Intelbras, Papaiz, Yale e Pado
-              ficam no texto acima: logo delas aqui sugeriria autorizacao que a
-              MSIFORCE ainda nao tem -- e as duas primeiras estao em processo
-              justamente agora (18/09/2026). Quando assinarem, entram aqui.
+          {/* Faixa so das marcas REPRESENTADAS. Intelbras, Yale e Pado ficam no
+              texto acima: logo delas aqui sugeriria autorizacao que a MSIFORCE
+              nao tem. A Papaiz virou representada em 28/09/2026 e ja esta no
+              texto; o logo entra aqui quando houver a peca oficial.
               As pecas sao WebP de ~5KB, com o fundo oficial de cada marca. */}
           <motion.div variants={fadeUp} className="ifd-marcas-faixa">
             <p className="ifd-marcas-rotulo">Representante autorizado</p>

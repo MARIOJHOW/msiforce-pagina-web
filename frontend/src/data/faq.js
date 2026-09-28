@@ -12,7 +12,7 @@ export const FAQS = [
   },
   {
     q: 'Quem instala fechadura digital na zona leste de São Paulo e em Guarulhos?',
-    a: `A MSIFORCE instala fechadura digital de sobrepor e de embutir em portas de madeira, alumínio e vidro, com técnico em eletrônica cadastrado no CFT e representante autorizado EZVIZ, EKAZA e Nova Digital. A mão de obra sai a partir de R$ ${PRECO_MINIMO} e o orçamento é gratuito pelo WhatsApp (11) 91077-3865.`,
+    a: `A MSIFORCE instala fechadura digital de sobrepor e de embutir em portas de madeira, alumínio e vidro, com técnico em eletrônica cadastrado no CFT e representante autorizado EZVIZ, Papaiz, EKAZA e Nova Digital. A mão de obra sai a partir de R$ ${PRECO_MINIMO} e o orçamento é gratuito pelo WhatsApp (11) 91077-3865.`,
   },
   {
     q: 'A MSIFORCE também faz serviço de eletricista na zona leste?',
