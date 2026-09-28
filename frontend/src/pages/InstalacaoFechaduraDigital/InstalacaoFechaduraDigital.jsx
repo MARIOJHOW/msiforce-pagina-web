@@ -343,8 +343,7 @@ export default function InstalacaoFechaduraDigital() {
 
           {/* Faixa so das marcas REPRESENTADAS. Intelbras, Yale e Pado ficam no
               texto acima: logo delas aqui sugeriria autorizacao que a MSIFORCE
-              nao tem. A Papaiz virou representada em 28/09/2026 e ja esta no
-              texto; o logo entra aqui quando houver a peca oficial.
+              nao tem. A Papaiz entrou em 28/09/2026.
               As pecas sao WebP de ~5KB, com o fundo oficial de cada marca. */}
           <motion.div variants={fadeUp} className="ifd-marcas-faixa">
             <p className="ifd-marcas-rotulo">Representante autorizado</p>
@@ -352,6 +351,10 @@ export default function InstalacaoFechaduraDigital() {
               <li>
                 <img src="/marcas/marca-ezviz.webp" alt="EZVIZ"
                      width="230" height="88" loading="lazy" decoding="async" />
+              </li>
+              <li>
+                <img src="/marcas/marca-papaiz.webp" alt="Papaiz Assa Abloy"
+                     width="88" height="88" loading="lazy" decoding="async" />
               </li>
               <li>
                 <img src="/marcas/marca-ekaza.webp" alt="EKAZA"
