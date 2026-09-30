@@ -8,6 +8,9 @@
 // é só mão de obra, para quem já tem a fechadura. A página mostra os dois,
 // rotulados. Mudou a promoção? Muda aqui e regera a arte, não o contrário.
 //
+// `ideal` e a linha "para quem e" do card: sai dos beneficios do proprio modelo, sem
+// promessa nova. Existe para quem nao entende de modelo conseguir escolher.
+//
 // `modelo` viaja no texto do WhatsApp via msgFechaduraModelo(): o bot reconhece
 // "pacote completo" + "Instalação" e abre o funil da fechadura.
 
@@ -18,6 +21,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'FR 101',
     tipo: 'Sobrepor · portas de 25 a 50 mm',
+    ideal: 'Só senha, a mais simples de usar',
     imagem: '/oferta-fr101.webp',
     alt: 'Fechadura digital de sobrepor Intelbras FR 101 com teclado touch',
     beneficios: [
@@ -39,6 +43,7 @@ export const OFERTAS = [
     marca: 'Papaiz · ASSA ABLOY',
     nome: 'SL140 B',
     tipo: 'Sobrepor · painel interno vertical',
+    ideal: 'Digital ou senha, com puxador',
     imagem: '/oferta-sl140b.webp',
     alt: 'Fechadura digital de sobrepor Papaiz SL140 B em aço escovado com puxador',
     beneficios: [
@@ -60,6 +65,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'MFD2020 D',
     tipo: 'Sobrepor · portas de 25 a 70 mm · hub opcional',
+    ideal: 'Digital, senha e tag; app com o hub',
     imagem: '/oferta-mfd2020-hub.webp',
     alt: 'Fechadura digital Intelbras MFD2020 D com hub de automação MCA',
     beneficios: [
@@ -81,6 +87,7 @@ export const OFERTAS = [
     marca: 'Papaiz · ASSA ABLOY',
     nome: 'Fit Lock',
     tipo: 'Embutir · madeira ou metal',
+    ideal: 'Troca a fechadura comum sem obra',
     imagem: '/oferta-papaiz-fitlock.webp',
     alt: 'Fechadura digital de embutir Papaiz Fit Lock em porta de madeira',
     beneficios: [
@@ -102,6 +109,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'MFR 3000 V',
     tipo: 'Embutir · porta pivotante ou madeira maciça',
+    ideal: 'Para porta pivotante ou maciça',
     imagem: '/oferta-mfr3000v.webp',
     alt: 'Fechadura digital de embutir Intelbras MFR 3000 V com maçaneta',
     beneficios: [
@@ -130,6 +138,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'FD 1000 D',
     tipo: 'Sobrepor · só senha · portas de 25 a 70 mm',
+    ideal: 'Só senha, até 155 usuários',
     imagem: '/oferta-fd1000d.webp',
     alt: 'Fechadura digital de sobrepor Intelbras FD 1000 D com teclado de senha',
     beneficios: ['Até 155 senhas', 'Portas pivotantes e de giro'],
@@ -140,6 +149,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'MFD 3000 D',
     tipo: 'Embutir · biometria, senha e app · portas de 30 a 60 mm',
+    ideal: 'Digital, senha e acesso pelo app',
     imagem: '/oferta-mfd3000d.webp',
     alt: 'Fechadura digital de embutir Intelbras MFD 3000 D com biometria e maçaneta',
     beneficios: ['155 senhas e 150 biometrias', 'Acesso remoto pelo aplicativo'],
@@ -150,6 +160,7 @@ export const OFERTAS = [
     marca: 'Intelbras',
     nome: 'MFD 7000 D',
     tipo: 'Embutir · biometria, senha, tag e app · portas de 30 a 60 mm',
+    ideal: 'Digital, senha, tag e app',
     imagem: '/oferta-mfd7000d.webp',
     alt: 'Fechadura digital de embutir Intelbras MFD 7000 D completa com biometria, app e tag',
     beneficios: ['155 senhas, 150 biometrias e 150 tags', 'Acesso remoto pelo aplicativo'],
@@ -160,6 +171,7 @@ export const OFERTAS = [
     marca: 'Papaiz · ASSA ABLOY',
     nome: 'SL125',
     tipo: 'Sobrepor · senha · portas de 30 a 50 mm',
+    ideal: 'Só senha, resiste à maresia',
     imagem: '/oferta-sl125.webp',
     alt: 'Fechadura digital de sobrepor Papaiz SL125 com teclado touchscreen',
     beneficios: ['Até 31 senhas', 'Resistente à corrosão, indicada para o litoral'],
@@ -170,6 +182,7 @@ export const OFERTAS = [
     marca: 'Papaiz · ASSA ABLOY',
     nome: 'SL150',
     tipo: 'Embutir · biometria, senha e tag · portas de 35 a 60 mm',
+    ideal: 'Digital e tag, maçaneta reversível',
     imagem: '/oferta-sl150.webp',
     alt: 'Fechadura digital de embutir Papaiz SL150 com biometria e maçaneta',
     beneficios: ['Até 100 usuários por tipo de acesso', 'Maçaneta reversível'],
@@ -180,6 +193,7 @@ export const OFERTAS = [
     marca: 'EZVIZ',
     nome: 'DL03 PRO',
     tipo: 'Sobrepor · biometria e Wi-Fi, sem hub',
+    ideal: 'App direto no Wi-Fi, sem hub',
     imagem: '/oferta-dl03pro.webp',
     alt: 'Fechadura digital de sobrepor EZVIZ DL03 PRO com Wi-Fi e impressão digital',
     beneficios: ['App EZVIZ direto no Wi-Fi 2,4 GHz', 'Alarme antiviolação'],
@@ -190,6 +204,7 @@ export const OFERTAS = [
     marca: 'EZVIZ',
     nome: 'DL05',
     tipo: 'Embutir · biometria, senha, cartão e Wi-Fi',
+    ideal: 'Aguenta chuva, tem campainha',
     imagem: '/oferta-dl05.webp',
     alt: 'Fechadura digital de embutir EZVIZ DL05 instalada em porta branca',
     beneficios: ['Senhas temporárias pelo app', 'À prova de intempéries, com campainha'],
@@ -200,6 +215,7 @@ export const OFERTAS = [
     marca: 'EZVIZ',
     nome: 'DL50FVS',
     tipo: 'Embutir · reconhecimento facial 3D, biometria e app',
+    ideal: 'Abre pelo rosto',
     imagem: '/oferta-dl50fvs.webp',
     alt: 'Fechadura inteligente EZVIZ DL50FVS com reconhecimento facial',
     beneficios: ['Abre pelo rosto, digital ou senha', 'Bateria de lítio recarregável'],

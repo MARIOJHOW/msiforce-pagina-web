@@ -189,8 +189,17 @@ export default function InstalacaoFechaduraDigital() {
       <section className="ifd-secao" id="ofertas">
         <div className="ifd-conteudo">
           <h2>Escolha o modelo</h2>
+          {/* Quem nao entende de modelo trava diante de 13 cards: a saida e o
+              botao principal (mandar a foto), nao escolher sozinho. */}
           <p className="ifd-lead">
-            Fechadura + instalação num pacote só. Parcelamos em até 12x no cartão, Pix ou dinheiro.
+            Não sabe qual?{' '}
+            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-link">
+              Mande a foto da porta
+            </WhatsAppButton>{' '}
+            que indicamos o modelo certo. Parcelamos em até 12x no cartão, Pix ou dinheiro.
+          </p>
+          <p className="ifd-dica-arraste" aria-hidden="true">
+            {OFERTAS.length} modelos · arraste para ver →
           </p>
         </div>
 
@@ -206,6 +215,7 @@ export default function InstalacaoFechaduraDigital() {
               />
               <p className="ifd-modelo-marca">{o.marca}</p>
               <h3>{o.nome}</h3>
+              <p className="ifd-modelo-ideal">{o.ideal}</p>
               <p className="ifd-modelo-tipo">{o.tipo}</p>
               <WhatsAppButton
                 message={msgFechaduraModelo(o.modelo)}
@@ -224,15 +234,6 @@ export default function InstalacaoFechaduraDigital() {
             <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="ifd-link">
               Orçar só a instalação →
             </WhatsAppButton>
-          </p>
-          <p className="ifd-portas">
-            Guia por tipo de porta:{' '}
-            {PORTAS.map((p, i) => (
-              <span key={p.to}>
-                {i > 0 && ' · '}
-                <Link to={p.to}>{p.nome}</Link>
-              </span>
-            ))}
           </p>
         </div>
       </section>
@@ -286,6 +287,18 @@ export default function InstalacaoFechaduraDigital() {
               <li key={b}>{b}</li>
             ))}
           </ul>
+          {/* Saiu do meio da oferta (30/09/2026): era uma saida da pagina antes
+              das razoes para confiar. Continua aqui porque a /porta-pivotante
+              depende deste link interno. */}
+          <p className="ifd-portas">
+            Guia por tipo de porta:{' '}
+            {PORTAS.map((p, i) => (
+              <span key={p.to}>
+                {i > 0 && ' · '}
+                <Link to={p.to}>{p.nome}</Link>
+              </span>
+            ))}
+          </p>
         </div>
       </section>
 
@@ -331,15 +344,15 @@ export default function InstalacaoFechaduraDigital() {
 
       <section className="ifd-fechamento">
         <h2>Pronto para aposentar a chave?</h2>
-        <p>Mande a foto da porta e receba o modelo que combina e o valor no mesmo dia.</p>
+        <p>Mande a foto da porta e receba, no mesmo dia, o modelo indicado e o valor.</p>
         <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
           Pedir orçamento no WhatsApp
         </WhatsAppButton>
-        {/* Aponta para a pagina de MODELOS, nao para automacao: quem cuida de
-            automacao residencial e a /automacao. */}
-        <Link to="/casa-inteligente" className="ifd-link ifd-link--centro">
-          Ainda escolhendo o aparelho? Compare os modelos →
-        </Link>
+        {/* Antes levava para a /casa-inteligente: tirava a pessoa da pagina que
+            converte no ultimo momento. Os modelos ja estao aqui em cima. */}
+        <a href="#ofertas" className="ifd-link ifd-link--centro">
+          Ver os modelos de novo ↑
+        </a>
       </section>
 
       {/* Barra fixa so no celular: 1 toque ate o WhatsApp em qualquer ponto da
