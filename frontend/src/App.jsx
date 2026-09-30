@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import { capturarOrigemAds } from './lib/ads';
+import { capturarRef } from './lib/campanha';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -41,7 +42,7 @@ function App() {
   // O clique do anúncio pode cair em qualquer rota, mas `iniciarAds()` só roda nas duas
   // landing pages pagas. Persistir aqui garante que a origem sobreviva à navegação
   // client-side, quando o `gclid` já saiu da URL.
-  useEffect(() => { capturarOrigemAds(); }, []);
+  useEffect(() => { capturarOrigemAds(); capturarRef(); }, []);
 
   return (
     // reducedMotion="user" faz o Framer Motion respeitar prefers-reduced-motion

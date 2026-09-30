@@ -1,4 +1,5 @@
 import { registrarConversaoWhatsApp, veioDeAds } from './ads';
+import { refAtual } from './campanha';
 import { trackCTA } from '../hooks/useAnalytics';
 
 // Número único do WhatsApp do bot. Mudou? Muda só aqui.
@@ -20,6 +21,11 @@ export function linkWhatsApp(mensagem) {
   let texto = mensagem || MENSAGEM_PADRAO;
   if (veioDeAds()) {
     texto += SUFIXO_ORIGEM_ADS;
+  }
+  // Código de campanha (utm_source-utm_campaign) — o bot grava em leads.campanha.
+  const ref = refAtual();
+  if (ref) {
+    texto += ` (ref: ${ref})`;
   }
   return `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
 }
