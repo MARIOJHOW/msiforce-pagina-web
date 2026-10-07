@@ -10,6 +10,12 @@
 
 export const MSG_FECHADURA_COMBO = 'Olá! Vim pela página da Fechadura Digital. Quero mais informações!';
 
+// Cabeçalho e rodapé aparecem em todas as páginas. Nas de fechadura, mandam a frase do
+// funil da fechadura; nas demais, a frase geral (que cai no menu do bot).
+export const MSG_GERAL = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
+export const msgGeralDaRota = (pathname = '') =>
+  /^\/(instalacao-fechadura-digital|fechaduras\/)/.test(pathname) ? MSG_FECHADURA_COMBO : MSG_GERAL;
+
 export const MSG_FECHADURA_INSTALACAO =
   'Olá! Eu já tenho uma fechadura digital e gostaria de contratar APENAS o serviço de instalação profissional da MsiForce.';
 

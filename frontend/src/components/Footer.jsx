@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { linkWhatsApp } from '../lib/whatsapp';
+import { msgGeralDaRota } from '../lib/gatilhos';
 import './Footer.css';
 
-const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
-
 const Footer = () => {
+  const { pathname } = useLocation();
   // Montado no render, não em constante de módulo: o marcador de origem de Ads
   // precisa entrar no link também quando a rota muda sem recarregar a página.
-  const WA_LINK = linkWhatsApp(WA_MENSAGEM);
+  const WA_LINK = linkWhatsApp(msgGeralDaRota(pathname));
 
   return (
     <footer className="msi-footer">

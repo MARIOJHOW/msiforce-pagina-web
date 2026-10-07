@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { linkWhatsApp, registrarCliqueWhatsApp } from '../lib/whatsapp';
+import { msgGeralDaRota } from '../lib/gatilhos';
 import './Navbar.css';
-
-const WA_MENSAGEM = 'Olá, vim pelo site da MSIFORCE e gostaria de solicitar uma consultoria.';
 
 const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const WA_MENSAGEM = msgGeralDaRota(location.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
