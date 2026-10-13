@@ -6,11 +6,9 @@ import WhatsAppButton from '../../components/WhatsAppButton';
 import {
   MSG_FECHADURA_COMBO,
   MSG_FECHADURA_INSTALACAO,
-  msgFechaduraModelo,
 } from '../../lib/gatilhos';
 import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO, PRECO_KIT } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
-import { OFERTAS } from './ofertas';
 import './InstalacaoFechaduraDigital.css';
 
 // Pagina reescrita em 28/09/2026 para converter com leitura de 5 segundos: o que
@@ -38,6 +36,15 @@ const AREA_ATENDIDA = [
 // anos, por sermos representante autorizado. Por isso "ate 3 anos" e nunca
 // "3 anos" colado num modelo. Nao use norma eletrica (NR-10, NR-35, 5410) como
 // prova aqui: nao tem relacao com fechadura.
+const svg = (children) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {children}
+  </svg>
+);
+const ICO_ESCUDO = svg(<><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" /></>);
+const ICO_DIGITAL = svg(<><path d="M12 11v4" /><path d="M8 15c0-2.5 1.5-4 4-4s4 1.5 4 4" /><path d="M5 12a7 7 0 0 1 14 0" /><path d="M9 20c1-1.5 1-3 1-5" /><path d="M15 19c.5-1.5.7-2.5.7-4" /></>);
+
 const RAZOES = [
   {
     icone: '✓',
@@ -45,12 +52,12 @@ const RAZOES = [
     texto: 'Furação e ajuste com gabarito, sem gambiarra. Tudo em 1 visita.',
   },
   {
-    icone: '3',
+    icone: ICO_ESCUDO,
     titulo: 'Até 3 anos de garantia',
     texto: 'Intelbras e Papaiz até 3 anos, EZVIZ 2 anos: garantia estendida por sermos representante autorizado.',
   },
   {
-    icone: '☝',
+    icone: ICO_DIGITAL,
     titulo: 'Você sai usando',
     texto: 'Cadastramos digitais e senhas e ensinamos a família a usar.',
   },
@@ -86,6 +93,19 @@ const PORTAS = [
   { to: '/fechaduras/porta-pivotante', nome: 'Porta pivotante' },
 ];
 
+const ANTES_DEPOIS = [
+  {
+    id: 'embutir',
+    alt: 'Porta branca com fechadura digital de embutir instalada pela MSIFORCE',
+    legenda: 'Fechadura digital de embutir em porta branca.',
+  },
+  {
+    id: 'sobrepor',
+    alt: 'Porta branca com fechadura digital de sobrepor instalada pela MSIFORCE',
+    legenda: 'Fechadura digital de sobrepor em porta branca.',
+  },
+];
+
 const FAQ_VISIVEIS = 5;
 
 // O JSON-LD sai dos MESMOS dados que a /casa-inteligente renderiza (dados.js) —
@@ -103,7 +123,7 @@ const SERVICO_SCHEMA = {
   },
   areaServed: AREA_ATENDIDA,
   description:
-    'Instalador de fechadura digital com base em Itaquera: instalação em portas de madeira, alumínio e vidro na zona leste de São Paulo e em Guarulhos, com marcas homologadas e suporte técnico após o serviço.',
+    'Instalador de fechadura digital com base em Itaquera: instalação em portas de madeira, alumínio e vidro na zona leste de São Paulo e em Guarulhos, com marcas de que somos representante autorizado e suporte técnico após o serviço.',
 };
 
 // O schema leva TODAS as perguntas, mesmo as que ficam atras do "ver mais".
@@ -161,11 +181,15 @@ export default function InstalacaoFechaduraDigital() {
                 <small>a partir de*</small>
               </div>
             </div>
+            <p className="ifd-nota">
+              *{NOTA_LEGAL.replace(/^\*/, '')} No kit, o valor depende do modelo
+              escolhido: modelos com mais recursos custam mais.
+            </p>
 
             <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
               📷 Mandar foto da porta no WhatsApp
             </WhatsAppButton>
-            <p className="ifd-micro">Orçamento grátis · atendimento das 7h às 21h</p>
+            <p className="ifd-micro">Orçamento grátis · atendimento das 7h às 21h · parcelamos em até 12x</p>
 
             <div className="ifd-prova">
               <SeloGoogle compacto />
@@ -186,47 +210,7 @@ export default function InstalacaoFechaduraDigital() {
         </div>
       </section>
 
-      <section className="ifd-secao" id="ofertas">
-        <div className="ifd-conteudo">
-          <h2>Escolha o modelo</h2>
-          {/* Quem nao entende de modelo trava diante de 13 cards: a saida e o
-              botao principal (mandar a foto), nao escolher sozinho. */}
-          <p className="ifd-lead">
-            Não sabe qual?{' '}
-            <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-link">
-              Mande a foto da porta
-            </WhatsAppButton>{' '}
-            que indicamos o modelo certo. Parcelamos em até 12x no cartão, Pix ou dinheiro.
-          </p>
-          <p className="ifd-dica-arraste" aria-hidden="true">
-            {OFERTAS.length} modelos · arraste para ver →
-          </p>
-        </div>
-
-        <div className="ifd-trilho">
-          {OFERTAS.map((o) => (
-            <article className="ifd-modelo" key={o.id}>
-              <img
-                src={o.imagem}
-                alt={o.alt}
-                loading="lazy"
-                width="600"
-                height="450"
-              />
-              <p className="ifd-modelo-marca">{o.marca}</p>
-              <h3>{o.nome}</h3>
-              <p className="ifd-modelo-ideal">{o.ideal}</p>
-              <p className="ifd-modelo-tipo">{o.tipo}</p>
-              <WhatsAppButton
-                message={msgFechaduraModelo(o.modelo)}
-                className="ifd-btn ifd-btn--contorno"
-              >
-                Quero esta
-              </WhatsAppButton>
-            </article>
-          ))}
-        </div>
-
+      <section className="ifd-secao">
         <div className="ifd-conteudo ifd-apoio">
           <p>
             <strong>Já tem a fechadura?</strong> Instalamos qualquer marca, a partir de
@@ -235,6 +219,46 @@ export default function InstalacaoFechaduraDigital() {
               Orçar só a instalação →
             </WhatsAppButton>
           </p>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Antes e depois de instalações nossas</h2>
+          <p className="ifd-dica-arraste" aria-hidden="true">arraste para ver →</p>
+        </div>
+        <div className="ifd-trilho ifd-ad-trilho">
+          <figure className="ifd-ad">
+            <img
+              src="/antes-depois-fechadura.webp"
+              alt="Porta de madeira antes, com puxador e fechadura comum, e depois, com fechadura digital biométrica instalada pela MSIFORCE"
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Porta de madeira: a fechadura digital entrou no lugar da antiga, sem trocar a folha.</figcaption>
+          </figure>
+          {ANTES_DEPOIS.map((ad) => (
+            <figure className="ifd-ad" key={ad.id}>
+              <div className="ifd-ad-par">
+                {[['antes', 'Antes'], ['depois', 'Depois']].map(([k, rotulo]) => (
+                  <div key={k}>
+                    <img
+                      src={`/antes-depois-${ad.id}-${k}.webp`}
+                      alt={`${ad.alt} (${rotulo.toLowerCase()})`}
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className={`ifd-ad-rotulo ifd-ad-rotulo--${k}`}>{rotulo}</span>
+                  </div>
+                ))}
+              </div>
+              <figcaption>{ad.legenda}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
@@ -270,7 +294,6 @@ export default function InstalacaoFechaduraDigital() {
               <li key={p}>{p}</li>
             ))}
           </ol>
-          <p className="ifd-nota">{NOTA_LEGAL}</p>
         </div>
       </section>
 
@@ -344,15 +367,10 @@ export default function InstalacaoFechaduraDigital() {
 
       <section className="ifd-fechamento">
         <h2>Pronto para aposentar a chave?</h2>
-        <p>Mande a foto da porta e receba, no mesmo dia, o modelo indicado e o valor.</p>
+        <p>Mande a foto da porta e receba o orçamento no mesmo dia.</p>
         <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
           Pedir orçamento no WhatsApp
         </WhatsAppButton>
-        {/* Antes levava para a /casa-inteligente: tirava a pessoa da pagina que
-            converte no ultimo momento. Os modelos ja estao aqui em cima. */}
-        <a href="#ofertas" className="ifd-link ifd-link--centro">
-          Ver os modelos de novo ↑
-        </a>
       </section>
 
       {/* Barra fixa so no celular: 1 toque ate o WhatsApp em qualquer ponto da

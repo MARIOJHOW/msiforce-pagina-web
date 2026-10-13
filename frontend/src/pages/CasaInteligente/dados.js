@@ -167,6 +167,12 @@ export const FAQ_INSTALACAO = [
     r: `A mão de obra começa em R$ ${PRECO_MINIMO}, para fechadura de sobrepor em porta de madeira comum. O que faz o valor subir é a complexidade da porta: embutir exige fresagem, e multiponto, blindada ou vidro temperado pedem mais tempo e ferramenta específica. Mande uma foto da porta pelo WhatsApp que fechamos o valor antes da visita.`,
   },
   {
+    // Entrou em 13/10/2026, quando os cartoes de modelo sairam da pagina de
+    // instalacao. Faixa lida dos precos fechados do catalogo (499 a 850).
+    p: 'Quanto custa a fechadura em si?',
+    r: `Depende do modelo. Fechadura mais simples com instalação sai a partir de R$ ${PRECO_KIT}; modelos com biometria, senha e controle pelo app custam mais, e os mais completos chegam perto de R$ 850 já instalados. Mande a foto da porta que indicamos o modelo certo e fechamos o valor total antes da visita.`,
+  },
+  {
     // Entrou em 18/09/2026 (EZVIZ 1 -> 2 anos). Em 28/09/2026 o dono confirmou
     // Intelbras e Papaiz 2 -> 3 anos, mas "em alguns produtos": por isso "ate 3
     // anos, conforme o modelo". E a representacao que permite estender; nao
@@ -246,7 +252,7 @@ export const FAQ_MODELOS = [
 
 export const GOOGLE = {
   nota: '5,0',
-  avaliacoes: 82,
+  avaliacoes: 85,
   // Link de compartilhamento do Perfil da Empresa no Google, informado pelo dono
   // em 11/09/2026. Substitui o token MhzSMqPKwtmpCrDVZ (25/08/2026), que
   // resolvia para google.com/search?kgmid=/g/11z72c25wt&q=MSIFORCE: eram dois

@@ -626,3 +626,55 @@ body:has(.ifd-page) .msi-wa {
     width: 100%;
   }
 }
+
+/* --- Antes e depois --- */
+.ifd-ad-trilho {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+}
+.ifd-ad {
+  margin: 0;
+  flex: 0 0 min(78vw, 420px);
+  scroll-snap-align: start;
+}
+.ifd-ad > img,
+.ifd-ad-par img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.ifd-ad > img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.ifd-ad-par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.ifd-ad-par > div {
+  position: relative;
+}
+.ifd-ad-rotulo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #3a3a3a;
+  color: #fff;
+}
+.ifd-ad-rotulo--depois {
+  background: #f39a1e;
+  color: #111;
+}
+.ifd-ad figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--gray2);
+}
