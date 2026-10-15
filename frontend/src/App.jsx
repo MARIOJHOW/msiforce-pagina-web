@@ -20,6 +20,7 @@ import PortaPage from './pages/Portas/PortaPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/InstalacaoFechaduraDigital';
 import FechaduraAirbnb from './pages/FechaduraAirbnb/FechaduraAirbnb';
+import AberturaEmergencial from './pages/AberturaEmergencial/AberturaEmergencial';
 import CRM from './pages/Admin/CRM/CRM';
 
 function V1Layout() {
@@ -57,6 +58,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/instalacao-fechadura-digital" element={<InstalacaoFechaduraDigital />} />
           <Route path="/fechadura-airbnb" element={<FechaduraAirbnb />} />
+          <Route path="/abertura-emergencial-fechadura-digital" element={<AberturaEmergencial />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />
           {/* Paginas por tipo de porta (18/09/2026): buscas em que o cliente

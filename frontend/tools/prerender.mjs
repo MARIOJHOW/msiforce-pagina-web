@@ -49,6 +49,7 @@ const ROTAS = [
   '/faq',
   '/instalacao-fechadura-digital',
   '/fechadura-airbnb',
+  '/abertura-emergencial-fechadura-digital',
   // Derivado de SERVICOS_DATA, nao escrito a mao: slug novo no data ja entra no
   // build sozinho (falta so o sitemap.xml, que e manual). Ate 17/09/2026 essas
   // 4 rotas caiam no fallback e herdavam o canonical da home, entao o Search

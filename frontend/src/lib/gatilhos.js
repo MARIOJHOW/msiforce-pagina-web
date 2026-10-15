@@ -26,6 +26,9 @@ export const msgFechaduraModelo = (modelo) =>
 // "vim pela página da Fechadura Digital" seria incoerente com o que ele viu.
 export const MSG_FECHADURA_AUTOMACAO = 'Olá! Quero uma fechadura digital inteligente para minha casa.';
 
+// Abre o funil de abertura emergencial do bot (services/abertura-emergencial.js, gatilho 'abertura emergencial').
+export const MSG_ABERTURA_EMERGENCIAL = 'Preciso de abertura emergencial da minha fechadura digital';
+
 export const MSG_ACESSO_CORPORATIVO = 'Olá! Preciso de controle de acesso para minha empresa ou condomínio.';
 
 export const MSG_AUTOMACAO_PROJETO = 'Olá! Vim pela página de Automação e quero um projeto para minha casa.';

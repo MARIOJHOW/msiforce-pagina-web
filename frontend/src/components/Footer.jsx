@@ -98,6 +98,7 @@ const Footer = () => {
           <Link to="/casa-inteligente">Modelos de Fechadura Digital</Link>
           <Link to="/instalacao-fechadura-digital">Instalação de Fechadura Digital</Link>
           <Link to="/fechadura-airbnb">Fechadura Digital para Airbnb</Link>
+          <Link to="/abertura-emergencial-fechadura-digital">Abertura Emergencial</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/faq">Perguntas frequentes</Link>
         </nav>

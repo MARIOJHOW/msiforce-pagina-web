@@ -14,12 +14,14 @@ const aqui = path.dirname(fileURLToPath(import.meta.url));
 const require_ = createRequire(import.meta.url);
 const raiz = path.resolve(aqui, '../../../whatsapp-bot-eletrica/services');
 const { detectarGatilhoFechadura } = require_(path.join(raiz, 'fechadura.js'));
+const { detectarGatilhoAbertura } = require_(path.join(raiz, 'abertura-emergencial.js'));
 const { detectarGatilhoAcessoCorporativo, detectarGatilhoAutomacao } = require_(path.join(raiz, 'gatilhos-site.js'));
 
 /** Um CTA é válido se QUALQUER detector do bot o reconhece. */
 function classificar(msg) {
   const f = detectarGatilhoFechadura(msg);
   if (f.match) return `fechadura/${f.intencao}${f.modelo ? ' ' + f.modelo : ''}`;
+  if (detectarGatilhoAbertura(msg).match) return 'abertura-emergencial';
   if (detectarGatilhoAcessoCorporativo(msg)) return 'acesso-corporativo';
   if (detectarGatilhoAutomacao(msg)) return 'automacao';
   return null;
@@ -37,6 +39,7 @@ const PAGINAS = [
   { rota: '/faq', ancoras: [] },
   { rota: '/instalacao-fechadura-digital', ancoras: [] },
   { rota: '/fechadura-airbnb', ancoras: [] },
+  { rota: '/abertura-emergencial-fechadura-digital', ancoras: [] },
   { rota: '/servicos/eletrica', ancoras: [] },
   { rota: '/servicos/automacao', ancoras: [] },
   { rota: '/servicos/cftv', ancoras: [] },
