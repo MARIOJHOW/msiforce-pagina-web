@@ -27,6 +27,10 @@ export const msgFechaduraModelo = (modelo) =>
 export const MSG_FECHADURA_AUTOMACAO = 'Olá! Quero uma fechadura digital inteligente para minha casa.';
 
 // Abre o funil de abertura emergencial do bot (services/abertura-emergencial.js, gatilho 'abertura emergencial').
+// Quiz "qual fechadura é ideal" (plataforma de terceiros). NÃO é WhatsApp: o clique vai
+// só para o GA4 (trackCTA), nunca para a conversão do Ads.
+export const URL_QUIZ_FECHADURA = 'https://quiz.elitedafechadura.com.br/quiz/mario-junior';
+
 export const MSG_ABERTURA_EMERGENCIAL = 'Preciso de abertura emergencial da minha fechadura digital';
 
 export const MSG_ACESSO_CORPORATIVO = 'Olá! Preciso de controle de acesso para minha empresa ou condomínio.';
