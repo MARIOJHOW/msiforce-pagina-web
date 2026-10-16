@@ -12,7 +12,7 @@ import './AberturaEmergencial.css';
 // Página criada em 15/10/2026. Preço e horário definidos pelo dono em 15/10/2026 (mesmos
 // valores que o bot informa ao fim do funil — ver TEXTO_VALORES em services/abertura-emergencial.js).
 // O valor é só da abertura; peça ou bateria trocada é combinada à parte.
-const PRECO = 'R$ 250 na semana (horário comercial) · R$ 450 em final de semana e fora do horário comercial'; // definido pelo dono em 15/10/2026
+const PRECO = 'a partir de R$ 250 na semana (horário comercial) · a partir de R$ 450 em final de semana e fora do horário comercial'; // definido pelo dono em 15/10/2026
 const HORARIO = 'todos os dias, das 7h às 21h'; // horário de atendimento confirmado pelo dono (13/10/2026)
 
 const AREA_ATENDIDA = [
@@ -50,7 +50,7 @@ const FAQ = [
   },
   {
     p: 'Quanto custa?',
-    r: 'A abertura custa R$ 250 na semana, em horário comercial, e R$ 450 em final de semana e fora do horário comercial. Se for preciso trocar peça ou bateria, combinamos à parte e só fazemos com a sua autorização.',
+    r: 'A abertura custa a partir de R$ 250 na semana, em horário comercial, e a partir de R$ 450 em final de semana e fora do horário comercial. Se for preciso trocar peça ou bateria, combinamos à parte e só fazemos com a sua autorização.',
   },
   {
     p: 'Vocês abrem carro, cofre ou porta comum?',
