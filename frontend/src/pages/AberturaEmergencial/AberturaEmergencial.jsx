@@ -9,10 +9,10 @@ import { MSG_ABERTURA_EMERGENCIAL } from '../../lib/gatilhos';
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './AberturaEmergencial.css';
 
-// Página criada em 15/10/2026. Não há preço nem horário aqui DE PROPÓSITO: o dono ainda
-// não definiu os dois, e o bot também não os informa (o técnico passa o valor antes de
-// sair). Preencha PRECO/HORARIO abaixo e a linha correspondente aparece no topo.
-const PRECO = null; // ex.: 'a partir de R$ 000'
+// Página criada em 15/10/2026. Preço e horário definidos pelo dono em 15/10/2026 (mesmos
+// valores que o bot informa ao fim do funil — ver TEXTO_VALORES em services/abertura-emergencial.js).
+// O valor é só da abertura; peça ou bateria trocada é combinada à parte.
+const PRECO = 'R$ 250 na semana (horário comercial) · R$ 450 em final de semana e fora do horário comercial'; // definido pelo dono em 15/10/2026
 const HORARIO = 'todos os dias, das 7h às 21h'; // horário de atendimento confirmado pelo dono (13/10/2026)
 
 const AREA_ATENDIDA = [
@@ -30,7 +30,7 @@ const SITUACOES = [
 
 const PASSOS = [
   'Você chama no WhatsApp e o bot pergunta o problema, o modelo e o bairro',
-  'O técnico responde com o valor e o tempo de chegada, antes de sair',
+  'O técnico confirma o valor e responde com o tempo de chegada, antes de sair',
   'No local, conferimos documento com foto e comprovante de que você mora lá',
   'Abrimos, preservando a fechadura sempre que possível',
 ];
@@ -50,7 +50,7 @@ const FAQ = [
   },
   {
     p: 'Quanto custa?',
-    r: 'O valor muda conforme o modelo, o horário e o local. Por isso o técnico informa o preço antes de sair, no WhatsApp, e você só autoriza se concordar.',
+    r: 'A abertura custa R$ 250 na semana, em horário comercial, e R$ 450 em final de semana e fora do horário comercial. Se for preciso trocar peça ou bateria, combinamos à parte e só fazemos com a sua autorização.',
   },
   {
     p: 'Vocês abrem carro, cofre ou porta comum?',
@@ -128,7 +128,7 @@ export default function AberturaEmergencial() {
             🚨 Chamar o técnico no WhatsApp
           </WhatsAppButton>
           <p className="ifd-micro">
-            Só fechaduras digitais residenciais · mediante comprovação de moradia · o valor é
+            Só fechaduras digitais residenciais · mediante comprovação de moradia · valor da abertura
             informado antes de o técnico sair
           </p>
           </div>
@@ -227,7 +227,7 @@ export default function AberturaEmergencial() {
 
       <section className="ifd-fechamento">
         <h2>Está na porta agora?</h2>
-        <p>Chame no WhatsApp: o técnico responde com o valor e o tempo de chegada.</p>
+        <p>Chame no WhatsApp: o técnico responde com o tempo de chegada.</p>
         <WhatsAppButton message={MSG_ABERTURA_EMERGENCIAL} className="ifd-btn ifd-btn--grande">
           Chamar o técnico
         </WhatsAppButton>
