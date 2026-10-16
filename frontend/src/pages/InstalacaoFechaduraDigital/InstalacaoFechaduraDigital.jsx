@@ -6,9 +6,7 @@ import WhatsAppButton from '../../components/WhatsAppButton';
 import {
   MSG_FECHADURA_COMBO,
   MSG_FECHADURA_INSTALACAO,
-  URL_QUIZ_FECHADURA,
 } from '../../lib/gatilhos';
-import { trackCTA } from '../../hooks/useAnalytics';
 import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO, PRECO_KIT } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import './InstalacaoFechaduraDigital.css';
@@ -220,19 +218,6 @@ export default function InstalacaoFechaduraDigital() {
             <WhatsAppButton message={MSG_FECHADURA_INSTALACAO} className="ifd-link">
               Orçar só a instalação →
             </WhatsAppButton>
-          </p>
-          <p>
-            <strong>Ainda não sabe qual escolher?</strong> Responda a algumas perguntas e veja
-            as fechaduras indicadas para a sua porta.{' '}
-            <a
-              href={URL_QUIZ_FECHADURA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ifd-link"
-              onClick={() => trackCTA('instalacao_quiz', 'quiz')}
-            >
-              Descobrir a fechadura ideal →
-            </a>
           </p>
         </div>
       </section>
