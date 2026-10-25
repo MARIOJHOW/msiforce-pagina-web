@@ -321,6 +321,8 @@ export default function InstalacaoFechaduraDigital() {
                 <Link to={p.to}>{p.nome}</Link>
               </span>
             ))}
+            {' · '}
+            <Link to="/quanto-custa-fechadura-digital">Quanto custa</Link>
           </p>
         </div>
       </section>

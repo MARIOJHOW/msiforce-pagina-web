@@ -48,6 +48,7 @@ const ROTAS = [
   '/casa-inteligente',
   '/faq',
   '/instalacao-fechadura-digital',
+  '/quanto-custa-fechadura-digital',
   '/fechadura-airbnb',
   '/abertura-emergencial-fechadura-digital',
   // Derivado de SERVICOS_DATA, nao escrito a mao: slug novo no data ja entra no

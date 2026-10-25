@@ -19,6 +19,7 @@ import ServicoPage from './pages/Servicos/ServicoPage';
 import PortaPage from './pages/Portas/PortaPage';
 import CasaInteligente from './pages/CasaInteligente/CasaInteligente';
 import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/InstalacaoFechaduraDigital';
+import QuantoCustaFechadura from './pages/QuantoCustaFechadura/QuantoCustaFechadura';
 import FechaduraAirbnb from './pages/FechaduraAirbnb/FechaduraAirbnb';
 import AberturaEmergencial from './pages/AberturaEmergencial/AberturaEmergencial';
 import CRM from './pages/Admin/CRM/CRM';
@@ -57,6 +58,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/instalacao-fechadura-digital" element={<InstalacaoFechaduraDigital />} />
+          <Route path="/quanto-custa-fechadura-digital" element={<QuantoCustaFechadura />} />
           <Route path="/fechadura-airbnb" element={<FechaduraAirbnb />} />
           <Route path="/abertura-emergencial-fechadura-digital" element={<AberturaEmergencial />} />
           <Route path="/blog/:id" element={<BlogPost />} />
