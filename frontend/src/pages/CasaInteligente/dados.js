@@ -252,7 +252,7 @@ export const FAQ_MODELOS = [
 
 export const GOOGLE = {
   nota: '5,0',
-  avaliacoes: 85,
+  avaliacoes: 86,
   // Link de compartilhamento do Perfil da Empresa no Google, informado pelo dono
   // em 11/09/2026. Substitui o token MhzSMqPKwtmpCrDVZ (25/08/2026), que
   // resolvia para google.com/search?kgmid=/g/11z72c25wt&q=MSIFORCE: eram dois
