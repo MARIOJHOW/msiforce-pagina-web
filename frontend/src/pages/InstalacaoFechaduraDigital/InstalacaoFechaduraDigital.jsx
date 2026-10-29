@@ -9,6 +9,8 @@ import {
 } from '../../lib/gatilhos';
 import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
+import ComparadorCarrossel from '../../components/ComparadorCarrossel';
+import BarraWhatsApp from '../../components/BarraWhatsApp';
 import './InstalacaoFechaduraDigital.css';
 
 // Pagina reescrita em 28/09/2026 para converter com leitura de 5 segundos: o que
@@ -219,41 +221,28 @@ export default function InstalacaoFechaduraDigital() {
       <section className="ifd-secao">
         <div className="ifd-conteudo">
           <h2>Antes e depois de instalações nossas</h2>
-          <p className="ifd-dica-arraste" aria-hidden="true">arraste para ver →</p>
         </div>
-        <div className="ifd-trilho ifd-ad-trilho">
-          <figure className="ifd-ad">
-            <img
-              src="/antes-depois-fechadura.webp"
-              alt="Porta de madeira antes, com puxador e fechadura comum, e depois, com fechadura digital biométrica instalada pela MSIFORCE"
-              width="800"
-              height="1000"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>Porta de madeira: a fechadura digital entrou no lugar da antiga, sem trocar a folha.</figcaption>
-          </figure>
-          {ANTES_DEPOIS.map((ad) => (
-            <figure className="ifd-ad" key={ad.id}>
-              <div className="ifd-ad-par">
-                {[['antes', 'Antes'], ['depois', 'Depois']].map(([k, rotulo]) => (
-                  <div key={k}>
-                    <img
-                      src={`/antes-depois-${ad.id}-${k}.webp`}
-                      alt={`${ad.alt} (${rotulo.toLowerCase()})`}
-                      width="600"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <span className={`ifd-ad-rotulo ifd-ad-rotulo--${k}`}>{rotulo}</span>
-                  </div>
-                ))}
-              </div>
-              <figcaption>{ad.legenda}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <ComparadorCarrossel
+          slides={[
+            {
+              chave: 'madeira',
+              node: (
+                <figure>
+                  <img
+                    src="/antes-depois-fechadura.webp"
+                    alt="Porta de madeira antes, com puxador e fechadura comum, e depois, com fechadura digital biométrica instalada pela MSIFORCE"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>Porta de madeira: a fechadura digital entrou no lugar da antiga, sem trocar a folha.</figcaption>
+                </figure>
+              ),
+            },
+            ...ANTES_DEPOIS.map((ad) => ({ chave: ad.id, comparador: ad })),
+          ]}
+        />
       </section>
 
       <section className="ifd-secao">
@@ -369,13 +358,9 @@ export default function InstalacaoFechaduraDigital() {
         </WhatsAppButton>
       </section>
 
-      {/* Barra fixa so no celular: 1 toque ate o WhatsApp em qualquer ponto da
-          leitura. Esconde o balao flutuante global nesta pagina (ver CSS). */}
-      <div className="ifd-barra">
-        <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn">
-          📷 Mandar foto da porta
-        </WhatsAppButton>
-      </div>
+      {/* Barra fixa so no celular: aparece depois do hero e some no fechamento.
+          Esconde o balao flutuante global nesta pagina (ver CSS). */}
+      <BarraWhatsApp message={MSG_FECHADURA_COMBO}>📷 Mandar foto da porta</BarraWhatsApp>
     </div>
   );
 }

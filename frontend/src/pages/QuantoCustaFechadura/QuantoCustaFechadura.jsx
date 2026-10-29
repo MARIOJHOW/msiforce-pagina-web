@@ -5,6 +5,7 @@ import WhatsAppButton from '../../components/WhatsAppButton';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
 import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
+import BarraWhatsApp from '../../components/BarraWhatsApp';
 // Reaproveita o visual da /instalacao-fechadura-digital (mesmas classes ifd-*).
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 
@@ -148,6 +149,8 @@ export default function QuantoCustaFechadura() {
           Veja também: <Link to="/instalacao-fechadura-digital">instalação de fechadura digital</Link>
         </p>
       </section>
+
+      <BarraWhatsApp message={MSG_FECHADURA_COMBO}>📷 Mandar foto da porta</BarraWhatsApp>
     </div>
   );
 }
