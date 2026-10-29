@@ -7,7 +7,7 @@ import {
   MSG_FECHADURA_COMBO,
   MSG_FECHADURA_INSTALACAO,
 } from '../../lib/gatilhos';
-import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO, PRECO_KIT } from '../CasaInteligente/dados';
+import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import './InstalacaoFechaduraDigital.css';
 
@@ -144,7 +144,7 @@ export default function InstalacaoFechaduraDigital() {
   useSEO({
     title: 'Instalador de Fechadura Digital na Zona Leste e Guarulhos',
     description:
-      `Instalador de fechadura digital saindo de Itaquera: instalação na zona leste de São Paulo e em Guarulhos, em portas de madeira, alumínio ou vidro. Mão de obra a partir de R$ ${PRECO_MINIMO}, kit a partir de R$ ${PRECO_KIT}. Orçamento grátis no WhatsApp.`,
+      `Instalador de fechadura digital saindo de Itaquera: instalação na zona leste de São Paulo e em Guarulhos, em portas de madeira, alumínio ou vidro. Instalação a partir de R$ ${PRECO_MINIMO}. Orçamento grátis no WhatsApp.`,
     canonical: 'https://msiforce.com.br/instalacao-fechadura-digital',
   });
 
@@ -171,19 +171,13 @@ export default function InstalacaoFechaduraDigital() {
 
             <div className="ifd-precos">
               <div>
-                <small>Só a instalação</small>
+                <small>Instalação</small>
                 <strong>R$ {PRECO_MINIMO}</strong>
-                <small>a partir de*</small>
-              </div>
-              <div>
-                <small>Fechadura + instalação</small>
-                <strong>R$ {PRECO_KIT}</strong>
                 <small>a partir de*</small>
               </div>
             </div>
             <p className="ifd-nota">
-              *{NOTA_LEGAL.replace(/^\*/, '')} No kit, o valor depende do modelo
-              escolhido: modelos com mais recursos custam mais.
+              *{NOTA_LEGAL.replace(/^\*/, '')}
             </p>
 
             <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">

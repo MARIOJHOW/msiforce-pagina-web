@@ -79,10 +79,6 @@ export const PLANOS = [
 // home e /instalacao-fechadura-digital derivam daqui.
 export const PRECO_MINIMO = 249;
 
-// Kit (fechadura + instalação), valor inicial -- decisão do dono em 23/09/2026.
-// Fica no nível da seção, nunca no card de um modelo: o MFR 3000 V sai por 850.
-export const PRECO_KIT = 500;
-
 export const FILTRO_BOLSO = [
   { id: 'todos', rotulo: 'Todos' },
   { id: 'entrada', rotulo: 'Mais em conta' },
@@ -170,7 +166,7 @@ export const FAQ_INSTALACAO = [
     // Entrou em 13/10/2026, quando os cartoes de modelo sairam da pagina de
     // instalacao. Faixa lida dos precos fechados do catalogo (499 a 850).
     p: 'Quanto custa a fechadura em si?',
-    r: `Depende do modelo. Fechadura mais simples com instalação sai a partir de R$ ${PRECO_KIT}; modelos com biometria, senha e controle pelo app custam mais, e os mais completos chegam perto de R$ 850 já instalados. Mande a foto da porta que indicamos o modelo certo e fechamos o valor total antes da visita.`,
+    r: `Depende do modelo e das condições do local. O valor é combinado pelo WhatsApp, depois que avaliamos o seu caso. Mande a foto da porta que indicamos o modelo certo e fechamos o valor total antes da visita.`,
   },
   {
     // Entrou em 18/09/2026 (EZVIZ 1 -> 2 anos). Em 28/09/2026 o dono confirmou

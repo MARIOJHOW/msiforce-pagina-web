@@ -3,14 +3,14 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilhos';
-import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO, PRECO_KIT } from '../CasaInteligente/dados';
+import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 // Reaproveita o visual da /instalacao-fechadura-digital (mesmas classes ifd-*).
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 
 // Pagina criada em 25/10/2026 para a busca "quanto custa instalar fechadura
-// digital". NAO tem preco proprio: tudo deriva de dados.js (PRECO_MINIMO,
-// PRECO_KIT e as respostas do FAQ), que o dono ja confirmou. Preco novo entra
+// digital". NAO tem preco proprio: tudo deriva de dados.js (PRECO_MINIMO
+// e as respostas do FAQ), que o dono ja confirmou. Preco novo entra
 // la, nunca aqui.
 
 // So as perguntas de preco/prazo/garantia, na ordem em que o cliente decide.
@@ -55,7 +55,7 @@ export default function QuantoCustaFechadura() {
   useSEO({
     title: 'Quanto custa instalar fechadura digital na Zona Leste e Guarulhos',
     description:
-      `Quanto custa instalar fechadura digital: mão de obra a partir de R$ ${PRECO_MINIMO} e fechadura com instalação a partir de R$ ${PRECO_KIT}. Veja o que muda o valor e peça orçamento grátis pelo WhatsApp.`,
+      `Quanto custa instalar fechadura digital: instalação a partir de R$ ${PRECO_MINIMO}. Veja o que muda o valor e peça orçamento grátis pelo WhatsApp.`,
     canonical: 'https://msiforce.com.br/quanto-custa-fechadura-digital',
   });
 
@@ -77,19 +77,13 @@ export default function QuantoCustaFechadura() {
 
             <div className="ifd-precos">
               <div>
-                <small>Só a instalação</small>
+                <small>Instalação</small>
                 <strong>R$ {PRECO_MINIMO}</strong>
-                <small>a partir de*</small>
-              </div>
-              <div>
-                <small>Fechadura + instalação</small>
-                <strong>R$ {PRECO_KIT}</strong>
                 <small>a partir de*</small>
               </div>
             </div>
             <p className="ifd-nota">
-              *{NOTA_LEGAL.replace(/^\*/, '')} No kit, o valor depende do modelo
-              escolhido: modelos com mais recursos custam mais.
+              *{NOTA_LEGAL.replace(/^\*/, '')}
             </p>
 
             <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
