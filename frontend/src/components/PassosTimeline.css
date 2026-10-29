@@ -1,0 +1,77 @@
+.tl-passos {
+  --tl-bolinha: 36px;
+  list-style: none;
+  counter-reset: passo;
+  position: relative;
+  max-width: 640px;
+  margin: 22px 0 0;
+  padding: 0;
+}
+
+/* Trilho cinza e, por cima, a linha dourada que cresce com a rolagem. */
+.tl-passos::before,
+.tl-passos::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--tl-bolinha) / 2 - 1px);
+  top: calc(var(--tl-bolinha) / 2);
+  bottom: calc(var(--tl-bolinha) / 2);
+  width: 2px;
+  background: var(--ifd-borda, #333);
+}
+.tl-passos::after {
+  background: var(--brand);
+  transform-origin: top;
+  transform: scaleY(var(--tl-prog, 1));
+  transition: transform 0.15s linear;
+}
+
+.tl-passos li {
+  counter-increment: passo;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--tl-bolinha);
+  padding-bottom: 34px;
+  color: var(--gray2, #aaa);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+.tl-passos li:last-child {
+  padding-bottom: 0;
+}
+
+.tl-passos li::before {
+  content: counter(passo);
+  position: relative;
+  z-index: 1;
+  flex: 0 0 var(--tl-bolinha);
+  height: var(--tl-bolinha);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  background: #1a1a1a;
+  border: 2px solid var(--ifd-borda, #333);
+  color: var(--gray2, #aaa);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.tl-passos li.tl-on {
+  color: #fff;
+}
+.tl-passos li.tl-on::before {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-passos::after,
+  .tl-passos li,
+  .tl-passos li::before {
+    transition: none;
+  }
+}

@@ -483,6 +483,39 @@ body:has(.ifd-page) .msi-wa {
   line-height: 1.65;
 }
 
+/* Sanfona animada: a altura vai de 0 a "auto" pela linha do grid. A resposta
+   continua no HTML (so fica invisivel), entao o Google segue lendo o texto. */
+.ifd-faq-anim {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.ifd-faq-anim--on {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.3s ease, visibility 0s;
+}
+
+.ifd-faq-anim-miolo {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ifd-faq-anim-texto {
+  padding: 0 0 20px;
+  color: var(--ifd-texto);
+  line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ifd-faq-anim,
+  .ifd-faq-anim--on {
+    transition: none;
+  }
+}
+
 .ifd-faq-mais {
   margin-top: 16px;
   background: none;

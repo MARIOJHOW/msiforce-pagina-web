@@ -1,0 +1,11 @@
+.rev-pre {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.rev-pre.rev-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: var(--rev-d, 0s);
+}

@@ -11,6 +11,8 @@ import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dad
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import ComparadorCarrossel from '../../components/ComparadorCarrossel';
 import BarraWhatsApp from '../../components/BarraWhatsApp';
+import PassosTimeline from '../../components/PassosTimeline';
+import useRevelar from '../../hooks/useRevelar';
 import './InstalacaoFechaduraDigital.css';
 
 // Pagina reescrita em 28/09/2026 para converter com leitura de 5 segundos: o que
@@ -155,6 +157,8 @@ export default function InstalacaoFechaduraDigital() {
     { key: 'faq', schema: FAQ_SCHEMA },
   ]);
 
+  useRevelar();
+
   const perguntas = todasPerguntas ? FAQ_INSTALACAO : FAQ_INSTALACAO.slice(0, FAQ_VISIVEIS);
 
   return (
@@ -272,11 +276,7 @@ export default function InstalacaoFechaduraDigital() {
       <section className="ifd-secao">
         <div className="ifd-conteudo">
           <h2>Como funciona</h2>
-          <ol className="ifd-passos">
-            {PASSOS.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ol>
+          <PassosTimeline passos={PASSOS} />
         </div>
       </section>
 
@@ -334,10 +334,11 @@ export default function InstalacaoFechaduraDigital() {
                   id={`ifd-resposta-${i}`}
                   role="region"
                   aria-labelledby={`ifd-pergunta-${i}`}
-                  className="ifd-faq-a"
-                  hidden={aberta !== i}
+                  className={`ifd-faq-anim${aberta === i ? ' ifd-faq-anim--on' : ''}`}
                 >
-                  {item.r}
+                  <div className="ifd-faq-anim-miolo">
+                    <div className="ifd-faq-anim-texto">{item.r}</div>
+                  </div>
                 </div>
               </div>
             ))}

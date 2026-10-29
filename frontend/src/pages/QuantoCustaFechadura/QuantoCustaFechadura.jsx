@@ -6,6 +6,7 @@ import { MSG_FECHADURA_COMBO, MSG_FECHADURA_INSTALACAO } from '../../lib/gatilho
 import { FAQ_INSTALACAO, NOTA_LEGAL, PRECO_MINIMO } from '../CasaInteligente/dados';
 import SeloGoogle from '../CasaInteligente/SeloGoogle';
 import BarraWhatsApp from '../../components/BarraWhatsApp';
+import useRevelar from '../../hooks/useRevelar';
 // Reaproveita o visual da /instalacao-fechadura-digital (mesmas classes ifd-*).
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 
@@ -61,6 +62,7 @@ export default function QuantoCustaFechadura() {
   });
 
   useJsonLd([{ key: 'faq-preco', schema: FAQ_SCHEMA }]);
+  useRevelar();
 
   return (
     <div className="ifd-page">
