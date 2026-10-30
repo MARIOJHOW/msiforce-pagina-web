@@ -324,6 +324,13 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
+
+        <p className="h-resid-preco">
+          Quer saber o valor antes?{' '}
+          <Link to="/quanto-custa-fechadura-digital" onClick={() => trackCTA('residencial_quanto_custa', 'pagina')}>
+            Veja quanto custa instalar fechadura digital →
+          </Link>
+        </p>
       </section>
 
       {/* ── SOBRE ── */}
