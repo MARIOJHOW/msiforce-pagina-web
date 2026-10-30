@@ -15,8 +15,10 @@ serviço**; R$ 499 a R$ 850 é o que custa **a fechadura já instalada**. Mistur
 ler um pelo outro.
 
 A exceção é `kit-fechadura-instalacao` (decisão do dono, 23/09/2026): fechadura + instalação, mas
-como **serviço** "a partir de R$ 500", sem modelo. É o valor inicial do kit que o site e o Google
-também mostram. O preço fechado de cada modelo continua nos 5 produtos.
+como **serviço** "a partir de R$ 500", sem modelo. Vale para o Google e o WhatsApp Catálogo.
+**O site não mostra mais esse valor** (decisão do dono, 29/10/2026): lá só aparece "a partir de
+R$ 249" (instalação); o valor da fechadura e do kit é combinado pelo WhatsApp depois da avaliação.
+O preço fechado de cada modelo continua nos 5 produtos.
 
 Mudou preço ou texto? Muda **aqui** e republica nos canais. O contrário — editar direto no Google ou
 no app e deixar este arquivo para trás — é exatamente o que produziu a bagunça que este catálogo veio
