@@ -9,6 +9,7 @@ import BarraWhatsApp from '../../components/BarraWhatsApp';
 import useRevelar from '../../hooks/useRevelar';
 // Reaproveita o visual da /instalacao-fechadura-digital (mesmas classes ifd-*).
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
+import './QuantoCustaFechadura.css';
 
 // Pagina criada em 25/10/2026 para a busca "quanto custa instalar fechadura
 // digital". NAO tem preco proprio: tudo deriva de dados.js (PRECO_MINIMO
@@ -65,7 +66,7 @@ export default function QuantoCustaFechadura() {
   useRevelar();
 
   return (
-    <div className="ifd-page">
+    <div className="ifd-page qcf-page">
       <section className="ifd-hero">
         <div className="ifd-hero-grid">
           <div>

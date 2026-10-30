@@ -1,0 +1,83 @@
+/* Página /quanto-custa-fechadura-digital: pega a base ifd-* da página de
+   instalação e se diferencia pelo topo centrado com o valor em destaque e
+   pelos fatores de preço em cartões. Tudo escopado em .qcf-page. */
+
+.qcf-page .ifd-hero {
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(197, 160, 89, 0.16), transparent 70%);
+  text-align: center;
+}
+
+.qcf-page .ifd-hero-grid {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  gap: 0;
+}
+
+.qcf-page .ifd-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Valor em destaque: um cartão só, grande, com borda dourada. */
+.qcf-page .ifd-precos {
+  justify-content: center;
+  max-width: none;
+  margin-bottom: 14px;
+}
+
+.qcf-page .ifd-precos > div {
+  flex: 0 1 340px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  border-color: rgba(197, 160, 89, 0.5);
+  box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.12), 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.qcf-page .ifd-precos strong {
+  font-size: clamp(2.6rem, 9vw, 3.8rem);
+  color: var(--brand);
+  margin: 4px 0;
+}
+
+.qcf-page .ifd-precos small {
+  font-size: 0.9rem;
+}
+
+.qcf-page .ifd-nota {
+  max-width: 520px;
+  margin: 0 auto 22px;
+}
+
+.qcf-page .ifd-prova {
+  justify-content: center;
+}
+
+/* Fatores de preço em três cartões lado a lado. */
+.qcf-page .ifd-razoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.qcf-page .ifd-razoes li {
+  display: block;
+  background: var(--ifd-card);
+  border: 1px solid var(--ifd-borda);
+  border-top: 2px solid var(--brand);
+  border-radius: 12px;
+  padding: 20px 18px;
+}
+
+.qcf-page .ifd-razao-icone {
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .qcf-page .ifd-razoes {
+    grid-template-columns: 1fr;
+  }
+}
