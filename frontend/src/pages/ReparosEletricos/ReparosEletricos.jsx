@@ -245,15 +245,6 @@ export default function ReparosEletricos() {
                 loading="lazy"
               />
             </figure>
-            <figure>
-              <img
-                src="/reparos-eletricos-chuveiro.webp"
-                alt="Ilustração de chuveiro elétrico instalado com disjuntor ao lado"
-                width="900"
-                height="507"
-                loading="lazy"
-              />
-            </figure>
           </div>
         </div>
       </section>
