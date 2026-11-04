@@ -39,8 +39,8 @@ const DIFERENCIAIS = [
   'Garantia no serviço executado',
 ];
 
-// TODO: as perguntas do FAQ não vieram no briefing; estas são provisórias e sem valores
-// nem prazos. Substituir/aprovar com o dono.
+// 'Atendem no mesmo dia?' e 'Atendem condomínios e empresas?' vieram do dono. As demais são
+// provisórias (TODO: aprovar/substituir com o dono), sem valores nem prazos.
 const FAQ = [
   {
     p: 'Vocês atendem na minha região?',
@@ -55,8 +55,12 @@ const FAQ = [
     r: 'Você descreve o problema no WhatsApp (uma foto ajuda) e passamos o valor ou combinamos uma visita técnica antes de o eletricista ir. O preço é combinado antes do serviço, sem surpresa.',
   },
   {
-    p: 'Atendem apartamento, comércio e condomínio?',
-    r: 'Sim. Atendemos residências, comércios e condomínios.',
+    p: 'Atendem no mesmo dia?',
+    r: 'Sim, conforme a agenda e a região. Chame no WhatsApp para confirmar a disponibilidade de hoje.',
+  },
+  {
+    p: 'Atendem condomínios e empresas?',
+    r: 'Sim, em residenciais, prédios e comércios.',
   },
   {
     p: 'O serviço tem garantia?',
