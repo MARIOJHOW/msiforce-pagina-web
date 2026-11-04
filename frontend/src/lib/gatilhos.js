@@ -31,7 +31,7 @@ export const MSG_ABERTURA_EMERGENCIAL = 'Preciso de abertura emergencial da minh
 
 // Landing /reparos-eletricos (Google Ads). O bot ainda NÃO tem funil próprio: a frase cai no menu
 // geral. Para criar o funil, adicionar o gatilho em whatsapp-bot-eletrica/services/gatilhos-site.js.
-export const MSG_REPAROS_ELETRICOS = 'Olá! Preciso de um eletricista para um reparo elétrico. Vim pelo site da MSIFORCE.';
+export const MSG_REPAROS_ELETRICOS = 'Olá, vim pelo site da MSIFORCE e preciso de um eletricista para um reparo.';
 
 export const MSG_ACESSO_CORPORATIVO = 'Olá! Preciso de controle de acesso para minha empresa ou condomínio.';
 

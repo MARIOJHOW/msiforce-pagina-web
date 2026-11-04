@@ -6,6 +6,7 @@ export const SERVICOS_DATA = {
     // nem a região — base em Itaquera, prioridade zona leste e Guarulhos.
     seoTitle: 'Eletricista em Itaquera, Zona Leste e Guarulhos',
     slug: 'eletrica',
+    linkInterno: { texto: 'Precisa de um reparo elétrico?', label: 'Veja reparos e emergências', to: '/reparos-eletricos' },
     headline: 'Instalações elétricas seguras,\nnormalizadas e documentadas.',
     sub: 'Eletricista com base em Itaquera, atendendo a zona leste e Guarulhos: projetos residenciais e comerciais conforme ABNT NBR 5410, com emissão de ART, laudo técnico e documentação completa para sua casa, empresa ou condomínio.',
     heroImg: '/img_eletrica.webp',

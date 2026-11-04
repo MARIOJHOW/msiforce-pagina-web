@@ -3,12 +3,17 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import { MSG_REPAROS_ELETRICOS } from '../../lib/gatilhos';
+import { eventoGtag } from '../../lib/ads';
 // Mesma base visual das outras landings de anúncio; só o que é próprio fica no .css.
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
 
 // Landing do Google Ads "reparos elétricos" (04/11/2026). NÃO atende Grande ABC.
-const TELEFONE_TEL = 'tel:+5511910773865';
+const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBusiness do site (não há outro)
+
+// Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
+const cliqueWhatsApp = () => eventoGtag('click_whatsapp', { page: 'reparos-eletricos' });
+const cliqueLigar = () => eventoGtag('click_call', { page: 'reparos-eletricos' });
 
 const AREA_ATENDIDA = [
   { '@type': 'AdministrativeArea', name: 'Zona Leste de São Paulo' },
@@ -125,13 +130,16 @@ export default function ReparosEletricos() {
             Itaquera, Tatuapé, Penha, Mooca e região, com orçamento antes de começar.
           </p>
           <div className="rele-botoes">
-            <WhatsAppButton message={MSG_REPAROS_ELETRICOS} className="ifd-btn ifd-btn--grande">
+            <WhatsAppButton message={MSG_REPAROS_ELETRICOS} onClick={cliqueWhatsApp} className="ifd-btn ifd-btn--grande">
               Chamar no WhatsApp
             </WhatsAppButton>
-            <a href={TELEFONE_TEL} className="ifd-btn ifd-btn--grande rele-ligar">
+            <a href={TELEFONE_TEL} onClick={cliqueLigar} className="ifd-btn ifd-btn--grande rele-ligar">
               Ligar agora
             </a>
           </div>
+          {/* TODO: foto real do dono (eletricista em serviço) pode entrar aqui, ex.:
+              <figure className="ifd-hero-figura"><img src="/..." alt="..." width height loading="eager" /></figure>
+              Não há foto de reparo elétrico no projeto; não usei imagem de outro serviço. */}
         </div>
       </section>
 
@@ -218,22 +226,26 @@ export default function ReparosEletricos() {
       </section>
 
       <section className="ifd-fechamento">
-        <h2>Precisa de um eletricista agora?</h2>
-        <p>Descreva o problema no WhatsApp e passamos o valor antes de ir.</p>
+        <h2>Precisa de eletricista na Zona Leste ou em Guarulhos?</h2>
+        <p>Fale agora com a MSI Force e receba o orçamento rapidamente.</p>
         <div className="rele-botoes rele-botoes--centro">
-          <WhatsAppButton message={MSG_REPAROS_ELETRICOS} className="ifd-btn ifd-btn--grande">
+          <WhatsAppButton message={MSG_REPAROS_ELETRICOS} onClick={cliqueWhatsApp} className="ifd-btn ifd-btn--grande">
             Chamar no WhatsApp
           </WhatsAppButton>
-          <a href={TELEFONE_TEL} className="ifd-btn ifd-btn--grande rele-ligar">
+          <a href={TELEFONE_TEL} onClick={cliqueLigar} className="ifd-btn ifd-btn--grande rele-ligar">
             Ligar agora
           </a>
         </div>
       </section>
 
-      <div className="ifd-barra">
-        <WhatsAppButton message={MSG_REPAROS_ELETRICOS} className="ifd-btn">
-          Chamar no WhatsApp
+      {/* Barra fixa (só celular): os dois botões ficam sempre visíveis. */}
+      <div className="ifd-barra rele-barra">
+        <WhatsAppButton message={MSG_REPAROS_ELETRICOS} onClick={cliqueWhatsApp} className="ifd-btn">
+          WhatsApp
         </WhatsAppButton>
+        <a href={TELEFONE_TEL} onClick={cliqueLigar} className="ifd-btn rele-ligar">
+          Ligar agora
+        </a>
       </div>
     </div>
   );

@@ -52,6 +52,18 @@
 }
 
 @media (max-width: 760px) {
+  /* Barra fixa permanente (a base .ifd-barra só aparece com --on): dois botões lado a lado. */
+  .rele-barra {
+    display: flex;
+    gap: 10px;
+    transform: none;
+  }
+
+  .rele-barra .ifd-btn {
+    flex: 1;
+    width: auto;
+  }
+
   /* A foto de fechadura do hero base não combina com esta página. */
   .rele-page .ifd-hero {
     background: none;

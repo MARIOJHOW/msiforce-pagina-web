@@ -100,3 +100,13 @@ export function registrarConversaoWhatsApp() {
     currency: 'BRL'
   });
 }
+
+/**
+ * Evento simples do gtag (ex.: click_whatsapp / click_call das landings). NÃO é conversão
+ * do Ads: as conversões são criadas no painel do Google Ads a partir destes eventos.
+ */
+export function eventoGtag(nome, params = {}) {
+  if (typeof window === 'undefined') return;
+  garantirGtag();
+  if (typeof window.gtag === 'function') window.gtag('event', nome, params);
+}
