@@ -125,3 +125,29 @@
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(197, 160, 89, 0.18);
 }
+
+.rele-galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 1.5rem;
+  max-width: 900px;
+}
+
+.rele-galeria figure {
+  margin: 0;
+}
+
+.rele-galeria img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(197, 160, 89, 0.18);
+}
+
+@media (max-width: 760px) {
+  .rele-galeria {
+    grid-template-columns: 1fr;
+  }
+}

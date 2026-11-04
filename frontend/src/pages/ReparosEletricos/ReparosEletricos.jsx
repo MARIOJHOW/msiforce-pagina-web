@@ -235,6 +235,26 @@ export default function ReparosEletricos() {
               <li key={d}>{d}</li>
             ))}
           </ul>
+          <div className="rele-galeria">
+            <figure>
+              <img
+                src="/reparos-eletricos-tomadas.webp"
+                alt="Ilustração de tomadas e interruptores brancos instalados em parede escura"
+                width="900"
+                height="507"
+                loading="lazy"
+              />
+            </figure>
+            <figure>
+              <img
+                src="/reparos-eletricos-chuveiro.webp"
+                alt="Ilustração de chuveiro elétrico instalado com disjuntor ao lado"
+                width="900"
+                height="507"
+                loading="lazy"
+              />
+            </figure>
+          </div>
         </div>
       </section>
 
