@@ -8,7 +8,7 @@ import { eventoGtag } from '../../lib/ads';
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
 
-// Landing do Google Ads "reparos elétricos" (04/11/2026). NÃO atende Grande ABC.
+// Landing do Google Ads "reparos elétricos" (04/11/2026). atendimento só Zona Leste e Guarulhos.
 const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBusiness do site (não há outro)
 
 // Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
