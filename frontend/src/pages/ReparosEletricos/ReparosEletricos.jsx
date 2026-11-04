@@ -9,7 +9,7 @@ import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
 
 // Landing do Google Ads "reparos elétricos" (04/11/2026). atendimento só Zona Leste e Guarulhos.
-const HORARIO = '24 horas, todos os dias'; // dono passou a atender 24h em 04/11/2026 (antes: 7h às 21h)
+const HORARIO = 'emergências 24 horas, todos os dias, conforme disponibilidade'; // dono passou a atender 24h em 04/11/2026 (antes: 7h às 21h)
 const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBusiness do site (não há outro)
 
 // Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
@@ -41,8 +41,7 @@ const DIFERENCIAIS = [
   'Trabalho seguindo as normas NBR 5410 e NBR 17019',
   'Preço combinado antes do serviço, sem surpresa',
   'Atendimento residencial, comercial e condomínios',
-  // TODO: informar o prazo da garantia (dono). Por enquanto o texto fica sem prazo.
-  'Garantia no serviço executado',
+  'Garantia de 90 dias no serviço executado',
 ];
 
 // 'Atendem no mesmo dia?' e 'Atendem condomínios e empresas?' vieram do dono. As demais são
@@ -54,7 +53,7 @@ const FAQ = [
   },
   {
     p: 'Tem eletricista 24 horas?',
-    r: 'Sim. Atendemos 24 horas, todos os dias, pelo WhatsApp. Chame e confirmamos a disponibilidade e o tempo de chegada para o seu bairro. Se houver cheiro de queimado, faísca ou fio quente, desligue a chave geral do quadro; em caso de fogo, ligue 193 (Bombeiros).',
+    r: 'Sim, para atendimentos emergenciais, todos os dias, conforme a disponibilidade da equipe. Chame no WhatsApp e confirmamos agora se há técnico disponível e o tempo de chegada para o seu bairro. Se houver cheiro de queimado, faísca ou fio quente, desligue a chave geral do quadro; em caso de fogo, ligue 193 (Bombeiros).',
   },
   {
     p: 'O disjuntor desarma toda hora. O que fazer?',
@@ -74,7 +73,7 @@ const FAQ = [
   },
   {
     p: 'O serviço tem garantia?',
-    r: 'Sim, o serviço executado tem garantia. Combinamos os detalhes junto com o orçamento.',
+    r: 'Sim. O serviço executado tem garantia de 90 dias. Os detalhes ficam combinados junto com o orçamento.',
   },
 ];
 

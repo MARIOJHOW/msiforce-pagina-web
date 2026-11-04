@@ -13,7 +13,7 @@ import './AberturaEmergencial.css';
 // valores que o bot informa ao fim do funil — ver TEXTO_VALORES em services/abertura-emergencial.js).
 // O valor é só da abertura; peça ou bateria trocada é combinada à parte.
 const PRECO = 'a partir de R$ 250 na semana (horário comercial) · a partir de R$ 450 em final de semana e fora do horário comercial'; // definido pelo dono em 15/10/2026
-const HORARIO = '24 horas, todos os dias'; // dono passou a atender 24h em 04/11/2026 (antes: 7h às 21h)
+const HORARIO = 'emergências 24 horas, todos os dias, conforme disponibilidade'; // dono passou a atender 24h em 04/11/2026 (antes: 7h às 21h)
 
 const AREA_ATENDIDA = [
   { '@type': 'AdministrativeArea', name: 'Zona Leste de São Paulo' },
