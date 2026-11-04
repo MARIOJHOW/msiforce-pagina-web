@@ -29,6 +29,10 @@ export const MSG_FECHADURA_AUTOMACAO = 'Olá! Quero uma fechadura digital inteli
 // Abre o funil de abertura emergencial do bot (services/abertura-emergencial.js, gatilho 'abertura emergencial').
 export const MSG_ABERTURA_EMERGENCIAL = 'Preciso de abertura emergencial da minha fechadura digital';
 
+// Landing /reparos-eletricos (Google Ads). O bot ainda NÃO tem funil próprio: a frase cai no menu
+// geral. Para criar o funil, adicionar o gatilho em whatsapp-bot-eletrica/services/gatilhos-site.js.
+export const MSG_REPAROS_ELETRICOS = 'Olá! Preciso de um eletricista para um reparo elétrico. Vim pelo site da MSIFORCE.';
+
 export const MSG_ACESSO_CORPORATIVO = 'Olá! Preciso de controle de acesso para minha empresa ou condomínio.';
 
 export const MSG_AUTOMACAO_PROJETO = 'Olá! Vim pela página de Automação e quero um projeto para minha casa.';

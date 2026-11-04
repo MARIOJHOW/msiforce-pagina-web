@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 
-export default function useSEO({ title, description, canonical }) {
+// tituloCompleto: usa `title` como está, sem acrescentar o sufixo " | MSIFORCE"
+// (para títulos que já trazem a marca).
+export default function useSEO({ title, description, canonical, tituloCompleto = false }) {
   useEffect(() => {
-    if (title) document.title = `${title} | MSIFORCE`;
+    const titulo = title && (tituloCompleto ? title : `${title} | MSIFORCE`);
+    if (titulo) document.title = titulo;
 
     const setMeta = (name, content, prop = false) => {
       const sel = prop ? `meta[property="${name}"]` : `meta[name="${name}"]`;
@@ -19,7 +22,7 @@ export default function useSEO({ title, description, canonical }) {
       setMeta('description', description);
       setMeta('og:description', description, true);
     }
-    if (title) setMeta('og:title', `${title} | MSIFORCE`, true);
+    if (title) setMeta('og:title', titulo, true);
 
     if (canonical) {
       let link = document.querySelector('link[rel="canonical"]');
@@ -30,5 +33,5 @@ export default function useSEO({ title, description, canonical }) {
       }
       link.setAttribute('href', canonical);
     }
-  }, [title, description, canonical]);
+  }, [title, description, canonical, tituloCompleto]);
 }
