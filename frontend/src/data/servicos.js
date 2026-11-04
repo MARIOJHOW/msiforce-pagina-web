@@ -4,7 +4,7 @@ export const SERVICOS_DATA = {
     // Título da aba/Google. "eletricista itaquera" já aparecia na posição 11,5
     // (Search Console, 24/09/2026) com um título que não dizia nem "eletricista"
     // nem a região — base em Itaquera, prioridade zona leste e Guarulhos.
-    seoTitle: 'Eletricista em Itaquera, Zona Leste e Guarulhos',
+    seoTitle: 'Eletricista 24h Itaquera, Zona Leste e Guarulhos',
     slug: 'eletrica',
     linkInterno: { texto: 'Precisa de um reparo elétrico?', label: 'Veja reparos e emergências', to: '/reparos-eletricos' },
     headline: 'Instalações elétricas seguras,\nnormalizadas e documentadas.',

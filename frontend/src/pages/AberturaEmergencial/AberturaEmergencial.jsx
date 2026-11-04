@@ -92,9 +92,9 @@ export default function AberturaEmergencial() {
   const [aberta, setAberta] = useState(0);
 
   useSEO({
-    title: 'Abertura Emergencial de Fechadura Digital em São Paulo',
+    title: 'Abertura de Fechadura Digital 24 Horas em São Paulo',
     description:
-      'Trancado fora com fechadura digital? Abertura emergencial na zona leste de São Paulo e em Guarulhos: bateria que acabou, senha esquecida ou biometria que não lê. Chame no WhatsApp.',
+      'Trancado fora com fechadura digital? Abertura emergencial 24 horas na zona leste de São Paulo e em Guarulhos: bateria que acabou, senha esquecida ou biometria que não lê. Chame no WhatsApp.',
     canonical: 'https://msiforce.com.br/abertura-emergencial-fechadura-digital',
   });
 

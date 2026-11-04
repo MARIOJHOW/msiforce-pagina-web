@@ -116,10 +116,10 @@ export default function ReparosEletricos() {
   const [aberta, setAberta] = useState(0);
 
   useSEO({
-    title: 'Eletricista Zona Leste SP e Guarulhos | Reparos | MSI Force',
+    title: 'Eletricista 24 Horas Zona Leste SP e Guarulhos | MSI Force',
     tituloCompleto: true,
     description:
-      'Disjuntor desarmando, curto-circuito ou tomada sem energia? Eletricista em Itaquera, Zona Leste e Guarulhos. Orçamento rápido pelo WhatsApp.',
+      'Eletricista 24 horas: disjuntor desarmando, curto-circuito ou tomada sem energia? Itaquera, Zona Leste e Guarulhos. Orçamento rápido no WhatsApp.',
     canonical: 'https://msiforce.com.br/reparos-eletricos',
   });
 
