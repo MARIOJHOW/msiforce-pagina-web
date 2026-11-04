@@ -131,7 +131,8 @@ export default function ReparosEletricos() {
   return (
     <div className="ifd-page rele-page">
       <section className="ifd-hero">
-        <div className="rele-hero">
+        <div className="rele-hero ifd-hero-grid">
+          <div>
           <p className="ifd-eyebrow">Eletricista 24 horas · Zona Leste · Guarulhos</p>
           <h1 className="ifd-titulo">
             Eletricista na Zona Leste de SP e Guarulhos <span>para reparos e emergências</span>
@@ -155,9 +156,18 @@ export default function ReparosEletricos() {
             <strong>Cheiro de queimado, faísca ou fio quente?</strong> Desligue a chave geral do
             quadro e chame agora.
           </p>
-          {/* TODO: foto real do dono (eletricista em serviço) pode entrar aqui, ex.:
-              <figure className="ifd-hero-figura"><img src="/..." alt="..." width height loading="eager" /></figure>
-              Não há foto de reparo elétrico no projeto; não usei imagem de outro serviço. */}
+          </div>
+          {/* Ilustração (não é foto de serviço real). Trocar por foto real do dono quando houver. */}
+          <figure className="ifd-hero-figura rele-figura">
+            <img
+              src="/reparos-eletricos-quadro.webp"
+              alt="Ilustração de quadro de distribuição elétrica aberto com um disjuntor desarmado em destaque"
+              className="ifd-hero-img"
+              width="900"
+              height="507"
+              loading="eager"
+            />
+          </figure>
         </div>
       </section>
 

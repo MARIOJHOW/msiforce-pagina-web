@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-.rele-hero > .ifd-sub {
+.rele-hero .ifd-sub {
   max-width: 680px;
 }
 
@@ -100,4 +100,15 @@
 
 .rele-atalho:hover {
   text-decoration: underline;
+}
+
+.rele-figura {
+  width: min(100%, 460px);
+}
+
+@media (max-width: 760px) {
+  .rele-figura {
+    justify-self: center;
+    margin-top: 1.25rem;
+  }
 }
