@@ -37,6 +37,7 @@ const Footer = () => {
               por histórico. As duas que ainda não têm página seguem na âncora. */}
           <ul>
             <li><Link to="/servicos/eletrica">Projetos Elétricos</Link></li>
+            <li><Link to="/reparos-eletricos">Reparos Elétricos e Emergências</Link></li>
             <li><Link to="/servicos/automacao">Automação Predial e de Condomínios</Link></li>
             <li><Link to="/servicos/cftv">CFTV & Monitoramento</Link></li>
             <li><Link to="/servicos/acesso">Controle de Acesso</Link></li>
@@ -99,6 +100,7 @@ const Footer = () => {
           <Link to="/instalacao-fechadura-digital">Instalação de Fechadura Digital</Link>
           <Link to="/fechadura-airbnb">Fechadura Digital para Airbnb</Link>
           <Link to="/abertura-emergencial-fechadura-digital">Abertura Emergencial</Link>
+          <Link to="/reparos-eletricos">Eletricista Zona Leste</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/faq">Perguntas frequentes</Link>
         </nav>
