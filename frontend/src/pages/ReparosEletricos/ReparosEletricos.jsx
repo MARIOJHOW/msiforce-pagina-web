@@ -160,8 +160,8 @@ export default function ReparosEletricos() {
           {/* Ilustração (não é foto de serviço real). Trocar por foto real do dono quando houver. */}
           <figure className="ifd-hero-figura rele-figura">
             <img
-              src="/reparos-eletricos-quadro.webp"
-              alt="Ilustração de quadro de distribuição elétrica aberto com um disjuntor desarmado em destaque"
+              src="/reparos-eletricos-quadro-dr.webp"
+              alt="Ilustração de quadro de distribuição residencial aberto, com DR e disjuntores organizados"
               className="ifd-hero-img"
               width="900"
               height="507"
@@ -240,6 +240,15 @@ export default function ReparosEletricos() {
               <img
                 src="/reparos-eletricos-tomadas.webp"
                 alt="Ilustração de tomadas e interruptores brancos instalados em parede escura"
+                width="900"
+                height="507"
+                loading="lazy"
+              />
+            </figure>
+            <figure>
+              <img
+                src="/reparos-eletricos-chuveiro.webp"
+                alt="Ilustração de chuveiro elétrico em banheiro com box de vidro"
                 width="900"
                 height="507"
                 loading="lazy"
