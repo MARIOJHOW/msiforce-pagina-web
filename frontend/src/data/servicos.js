@@ -30,7 +30,7 @@ export const SERVICOS_DATA = {
       { titulo: 'Documentação e ART', desc: 'Entrega de laudo técnico, ART, esquema unifilar e manual de operação do sistema.' },
     ],
     faq: [
-      { q: 'Vocês atendem como eletricista em Itaquera e na zona leste?', a: 'Sim. A MSIFORCE tem base em Itaquera e atende toda a zona leste de São Paulo e Guarulhos: instalação e manutenção elétrica, troca de disjuntores, quadros de distribuição, tomadas, iluminação e chuveiro, para residências, condomínios e empresas. Atendimento todos os dias, das 7h às 21h, pelo WhatsApp.' },
+      { q: 'Vocês atendem como eletricista em Itaquera e na zona leste?', a: 'Sim. A MSIFORCE tem base em Itaquera e atende toda a zona leste de São Paulo e Guarulhos: instalação e manutenção elétrica, troca de disjuntores, quadros de distribuição, tomadas, iluminação e chuveiro, para residências, condomínios e empresas. Atendimento 24 horas, todos os dias, pelo WhatsApp.' },
       { q: 'Vocês emitem ART para projetos elétricos comerciais?', a: 'Sim. Emitimos ART (Anotação de Responsabilidade Técnica) para todos os projetos elétricos, conforme exigência do CREA e exigida por seguradoras e prefeituras para alvarás.' },
       { q: 'Qual a diferença entre instalação elétrica residencial e comercial?', a: 'Instalações comerciais exigem dimensionamento de carga maior, proteções específicas, aterramento reforçado e conformidade com normas trabalhistas (NR-10). Nossos projetos cobrem ambas as modalidades.' },
       { q: 'Vocês fazem manutenção preventiva em instalações elétricas?', a: 'Sim. Oferecemos contratos de manutenção com visitas semestrais ou anuais, termografia, verificação de conexões e relatório técnico completo.' },

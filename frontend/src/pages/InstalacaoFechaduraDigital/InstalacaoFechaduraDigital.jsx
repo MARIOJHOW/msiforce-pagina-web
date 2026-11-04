@@ -189,7 +189,7 @@ export default function InstalacaoFechaduraDigital() {
             <WhatsAppButton message={MSG_FECHADURA_COMBO} className="ifd-btn ifd-btn--grande">
               📷 Mandar foto da porta no WhatsApp
             </WhatsAppButton>
-            <p className="ifd-micro">Orçamento grátis · atendimento das 7h às 21h · parcelamos em até 12x</p>
+            <p className="ifd-micro">Orçamento grátis · atendimento 24 horas · parcelamos em até 12x</p>
 
             <div className="ifd-prova">
               <SeloGoogle compacto />

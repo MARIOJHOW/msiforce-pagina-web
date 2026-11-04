@@ -9,7 +9,7 @@ import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
 
 // Landing do Google Ads "reparos elétricos" (04/11/2026). atendimento só Zona Leste e Guarulhos.
-const HORARIO = 'todos os dias, das 7h às 21h'; // confirmado pelo dono (13/10/2026)
+const HORARIO = '24 horas, todos os dias'; // dono passou a atender 24h em 04/11/2026 (antes: 7h às 21h)
 const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBusiness do site (não há outro)
 
 // Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
@@ -54,8 +54,7 @@ const FAQ = [
   },
   {
     p: 'Tem eletricista 24 horas?',
-    // Honesto de propósito: o atendimento é das 7h às 21h (não prometer 24h).
-    r: 'Atendemos todos os dias, das 7h às 21h. Dentro desse horário, chame no WhatsApp e confirmamos a disponibilidade de hoje. Fora dele, mande a mensagem e respondemos assim que abrirmos. Se houver cheiro de queimado, faísca ou fio quente, desligue a chave geral do quadro; em caso de fogo, ligue 193 (Bombeiros).',
+    r: 'Sim. Atendemos 24 horas, todos os dias, pelo WhatsApp. Chame e confirmamos a disponibilidade e o tempo de chegada para o seu bairro. Se houver cheiro de queimado, faísca ou fio quente, desligue a chave geral do quadro; em caso de fogo, ligue 193 (Bombeiros).',
   },
   {
     p: 'O disjuntor desarma toda hora. O que fazer?',
@@ -95,6 +94,12 @@ const ELECTRICIAN_SCHEMA = {
   },
   areaServed: AREA_ATENDIDA,
   serviceType: 'Reparos elétricos residenciais e comerciais',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
 };
 
 const FAQ_SCHEMA = {
@@ -127,7 +132,7 @@ export default function ReparosEletricos() {
     <div className="ifd-page rele-page">
       <section className="ifd-hero">
         <div className="rele-hero">
-          <p className="ifd-eyebrow">Eletricista de emergência · Zona Leste · Guarulhos</p>
+          <p className="ifd-eyebrow">Eletricista 24 horas · Zona Leste · Guarulhos</p>
           <h1 className="ifd-titulo">
             Eletricista na Zona Leste de SP e Guarulhos <span>para reparos e emergências</span>
           </h1>
