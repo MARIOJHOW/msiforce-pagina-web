@@ -3,7 +3,7 @@ import useSEO from '../../hooks/useSEO';
 import useJsonLd from '../../hooks/useJsonLd';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import { MSG_REPAROS_ELETRICOS } from '../../lib/gatilhos';
-import { eventoGtag } from '../../lib/ads';
+import { eventoGtag, registrarConversaoLigacao } from '../../lib/ads';
 // Mesma base visual das outras landings de anúncio; só o que é próprio fica no .css.
 import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
@@ -14,7 +14,10 @@ const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBus
 
 // Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
 const cliqueWhatsApp = () => eventoGtag('click_whatsapp', { page: 'reparos-eletricos' });
-const cliqueLigar = () => eventoGtag('click_call', { page: 'reparos-eletricos' });
+const cliqueLigar = () => {
+  eventoGtag('click_call', { page: 'reparos-eletricos' });
+  registrarConversaoLigacao();
+};
 
 const AREA_ATENDIDA = [
   { '@type': 'AdministrativeArea', name: 'Zona Leste de São Paulo' },

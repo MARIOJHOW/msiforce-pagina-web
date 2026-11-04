@@ -10,6 +10,8 @@
 
 export const ADS_CONVERSION_ID = 'AW-18144467371';
 export const ADS_CONVERSION_LABEL = 'o9lQCJG_zNscEKuz-stD';
+// Conversão secundária "click_call" (clique em Ligar agora), criada em 04/11/2026.
+export const ADS_CONVERSION_LABEL_LIGACAO = 'uoiJCNbppbIdEKuz-stD';
 
 const CHAVE_ORIGEM_ADS = 'msi_ads_hit';
 
@@ -96,6 +98,19 @@ export function registrarConversaoWhatsApp() {
 
   window.gtag('event', 'conversion', {
     send_to: `${ADS_CONVERSION_ID}/${ADS_CONVERSION_LABEL}`,
+    value: 1.0,
+    currency: 'BRL'
+  });
+}
+
+/** Dispara a conversão de clique em "Ligar agora" (click_call, secundária). */
+export function registrarConversaoLigacao() {
+  if (!ADS_CONVERSION_ID || !ADS_CONVERSION_LABEL_LIGACAO) return;
+  garantirGtag();
+  if (typeof window.gtag !== 'function') return;
+
+  window.gtag('event', 'conversion', {
+    send_to: `${ADS_CONVERSION_ID}/${ADS_CONVERSION_LABEL_LIGACAO}`,
     value: 1.0,
     currency: 'BRL'
   });
