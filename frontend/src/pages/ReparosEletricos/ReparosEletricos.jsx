@@ -53,6 +53,11 @@ const FAQ = [
     r: 'Atendemos a Zona Leste de São Paulo (Itaquera, Tatuapé, Penha, Mooca, Carrão, Vila Matilde, Guaianases e regiões próximas) e Guarulhos. Se o seu bairro não está na lista, chame no WhatsApp e confirmamos.',
   },
   {
+    p: 'Tem eletricista 24 horas?',
+    // Honesto de propósito: o atendimento é das 7h às 21h (não prometer 24h).
+    r: 'Atendemos todos os dias, das 7h às 21h. Dentro desse horário, chame no WhatsApp e confirmamos a disponibilidade de hoje. Fora dele, mande a mensagem e respondemos assim que abrirmos. Se houver cheiro de queimado, faísca ou fio quente, desligue a chave geral do quadro; em caso de fogo, ligue 193 (Bombeiros).',
+  },
+  {
     p: 'O disjuntor desarma toda hora. O que fazer?',
     r: 'Desarme repetido costuma indicar sobrecarga ou curto-circuito. Desligue os aparelhos do circuito, não force o disjuntor a ficar ligado e chame um eletricista. Se houver cheiro de queimado, fio quente ou faísca, desligue a chave geral e chame com urgência.',
   },
@@ -122,7 +127,7 @@ export default function ReparosEletricos() {
     <div className="ifd-page rele-page">
       <section className="ifd-hero">
         <div className="rele-hero">
-          <p className="ifd-eyebrow">Zona Leste · Guarulhos</p>
+          <p className="ifd-eyebrow">Eletricista de emergência · Zona Leste · Guarulhos</p>
           <h1 className="ifd-titulo">
             Eletricista na Zona Leste de SP e Guarulhos <span>para reparos e emergências</span>
           </h1>
@@ -171,6 +176,19 @@ export default function ReparosEletricos() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="ifd-secao">
+        <div className="ifd-conteudo">
+          <h2>Eletricista residencial, comercial e de emergência</h2>
+          <p className="ifd-lead">
+            Conserto de curto-circuito, disjuntor que desarma, tomada sem energia, troca de
+            chuveiro elétrico, instalação de tomadas e interruptores, troca de quadro de luz e
+            falta de energia em casa, apartamento, loja ou condomínio. Atendimento de urgência e,
+            conforme a agenda, no mesmo dia, em Itaquera e perto de você na Zona Leste e em
+            Guarulhos.
+          </p>
         </div>
       </section>
 
