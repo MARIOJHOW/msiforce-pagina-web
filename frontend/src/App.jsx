@@ -22,6 +22,7 @@ import InstalacaoFechaduraDigital from './pages/InstalacaoFechaduraDigital/Insta
 import QuantoCustaFechadura from './pages/QuantoCustaFechadura/QuantoCustaFechadura';
 import FechaduraAirbnb from './pages/FechaduraAirbnb/FechaduraAirbnb';
 import AberturaEmergencial from './pages/AberturaEmergencial/AberturaEmergencial';
+import ReparosEletricos from './pages/ReparosEletricos/ReparosEletricos';
 import CRM from './pages/Admin/CRM/CRM';
 
 function V1Layout() {
@@ -61,6 +62,7 @@ function App() {
           <Route path="/quanto-custa-fechadura-digital" element={<QuantoCustaFechadura />} />
           <Route path="/fechadura-airbnb" element={<FechaduraAirbnb />} />
           <Route path="/abertura-emergencial-fechadura-digital" element={<AberturaEmergencial />} />
+          <Route path="/reparos-eletricos" element={<ReparosEletricos />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/servicos/:slug" element={<ServicoPage />} />
           {/* Paginas por tipo de porta (18/09/2026): buscas em que o cliente

@@ -1030,3 +1030,16 @@
     padding: 22px;
   }
 }
+
+.sol-reparos {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #aaaaaa;
+}
+
+.sol-reparos a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

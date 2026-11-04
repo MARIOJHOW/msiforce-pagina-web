@@ -10,7 +10,7 @@ import { linkWhatsApp } from '../lib/whatsapp';
  * `message` personaliza o texto que chega no WhatsApp — é o que faz o bot abrir
  * o funil certo em vez do menu genérico.
  */
-const WhatsAppButton = ({ message, className, children, label = 'Fale Agora!' }) => {
+const WhatsAppButton = ({ message, className, children, label = 'Fale Agora!', onClick }) => {
   const href = linkWhatsApp(message);
 
   if (children || className) {
@@ -20,7 +20,10 @@ const WhatsAppButton = ({ message, className, children, label = 'Fale Agora!' })
         target="_blank"
         rel="noopener noreferrer"
         className={className}
-        onClick={registrarConversaoWhatsApp}
+        onClick={() => {
+          registrarConversaoWhatsApp();
+          if (onClick) onClick();
+        }}
       >
         {children}
       </a>

@@ -1,0 +1,103 @@
+/* Só o que é próprio de /reparos-eletricos; o resto vem de InstalacaoFechaduraDigital.css */
+.rele-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rele-hero > .ifd-sub {
+  max-width: 680px;
+}
+
+.rele-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+
+.rele-botoes--centro {
+  justify-content: center;
+}
+
+.rele-ligar {
+  background: transparent;
+  color: var(--ifd-verde);
+  border: 2px solid var(--ifd-verde);
+  box-shadow: none;
+  font-weight: 800;
+}
+
+.rele-ligar:hover {
+  background: rgba(37, 211, 102, 0.1);
+}
+
+.rele-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.rele-lista li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.rele-lista li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--ifd-verde);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  /* Barra fixa permanente (a base .ifd-barra só aparece com --on): dois botões lado a lado. */
+  .rele-barra {
+    display: flex;
+    gap: 10px;
+    transform: none;
+  }
+
+  .rele-barra .ifd-btn {
+    flex: 1;
+    width: auto;
+  }
+
+  /* A foto de fechadura do hero base não combina com esta página. */
+  .rele-page .ifd-hero {
+    background: none;
+  }
+
+  .rele-botoes .ifd-btn {
+    width: 100%;
+  }
+}
+
+.rele-info {
+  margin: 1rem 0 0;
+  color: #d4d4d4;
+}
+
+.rele-seguranca {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid #e5484d;
+  background: rgba(229, 72, 77, 0.08);
+  border-radius: 0 8px 8px 0;
+  max-width: 680px;
+}
+
+.rele-atalho {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--ifd-verde);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.rele-atalho:hover {
+  text-decoration: underline;
+}

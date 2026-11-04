@@ -209,6 +209,11 @@ export default function Servico({
           >
             Falar com Especialista
           </a>
+          {servico.linkInterno && (
+            <p className="svc-link-interno">
+              {servico.linkInterno.texto} <Link to={servico.linkInterno.to}>{servico.linkInterno.label}</Link>
+            </p>
+          )}
         </motion.div>
       </section>
 

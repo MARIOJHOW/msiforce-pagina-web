@@ -382,6 +382,15 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Link para a landing de anúncio de reparos (04/11/2026). Fora do grid para não virar
+            um 9º card e desmentir "8 soluções". */}
+        <p className="sol-reparos">
+          Precisa de um reparo elétrico agora?{' '}
+          <Link to="/reparos-eletricos" onClick={() => trackCTA('home_reparos_eletricos', 'pagina')}>
+            Veja reparos e emergências →
+          </Link>
+        </p>
       </section>
 
       {/* ── DIFERENCIAIS + SETORES ── */}

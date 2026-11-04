@@ -16,7 +16,7 @@ export const FAQS = [
   },
   {
     q: 'A MSIFORCE também faz serviço de eletricista na zona leste?',
-    a: 'Sim. Além de fechadura digital, fazemos instalação e manutenção elétrica, quadros de distribuição, câmeras (CFTV), redes e automação para residências, condomínios e empresas da zona leste e de Guarulhos. Atendimento todos os dias, das 7h às 21h, pelo WhatsApp.',
+    a: 'Sim. Além de fechadura digital, fazemos instalação e manutenção elétrica, quadros de distribuição, câmeras (CFTV), redes e automação para residências, condomínios e empresas da zona leste e de Guarulhos. Elétrica e fechadura digital: atendimento 24 horas, todos os dias, pelo WhatsApp.',
   },
   {
     q: 'Vocês atendem contratos recorrentes de manutenção?',

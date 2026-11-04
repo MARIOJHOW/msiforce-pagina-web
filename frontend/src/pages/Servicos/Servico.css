@@ -344,3 +344,17 @@
     radial-gradient(1200px 400px at 70% 0%, rgba(212,175,55,.10), transparent 60%),
     linear-gradient(180deg, #0f1218 0%, #0b0d12 100%);
 }
+
+.svc-link-interno {
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.svc-link-interno a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.svc-link-interno a:hover { color: var(--gold); }
