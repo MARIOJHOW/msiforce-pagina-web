@@ -9,6 +9,7 @@ import '../InstalacaoFechaduraDigital/InstalacaoFechaduraDigital.css';
 import './ReparosEletricos.css';
 
 // Landing do Google Ads "reparos elétricos" (04/11/2026). atendimento só Zona Leste e Guarulhos.
+const HORARIO = 'todos os dias, das 7h às 21h'; // confirmado pelo dono (13/10/2026)
 const TELEFONE_TEL = 'tel:+5511910773865'; // mesmo número do WhatsApp/LocalBusiness do site (não há outro)
 
 // Eventos gtag pedidos para a campanha. As conversões são criadas no painel do Ads, não aqui.
@@ -129,6 +130,9 @@ export default function ReparosEletricos() {
             Disjuntor desarmando, curto-circuito, tomada sem energia? Atendimento rápido em
             Itaquera, Tatuapé, Penha, Mooca e região, com orçamento antes de começar.
           </p>
+          <p className="rele-info">
+            <strong>Atendimento</strong> {HORARIO} · <strong>Orçamento</strong> antes de começar
+          </p>
           <div className="rele-botoes">
             <WhatsAppButton message={MSG_REPAROS_ELETRICOS} onClick={cliqueWhatsApp} className="ifd-btn ifd-btn--grande">
               Chamar no WhatsApp
@@ -137,6 +141,10 @@ export default function ReparosEletricos() {
               Ligar agora
             </a>
           </div>
+          <p className="rele-seguranca">
+            <strong>Cheiro de queimado, faísca ou fio quente?</strong> Desligue a chave geral do
+            quadro e chame agora.
+          </p>
           {/* TODO: foto real do dono (eletricista em serviço) pode entrar aqui, ex.:
               <figure className="ifd-hero-figura"><img src="/..." alt="..." width height loading="eager" /></figure>
               Não há foto de reparo elétrico no projeto; não usei imagem de outro serviço. */}
@@ -150,7 +158,16 @@ export default function ReparosEletricos() {
             {PROBLEMAS.map((p) => (
               <li key={p.texto}>
                 <span className="ifd-razao-icone" aria-hidden="true">{p.icone}</span>
-                <div><strong>{p.texto}</strong></div>
+                <div>
+                  <strong>{p.texto}</strong>
+                  <WhatsAppButton
+                    message={`${MSG_REPAROS_ELETRICOS} Problema: ${p.texto}.`}
+                    onClick={cliqueWhatsApp}
+                    className="rele-atalho"
+                  >
+                    Chamar por este problema →
+                  </WhatsAppButton>
+                </div>
               </li>
             ))}
           </ul>
