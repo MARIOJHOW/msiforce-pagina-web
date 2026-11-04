@@ -204,6 +204,15 @@ export default function ReparosEletricos() {
             conforme a agenda, no mesmo dia, em Itaquera e perto de você na Zona Leste e em
             Guarulhos.
           </p>
+          <figure className="rele-banner">
+            <img
+              src="/reparos-eletricos-ferramentas.webp"
+              alt="Ilustração de ferramentas de eletricista: alicate, chave de fenda, multímetro e fita isolante"
+              width="900"
+              height="507"
+              loading="lazy"
+            />
+          </figure>
         </div>
       </section>
 
@@ -237,6 +246,15 @@ export default function ReparosEletricos() {
             Guaianases e regiões próximas) e Guarulhos. Se o seu bairro não está na lista,
             chame no WhatsApp e confirmamos.
           </p>
+          <figure className="rele-banner">
+            <img
+              src="/reparos-eletricos-bairro.webp"
+              alt="Ilustração de rua residencial à noite na Zona Leste de São Paulo"
+              width="900"
+              height="507"
+              loading="lazy"
+            />
+          </figure>
         </div>
       </section>
 
